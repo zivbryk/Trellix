@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  //For initial testing -- remove for production
+  background: url("../../img/backgrounds/forest.jpg") no-repeat center fixed;
+  background-size: cover;
+  background-clip: content-box;
+}
+
+body {
+  line-height: 1.25;
+  font-size: rem(14px);
+  font-weight: 400;
+  color: $clr3;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0;
+  line-height: 1;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  text-decoration: none;
+  color: $clr3;
+}
