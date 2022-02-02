@@ -1,30 +1,29 @@
 function on(eventName, listener) {
+  const callListener = ({ detail }) => {
+    listener(detail);
+  };
 
-    const callListener = ({ detail }) => {
-        listener(detail);
-    };
+  window.addEventListener(eventName, callListener);
 
-    window.addEventListener(eventName, callListener);
-
-    return () => {
-        window.removeEventListener(eventName, callListener);
-    };
+  return () => {
+    window.removeEventListener(eventName, callListener);
+  };
 }
 
 function emit(eventName, data) {
-    window.dispatchEvent(new CustomEvent(eventName, { detail: data }));
+  window.dispatchEvent(new CustomEvent(eventName, { detail: data }));
 }
 
 export const eventBusService = { on, emit };
 
-export function showUserMsg(txt, type = '') {
-    eventBusService.emit('show-user-msg', { txt, type })
+export function showUserMsg(txt, type = "") {
+  eventBusService.emit("show-user-msg", { txt, type });
 }
 export function showSuccessMsg(txt) {
-    showUserMsg(txt, 'success')
+  showUserMsg(txt, "success");
 }
 export function showErrorMsg(txt) {
-    showUserMsg(txt, 'danger')
+  showUserMsg(txt, "danger");
 }
 
 window.myBus = eventBusService;

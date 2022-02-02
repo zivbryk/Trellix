@@ -5,6 +5,7 @@ import { ReactComponent as BellIcon } from "../assets/img/icons/bell.svg";
 import { ReactComponent as BoardsIcon } from "../assets/img/icons/boards.svg";
 import { ReactComponent as ChevronDownIcon } from "../assets/img/icons/chevron-down.svg";
 import { NavLink } from "react-router-dom";
+import { UserMsg } from "../cmps/user-msg";
 
 class _AppHeader extends React.Component {
   get style() {
@@ -18,48 +19,51 @@ class _AppHeader extends React.Component {
 
   render() {
     return (
-      <header
-        className="app-header flex space-between align-center"
-        style={this.style}
-      >
-        <nav className="left-pane flex">
-          <div className="header-logo flex align-center">
-            <NavLink to={"/"}>
-              <BoardsIcon />
-              <span className="">Trellix</span>
-            </NavLink>
-          </div>
-          <div className="flex">
-            <button className="btn btn-header flex align-center">
-              <span>Workspace</span>
-              <span className="btn-header-svg">
-                <ChevronDownIcon />
-              </span>
-            </button>
-            <button className="btn btn-header flex align-center">
-              <span>Boards</span>
-              <span className="btn-header-svg">
-                <ChevronDownIcon />
-              </span>
-            </button>
-            <button className="btn btn-header flex align-center">
-              <span>Create</span>
-              <span className="btn-header-svg">
-                <ChevronDownIcon />
-              </span>
-            </button>
-          </div>
-        </nav>
+      <>
+        <header
+          className="app-header flex space-between align-center"
+          style={this.style}
+        >
+          <nav className="left-pane flex">
+            <div className="header-logo flex align-center">
+              <NavLink to={"/"}>
+                <BoardsIcon />
+                <span className="">Trellix</span>
+              </NavLink>
+            </div>
+            <div className="flex">
+              <button className="btn btn-header flex align-center">
+                <span>Workspace</span>
+                <span className="btn-header-svg">
+                  <ChevronDownIcon />
+                </span>
+              </button>
+              <button className="btn btn-header flex align-center">
+                <span>Boards</span>
+                <span className="btn-header-svg">
+                  <ChevronDownIcon />
+                </span>
+              </button>
+              <button className="btn btn-header flex align-center">
+                <span>Create</span>
+                <span className="btn-header-svg">
+                  <ChevronDownIcon />
+                </span>
+              </button>
+            </div>
+          </nav>
 
-        <nav className="right-pane flex">
-          <button className="btn btn-header btn-svg">
-            <span className="flex align-center">
-              <BellIcon />
-            </span>
-          </button>
-          <button className="btn btn-header">Avatar</button>
-        </nav>
-      </header>
+          <nav className="right-pane flex">
+            <button className="btn btn-header btn-svg">
+              <span className="flex align-center">
+                <BellIcon />
+              </span>
+            </button>
+            <button className="btn btn-header">Avatar</button>
+          </nav>
+        </header>
+        <UserMsg />
+      </>
     );
   }
 }
