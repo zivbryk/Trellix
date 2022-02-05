@@ -2,3 +2,27 @@
   font-family: SourceSans-Bold;
   src: url(../../fonts/SourceSansPro/SourceSansPro-Bold.ttf);
 }
+@font-face {
+  font-family: Trellicons;
+  src: url(../../fonts/Trellicons/trellicons.4525327b3f0a2d81edda.ttf);
+}
+
+.trl::before {
+  font-family: Trellicons;
+}
+
+.trl.icon-board::before {
+  content: "\e90b";
+}
+
+.trl.icon-template-board::before {
+  content: "\e96d";
+}
+
+.trl.icon-home::before {
+  content: "\e938";
+}
+
+.trl.icon-star::before {
+  content: "\e966";
+}

@@ -1,0 +1,18 @@
+.board-preview {
+  margin: 0 2% 2% 0;
+  padding: 0px;
+  //   transform: translate(0);
+  width: 22.5%;
+  padding-bottom: 8px;
+
+  .board-tile {
+    display: block;
+    border-radius: 3px;
+    padding: 8px;
+    position: relative;
+
+    .board-title {
+      height: 80px;
+    }
+  }
+}

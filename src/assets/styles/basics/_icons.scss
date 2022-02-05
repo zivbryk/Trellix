@@ -1,0 +1,29 @@
+//Icons
+
+.icon-lg,
+.icon-md,
+.icon-sm {
+  color: lighten(desaturate(#172b4d, 29), 14.9);
+}
+
+.icon-lg {
+  font-size: 24px;
+}
+
+.icon-md {
+  font-size: 20px;
+}
+
+.icon-lg,
+.icon-md {
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+}
+
+.icon-sm {
+  font-size: 16px;
+  height: 20px;
+  line-height: 20px;
+  width: 20px;
+}

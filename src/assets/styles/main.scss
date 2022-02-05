@@ -10,11 +10,17 @@
 @import "basics/base";
 @import "basics/links";
 @import "basics/forms";
+@import "basics/icons";
 
 // Pages
 @import "pages/home-page";
-@import "pages/car-app";
+@import "pages/workspace-page";
+@import "pages/board-page";
 
 // Components
 @import "cmps/app-header";
+@import "cmps/loader-cmp";
 @import "cmps/user-msg";
+/*Board*/
+@import "cmps/board/board-list";
+@import "cmps/board/board-preview";

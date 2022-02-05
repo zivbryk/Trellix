@@ -67,8 +67,14 @@
   &.row {
     flex-direction: row;
   }
+  &.justify-start {
+    justify-content: start;
+  }
   &.justify-center {
     justify-content: center;
+  }
+  &.justify-end {
+    justify-content: end;
   }
   &.align-center {
     align-items: center;

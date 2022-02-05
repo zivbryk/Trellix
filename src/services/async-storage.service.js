@@ -12,17 +12,17 @@ function load(entityType, entities) {
   _save(entityType, entities);
 }
 
-function query(entityType, delay = 1200) {
+function query(entityType, delay = 2000) {
   var entities = JSON.parse(localStorage.getItem(entityType)) || [];
 
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       // reject('OOOOPs')
-  //       resolve(entities);
-  //     }, delay);
-  //   });
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // reject('OOOOPs')
+      resolve(entities);
+    }, delay);
+  });
 
-  return Promise.resolve(entities);
+  // return Promise.resolve(entities);
 }
 
 function get(entityType, entityId) {
