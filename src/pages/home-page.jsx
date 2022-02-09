@@ -41,7 +41,7 @@ class _HomePage extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    count: state.userModule.count,
+    // count: state.userModule.count,
   };
 }
 

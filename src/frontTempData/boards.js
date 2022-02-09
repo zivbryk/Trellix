@@ -3,14 +3,16 @@ export const boards = [
     _id: "b101",
     title: "Trello Dev Project",
     createdAt: 1589983468418,
+    isStarred: true,
     createdBy: {
       _id: "u102",
       fullname: "may almog",
       imgUrl: "/avatars/may.png",
     },
     style: {
-      cover: "#2A7B98",
-      isImage: false,
+      cover:
+        " url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1536x1920/6f71cac1044c84cb52d37c5b464c70d0/photo-1643037508102-46fb319979c5.jpg')",
+      isImage: true,
     },
     labels: [
       {
@@ -609,6 +611,7 @@ export const boards = [
     _id: "b102",
     title: "Monday dev Project",
     createdAt: 1589983468400,
+    isStarred: false,
     createdBy: {
       _id: "u102",
       fullname: "may almog",
@@ -816,6 +819,7 @@ export const boards = [
     _id: "b103",
     title: "Trellis proj",
     createdAt: 1589983468400,
+    isStarred: false,
     createdBy: {
       _id: "u103",
       fullname: "Dese Besunech",
@@ -1011,6 +1015,7 @@ export const boards = [
     _id: "b104",
     title: "Save the planet",
     createdAt: 1589983468400,
+    isStarred: false,
     createdBy: {
       _id: "u101",
       fullname: "ziv bryk",
@@ -1198,6 +1203,7 @@ export const boards = [
     _id: "b105",
     title: "Test",
     createdAt: 1589983468420,
+    isStarred: false,
     createdBy: {
       _id: "u101",
       fullname: "ziv bryk",
@@ -1223,6 +1229,7 @@ export const boards = [
     _id: "b106",
     title: "Test",
     createdAt: 1589983468421,
+    isStarred: false,
     createdBy: {
       _id: "u101",
       fullname: "ziv bryk",
@@ -1248,6 +1255,7 @@ export const boards = [
     _id: "b107",
     title: "Test",
     createdAt: 1589983468422,
+    isStarred: false,
     createdBy: {
       _id: "u101",
       fullname: "ziv bryk",
@@ -1273,6 +1281,7 @@ export const boards = [
     _id: "b108",
     title: "Test",
     createdAt: 1589983468423,
+    isStarred: false,
     createdBy: {
       _id: "u101",
       fullname: "ziv bryk",
@@ -1298,6 +1307,7 @@ export const boards = [
     _id: "b109",
     title: "Test",
     createdAt: 1589983468424,
+    isStarred: false,
     createdBy: {
       _id: "u101",
       fullname: "ziv bryk",

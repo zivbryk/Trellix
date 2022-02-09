@@ -9,10 +9,11 @@
 @import "basics/layout";
 @import "basics/base";
 @import "basics/links";
-@import "basics/forms";
 @import "basics/icons";
+@import "basics/forms";
 
 // Pages
+@import "pages/root-cmp";
 @import "pages/home-page";
 @import "pages/workspace-page";
 @import "pages/board-page";
@@ -24,3 +25,4 @@
 /*Board*/
 @import "cmps/board/board-list";
 @import "cmps/board/board-preview";
+@import "cmps/board/board-header";

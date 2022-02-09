@@ -12,8 +12,8 @@ function load(entityType, entities) {
   _save(entityType, entities);
 }
 
-function query(entityType, delay = 2000) {
-  var entities = JSON.parse(localStorage.getItem(entityType)) || [];
+function query(entityType, delay = 100) {
+  const entities = JSON.parse(localStorage.getItem(entityType)) || [];
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -25,11 +25,15 @@ function query(entityType, delay = 2000) {
   // return Promise.resolve(entities);
 }
 
-function get(entityType, entityId) {
-  return query(entityType).then((entities) =>
-    entities.find((entity) => entity._id === entityId)
-  );
+async function get(entityType, entityId) {
+  try {
+    const entities = await query(entityType);
+    return entities.find((entity) => entity._id === entityId);
+  } catch (err) {
+    throw err;
+  }
 }
+
 function post(entityType, newEntity) {
   newEntity._id = _makeId();
   return query(entityType).then((entities) => {

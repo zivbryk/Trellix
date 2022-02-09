@@ -23,6 +23,30 @@
   content: "\e938";
 }
 
+.trl.icon-chevron-down::before {
+  content: "\e924";
+}
+
+.trl.icon-bell::before {
+  content: "\e94c";
+}
+
 .trl.icon-star::before {
   content: "\e966";
+}
+
+.trl.icon-starred::before {
+  content: "\e967";
+}
+
+.trl.icon-add-member::before {
+  content: "\e902";
+}
+
+.trl.icon-tri-dots-hor::before {
+  content: "\e952";
+}
+
+.trl.icon-dashboard::before {
+  content: "\e96b";
 }

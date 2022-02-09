@@ -1,3 +1,21 @@
+input,
+textarea {
+  background-color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 18px;
+  font-weight: 700;
+  height: 32px;
+  margin: 0;
+  padding: 0 12px;
+  line-height: 20px;
+  outline: 0;
+  transition-duration: 85ms;
+  transition-property: background-color, border-color, box-shadow;
+  transition-timing-function: ease;
+  word-break: break-word;
+}
+
 .btn {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -7,7 +25,8 @@
   background-color: transparent;
   border: none;
   border-radius: 3px;
-  padding: 8px 12px;
+  padding: 0;
+
   cursor: pointer;
   transition-property: background-color, border-color, box-shadow;
   transition-duration: 85ms;
@@ -15,25 +34,19 @@
 }
 
 .btn-header {
-  color: $clr0;
+  height: 32px;
+  line-height: 32px;
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
   }
-  .btn-header-svg {
-    display: flex;
-    margin-left: 6px;
-    svg {
-      height: 16px;
-      width: 16px;
+  span {
+    color: $clr0;
+  }
+
+  &-wide {
+    padding: 6px 12px;
+    & span:first-child {
+      margin-right: 6px;
     }
   }
-}
-
-.btn-svg {
-  padding: 0 5px;
-  //   height: 32px;
-  //   line-height: 32px;
-}
-
-.btn-hero {
 }

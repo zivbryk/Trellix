@@ -1,6 +1,8 @@
 .app-header {
   padding: 6px 4px;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   .left-pane {
     > :nth-child(2) {
       margin: 0 4px;
@@ -8,24 +10,43 @@
     }
   }
 
-  .header-logo {
+  a.header-logo {
+    height: 32px;
+    color: darken($clr0, 6);
+    display: flex;
+    align-items: center;
     padding: 0 6px;
     border-radius: 3px;
     &:hover {
       background-color: rgba(255, 255, 255, 0.3);
-    }
-    a {
-      color: darken($clr0, 6);
-      display: flex;
-      align-items: center;
-
-      span {
-        line-height: 1;
-        letter-spacing: 0.2px;
-        font-family: SourceSans-Bold;
-        font-size: 22px;
-        margin-left: 5px;
+      > :nth-child(1) {
+        display: none;
+      }
+      > :nth-child(2) {
+        display: block;
       }
     }
+
+    > :nth-child(2) {
+      display: none;
+      img {
+        width: 15px;
+      }
+    }
+
+    span {
+      line-height: 1;
+      letter-spacing: 0.2px;
+      font-family: SourceSans-Bold;
+      font-size: 22px;
+      margin-left: 5px;
+    }
+  }
+
+  .avatar {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin-left: 4px;
   }
 }

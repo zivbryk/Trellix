@@ -8,8 +8,8 @@ const STORAGE_KEY = "board";
 export const boardService = {
   loadDataManual,
   query,
-  //   getById,
-  //   save,
+  getById,
+  save,
   //   remove,
   //   getEmptyBoard,
   //   subscribe,
@@ -24,23 +24,25 @@ function query() {
   return storageService.query(STORAGE_KEY);
 }
 
-// function getById(boardId) {
-//   return storageService.get(STORAGE_KEY, boardId);
-// }
+function getById(boardId) {
+  return storageService.get(STORAGE_KEY, boardId);
+}
+
+function save(board) {
+  if (board._id) {
+    return storageService.put(STORAGE_KEY, board);
+  } else {
+    // board.owner = userService.getLoggedinUser();
+    return storageService.post(STORAGE_KEY, board);
+  }
+}
+
 // function remove(boardId) {
 //   // return new Promise((resolve, reject) => {
 //   //     setTimeout(reject, 2000)
 //   // })
 //   // return Promise.reject('Not now!');
 //   return storageService.remove(STORAGE_KEY, boardId);
-// }
-// function save(board) {
-//   if (board._id) {
-//     return storageService.put(STORAGE_KEY, board);
-//   } else {
-//     board.owner = userService.getLoggedinUser();
-//     return storageService.post(STORAGE_KEY, board);
-//   }
 // }
 
 // function getEmptyBoard() {

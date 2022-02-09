@@ -1,9 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { ReactComponent as BellIcon } from "../assets/img/icons/bell.svg";
 import { ReactComponent as BoardsIcon } from "../assets/img/icons/boards.svg";
-import { ReactComponent as ChevronDownIcon } from "../assets/img/icons/chevron-down.svg";
+import BoardsAnimation from "../assets/img/animations/trello-logo-loader.gif";
 import { NavLink } from "react-router-dom";
 import { UserMsg } from "../cmps/user-msg";
 
@@ -25,41 +24,47 @@ class _AppHeader extends React.Component {
           style={this.style}
         >
           <nav className="left-pane flex">
-            <div className="header-logo flex align-center">
-              <NavLink to={"/"}>
+            <NavLink to={"/"} className="header-logo flex align-center">
+              <div>
                 <BoardsIcon />
                 <span className="">Trellix</span>
-              </NavLink>
-            </div>
+              </div>
+
+              <div>
+                <img src={BoardsAnimation} alt="animated logo" />
+                <span className="">Trellix</span>
+              </div>
+            </NavLink>
+
             <div className="flex">
-              <button className="btn btn-header flex align-center">
+              <button className="btn btn-header btn-header-wide flex align-center">
                 <span>Workspace</span>
-                <span className="btn-header-svg">
-                  <ChevronDownIcon />
-                </span>
+                <span className="trl icon-chevron-down icon-sm"></span>
               </button>
-              <button className="btn btn-header flex align-center">
-                <span>Boards</span>
-                <span className="btn-header-svg">
-                  <ChevronDownIcon />
-                </span>
+
+              <button className="btn btn-header btn-header-wide flex align-center">
+                <span>Starred</span>
+                <span className="trl icon-chevron-down icon-sm"></span>
               </button>
-              <button className="btn btn-header flex align-center">
+
+              <button className="btn btn-header btn-header-wide flex align-center">
                 <span>Create</span>
-                <span className="btn-header-svg">
-                  <ChevronDownIcon />
-                </span>
+                <span className="trl icon-chevron-down icon-sm"></span>
               </button>
             </div>
           </nav>
 
           <nav className="right-pane flex">
-            <button className="btn btn-header btn-svg">
-              <span className="flex align-center">
-                <BellIcon />
-              </span>
+            <button className="btn btn-header flex">
+              <span className="trl icon-bell icon-md"></span>
             </button>
-            <button className="btn btn-header">Avatar</button>
+
+            <div className="avatar">
+              <img
+                src="https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png"
+                alt="avatar"
+              />
+            </div>
           </nav>
         </header>
         <UserMsg />

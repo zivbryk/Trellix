@@ -7,8 +7,11 @@ html {
     Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-body {
-  line-height: 1.25;
+body,
+input,
+select,
+textarea {
+  line-height: rem(20px);
   font-size: rem(14px);
   font-weight: 400;
   color: $clr3;
