@@ -32,10 +32,10 @@ export class _RootCmp extends React.Component {
 
   render() {
     return (
-      <section className="root-cmp" style={this.bgcStyle}>
+      <section className="root-cmp flex column" style={this.bgcStyle}>
         {this.isBoardOrWorkspace && <AppHeader />}
 
-        <main>
+        <main className="flex column">
           <Switch>
             {routes.map((route) => (
               <Route

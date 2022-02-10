@@ -1,11 +1,54 @@
 .board-page {
-  //For initial testing -- remove for production
-  // background: url("../../img/backgrounds/forest.jpg") no-repeat center fixed;
-  // background-size: cover;
   background-clip: content-box;
-  //   position: absolute;
+  // position: absolute;
+  height: 100%;
   bottom: 0;
   left: 0;
   right: 0;
   top: 0;
+
+  .board-canvas {
+    position: relative;
+    flex-grow: 1;
+    background: linear-gradient(
+      180deg,
+      #0000003d 0,
+      #0000003d 48px,
+      #0000 80px,
+      #0000
+    );
+
+    //lists-container contains horizontal scroll-bar
+    .lists-container {
+      white-space: nowrap;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      /*Scroll-Bar*/
+      &::-webkit-scrollbar {
+        height: 12px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track-piece {
+        border-radius: 3px;
+        margin: 0 30px;
+        width: 24px;
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: rgba(255, 255, 255, 0.35);
+      }
+    }
+  }
 }

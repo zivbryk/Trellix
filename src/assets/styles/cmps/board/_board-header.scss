@@ -50,16 +50,21 @@
     }
 
     .btn-star-container {
-      &:hover {
-        // transform: scale(1.2);
-      }
-      & .trl:hover {
+      &:hover .trl {
         transform: scale(1.2);
+        color: #f2d600;
       }
 
-      .icon-star:hover,
+      &:hover .icon-starred::before {
+        content: "\e966";
+      }
+
       .icon-starred {
         color: #f2d600;
+      }
+
+      &:focus .trl {
+        transform: scale(1.2);
       }
     }
 
