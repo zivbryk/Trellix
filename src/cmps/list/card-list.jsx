@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { ListHeader } from "../list/list-header";
+import { CardPreview } from "../card/card-preview";
 
 class _CardList extends React.Component {
   render() {
@@ -7,11 +9,11 @@ class _CardList extends React.Component {
     return (
       <section className="card-list">
         <div className="list-content flex column">
-          <div className="list-header">
-            <input className="list-header-name" value={list.title}></input>
-            <button className="list-header-extras">
-              <span className="trl icon-tri-dots-hor icon-sm"></span>
-            </button>
+          <ListHeader list={list} />
+          <div className="card-previews">
+            {list.cards.map((card) => (
+              <CardPreview key={card.id} card={card} />
+            ))}
           </div>
         </div>
       </section>

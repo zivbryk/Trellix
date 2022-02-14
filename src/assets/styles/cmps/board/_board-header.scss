@@ -1,5 +1,5 @@
 .board-header {
-  padding: 8px 8px 4px 8px;
+  padding: 8px 8px 12px 8px;
   background: #0000003d;
 
   .board-header-btn {
@@ -36,10 +36,6 @@
       margin-right: 4px;
       .board-name-input {
         border: 0;
-        &:focus {
-          background-color: $clr0;
-          box-shadow: inset 0 0 0 2px $clr6;
-        }
       }
       h1 {
         font-size: 18px;

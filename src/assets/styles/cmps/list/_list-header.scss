@@ -1,0 +1,29 @@
+.list-header {
+  padding: 10px 8px;
+  .list-title-input {
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+
+  .list-title-input,
+  h2 {
+    // width: 100%;
+    font-weight: 600;
+    font-size: rem(14px);
+    height: 28px;
+    padding: 4px 8px;
+    margin: -4px 0px;
+    line-height: 20px;
+  }
+  h2 {
+    // margin-top: 1px;
+  }
+  .list-title-extras {
+    border: none;
+    color: lighten(desaturate($clr4, 3.45), 4.12);
+    padding: 6px;
+    span {
+      display: block;
+    }
+  }
+}
