@@ -4,6 +4,7 @@ import { loadBoard } from "../store/actions/board.actions";
 import { BoardHeader } from "../cmps/board/board-header";
 import { LoaderCmp } from "../cmps/loader-cmp";
 import { CardList } from "../cmps/list/card-list";
+import { CardListAdd } from "../cmps/list/card-list-add";
 
 class _BoardPage extends React.Component {
   state = {};
@@ -24,6 +25,7 @@ class _BoardPage extends React.Component {
             {board.lists.map((list) => (
               <CardList list={list} key={list.id} />
             ))}
+            <CardListAdd />
           </div>
         </div>
       </section>

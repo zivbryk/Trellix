@@ -1,29 +1,44 @@
 .list-header {
   padding: 10px 8px;
+  position: relative;
   .list-title-input {
     overflow: hidden;
     overflow-wrap: break-word;
   }
 
+  form {
+    width: 100%;
+    margin-right: 30px;
+  }
+
   .list-title-input,
   h2 {
-    // width: 100%;
+    width: 100%;
     font-weight: 600;
     font-size: rem(14px);
     height: 28px;
     padding: 4px 8px;
-    margin: -4px 0px;
     line-height: 20px;
   }
   h2 {
-    // margin-top: 1px;
+    margin: -4px 0px;
+  }
+  .list-title-input {
+    margin: -5px 0px;
   }
   .list-title-extras {
+    position: absolute;
+    right: 4px;
+    top: 4px;
     border: none;
+    border-radius: 3px;
     color: lighten(desaturate($clr4, 3.45), 4.12);
     padding: 6px;
     span {
       display: block;
+    }
+    &:hover {
+      background-color: #091e4214;
     }
   }
 }

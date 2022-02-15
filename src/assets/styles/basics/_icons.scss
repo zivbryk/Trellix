@@ -4,6 +4,16 @@
 .icon-md,
 .icon-sm {
   color: lighten(desaturate(#172b4d, 29), 14.9);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-family: trellicons;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: bottom;
 }
 
 .icon-lg {
