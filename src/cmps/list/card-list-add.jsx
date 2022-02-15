@@ -6,7 +6,7 @@ import { utilService } from "../../services/util.service";
 
 class _CardListAdd extends React.Component {
   state = {
-    isEditTitle: true,
+    isEditTitle: false,
     listTitle: "",
   };
 
@@ -23,7 +23,7 @@ class _CardListAdd extends React.Component {
     this.setState(
       (prevState) => ({
         ...prevState,
-        isEditTitle: isEditTitle,
+        isEditTitle: !isEditTitle,
       }),
       () => {
         if (this.state.isEditTitle) this.titleInput.current.select();
@@ -36,6 +36,9 @@ class _CardListAdd extends React.Component {
     const { board } = this.props;
     const clonedBoard = _.cloneDeep(board);
     const { listTitle } = this.state;
+    if (!listTitle) {
+      this.titleInput.focus();
+    }
 
     const newList = {
       id: utilService.makeId(),
@@ -53,21 +56,25 @@ class _CardListAdd extends React.Component {
   render() {
     const { listTitle, isEditTitle } = this.state;
     return (
-      <section className="card-list-add card-list">
+      <section
+        className={`card-list-add card-list ${isEditTitle && "edit-mode"}`}
+      >
         {isEditTitle ? (
           <form onSubmit={this.onAddList}>
             <input
               className="list-add-title-input"
               placeholder="Enter list title..."
               onChange={this.handleTitleChange}
-              onBlur={this.toggleTitleEdit}
+              //   onBlur={this.toggleTitleEdit}
               value={listTitle}
               ref={this.titleInput}
             ></input>
-            <button>Add List</button>
-            <button>
-              <span className="trl icon-close icon-sm"></span>
-            </button>
+            <div>
+              <button className="btn btn-primary" onClick={this.onAddList}>
+                Add list
+              </button>
+              <span className="trl icon-close icon-lg"></span>
+            </div>
           </form>
         ) : (
           <span className="list-add-title" onClick={this.toggleTitleEdit}>

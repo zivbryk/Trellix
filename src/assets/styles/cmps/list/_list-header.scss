@@ -1,5 +1,5 @@
 .list-header {
-  padding: 10px 8px;
+  padding: 6px 8px;
   position: relative;
   .list-title-input {
     overflow: hidden;
@@ -13,19 +13,21 @@
 
   .list-title-input,
   h2 {
-    width: 100%;
+    padding: 4px 8px;
+  }
+
+  h2 {
     font-weight: 600;
     font-size: rem(14px);
-    height: 28px;
-    padding: 4px 8px;
     line-height: 20px;
   }
-  h2 {
-    margin: -4px 0px;
-  }
+
   .list-title-input {
-    margin: -5px 0px;
+    width: 100%;
+    font-weight: 600;
+    padding: 4px 8px;
   }
+
   .list-title-extras {
     position: absolute;
     right: 4px;

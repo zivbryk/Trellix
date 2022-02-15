@@ -7,6 +7,7 @@ textarea {
   display: block;
   line-height: 20px;
   outline: none;
+  padding: 8px 12px;
   transition-duration: 85ms;
   transition-property: background-color, border-color, box-shadow;
   transition-timing-function: ease;
@@ -15,6 +16,10 @@ textarea {
   &:focus {
     box-shadow: inset 0 0 0 2px $clr6;
   }
+
+  &::placeholder {
+    color: $clr4;
+  }
 }
 
 .btn {
@@ -22,16 +27,25 @@ textarea {
     "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: rem(14px);
-  line-height: 1;
+  line-height: 20px;
   background-color: transparent;
   border: none;
   border-radius: 3px;
   padding: 0;
-
   cursor: pointer;
   transition-property: background-color, border-color, box-shadow;
   transition-duration: 85ms;
   transition-timing-function: ease;
+
+  &-primary {
+    height: 32px;
+    background-color: $clr6;
+    color: $clr0;
+    padding: 4px 12px;
+    &:hover {
+      background-color: darken(desaturate($clr6, 2.37), 4.31);
+    }
+  }
 }
 
 .btn-header {
