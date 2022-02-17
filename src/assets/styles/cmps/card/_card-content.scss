@@ -1,0 +1,26 @@
+.card-content {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 #091e4240;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 8px;
+  max-width: 300px;
+  min-height: 20px;
+  position: relative;
+  //   text-decoration: none;
+  //   z-index: 0;
+
+  .list-card-cover {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+.card-content.is-covered,
+.list-card-cover.is-covered {
+  border-radius: 3px 3px 0 0;
+}

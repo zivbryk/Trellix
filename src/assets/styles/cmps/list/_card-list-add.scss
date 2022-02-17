@@ -2,28 +2,40 @@
   background-color: #ffffff3d;
   cursor: pointer;
   border-radius: 3px;
-  height: auto;
+  height: 40px;
   min-height: 32px;
   padding: 4px;
   vertical-align: top;
-  transition: background 85ms ease-in, opacity 40ms ease-in,
-    border-color 85ms ease-in;
+  transition: height 85ms ease-in-out;
   &:hover {
     background-color: #ffffff52;
   }
   &.edit-mode {
     background-color: $clr2;
+    height: 80px;
+    cursor: auto;
   }
 
   form {
+    transition: all 1s ease-in-out;
+
     input {
       width: 100%;
+      box-shadow: inset 0 0 0 2px $clr6;
+      margin: 0;
     }
 
     & > :last-child {
+      height: 32px;
       margin-top: 4px;
       & > :first-child {
         margin-right: 4px;
+      }
+      & > :last-child {
+        cursor: pointer;
+        &:hover {
+          color: $clr3;
+        }
       }
     }
   }

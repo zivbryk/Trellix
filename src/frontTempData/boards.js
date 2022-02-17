@@ -122,7 +122,7 @@ export const boards = [
               },
             ],
             style: {
-              cover: "#FFAF3F",
+              cover: null,
               isImage: false,
             },
             labelIds: ["l101", "l105"],

@@ -26,19 +26,23 @@ class _CardListAdd extends React.Component {
         isEditTitle: !isEditTitle,
       }),
       () => {
-        if (this.state.isEditTitle) this.titleInput.current.select();
+        if (this.state.isEditTitle) {
+          this.titleInput.current.select();
+        }
       }
     );
   };
 
   onAddList = (ev) => {
     ev.preventDefault();
-    const { board } = this.props;
-    const clonedBoard = _.cloneDeep(board);
     const { listTitle } = this.state;
     if (!listTitle) {
-      this.titleInput.focus();
+      this.titleInput.current.focus();
+      return;
     }
+
+    const { board } = this.props;
+    const clonedBoard = _.cloneDeep(board);
 
     const newList = {
       id: utilService.makeId(),
@@ -53,10 +57,19 @@ class _CardListAdd extends React.Component {
     );
   };
 
+  onCloseAddList = (ev) => {
+    if (ev.relatedTarget?.contains(ev.target)) {
+      this.titleInput.current.focus();
+    } else if (ev.relatedTarget?.id !== "add-list-btn") this.toggleTitleEdit();
+  };
+
   render() {
     const { listTitle, isEditTitle } = this.state;
+    const { lists } = this.props.board;
     return (
       <section
+        tabIndex="0"
+        id="add-list-container"
         className={`card-list-add card-list ${isEditTitle && "edit-mode"}`}
       >
         {isEditTitle ? (
@@ -65,21 +78,28 @@ class _CardListAdd extends React.Component {
               className="list-add-title-input"
               placeholder="Enter list title..."
               onChange={this.handleTitleChange}
-              //   onBlur={this.toggleTitleEdit}
+              onBlur={this.onCloseAddList}
               value={listTitle}
               ref={this.titleInput}
             ></input>
             <div>
-              <button className="btn btn-primary" onClick={this.onAddList}>
+              <button
+                id="add-list-btn"
+                className="btn btn-primary"
+                onClick={this.onAddList}
+              >
                 Add list
               </button>
-              <span className="trl icon-close icon-lg"></span>
+              <span
+                className="trl icon-close icon-lg"
+                onClick={this.toggleTitleEdit}
+              ></span>
             </div>
           </form>
         ) : (
           <span className="list-add-title" onClick={this.toggleTitleEdit}>
             <span className="trl icon-add icon-sm"></span>
-            Add another list
+            Add {lists.length > 0 ? "another" : "a"} list
           </span>
         )}
       </section>

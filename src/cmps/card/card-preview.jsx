@@ -15,7 +15,7 @@ class _CardPreview extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    board: state.boardModule.board,
+    // board: state.boardModule.board,
   };
 }
 const mapDispatchToProps = {};
