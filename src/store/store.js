@@ -1,21 +1,13 @@
-// const { createStore, applyMiddleware, combineReducers, compose } = Redux
-// const thunk = ReduxThunk.default
-
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 
 import { boardReducer } from "./reducers/board.reducer";
-// import { carReducer } from './car.reducer.js'
 // import { userReducer } from './user.reducer.js'
-// import { reviewReducer } from './review.reducer'
-// import { systemReducer } from './system.reducer'
 
 const rootReducer = combineReducers({
-  boardModule: boardReducer,
-  //   carModule: carReducer,
+  boardReducer,
+
   //   userModule: userReducer,
-  //   systemModule: systemReducer,
-  //   reviewModule: reviewReducer,
 });
 
 // export const store = createStore(rootReducer, applyMiddleware(thunk))
@@ -26,4 +18,3 @@ export const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
-// export const store = createStore(rootReducer, applyMiddleware(thunk))
