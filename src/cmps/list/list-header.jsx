@@ -1,96 +1,161 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 import _ from "lodash";
 import { onEditBoard } from "../../store/actions/board.actions";
 
-class _ListHeader extends React.Component {
-  state = {
-    isEditTitle: false,
-    listTitle: "",
-  };
+export const ListHeader = ({ list, board }) => {
+  const dispatch = useDispatch();
+  const [isEditTitle, setIsEditTitle] = useState(false);
+  const [listTitle, setListTitle] = useState("");
+  const titleInput = useRef(null);
 
-  //When convertinto hooks - find alternative to refs - maybe AutosizeInput from npm REMOVE_COMMENT
-  titleInput = React.createRef();
+  useEffect(() => {
+    setListTitle(list.title);
+  }, [list]);
 
-  componentDidMount() {
-    this.setState((prevState) => ({
-      ...prevState,
-      listTitle: this.props.list.title,
-    }));
-  }
+  useEffect(() => {
+    if (isEditTitle) titleInput.current.select();
+  }, [isEditTitle]);
 
-  handleTitleChange = (ev) => {
+  const handleTitleChange = (ev) => {
     const { value } = ev.target;
-    this.setState((prevState) => ({ ...prevState, listTitle: value }));
+    setListTitle(value);
   };
 
-  toggleTitleEdit = () => {
-    const { isEditTitle } = this.state;
-    // let { titleInputWidth } = this.state;
-    // if (!isEditTitle)
-    //   titleInputWidth = this.h1Title.current.getBoundingClientRect().width;
-    this.setState(
-      (prevState) => ({
-        ...prevState,
-        isEditTitle: !isEditTitle,
-      }),
-      () => {
-        if (this.state.isEditTitle) this.titleInput.current.select();
-      }
-    );
+  const toggleTitleEdit = () => {
+    setIsEditTitle(!isEditTitle);
   };
 
-  onSaveListTitle = (ev) => {
+  const onSaveListTitle = (ev) => {
     ev.preventDefault();
-    const { list } = this.props;
-    const { board } = this.props;
-    const { listTitle } = this.state;
     const clonedBoard = _.cloneDeep(board);
     clonedBoard.lists.forEach((listInBoard) => {
       if (listInBoard.id === list.id) listInBoard.title = listTitle;
     });
-    this.props.onEditBoard(clonedBoard);
-    this.toggleTitleEdit();
+    dispatch(onEditBoard(clonedBoard));
+    toggleTitleEdit();
   };
 
-  render() {
-    const { listTitle, isEditTitle } = this.state;
-    return (
-      <section className="list-header flex align-center">
-        {isEditTitle ? (
-          <form onSubmit={this.onSaveListTitle}>
-            <input
-              className="list-title-input"
-              onChange={this.handleTitleChange}
-              onBlur={this.onSaveListTitle}
-              value={listTitle}
-              ref={this.titleInput}
-            ></input>
-          </form>
-        ) : (
-          <h2 className="list-title" onClick={this.toggleTitleEdit}>
-            {listTitle}
-          </h2>
-        )}
+  return (
+    <section className="list-header flex align-center">
+      {isEditTitle ? (
+        <form onSubmit={onSaveListTitle}>
+          <input
+            className="list-title-input"
+            onChange={handleTitleChange}
+            onBlur={onSaveListTitle}
+            value={listTitle}
+            ref={titleInput}
+          ></input>
+        </form>
+      ) : (
+        <h2 className="list-title" onClick={toggleTitleEdit}>
+          {listTitle}
+        </h2>
+      )}
 
-        <button className="list-title-extras">
-          <span className="trl icon-tri-dots-hor icon-sm"></span>
-        </button>
-      </section>
-    );
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    board: state.boardModule.board,
-  };
-}
-const mapDispatchToProps = {
-  onEditBoard,
+      <button className="list-title-extras">
+        <span className="trl icon-tri-dots-hor icon-sm"></span>
+      </button>
+    </section>
+  );
 };
 
-export const ListHeader = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(_ListHeader);
+////////////////////////////////////////////////////////////////////////////////////////
+
+// import React from "react";
+// import { connect } from "react-redux";
+// import _ from "lodash";
+// import { onEditBoard } from "../../store/actions/board.actions";
+
+// class _ListHeader extends React.Component {
+//   state = {
+//     isEditTitle: false,
+//     listTitle: "",
+//   };
+
+//   //When convertinto hooks - find alternative to refs - maybe AutosizeInput from npm REMOVE_COMMENT
+//   titleInput = React.createRef();
+
+//   componentDidMount() {
+//     this.setState((prevState) => ({
+//       ...prevState,
+//       listTitle: this.props.list.title,
+//     }));
+//   }
+
+//   handleTitleChange = (ev) => {
+//     const { value } = ev.target;
+//     this.setState((prevState) => ({ ...prevState, listTitle: value }));
+//   };
+
+//   toggleTitleEdit = () => {
+//     const { isEditTitle } = this.state;
+//     // let { titleInputWidth } = this.state;
+//     // if (!isEditTitle)
+//     //   titleInputWidth = this.h1Title.current.getBoundingClientRect().width;
+//     this.setState(
+//       (prevState) => ({
+//         ...prevState,
+//         isEditTitle: !isEditTitle,
+//       }),
+//       () => {
+//         if (this.state.isEditTitle) this.titleInput.current.select();
+//       }
+//     );
+//   };
+
+//   onSaveListTitle = (ev) => {
+//     ev.preventDefault();
+//     const { list } = this.props;
+//     const { board } = this.props;
+//     const { listTitle } = this.state;
+//     const clonedBoard = _.cloneDeep(board);
+//     clonedBoard.lists.forEach((listInBoard) => {
+//       if (listInBoard.id === list.id) listInBoard.title = listTitle;
+//     });
+//     this.props.onEditBoard(clonedBoard);
+//     this.toggleTitleEdit();
+//   };
+
+//   render() {
+//     const { listTitle, isEditTitle } = this.state;
+//     return (
+//       <section className="list-header flex align-center">
+//         {isEditTitle ? (
+//           <form onSubmit={this.onSaveListTitle}>
+//             <input
+//               className="list-title-input"
+//               onChange={this.handleTitleChange}
+//               onBlur={this.onSaveListTitle}
+//               value={listTitle}
+//               ref={this.titleInput}
+//             ></input>
+//           </form>
+//         ) : (
+//           <h2 className="list-title" onClick={this.toggleTitleEdit}>
+//             {listTitle}
+//           </h2>
+//         )}
+
+//         <button className="list-title-extras">
+//           <span className="trl icon-tri-dots-hor icon-sm"></span>
+//         </button>
+//       </section>
+//     );
+//   }
+// }
+
+// function mapStateToProps(state) {
+//   return {
+//     board: state.boardModule.board,
+//   };
+// }
+// const mapDispatchToProps = {
+//   onEditBoard,
+// };
+
+// export const ListHeader = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(_ListHeader);

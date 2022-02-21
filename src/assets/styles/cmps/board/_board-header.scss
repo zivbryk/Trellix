@@ -1,6 +1,8 @@
 .board-header {
   padding: 8px 8px 12px 8px;
   background: #0000003d;
+  display: flex;
+  flex-wrap: wrap;
 
   .board-header-btn {
     height: 32px;
@@ -34,13 +36,17 @@
   .board-header-left {
     .board-title {
       margin-right: 4px;
-      .board-name-input {
+      // max-width: 100%;
+      // overflow: hidden;
+      // white-space: nowrap;
+      div.board-name-input input {
         border: 0;
         font-size: 18px;
         font-weight: 700;
         height: 32px;
         padding: 0 12px;
       }
+
       h1 {
         font-size: 18px;
         font-weight: 700;

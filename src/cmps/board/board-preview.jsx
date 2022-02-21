@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { LoaderCmp } from "../../cmps/loader-cmp";
 
 export function BoardPreview({ board }) {
+  if (!board) return <LoaderCmp />;
   return (
     <li className="board-preview">
       <Link to={`/board/${board._id}`} key={board._id}>

@@ -13,26 +13,21 @@ export const BoardPage = () => {
   const dispatch = useDispatch();
 
   const { boardId } = params;
-  // componentDidMount() {
-  //   const { boardId } = this.props.match.params;
-  //   dispatch(loadBoard(boardId));
-  // }
-
   useEffect(() => {
     dispatch(loadBoard(boardId));
-  }, []);
+  }, [dispatch, boardId]);
 
   if (!board) return <LoaderCmp />;
   return (
     <section className="board-page flex column">
-      {/* <BoardHeader /> */}
+      <BoardHeader board={board} />
       <div className="board-canvas">
-        {/* <div className="lists-container">
+        <div className="lists-container">
           {board.lists.map((list) => (
-            <CardList list={list} key={list.id} />
+            <CardList list={list} board={board} key={list.id} />
           ))}
-          <CardListAdd />
-        </div> */}
+          <CardListAdd board={board} />
+        </div>
       </div>
     </section>
   );

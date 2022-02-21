@@ -11,7 +11,7 @@ export const WorkspacePage = () => {
 
   useEffect(() => {
     dispatch(loadBoards());
-  }, []);
+  }, [dispatch]);
 
   if (!boards.length) return <LoaderCmp />;
 

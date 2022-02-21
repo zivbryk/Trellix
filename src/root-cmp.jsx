@@ -3,15 +3,14 @@ import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router";
 import { useLocation } from "react-router-dom";
 import { AppHeader } from "./cmps/app-header";
-import { boardService } from "./services/board.service";
-import { boards } from "./frontTempData/boards.js";
+// import { boardService } from "./services/board.service";
+// import { boards } from "./frontTempData/boards.js";
 import routes from "./routes";
-import { TestCmp } from "./cmps/test-cmp";
 
 export const RootCmp = () => {
-  //     // Remove this local storage loading of boards before production REMOVE_COMMENT
-  //     // console.log("loading data to local storage!");
-  //     // boardService.loadDataManual(boards);
+  // Remove this local storage loading of boards before production REMOVE_COMMENT
+  // console.log("loading data to local storage!");
+  // boardService.loadDataManual(boards);
 
   const board = useSelector((state) => state.boardReducer.board);
   const pathname = useLocation().pathname;
