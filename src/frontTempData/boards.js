@@ -11,39 +11,59 @@ export const boards = [
     },
     style: {
       cover:
-        " url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1536x1920/6f71cac1044c84cb52d37c5b464c70d0/photo-1643037508102-46fb319979c5.jpg')",
+        "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1536x1920/6f71cac1044c84cb52d37c5b464c70d0/photo-1643037508102-46fb319979c5.jpg')",
       isImage: true,
     },
     labels: [
       {
-        id: "l101",
-        title: "+ Design Team",
-        color: "#61bd4f",
+        id: "tp301",
+        title: "+Design Team",
+        color: "green",
       },
       {
-        id: "l102",
+        id: "yh703",
         title: "For Weekly Meeting",
-        color: "#f2d600",
+        color: "yellow",
       },
       {
-        id: "l103",
+        id: "up003",
         title: "For Monthly meeting",
-        color: "#ff9f1a",
+        color: "orange",
       },
       {
-        id: "l104",
+        id: "dd204",
         title: "Urgent",
-        color: "#eb5a46",
+        color: "red",
       },
       {
-        id: "l105",
+        id: "sn306",
         title: "Nice to have",
-        color: "#c377e0",
+        color: "purple",
       },
       {
-        id: "l106",
+        id: "mq552",
         title: "Documentation needed",
-        color: "#0079bf",
+        color: "blue",
+      },
+      {
+        id: "pc309",
+        title: "Documentation needed",
+        color: "sky",
+      },
+      {
+        id: "ib492",
+        title: "Documentation needed",
+        color: "lime",
+      },
+      {
+        id: "vm941",
+        title: "Documentation needed",
+        color: "pink",
+      },
+      {
+        id: "dl995",
+        title: "Documentation needed",
+        color: "black",
       },
     ],
     boardMembers: [
@@ -81,10 +101,11 @@ export const boards = [
             id: "c101",
             title: "EditDate Cmp",
             style: {
-              cover: "#7BC86C",
-              isImage: false,
+              cover:
+                "https://res.cloudinary.com/zivcloud555/image/upload/v1633764702/Trellis%20permanent%20img/Card%20Images/chart4_sgrvtg.png",
+              isImage: true,
             },
-            labelIds: ["l104"],
+            labelIds: ["tp301", "yh703", "vm941"],
             cardMembers: [
               {
                 _id: "u101",
@@ -122,10 +143,10 @@ export const boards = [
               },
             ],
             style: {
-              cover: null,
+              cover: "#7BC86C",
               isImage: false,
             },
-            labelIds: ["l101", "l105"],
+            labelIds: ["tp301", "yh703"],
             cardMembers: [
               {
                 _id: "u102",
@@ -139,10 +160,11 @@ export const boards = [
             id: "c103",
             title: "CoverColors Cmp",
             style: {
-              cover: null,
-              isImage: false,
+              cover:
+                "https://res.cloudinary.com/zivcloud555/image/upload/v1634026001/Trellis%20permanent%20img/Card%20Images/launch_kucwit.jpg",
+              isImage: true,
             },
-            labelIds: ["l104"],
+            labelIds: ["tp301", "yh703"],
             cardMembers: [
               {
                 _id: "u103",
@@ -278,7 +300,7 @@ export const boards = [
                 imgUrl: "/avatars/nadav.png",
               },
             ],
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             createdAt: 1590999730348,
             dueDate: 1615651492,
             byMember: {
@@ -300,7 +322,7 @@ export const boards = [
               isImage: false,
             },
             dueDate: 1615600000,
-            labelIds: ["l101", "l106"],
+            labelIds: ["tp301", "yh703"],
             cardMembers: [
               {
                 _id: "u102",
@@ -323,7 +345,7 @@ export const boards = [
               cover: "#29CCE5",
               isImage: false,
             },
-            labelIds: ["l101"],
+            labelIds: ["yh703"],
             cardMembers: [
               {
                 _id: "u102",
@@ -346,7 +368,7 @@ export const boards = [
               cover: null,
               isImage: false,
             },
-            labelIds: ["l103"],
+            labelIds: ["tp301", "vm941"],
             cardMembers: [
               {
                 _id: "u102",
@@ -472,7 +494,7 @@ export const boards = [
                 imgUrl: "/avatars/may.png",
               },
             ],
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             createdAt: 1590999730348,
             dueDate: 1615651492,
             byMember: {
@@ -499,7 +521,7 @@ export const boards = [
               cover: "#F5DD29",
               isImage: false,
             },
-            labelIds: ["l105", "l106"],
+            labelIds: ["tp301", "yh703"],
             cardMembers: [
               {
                 _id: "u102",
@@ -568,7 +590,7 @@ export const boards = [
                 imgUrl: "/avatars/dese.png",
               },
             ],
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             createdAt: 1590999730348,
             dueDate: 1615651492,
             byMember: {
@@ -687,7 +709,7 @@ export const boards = [
           {
             id: "c101",
             title: "Replace logo",
-            labelIds: ["l101", "l102"],
+            labelIds: ["yh703"],
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
@@ -696,7 +718,7 @@ export const boards = [
           {
             id: "c102",
             title: "Add Samples",
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             style: {
               cover: "f4f5f7",
               isImage: false,
@@ -711,7 +733,7 @@ export const boards = [
           {
             id: "c103",
             title: "Do that",
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
@@ -755,7 +777,7 @@ export const boards = [
                 imgUrl: "/avatars/ziv.png",
               },
             ],
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301"],
             createdAt: 1590999730348,
             dueDate: 16156215211,
             byMember: {
@@ -883,7 +905,7 @@ export const boards = [
           {
             id: "c101",
             title: "Replace logo",
-            labelIds: ["l101", "l102"],
+            labelIds: ["yh703"],
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
@@ -892,7 +914,7 @@ export const boards = [
           {
             id: "c102",
             title: "Add Samples",
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             style: {
               cover: "f4f5f7",
               isImage: false,
@@ -907,7 +929,7 @@ export const boards = [
           {
             id: "c103",
             title: "Do that",
-            labelIds: ["l101", "l102"],
+            labelIds: [],
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
@@ -951,7 +973,7 @@ export const boards = [
                 imgUrl: "/avatars/ziv.png",
               },
             ],
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             createdAt: 1590999730348,
             dueDate: 16156215211,
             byMember: {
@@ -1073,7 +1095,7 @@ export const boards = [
           {
             id: "c101",
             title: "Replace logo",
-            labelIds: ["l101", "l102"],
+            labelIds: [],
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
@@ -1082,7 +1104,7 @@ export const boards = [
           {
             id: "c102",
             title: "Add Samples",
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             style: {
               cover: "f4f5f7",
               isImage: false,
@@ -1097,7 +1119,7 @@ export const boards = [
           {
             id: "c103",
             title: "Do that",
-            labelIds: ["l101", "l102"],
+            labelIds: [],
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
@@ -1141,7 +1163,7 @@ export const boards = [
                 imgUrl: "/avatars/ziv.png",
               },
             ],
-            labelIds: ["l101", "l102"],
+            labelIds: ["tp301", "yh703"],
             createdAt: 1590999730348,
             dueDate: 16156215211,
             byMember: {

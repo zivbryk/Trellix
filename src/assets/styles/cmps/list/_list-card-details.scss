@@ -1,0 +1,84 @@
+.list-card-details {
+  overflow: hidden;
+  padding: 6px 8px 2px;
+  position: relative;
+  z-index: 10;
+
+  .list-card-labels {
+    overflow: auto;
+    position: relative;
+    .card-label {
+      &.mod-list-card {
+        float: left;
+        font-size: 12px;
+        font-weight: 700;
+        height: 8px;
+        line-height: 100px;
+        margin: 0 4px 4px 0;
+        max-width: 40px;
+        min-width: 40px;
+        padding: 0;
+        text-shadow: none;
+        width: auto;
+      }
+
+      &.label-text-on {
+        height: 16px;
+        line-height: 16px;
+        max-width: 198px;
+        padding: 0 8px;
+      }
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #b3bac5;
+      border-radius: 4px;
+      color: #fff;
+      display: block;
+      margin-right: 4px;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 4px 6px;
+      position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      .label-text {
+        display: none;
+        &.label-text-on {
+          display: initial;
+        }
+      }
+
+      &.card-label-green {
+        background-color: $green;
+      }
+      &.card-label-yellow {
+        background-color: $yellow;
+      }
+      &.card-label-orange {
+        background-color: $orange;
+      }
+      &.card-label-red {
+        background-color: $red;
+      }
+      &.card-label-purple {
+        background-color: $purple;
+      }
+      &.card-label-blue {
+        background-color: $blue;
+      }
+      &.card-label-sky {
+        background-color: $sky;
+      }
+      &.card-label-lime {
+        background-color: $lime;
+      }
+      &.card-label-pink {
+        background-color: $pink;
+      }
+      &.card-label-black {
+        background-color: $black;
+      }
+    }
+  }
+}

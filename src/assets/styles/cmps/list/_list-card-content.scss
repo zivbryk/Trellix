@@ -10,6 +10,16 @@
   position: relative;
   //   text-decoration: none;
   //   z-index: 0;
+  &:hover {
+    .btn-edit-card {
+      visibility: visible;
+      &:hover {
+        color: $clr3;
+        background-color: $clr2;
+        opacity: 1;
+      }
+    }
+  }
 
   .list-card-cover {
     background-position: 50%;
@@ -18,9 +28,26 @@
     -webkit-user-select: none;
     user-select: none;
   }
+
+  .btn-edit-card {
+    background-clip: padding-box;
+    background-color: $clr1;
+    background-origin: initial;
+    border-radius: 3px;
+    opacity: 0.8;
+    padding: 4px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    visibility: hidden;
+    z-index: 2;
+    span {
+      opacity: 0.8;
+    }
+  }
 }
 
 .card-content.is-covered,
-.list-card-cover.is-covered {
+.list-card-cover {
   border-radius: 3px 3px 0 0;
 }
