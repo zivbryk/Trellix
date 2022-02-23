@@ -1,14 +1,23 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+// import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleListCardLabels } from "../../store/actions/app.actions";
+import { ListCardBadges } from "./list-card-badges";
 
 export const ListCardDetails = ({ card }) => {
   const board = useSelector((state) => state.boardReducer.board);
-  const [isLabelTextVisible, setLabelTextVisible] = useState(false);
+  const isLabelsTextVisible = useSelector(
+    (state) => state.appReducer.isLabelsTextVisible
+  );
+  const dispatch = useDispatch();
 
-  const toggleLabelText = () => {
-    setLabelTextVisible(!isLabelTextVisible);
-    // console.log(isLabelTextVisible);
+  //   const [isLabelsTextVisible, setLabelsTextVisible] = useState(false);
+
+  const onToggleListCardLabels = () => {
+    dispatch(toggleListCardLabels(!isLabelsTextVisible));
+    // setLabelsTextVisible(!isLabelsTextVisible);
+    // console.log(isLabelsTextVisible);
   };
+
   return (
     <div className="list-card-details">
       <div className="list-card-labels">
@@ -17,22 +26,28 @@ export const ListCardDetails = ({ card }) => {
           return (
             <span
               className={`card-label card-label-${label.color} mod-list-card ${
-                isLabelTextVisible ? "label-text-on" : ""
+                isLabelsTextVisible ? "label-text-on" : "label-text-off"
               }`}
               key={labelId}
-              onClick={toggleLabelText}
+              onClick={onToggleListCardLabels}
             >
               <span
                 className={`label-text ${
-                  isLabelTextVisible ? "label-text-on" : ""
+                  isLabelsTextVisible ? "label-text-on" : ""
                 }`}
               >
-                {labelId}
+                {label.title}
               </span>
             </span>
           );
         })}
       </div>
+
+      <span className="list-card-title">{card.title}</span>
+
+      <ListCardBadges card={card} />
+
+      <div className="list-card-members"></div>
     </div>
   );
 };

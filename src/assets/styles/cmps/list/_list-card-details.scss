@@ -27,7 +27,14 @@
         line-height: 16px;
         max-width: 198px;
         padding: 0 8px;
+        animation: label-text-appear 0.45s ease-out;
       }
+
+      &.label-text-off {
+        max-width: 198px;
+        animation: label-text-disappear 0.45s ease-in forwards;
+      }
+
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       background-color: #b3bac5;
@@ -80,5 +87,143 @@
         background-color: $black;
       }
     }
+
+    &:hover {
+      .card-label {
+        &.card-label-green {
+          background-color: darken(adjust-hue($green, -5), 11.57);
+        }
+        &.card-label-yellow {
+          background-color: darken(adjust-hue($yellow, -5), 11.57);
+        }
+        &.card-label-orange {
+          background-color: darken(adjust-hue($orange, -5), 11.57);
+        }
+        &.card-label-red {
+          background-color: darken(adjust-hue($red, -5), 11.57);
+        }
+        &.card-label-purple {
+          background-color: darken(adjust-hue($purple, -5), 11.57);
+        }
+        &.card-label-blue {
+          background-color: darken(adjust-hue($blue, -5), 11.57);
+        }
+        &.card-label-sky {
+          background-color: darken(adjust-hue($sky, -5), 11.57);
+        }
+        &.card-label-lime {
+          background-color: darken(adjust-hue($lime, -5), 11.57);
+        }
+        &.card-label-pink {
+          background-color: darken(adjust-hue($pink, -5), 11.57);
+        }
+        &.card-label-black {
+          background-color: darken(adjust-hue($black, -5), 11.57);
+        }
+      }
+    }
+  }
+
+  .list-card-title {
+    word-wrap: break-word;
+    clear: both;
+    color: $clr3;
+    display: block;
+    margin: 0 0 4px;
+    overflow: hidden;
+  }
+}
+
+@keyframes label-text-appear {
+  0% {
+    width: 40px;
+    height: 8px;
+    color: transparent;
+  }
+  25% {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 8px;
+    padding-right: 10px;
+  }
+  45% {
+    height: 8px;
+    padding-right: 9px;
+  }
+  53% {
+    height: 8px;
+    padding-right: 8px;
+  }
+  75% {
+    height: 16px;
+    line-height: 16px;
+    padding: 0 8px;
+    max-width: 198px;
+    color: transparent;
+  }
+}
+
+@keyframes label-text-appear {
+  0% {
+    width: 40px;
+    height: 8px;
+    color: transparent;
+  }
+  25% {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 8px;
+    padding-right: 10px;
+  }
+  45% {
+    height: 8px;
+    padding-right: 9px;
+  }
+  53% {
+    height: 8px;
+    padding-right: 8px;
+  }
+  75% {
+    height: 16px;
+    line-height: 16px;
+    padding: 0 8px;
+    max-width: 198px;
+    color: transparent;
+  }
+}
+
+@keyframes label-text-disappear {
+  0% {
+    height: 16px;
+    line-height: 16px;
+    padding: 0 8px;
+    max-width: 198px;
+    min-width: 40px;
+    // width: unset;
+  }
+  25% {
+    color: transparent;
+    padding-right: 8px;
+  }
+
+  45% {
+    height: 8px;
+    padding-right: 9px;
+  }
+
+  53% {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 8px;
+    padding-right: 10px;
+  }
+
+  100% {
+    width: 40px;
+    height: 8px;
+    color: transparent;
   }
 }

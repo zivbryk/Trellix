@@ -105,7 +105,18 @@ export const boards = [
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1633764702/Trellis%20permanent%20img/Card%20Images/chart4_sgrvtg.png",
               isImage: true,
             },
-            labelIds: ["tp301", "yh703", "vm941"],
+            labelIds: [
+              "tp301",
+              "yh703",
+              "up003",
+              "dd204",
+              "sn306",
+              "mq552",
+              "pc309",
+              "ib492",
+              "vm941",
+              "dl995",
+            ],
             cardMembers: [
               {
                 _id: "u101",

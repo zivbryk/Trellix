@@ -88,8 +88,6 @@ export const ListCardContent = ({ card }) => {
       </button>
 
       <ListCardDetails card={card} />
-
-      <h1>{card.title}</h1>
     </section>
   );
 };
