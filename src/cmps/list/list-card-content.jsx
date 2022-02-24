@@ -76,7 +76,9 @@ export const ListCardContent = ({ card }) => {
   };
 
   return (
-    <section className={`card-content ${card.style.cover ? "is-covered" : ""}`}>
+    <section
+      className={`list-card-content ${card.style.cover ? "is-covered" : ""}`}
+    >
       <div
         className={"list-card-cover"}
         style={getCoverStyle()}

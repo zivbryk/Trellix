@@ -9,8 +9,6 @@ export function appReducer(state = initialState, action) {
     case "TOGGLE_LABELS":
       newState = { ...state, isLabelsTextVisible: !state.isLabelsTextVisible };
       break;
-
-      break;
     default:
   }
   // For debug:

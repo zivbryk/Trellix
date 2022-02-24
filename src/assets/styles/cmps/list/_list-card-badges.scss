@@ -15,6 +15,70 @@
     text-decoration: none;
     text-overflow: ellipsis;
     vertical-align: top;
+
+    &.is-due-soon {
+      background-color: $yellow;
+      border-radius: 3px;
+      color: $clr0;
+      .badge-icon {
+        color: $clr0;
+      }
+    }
+
+    &.is-due-complete {
+      background-color: $green;
+      border-radius: 3px;
+      color: $clr0;
+      .badge-icon {
+        color: $clr0;
+      }
+    }
+
+    &.is-due-now {
+      background-color: $red;
+      border-radius: 3px;
+      color: #fff;
+      .badge-icon {
+        color: $clr0;
+      }
+    }
+
+    .badge-due-icon {
+      display: inline-block;
+    }
+
+    .badge-due-checked,
+    .badge-due-unchecked {
+      display: none;
+    }
+
+    &.due-date-badge {
+      &:hover {
+        &.is-due-now {
+          background-color: darken(
+            desaturate(adjust-hue($red, 2), 24.74),
+            15.49
+          );
+        }
+        &.is-due-complete {
+          background-color: darken(adjust-hue($green, -5), 11.57);
+        }
+        &.is-due-soon {
+          background-color: lighten(
+            desaturate(adjust-hue($yellow, -4), 22.86),
+            0.59
+          );
+        }
+        & .badge-due-icon {
+          display: none;
+        }
+
+        & .badge-due-checked,
+        .badge-due-unchecked {
+          display: inline-block;
+        }
+      }
+    }
   }
 
   .badge-icon {

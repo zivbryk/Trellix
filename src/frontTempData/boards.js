@@ -105,6 +105,7 @@ export const boards = [
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1633764702/Trellis%20permanent%20img/Card%20Images/chart4_sgrvtg.png",
               isImage: true,
             },
+            description: "create EditDate Cmp",
             labelIds: [
               "tp301",
               "yh703",
@@ -123,6 +124,53 @@ export const boards = [
                 fullname: "Ziv Bryk",
                 username: "zivbryk",
                 imgUrl: "/avatars/ziv.png",
+              },
+            ],
+            isWatched: true,
+            dueDate: 1589983468418,
+            attachments: [],
+            checklists: [
+              {
+                id: "YEhs8",
+                title: "Test1",
+                todos: [
+                  {
+                    id: "2120xl",
+                    title: "Add custom colors hex",
+                    isDone: true,
+                  },
+                  {
+                    id: "036jx",
+                    title: "Connect cmp to store",
+                    isDone: true,
+                  },
+                  {
+                    id: "20mjw",
+                    title: "Add pixel perfect CSS design",
+                    isDone: false,
+                  },
+                ],
+              },
+              {
+                id: "Ychd0",
+                title: "Test2",
+                todos: [
+                  {
+                    id: "2126mg",
+                    title: "Add custom colors hex",
+                    isDone: true,
+                  },
+                  {
+                    id: "03p9x",
+                    title: "Connect cmp to store",
+                    isDone: true,
+                  },
+                  {
+                    id: "2p4cw",
+                    title: "Add pixel perfect CSS design",
+                    isDone: false,
+                  },
+                ],
               },
             ],
           },
@@ -157,6 +205,7 @@ export const boards = [
               cover: "#7BC86C",
               isImage: false,
             },
+            description: null,
             labelIds: ["tp301", "yh703"],
             cardMembers: [
               {
@@ -166,6 +215,9 @@ export const boards = [
                 imgUrl: "/avatars/may.png",
               },
             ],
+            dueDate: 1645779952000,
+            attachments: [],
+            isWatched: true,
           },
           {
             id: "c103",
@@ -212,6 +264,8 @@ export const boards = [
                 ],
               },
             ],
+            attachments: [],
+            isWatched: false,
           },
         ],
       },
@@ -324,6 +378,7 @@ export const boards = [
               cover: "#EF7564",
               isImage: false,
             },
+            isWatched: false,
           },
           {
             id: "f1Gp",
@@ -332,7 +387,7 @@ export const boards = [
               cover: null,
               isImage: false,
             },
-            dueDate: 1615600000,
+            dueDate: 1645787152,
             labelIds: ["tp301", "yh703"],
             cardMembers: [
               {
@@ -348,6 +403,8 @@ export const boards = [
                 imgUrl: "/avatars/nadav.png",
               },
             ],
+            attachments: [],
+            isWatched: false,
           },
           {
             id: "f12f",
@@ -371,6 +428,8 @@ export const boards = [
                 imgUrl: "/avatars/dese.png",
               },
             ],
+            attachments: [],
+            isWatched: true,
           },
           {
             id: "f13N",
@@ -394,6 +453,8 @@ export const boards = [
                 imgUrl: "/avatars/dese.png",
               },
             ],
+            attachments: [],
+            isWatched: false,
           },
         ],
       },
@@ -429,6 +490,8 @@ export const boards = [
                 imgUrl: "/avatars/may.png",
               },
             ],
+            attachments: [],
+            isWatched: true,
           },
           {
             id: "pK35",
@@ -518,6 +581,7 @@ export const boards = [
               cover: "#6DECA9",
               isImage: false,
             },
+            isWatched: false,
           },
         ],
       },
@@ -547,6 +611,8 @@ export const boards = [
                 imgUrl: "/avatars/ziv.png",
               },
             ],
+            attachments: [],
+            isWatched: false,
           },
           {
             id: "p830",
@@ -614,6 +680,8 @@ export const boards = [
               cover: null,
               isImage: false,
             },
+            attachments: [],
+            isWatched: true,
           },
         ],
       },
@@ -725,6 +793,8 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            attachments: [],
+            isWatched: false,
           },
           {
             id: "c102",
@@ -734,6 +804,8 @@ export const boards = [
               cover: "f4f5f7",
               isImage: false,
             },
+            attachments: [],
+            isWatched: false,
           },
         ],
       },
@@ -749,6 +821,8 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            attachments: [],
+            isWatched: false,
           },
           {
             id: "c104",
@@ -801,6 +875,8 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            attachments: [],
+            isWatched: false,
           },
         ],
       },
@@ -921,6 +997,8 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            attachments: [],
+            isWatched: false,
           },
           {
             id: "c102",
@@ -930,6 +1008,8 @@ export const boards = [
               cover: "f4f5f7",
               isImage: false,
             },
+            attachments: [],
+            isWatched: false,
           },
         ],
       },
@@ -945,6 +1025,8 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            attachments: [],
+            isWatched: false,
           },
           {
             id: "c104",
@@ -997,6 +1079,8 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            attachments: [],
+            isWatched: false,
           },
         ],
       },
@@ -1111,6 +1195,7 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            isWatched: false,
           },
           {
             id: "c102",
@@ -1120,6 +1205,7 @@ export const boards = [
               cover: "f4f5f7",
               isImage: false,
             },
+            isWatched: false,
           },
         ],
       },
@@ -1135,6 +1221,8 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            attachments: [],
+            isWatched: false,
           },
           {
             id: "c104",
@@ -1187,6 +1275,8 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
             },
+            attachments: [],
+            isWatched: false,
           },
         ],
       },

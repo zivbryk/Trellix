@@ -4,7 +4,7 @@ import { ListCardPreview } from "./list-card-preview";
 
 export const CardsList = ({ list, board }) => {
   return (
-    <section className="card-list">
+    <section className="cards-list">
       <div className="list-content flex column">
         <ListHeader list={list} board={board} />
         <div className="card-previews">
