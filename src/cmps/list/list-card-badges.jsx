@@ -43,10 +43,29 @@ export const ListCardBadges = ({ card }) => {
     setIsComplete(!isComplete);
   };
 
-  const getChecklistsTotal = () => {
-    const doneTasks = 2;
-    const totalTasks = 4;
-    return `${doneTasks}/${totalTasks}`;
+  const getChecklistsStatistics = () => {
+    const checklistsStatistics = card.checklists.reduce(
+      (acc, currCheckList) => {
+        const totalTasksPerList = currCheckList.todos.length;
+        if (!acc["totalTasks"]) acc["totalTasks"] = 0;
+        acc["totalTasks"] += totalTasksPerList;
+
+        const totalDoneTasksPerList = currCheckList.todos.reduce(
+          (acc, currTodo) => {
+            if (currTodo.isDone) acc++;
+            return acc;
+          },
+          0
+        );
+
+        if (!acc["doneTasks"]) acc["doneTasks"] = 0;
+        acc["doneTasks"] += totalDoneTasksPerList;
+        return acc;
+      },
+      {}
+    );
+
+    return `${checklistsStatistics.doneTasks}/${checklistsStatistics.totalTasks}`;
   };
   return (
     <div className="list-card-badges">
@@ -96,12 +115,14 @@ export const ListCardBadges = ({ card }) => {
           </div>
         )}
 
-        <div className="badge checkitems-badge" title="Checklist items">
-          <span className="badge-icon icon-sm trl icon-checkbox-checked"></span>
-          <span className="badge-text checkitems-badge-text">
-            {getChecklistsTotal()}
-          </span>
-        </div>
+        {card.checklists.length > 0 && (
+          <div className="badge checkitems-badge" title="Checklist items">
+            <span className="badge-icon icon-sm trl icon-checkbox-checked"></span>
+            <span className="badge-text checkitems-badge-text">
+              {getChecklistsStatistics()}
+            </span>
+          </div>
+        )}
       </span>
     </div>
   );

@@ -132,6 +132,16 @@
     margin: 0 0 4px;
     overflow: hidden;
   }
+
+  .list-card-members {
+    float: right;
+    margin: 0 -2px 0 0;
+
+    .member-avatar {
+      float: right;
+      margin: 0 0 4px 4px;
+    }
+  }
 }
 
 @keyframes label-text-appear {

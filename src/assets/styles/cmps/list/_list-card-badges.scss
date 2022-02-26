@@ -85,4 +85,11 @@
     color: lighten(desaturate($clr4, 3.45), 4.12);
     vertical-align: top;
   }
+
+  .badge-text {
+    font-size: 12px;
+    padding: 0 4px 0 2px;
+    vertical-align: top;
+    white-space: nowrap;
+  }
 }

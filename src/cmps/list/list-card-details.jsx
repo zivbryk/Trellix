@@ -2,6 +2,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { toggleListCardLabels } from "../../store/actions/app.actions";
 import { ListCardBadges } from "./list-card-badges";
+import { MemberAvatar } from "../member-avatar";
 
 export const ListCardDetails = ({ card }) => {
   const board = useSelector((state) => state.boardReducer.board);
@@ -47,7 +48,11 @@ export const ListCardDetails = ({ card }) => {
 
       <ListCardBadges card={card} />
 
-      <div className="list-card-members"></div>
+      <div className="list-card-members">
+        {card.cardMembers.map((member) => (
+          <MemberAvatar size={"28"} member={member} key={member._id} />
+        ))}
+      </div>
     </div>
   );
 };

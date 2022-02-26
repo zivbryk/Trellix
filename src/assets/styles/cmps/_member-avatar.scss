@@ -1,0 +1,44 @@
+.member-avatar {
+  //   background-color: darken(desaturate(adjust-hue($clr3, -5), 2.01), 4.31);
+  border-radius: 25em;
+  color: $clr3;
+  cursor: pointer;
+  display: block;
+  float: left;
+  height: 32px;
+  margin: 0 4px 4px 0;
+  overflow: visible;
+  position: relative;
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 32px;
+  z-index: 0;
+
+  &:hover {
+    background-color: #c1c7d0;
+    img {
+      opacity: 0.8;
+    }
+  }
+
+  img {
+    border-radius: 25em;
+    height: 32px;
+    object-fit: cover;
+    width: 32px;
+  }
+
+  .member-type {
+    bottom: 0;
+    height: 9px;
+    position: absolute;
+    right: 1px;
+    width: 9px;
+    z-index: 3;
+
+    // &.admin {
+    //   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Google_Chrome_icon_%282011%29.svg/512px-Google_Chrome_icon_%282011%29.svg.png");
+    // }
+  }
+}

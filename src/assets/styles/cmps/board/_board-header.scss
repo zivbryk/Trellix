@@ -74,9 +74,22 @@
       }
     }
 
-    .avatar-group {
-      margin-right: 8px;
+    .board-header-facepile {
+      cursor: default;
+      float: left;
+      // margin-left: 4px;
+      margin-inline: 4px 8px;
+      overflow: hidden;
+      padding: 2px 0 0 2px;
+      & .member-avatar {
+        float: left;
+        margin: 0 0 0 -2px;
+        z-index: 1;
+      }
     }
+    // .avatar-group {
+    //   margin-right: 8px;
+    // }
 
     .btn-add-member {
       background-color: $clr0;

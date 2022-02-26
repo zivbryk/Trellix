@@ -3,6 +3,7 @@ import AutosizeInput from "react-input-autosize";
 import { useDispatch } from "react-redux";
 import _ from "lodash";
 import { LoaderCmp } from "../loader-cmp";
+import { MemberAvatar } from "../member-avatar";
 import { onEditBoard } from "../../store/actions/board.actions";
 
 export const BoardHeader = ({ board }) => {
@@ -85,14 +86,21 @@ export const BoardHeader = ({ board }) => {
 
         <span className="board-header-btn-divider"></span>
 
-        <button className="avatar-group btn board-header-btn board-header-btn-wide">
+        {/* <button className="avatar-group btn board-header-btn board-header-btn-wide">
           Avatar Group
-        </button>
+        </button> */}
+        <div>
+          <div className="board-header-facepile">
+            {board.boardMembers.map((member) => (
+              <MemberAvatar size={"28"} member={member} key={member._id} />
+            ))}
+          </div>
 
-        <button className="btn board-header-btn board-header-btn-wide flex align-center btn-add-member">
-          <span className="trl icon-add-member icon-sm"></span>
-          <span>Invite</span>
-        </button>
+          <button className="btn board-header-btn board-header-btn-wide flex align-center btn-add-member">
+            <span className="trl icon-add-member icon-sm"></span>
+            <span>Invite</span>
+          </button>
+        </div>
       </div>
 
       <div className="board-header-right flex">
