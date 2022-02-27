@@ -1,6 +1,6 @@
 // import { ReactComponent as adminChevron } from "../assets/img/badges/admin-chevron.png";
 
-export const MemberAvatar = ({ size, member }) => {
+export const MemberAvatar = ({ size, member, isBadge }) => {
   const getMemberTypeStyle = () => {
     if (!member.isAdmin) return {};
 
@@ -21,17 +21,17 @@ export const MemberAvatar = ({ size, member }) => {
     >
       <img
         src={member.imgUrl}
-        alt={
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633605060/Trellis%20permanent%20img/Avatars/guest_funut6.png"
-        }
+        alt=""
         title={`${member.fullname} (${member.username})`}
         style={{ height: `${size}px`, width: `${size}px` }}
       />
-      <span
-        className="member-type"
-        title={member.isAdmin ? "This member is an admin of this board." : ""}
-        style={getMemberTypeStyle()}
-      ></span>
+      {isBadge && (
+        <span
+          className="member-type"
+          title={member.isAdmin ? "This member is an admin of this board." : ""}
+          style={getMemberTypeStyle()}
+        ></span>
+      )}
     </div>
   );
 };

@@ -50,7 +50,12 @@ export const ListCardDetails = ({ card }) => {
 
       <div className="list-card-members">
         {card.cardMembers.map((member) => (
-          <MemberAvatar size={"28"} member={member} key={member._id} />
+          <MemberAvatar
+            size={"28"}
+            member={member}
+            isBadge={false}
+            key={member._id}
+          />
         ))}
       </div>
     </div>

@@ -27,7 +27,9 @@ export const ListCardBadges = ({ card }) => {
     } else {
       if (due > 0) {
         return due > 24 * 60 * 60 * 1000 ? "" : "is-due-soon";
-      } else return "is-due-now";
+      } else {
+        return -1 * due > 24 * 60 * 60 * 1000 ? "is-due-past" : "is-due-now";
+      }
     }
   };
 
@@ -82,9 +84,8 @@ export const ListCardBadges = ({ card }) => {
             title={getDueDateTitle()}
             onClick={toggleComplete}
           >
-            {true && (
-              <span className="badge-icon icon-sm trl icon-clock badge-due-icon"></span>
-            )}
+            <span className="badge-icon icon-sm trl icon-clock badge-due-icon"></span>
+
             {isComplete && (
               <span className="badge-icon icon-sm trl icon-checkbox-checked badge-due-checked"></span>
             )}

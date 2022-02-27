@@ -92,7 +92,12 @@ export const BoardHeader = ({ board }) => {
         <div>
           <div className="board-header-facepile">
             {board.boardMembers.map((member) => (
-              <MemberAvatar size={"28"} member={member} key={member._id} />
+              <MemberAvatar
+                size={"28"}
+                member={member}
+                isBadge={true}
+                key={member._id}
+              />
             ))}
           </div>
 

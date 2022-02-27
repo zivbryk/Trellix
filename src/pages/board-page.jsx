@@ -5,7 +5,7 @@ import { loadBoard } from "../store/actions/board.actions";
 import { BoardHeader } from "../cmps/board/board-header";
 import { LoaderCmp } from "../cmps/loader-cmp";
 import { CardsList } from "../cmps/list/cards-list";
-import { CardsListAdd } from "../cmps/list/cards-list-add";
+import { ListAddCmp } from "../cmps/list/list-add-cmp";
 
 export const BoardPage = () => {
   const board = useSelector((state) => state.boardReducer.board);
@@ -26,7 +26,7 @@ export const BoardPage = () => {
           {board.lists.map((list) => (
             <CardsList list={list} board={board} key={list.id} />
           ))}
-          <CardsListAdd board={board} />
+          <ListAddCmp board={board} />
         </div>
       </div>
     </section>

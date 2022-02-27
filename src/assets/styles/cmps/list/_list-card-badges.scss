@@ -37,7 +37,16 @@
     &.is-due-now {
       background-color: $red;
       border-radius: 3px;
-      color: #fff;
+      color: $clr0;
+      .badge-icon {
+        color: $clr0;
+      }
+    }
+
+    &.is-due-past {
+      background-color: lighten(desaturate($red, 8.02), 13.14);
+      border-radius: 3px;
+      color: $clr0;
       .badge-icon {
         color: $clr0;
       }
@@ -59,6 +68,9 @@
             desaturate(adjust-hue($red, 2), 24.74),
             15.49
           );
+        }
+        &.is-due-past {
+          background-color: $red;
         }
         &.is-due-complete {
           background-color: darken(adjust-hue($green, -5), 11.57);

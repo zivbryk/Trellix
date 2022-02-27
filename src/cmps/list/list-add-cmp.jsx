@@ -4,7 +4,7 @@ import _ from "lodash";
 import { onEditBoard } from "../../store/actions/board.actions";
 import { utilService } from "../../services/util.service";
 
-export const CardsListAdd = ({ board }) => {
+export const ListAddCmp = ({ board }) => {
   const dispatch = useDispatch();
   const [isEditTitle, setIsEditTitle] = useState(false);
   const [listTitle, setListTitle] = useState("");
@@ -53,7 +53,7 @@ export const CardsListAdd = ({ board }) => {
     <section
       tabIndex="0"
       id="add-list-container"
-      className={`card-list-add card-list ${isEditTitle && "edit-mode"}`}
+      className={`list-add-cmp cards-list ${isEditTitle ? "edit-mode" : ""}`}
     >
       {isEditTitle ? (
         <form onSubmit={onAddList}>

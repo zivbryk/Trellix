@@ -23,5 +23,35 @@
       padding: 0 4px;
       //Add scrol bar config here!!!!!!!!! TODO
     }
+
+    .card-composer {
+      max-height: 38px;
+      min-height: 38px;
+      .open-card-composer {
+        background-color: transparent;
+        border: none;
+        text-align: unset;
+        border-radius: 3px;
+        color: $clr4;
+        margin: 2px 0 8px 8px;
+        padding: 4px 8px;
+        position: relative;
+        -webkit-user-select: none;
+        user-select: none;
+        width: 228px;
+
+        .icon-add {
+          color: lighten(desaturate($clr5, 3.45), 4.12);
+          margin-right: 2px;
+        }
+        &:hover {
+          background-color: #091e4214;
+          color: $clr3;
+          .icon-add {
+            color: #42526e;
+          }
+        }
+      }
+    }
   }
 }
