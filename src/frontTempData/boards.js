@@ -221,6 +221,7 @@ export const boards = [
                 ],
               },
             ],
+            isComplete: true,
           },
           {
             id: "c102",
@@ -276,6 +277,7 @@ export const boards = [
             attachments: [],
             isWatched: true,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "c103",
@@ -325,6 +327,7 @@ export const boards = [
             ],
             attachments: [],
             isWatched: false,
+            isComplete: true,
           },
         ],
       },
@@ -423,6 +426,7 @@ export const boards = [
               isImage: false,
             },
             isWatched: false,
+            isComplete: false,
           },
           {
             id: "f1Gp",
@@ -445,6 +449,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "f12f",
@@ -458,6 +463,7 @@ export const boards = [
             attachments: [],
             isWatched: true,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "f13N",
@@ -479,6 +485,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
         ],
       },
@@ -519,6 +526,7 @@ export const boards = [
             attachments: [],
             isWatched: true,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "pK35",
@@ -607,6 +615,7 @@ export const boards = [
               isImage: false,
             },
             isWatched: false,
+            isComplete: false,
           },
         ],
       },
@@ -626,6 +635,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "p830",
@@ -690,6 +700,7 @@ export const boards = [
             },
             attachments: [],
             isWatched: true,
+            isComplete: false,
           },
         ],
       },
@@ -809,6 +820,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "c102",
@@ -821,6 +833,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
         ],
       },
@@ -838,6 +851,7 @@ export const boards = [
             },
             attachments: [],
             isWatched: false,
+            isComplete: false,
           },
           {
             id: "c104",
@@ -887,6 +901,7 @@ export const boards = [
             },
             attachments: [],
             isWatched: false,
+            isComplete: false,
           },
         ],
       },
@@ -1012,6 +1027,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "c102",
@@ -1024,6 +1040,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
         ],
       },
@@ -1042,6 +1059,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "c104",
@@ -1091,6 +1109,7 @@ export const boards = [
             },
             attachments: [],
             isWatched: false,
+            isComplete: false,
           },
         ],
       },
@@ -1209,6 +1228,7 @@ export const boards = [
             isWatched: false,
             checklists: [],
             attachments: [],
+            isComplete: false,
           },
           {
             id: "c102",
@@ -1221,6 +1241,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
         ],
       },
@@ -1239,6 +1260,7 @@ export const boards = [
             attachments: [],
             isWatched: false,
             checklists: [],
+            isComplete: false,
           },
           {
             id: "c104",
@@ -1288,6 +1310,7 @@ export const boards = [
             },
             attachments: [],
             isWatched: false,
+            isComplete: false,
           },
         ],
       },

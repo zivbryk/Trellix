@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import _ from "lodash";
 import { onEditBoard } from "../../store/actions/board.actions";
-import { utilService } from "../../services/util.service";
+import { boardService } from "../../services/board.service";
 
 export const ListAddCmp = ({ board }) => {
   const dispatch = useDispatch();
@@ -31,11 +31,7 @@ export const ListAddCmp = ({ board }) => {
     }
 
     const clonedBoard = _.cloneDeep(board);
-    const newList = {
-      id: utilService.makeId(),
-      title: listTitle,
-      cards: [],
-    };
+    const newList = boardService.getEmptyList(listTitle);
     clonedBoard.lists.push(newList);
 
     setListTitle("");

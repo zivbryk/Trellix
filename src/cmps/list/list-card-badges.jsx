@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import _ from "lodash";
+import { onEditBoard } from "../../store/actions/board.actions";
 
-export const ListCardBadges = ({ card }) => {
-  const [isComplete, setIsComplete] = useState(false);
+export const ListCardBadges = ({ currCard, currList }) => {
+  const board = useSelector((state) => state.boardReducer.board);
+  const dispatch = useDispatch();
+  const [isCardComplete, setIsCardComplete] = useState(false);
 
-  const due = card.dueDate - Date.now();
+  useEffect(() => {
+    setIsCardComplete(currCard.isComplete);
+  }, [currCard.isComplete]);
+
+  const due = currCard.dueDate - Date.now();
 
   const getDueDateTitle = () => {
-    if (isComplete) {
+    if (isCardComplete) {
       return "This card is complete.";
     } else {
       if (due > 0) {
@@ -22,7 +31,7 @@ export const ListCardBadges = ({ card }) => {
   };
 
   const getDueDateStyle = () => {
-    if (isComplete) {
+    if (isCardComplete) {
       return "is-due-complete";
     } else {
       if (due > 0) {
@@ -34,19 +43,26 @@ export const ListCardBadges = ({ card }) => {
   };
 
   const getFormatedDueDate = () => {
-    if (!card.dueDate) return "";
+    if (!currCard.dueDate) return "";
     return new Intl.DateTimeFormat("en-US", {
       month: "short",
       day: "numeric",
-    }).format(card.dueDate);
+    }).format(currCard.dueDate);
   };
 
   const toggleComplete = () => {
-    setIsComplete(!isComplete);
+    setIsCardComplete(!isCardComplete);
+
+    const clonedBoard = _.cloneDeep(board);
+    const listIdx = board.lists.findIndex((list) => list.id === currList.id);
+    const cardIdx = currList.cards.findIndex((card) => card.id === currCard.id);
+    clonedBoard.lists[listIdx].cards[cardIdx].isComplete = !isCardComplete;
+
+    dispatch(onEditBoard(clonedBoard));
   };
 
   const getChecklistsStatistics = () => {
-    const checklistsStatistics = card.checklists.reduce(
+    const checklistsStatistics = currCard.checklists.reduce(
       (acc, currCheckList) => {
         const totalTasksPerList = currCheckList.todos.length;
         if (!acc["totalTasks"]) acc["totalTasks"] = 0;
@@ -72,13 +88,13 @@ export const ListCardBadges = ({ card }) => {
   return (
     <div className="list-card-badges">
       <span>
-        {card.isWatched && (
+        {currCard.isWatched && (
           <div className="badge icon-only" title="You are watching this card">
             <span className="badge-icon icon-sm trl icon-subscribe"></span>
           </div>
         )}
 
-        {card.dueDate && (
+        {currCard.dueDate && (
           <div
             className={`badge due-date-badge ${getDueDateStyle()}`}
             title={getDueDateTitle()}
@@ -86,21 +102,21 @@ export const ListCardBadges = ({ card }) => {
           >
             <span className="badge-icon icon-sm trl icon-clock badge-due-icon"></span>
 
-            {isComplete && (
+            {isCardComplete && (
               <span className="badge-icon icon-sm trl icon-checkbox-checked badge-due-checked"></span>
             )}
-            {!isComplete && (
+            {!isCardComplete && (
               <span className="badge-icon icon-sm trl icon-checkbox-unchecked badge-due-unchecked"></span>
             )}
             <span className="badge-text">{getFormatedDueDate()}</span>
           </div>
         )}
 
-        {card.description && (
+        {currCard.description && (
           <div
             className="badge icon-only"
             title={
-              card.description
+              currCard.description
                 ? "This card has a description."
                 : "This card has no description."
             }
@@ -109,14 +125,14 @@ export const ListCardBadges = ({ card }) => {
           </div>
         )}
 
-        {card.attachments?.length > 0 && (
+        {currCard.attachments?.length > 0 && (
           <div className="badge" title="attachments">
             <span className="badge-icon icon-sm trl icon-attachment"></span>
-            <span className="badge-text">{card.attachments.length}</span>
+            <span className="badge-text">{currCard.attachments.length}</span>
           </div>
         )}
 
-        {card.checklists.length > 0 && (
+        {currCard.checklists.length > 0 && (
           <div className="badge checkitems-badge" title="Checklist items">
             <span className="badge-icon icon-sm trl icon-checkbox-checked"></span>
             <span className="badge-text checkitems-badge-text">

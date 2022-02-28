@@ -1,10 +1,10 @@
 import React from "react";
 import { ListCardContent } from "./list-card-content";
 
-export const ListCardPreview = ({ card }) => {
+export const ListCardPreview = ({ currCard, currList }) => {
   return (
     <section className="card-preview">
-      <ListCardContent card={card} />
+      <ListCardContent currCard={currCard} currList={currList} />
     </section>
   );
 };

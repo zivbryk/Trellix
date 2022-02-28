@@ -1,6 +1,6 @@
 // import { ReactComponent as adminChevron } from "../assets/img/badges/admin-chevron.png";
 
-export const MemberAvatar = ({ size, member, isBadge }) => {
+export const MemberAvatar = ({ size, member, isBadge, idx = "" }) => {
   const getMemberTypeStyle = () => {
     if (!member.isAdmin) return {};
 
@@ -17,7 +17,11 @@ export const MemberAvatar = ({ size, member, isBadge }) => {
   return (
     <div
       className="member-avatar"
-      style={{ height: `${size}px`, width: `${size}px` }}
+      style={{
+        height: `${size}px`,
+        width: `${size}px`,
+        zIndex: `${idx}`,
+      }}
     >
       <img
         src={member.imgUrl}

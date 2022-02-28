@@ -1,5 +1,5 @@
 import { storageService } from "./async-storage.service.js";
-// import { utilService } from "./util.service.js";
+import { utilService } from "./util.service.js";
 // import { userService } from "./user.service.js";
 
 const STORAGE_KEY = "board";
@@ -12,6 +12,8 @@ export const boardService = {
   save,
   //   remove,
   //   getEmptyBoard,
+  getEmptyList,
+  getEmptyCard,
   //   subscribe,
 };
 // window.cs = boardService;
@@ -35,6 +37,37 @@ function save(board) {
     // board.owner = userService.getLoggedinUser();
     return storageService.post(STORAGE_KEY, board);
   }
+}
+
+function getEmptyList(listTitle) {
+  return {
+    id: utilService.makeId(),
+    title: listTitle,
+    cards: [],
+  };
+}
+
+function getEmptyCard(cardTtile = "") {
+  return {
+    id: utilService.makeId(),
+    title: cardTtile,
+    style: {
+      cover: null,
+      isImage: true,
+    },
+    byMember: "loggedinUser",
+    description: "",
+    labelIds: [],
+    cardMembers: [],
+    isWatched: false,
+    createdAt: Date.now(),
+    startDate: 0,
+    dueDate: null,
+    attachments: [],
+    checklists: [],
+    comments: [],
+    isComplete: false,
+  };
 }
 
 // function remove(boardId) {

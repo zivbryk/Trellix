@@ -4,7 +4,7 @@ import { toggleListCardLabels } from "../../store/actions/app.actions";
 import { ListCardBadges } from "./list-card-badges";
 import { MemberAvatar } from "../member-avatar";
 
-export const ListCardDetails = ({ card }) => {
+export const ListCardDetails = ({ currCard, currList }) => {
   const board = useSelector((state) => state.boardReducer.board);
   const isLabelsTextVisible = useSelector(
     (state) => state.appReducer.isLabelsTextVisible
@@ -22,7 +22,7 @@ export const ListCardDetails = ({ card }) => {
   return (
     <div className="list-card-details">
       <div className="list-card-labels">
-        {card.labelIds?.map((labelId) => {
+        {currCard.labelIds?.map((labelId) => {
           const label = board.labels.find((label) => label.id === labelId);
           return (
             <span
@@ -44,12 +44,12 @@ export const ListCardDetails = ({ card }) => {
         })}
       </div>
 
-      <span className="list-card-title">{card.title}</span>
+      <span className="list-card-title">{currCard.title}</span>
 
-      <ListCardBadges card={card} />
+      <ListCardBadges currCard={currCard} currList={currList} />
 
       <div className="list-card-members">
-        {card.cardMembers.map((member) => (
+        {currCard.cardMembers.map((member) => (
           <MemberAvatar
             size={"28"}
             member={member}

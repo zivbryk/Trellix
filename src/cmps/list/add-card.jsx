@@ -1,62 +1,73 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import _ from "lodash";
+import { boardService } from "../../services/board.service";
+import { onEditBoard } from "../../store/actions/board.actions";
+import { TextareaAutosize } from "@mui/material";
 
-export const AddCard = ({ toggleAddingCard }) => {
+export const AddCard = ({ toggleAddingCard, currList }) => {
   const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
+  const textArea = useRef(null);
 
-  const [titleTxt, setTitleTxt] = useState("");
+  const [cardTitle, setCardTitle] = useState("");
 
   const handleTitleChange = (ev) => {
     const { value } = ev.target;
     if (ev.key === "Enter") {
+      ev.preventDefault();
       onAddCard(ev);
+      setCardTitle("");
       return;
     }
-    setTitleTxt(value);
+    setCardTitle(value);
   };
 
   const onAddCard = (ev) => {
-    console.log("adding card!!");
-    //   ev.preventDefault();
-    //   if (!listTitle) {
-    //     titleInput.current.focus();
-    //     return;
-    //   }
+    if (!cardTitle) {
+      textArea.focus();
+      return;
+    }
 
-    //   const clonedBoard = _.cloneDeep(board);
-    //   const newList = {
-    //     id: utilService.makeId(),
-    //     title: listTitle,
-    //     cards: [],
-    //   };
-    //   clonedBoard.lists.push(newList);
+    const clonedBoard = _.cloneDeep(board);
+    const newCard = boardService.getEmptyCard(cardTitle);
+    const listIdx = board.lists.findIndex((list) => list.id === currList.id);
+    clonedBoard.lists[listIdx].cards.push(newCard);
 
-    //   setListTitle("");
-    //   dispatch(onEditBoard(clonedBoard));
+    setCardTitle("");
+    dispatch(onEditBoard(clonedBoard));
+  };
+
+  const onCloseAddCard = (ev) => {
+    if (ev.relatedTarget?.contains(ev.target)) {
+      return;
+    } else if (ev.relatedTarget?.id !== "add-card-btn") toggleAddingCard();
   };
 
   return (
-    <div className="add-card">
+    <div className="add-card" tabIndex="0">
       <div className="list-card-content">
         <div className="add-card-details">
-          <textarea
+          <TextareaAutosize
             dir="auto"
             placeholder="Enter a title for this card…"
-            value={titleTxt}
+            value={cardTitle}
             onChange={handleTitleChange}
             onKeyDown={handleTitleChange}
             autoFocus
-          ></textarea>
+            ref={textArea}
+            onBlur={onCloseAddCard}
+            aria-label="empty textarea"
+          />
         </div>
       </div>
 
       <div className="add-card-controls">
         <div>
           <button
-            //   id="add-list-btn"
+            id="add-card-btn"
             className="btn btn-primary"
-            //   onClick={onAddList}
+            onClick={onAddCard}
           >
             Add card
           </button>

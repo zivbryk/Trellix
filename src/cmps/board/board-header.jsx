@@ -91,11 +91,12 @@ export const BoardHeader = ({ board }) => {
         </button> */}
         <div>
           <div className="board-header-facepile">
-            {board.boardMembers.map((member) => (
+            {board.boardMembers.map((member, idx) => (
               <MemberAvatar
                 size={"28"}
                 member={member}
                 isBadge={true}
+                idx={board.boardMembers.length - idx}
                 key={member._id}
               />
             ))}

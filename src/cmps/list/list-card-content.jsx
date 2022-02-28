@@ -2,7 +2,7 @@ import React from "react";
 // import React, { useState, useEffect, useRef } from "react";
 import { ListCardDetails } from "./list-card-details";
 
-export const ListCardContent = ({ card }) => {
+export const ListCardContent = ({ currCard, currList }) => {
   // REMOVE_COMMENT TODO: In order for card cover background img not to get cut, aspect ratio (r=w/h) of the image can be obtained and then height of the cover image is 256/r (width is set to the width of the card 256px). get aspect ratio func here works great but there is a problem whith useEffect - error message that there is a memory leak as the state is updated after the component is unmounted!
   //*When pplying the true aspect ratio of the img, style:background-size: contain should be used.This can result with white edges and require a way to detect the img background color and apply it as the cover div bgc!
 
@@ -59,17 +59,17 @@ export const ListCardContent = ({ card }) => {
   // });
 
   const getCoverStyle = () => {
-    if (!card.style.cover) return {};
+    if (!currCard.style.cover) return {};
 
-    const coverStyle = card.style.isImage
+    const coverStyle = currCard.style.isImage
       ? {
           height: "152px",
-          backgroundImage: `url(${card.style.cover})`,
+          backgroundImage: `url(${currCard.style.cover})`,
           backgroundSize: "cover",
         }
       : {
           height: "32px",
-          backgroundColor: `${card.style.cover}`,
+          backgroundColor: `${currCard.style.cover}`,
         };
 
     return coverStyle;
@@ -77,7 +77,9 @@ export const ListCardContent = ({ card }) => {
 
   return (
     <section
-      className={`list-card-content ${card.style.cover ? "is-covered" : ""}`}
+      className={`list-card-content ${
+        currCard.style.cover ? "is-covered" : ""
+      }`}
     >
       <div
         className={"list-card-cover"}
@@ -89,7 +91,7 @@ export const ListCardContent = ({ card }) => {
         <span className="trl icon-edit icon-sm"></span>
       </button>
 
-      <ListCardDetails card={card} />
+      <ListCardDetails currCard={currCard} currList={currList} />
     </section>
   );
 };

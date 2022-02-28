@@ -16,9 +16,11 @@ export const CardsList = ({ list, board }) => {
         <ListHeader list={list} board={board} />
         <div className="card-previews">
           {list.cards.map((card) => (
-            <ListCardPreview key={card.id} card={card} />
+            <ListCardPreview key={card.id} currCard={card} currList={list} />
           ))}
-          {isAddingCard && <AddCard toggleAddingCard={toggleAddingCard} />}
+          {isAddingCard && (
+            <AddCard toggleAddingCard={toggleAddingCard} currList={list} />
+          )}
         </div>
 
         {!isAddingCard && (
