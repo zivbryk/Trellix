@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import _ from "lodash";
 
 import { onEditBoard } from "../store/actions/board.actions";
 import { loadBoard } from "../store/actions/board.actions";
@@ -23,15 +22,14 @@ export const BoardPage = () => {
 
   const onDragEnd = (result) => {
     const { destination, source, type } = result;
-    let boardToEdit = _.cloneDeep(board);
+    let boardToEdit = { ...board };
     const { lists } = boardToEdit;
-    // // console.log('lists:', lists, 'board:', board);
     if (!destination) return;
     const droppableIdStart = source.droppableId;
     const droppableIdEnd = destination.droppableId;
     const droppableIdxStart = source.index;
     const droppableIdxEnd = destination.index;
-    // Dragging lists around (Must be first in list for other if statments not to happen)
+    // Dragging lists around (Must be the first option, for other "if" statments not to happen)
     if (type === "list") {
       const list = lists.splice(droppableIdxStart, 1);
       lists.splice(droppableIdxEnd, 0, ...list);
@@ -69,16 +67,32 @@ export const BoardPage = () => {
 
   if (!board) return <LoaderCmp />;
   return (
-    <section className="board-page flex column">
-      <BoardHeader board={board} />
-      <div className="board-canvas">
-        <div className="lists-container">
-          {board.lists.map((list) => (
-            <CardsList list={list} board={board} key={list.id} />
-          ))}
-          <ListAddCmp board={board} />
+    <DragDropContext onDragEnd={onDragEnd}>
+      <section className="board-page flex column">
+        <BoardHeader board={board} />
+        <div className="board-canvas">
+          <Droppable droppableId="all-lists" direction="horizontal" type="list">
+            {(provided) => (
+              <div
+                className="lists-container"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {board.lists.map((list, idx) => (
+                  <CardsList
+                    list={list}
+                    board={board}
+                    key={list.id}
+                    listIdx={idx}
+                  />
+                ))}
+                <ListAddCmp board={board} />
+                <span style={{ display: "none" }}>{provided.placeholder}</span>
+              </div>
+            )}
+          </Droppable>
         </div>
-      </div>
-    </section>
+      </section>
+    </DragDropContext>
   );
 };

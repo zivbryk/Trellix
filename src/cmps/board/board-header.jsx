@@ -91,15 +91,22 @@ export const BoardHeader = ({ board }) => {
         </button> */}
         <div>
           <div className="board-header-facepile">
-            {board.boardMembers.map((member, idx) => (
-              <MemberAvatar
-                size={"28"}
-                member={member}
-                isBadge={true}
-                idx={board.boardMembers.length - idx}
-                key={member._id}
-              />
-            ))}
+            {board.boardMembers
+              .filter((member, idx) => idx < 4)
+              .map((member, idx) => (
+                <MemberAvatar
+                  size={"28"}
+                  member={member}
+                  isBadge={true}
+                  idx={board.boardMembers.length - idx}
+                  key={member._id}
+                />
+              ))}
+            <MemberAvatar
+              size={"28"}
+              isBadge={false}
+              txt={board.boardMembers.length - 4}
+            />
           </div>
 
           <button className="btn board-header-btn board-header-btn-wide flex align-center btn-add-member">

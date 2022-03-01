@@ -1,6 +1,12 @@
 // import { ReactComponent as adminChevron } from "../assets/img/badges/admin-chevron.png";
 
-export const MemberAvatar = ({ size, member, isBadge, idx = "" }) => {
+export const MemberAvatar = ({
+  size,
+  member = null,
+  isBadge = false,
+  idx = "",
+  txt = "",
+}) => {
   const getMemberTypeStyle = () => {
     if (!member.isAdmin) return {};
 
@@ -16,25 +22,37 @@ export const MemberAvatar = ({ size, member, isBadge, idx = "" }) => {
 
   return (
     <div
-      className="member-avatar"
+      className={`${
+        !member ? "txt" : ""
+      } member-avatar flex align-center justify-center`}
       style={{
         height: `${size}px`,
         width: `${size}px`,
         zIndex: `${idx}`,
       }}
     >
-      <img
-        src={member.imgUrl}
-        alt=""
-        title={`${member.fullname} (${member.username})`}
-        style={{ height: `${size}px`, width: `${size}px` }}
-      />
+      {member && (
+        <img
+          src={member.imgUrl}
+          alt=""
+          title={`${member.fullname} (${member.username})`}
+          style={{ height: `${size}px`, width: `${size}px` }}
+        />
+      )}
+
       {isBadge && (
         <span
           className="member-type"
           title={member.isAdmin ? "This member is an admin of this board." : ""}
           style={getMemberTypeStyle()}
         ></span>
+      )}
+
+      {!member && (
+        <>
+          <span className="trl icon-add flex"></span>
+          <span className="avatar-txt">{`${txt}`}</span>
+        </>
       )}
     </div>
   );
