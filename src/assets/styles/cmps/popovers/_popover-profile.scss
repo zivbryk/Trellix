@@ -1,0 +1,63 @@
+.popover-profile {
+  .popover-content {
+    .popover-profile-header {
+      color: $clr0;
+
+      background-image: linear-gradient(to bottom, #0079bf 0%, #0079bf 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 82px;
+      margin-left: -12px;
+      margin-right: -12px;
+      padding: 24px 12px 8px 14px;
+      position: relative;
+
+      & > :first-child {
+        width: 88px;
+        height: 88px;
+
+        border: 1px solid #dfe1e6;
+        background-color: #dfe1e6;
+        line-height: 10px;
+        border-radius: 50%;
+        & > :first-child {
+          width: 100%;
+          height: 100%;
+          line-height: 86px;
+          border-radius: 50%;
+          &:hover {
+            // filter: brightness(110%);
+            opacity: 0.9;
+          }
+        }
+      }
+
+      & > :last-child {
+        margin-left: 8px;
+        margin-top: 8px;
+        flex-grow: 1;
+        & > :first-child {
+          font-size: 16px;
+          font-weight: 500;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        & > :last-child {
+          font-size: 12px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    li {
+      cursor: pointer;
+      padding: 6px 12px;
+      margin-inline: -12px;
+      &:hover {
+        background-color: rgba(9, 30, 66, 0.04);
+      }
+    }
+  }
+}

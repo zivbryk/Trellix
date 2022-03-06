@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleListCardLabels } from "../../store/actions/app.actions";
 import { ListCardBadges } from "./list-card-badges";
 import { MemberAvatar } from "../member-avatar";
+import { openPopover } from "../../store/actions/app.actions";
 
 export const ListCardDetails = ({ currCard, currList }) => {
   const board = useSelector((state) => state.boardReducer.board);
@@ -11,12 +12,14 @@ export const ListCardDetails = ({ currCard, currList }) => {
   );
   const dispatch = useDispatch();
 
-  //   const [isLabelsTextVisible, setLabelsTextVisible] = useState(false);
-
   const onToggleListCardLabels = () => {
     dispatch(toggleListCardLabels(!isLabelsTextVisible));
-    // setLabelsTextVisible(!isLabelsTextVisible);
-    // console.log(isLabelsTextVisible);
+  };
+
+  const onOpenpopver = (ev, popoverName, member) => {
+    const elPos = ev.target.getBoundingClientRect();
+    const popoverProps = { member };
+    dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
   return (
@@ -55,6 +58,7 @@ export const ListCardDetails = ({ currCard, currList }) => {
             member={member}
             isBadge={false}
             key={member._id}
+            onOpenpopver={onOpenpopver}
           />
         ))}
       </div>

@@ -5,6 +5,7 @@ import _ from "lodash";
 import { LoaderCmp } from "../loader-cmp";
 import { MemberAvatar } from "../member-avatar";
 import { onEditBoard } from "../../store/actions/board.actions";
+import { openPopover } from "../../store/actions/app.actions";
 
 export const BoardHeader = ({ board }) => {
   const dispatch = useDispatch();
@@ -42,6 +43,12 @@ export const BoardHeader = ({ board }) => {
     const clonedBoard = _.cloneDeep(board);
     clonedBoard.isStarred = !clonedBoard.isStarred;
     dispatch(onEditBoard(clonedBoard));
+  };
+
+  const onOpenpopver = (ev, popoverName, member) => {
+    const elPos = ev.target.getBoundingClientRect();
+    const popoverProps = { member, isInCard: false };
+    dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
   if (!board) return <LoaderCmp />;
@@ -100,6 +107,7 @@ export const BoardHeader = ({ board }) => {
                   isBadge={true}
                   idx={board.boardMembers.length - idx}
                   key={member._id}
+                  onOpenpopver={onOpenpopver}
                 />
               ))}
             <MemberAvatar

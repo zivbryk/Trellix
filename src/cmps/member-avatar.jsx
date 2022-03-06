@@ -6,6 +6,7 @@ export const MemberAvatar = ({
   isBadge = false,
   idx = "",
   txt = "",
+  onOpenpopver,
 }) => {
   const getMemberTypeStyle = () => {
     if (!member.isAdmin) return {};
@@ -20,6 +21,10 @@ export const MemberAvatar = ({
     return coverStyle;
   };
 
+  const onClickAvatar = (ev) => {
+    onOpenpopver(ev, "PROFILE", member);
+  };
+
   return (
     <div
       className={`${
@@ -30,6 +35,7 @@ export const MemberAvatar = ({
         width: `${size}px`,
         zIndex: `${idx}`,
       }}
+      onClick={(ev) => onClickAvatar(ev)}
     >
       {member && (
         <img

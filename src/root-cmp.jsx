@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router";
 import { useLocation } from "react-router-dom";
 import { AppHeader } from "./cmps/app-header";
+import { DynamicPopover } from "./cmps/popovers/dynamic-popover";
 // import { boardService } from "./services/board.service";
 // import { boards } from "./frontTempData/boards.js";
 import routes from "./routes";
@@ -45,6 +46,7 @@ export const RootCmp = () => {
             />
           ))}
         </Routes>
+        <DynamicPopover />
       </main>
     </section>
   );
