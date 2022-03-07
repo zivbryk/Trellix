@@ -6,7 +6,8 @@ export const MemberAvatar = ({
   isBadge = false,
   idx = "",
   txt = "",
-  onOpenpopver,
+  onOpenPopver,
+  isInAppHeader = false,
 }) => {
   const getMemberTypeStyle = () => {
     if (!member.isAdmin) return {};
@@ -22,13 +23,15 @@ export const MemberAvatar = ({
   };
 
   const onClickAvatar = (ev) => {
-    onOpenpopver(ev, "PROFILE", member);
+    if (!onOpenPopver) return;
+    if (isInAppHeader) onOpenPopver(ev, "ACCOUNT", member);
+    else onOpenPopver(ev, "PROFILE", member);
   };
 
   return (
     <div
       className={`${
-        !member ? "txt" : ""
+        !member ? "txt" : "pointer"
       } member-avatar flex align-center justify-center`}
       style={{
         height: `${size}px`,

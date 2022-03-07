@@ -1,11 +1,14 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { ReactComponent as BoardsIcon } from "../assets/img/icons/boards.svg";
 import BoardsAnimation from "../assets/img/animations/trello-logo-loader.gif";
-import { NavLink } from "react-router-dom";
 import { UserMsg } from "../cmps/user-msg";
+import { MemberAvatar } from "./member-avatar";
+import { openPopover } from "../store/actions/app.actions";
 
 export const AppHeader = () => {
+  const dispatch = useDispatch();
   const pathname = useLocation().pathname;
 
   function getStyle() {
@@ -15,6 +18,23 @@ export const AppHeader = () => {
     }
     return null;
   }
+
+  const onOpenPopver = (ev, popoverName, loggedinUser) => {
+    const elPos = ev.target.getBoundingClientRect();
+    const popoverProps = { loggedinUser, isInCard: false };
+    dispatch(openPopover(popoverName, elPos, popoverProps));
+  };
+
+  const getloggedinUser = () => {
+    return {
+      _id: "u101",
+      fullname: "Ziv Bryk",
+      username: "zivbryk",
+      imgUrl:
+        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+      isAdmin: true,
+    };
+  };
 
   return (
     <>
@@ -53,17 +73,18 @@ export const AppHeader = () => {
           </div>
         </nav>
 
-        <nav className="right-pane flex">
+        <nav className="right-pane flex align-center">
           <button className="btn btn-header flex">
             <span className="trl icon-bell icon-md"></span>
           </button>
 
-          <div className="avatar">
-            <img
-              src="https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png"
-              alt="avatar"
-            />
-          </div>
+          <MemberAvatar
+            size={"32"}
+            member={getloggedinUser()}
+            isBadge={false}
+            onOpenPopver={onOpenPopver}
+            isInAppHeader={true}
+          />
         </nav>
       </header>
       <UserMsg />

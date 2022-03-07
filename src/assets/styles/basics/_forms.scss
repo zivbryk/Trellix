@@ -49,6 +49,9 @@ textarea {
     &:hover {
       background-color: darken(desaturate($clr6, 2.37), 4.31);
     }
+    &:active {
+      background-color: darken(desaturate($clr6, 6.9), 9.02);
+    }
   }
 }
 

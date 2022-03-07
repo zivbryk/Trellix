@@ -6,8 +6,9 @@ export const boards = [
     isStarred: true,
     createdBy: {
       _id: "u102",
-      fullname: "may almog",
-      imgUrl: "/avatars/may.png",
+      fullname: "May Almog",
+      imgUrl:
+        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
     },
     style: {
       cover:

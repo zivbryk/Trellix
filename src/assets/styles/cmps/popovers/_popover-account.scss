@@ -1,0 +1,40 @@
+.popover-account {
+  header {
+    margin-bottom: 8px;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 12px 1fr 12px;
+
+    & > :first-child {
+      //   font-size: 14px;
+      //   line-height: 20px;
+      //   font-weight: 400;
+      border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+      color: #5e6c84;
+      height: 40px;
+      display: block;
+      line-height: 40px;
+      margin: 0;
+      overflow: hidden;
+      padding: 0 32px;
+      position: relative;
+      //   text-overflow: ellipsis;
+      //   white-space: nowrap;
+      grid-column: 1 / span 3;
+      grid-row: 1;
+    }
+
+    & > :last-child {
+      font-size: 18px;
+      color: #5e6c84;
+      grid-column: 3;
+      grid-row: 1;
+      z-index: 2;
+      &:hover {
+        color: #172b4d;
+      }
+    }
+  }
+}

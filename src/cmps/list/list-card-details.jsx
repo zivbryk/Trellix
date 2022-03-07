@@ -16,9 +16,9 @@ export const ListCardDetails = ({ currCard, currList }) => {
     dispatch(toggleListCardLabels(!isLabelsTextVisible));
   };
 
-  const onOpenpopver = (ev, popoverName, member) => {
+  const onOpenPopver = (ev, popoverName, member) => {
     const elPos = ev.target.getBoundingClientRect();
-    const popoverProps = { member };
+    const popoverProps = { member, board, currCard };
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
@@ -58,7 +58,7 @@ export const ListCardDetails = ({ currCard, currList }) => {
             member={member}
             isBadge={false}
             key={member._id}
-            onOpenpopver={onOpenpopver}
+            onOpenPopver={onOpenPopver}
           />
         ))}
       </div>

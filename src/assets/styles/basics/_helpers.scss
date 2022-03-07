@@ -114,3 +114,8 @@
 .portrait-ratio {
   @include aspect-ratio(9, 16);
 }
+
+//General
+.pointer {
+  cursor: pointer;
+}

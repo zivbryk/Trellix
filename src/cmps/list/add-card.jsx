@@ -25,7 +25,7 @@ export const AddCard = ({ toggleAddingCard, currList }) => {
 
   const onAddCard = (ev) => {
     if (!cardTitle) {
-      textArea.focus();
+      // textArea.focus();
       return;
     }
 
@@ -62,7 +62,7 @@ export const AddCard = ({ toggleAddingCard, currList }) => {
         </div>
       </div>
 
-      <div className="add-card-controls">
+      <div className="add-card-controls flex">
         <div>
           <button
             id="add-card-btn"
@@ -73,8 +73,9 @@ export const AddCard = ({ toggleAddingCard, currList }) => {
           </button>
 
           <span
-            className="trl icon-close icon-lg"
+            className="trl icon-close icon-lg pointer"
             onClick={toggleAddingCard}
+            onMouseDown={toggleAddingCard}
           ></span>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { storageService } from "./async-storage.service.js";
 import { utilService } from "./util.service.js";
+import _ from "lodash";
 // import { userService } from "./user.service.js";
 
 const STORAGE_KEY = "board";
@@ -14,6 +15,7 @@ export const boardService = {
   //   getEmptyBoard,
   getEmptyList,
   getEmptyCard,
+  updateCardInBoard,
   //   subscribe,
 };
 // window.cs = boardService;
@@ -68,6 +70,18 @@ function getEmptyCard(cardTtile = "") {
     comments: [],
     isComplete: false,
   };
+}
+
+function updateCardInBoard(board, updatedCard) {
+  let boardToSave = _.cloneDeep(board);
+
+  boardToSave.lists.forEach((list) => {
+    list.cards.forEach((card, idx) => {
+      if (card.id === updatedCard.id) list.cards[idx] = updatedCard;
+    });
+  });
+
+  return boardToSave;
 }
 
 // function remove(boardId) {
