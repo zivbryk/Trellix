@@ -20,6 +20,7 @@ export const boardService = {
 };
 // window.cs = boardService;
 
+//REMOVE_COMMENT: Remove after connecting Backend
 function loadDataManual(entities) {
   storageService.load(STORAGE_KEY, entities);
 }

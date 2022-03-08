@@ -1,7 +1,18 @@
 import Popover from "@mui/material/Popover";
+import { ReactComponent as CloseIcon } from "../../assets/img/icons/close.svg";
 
 export const PopoverAccount = ({ elPos, handleClose, loggedinUser }) => {
-  console.log(elPos.left);
+  const getStyle = () => {
+    return {
+      backgroundImage: `url(${loggedinUser.imgUrl})`,
+      backgroundSize: "cover",
+    };
+  };
+
+  const onLogout = () => {
+    console.log("logging out!");
+  };
+
   return (
     <Popover
       className="popover"
@@ -14,17 +25,43 @@ export const PopoverAccount = ({ elPos, handleClose, loggedinUser }) => {
       }}
     >
       <div className="popover-account">
-        {/* <button className="btn btn-close-popover" onClick={handleClose}>
-          <span className="trl icon-close"></span>
-        </button> */}
+        <header>
+          <div title="Account">Account</div>
+          <button className="btn" onClick={handleClose}>
+            <span>
+              <CloseIcon />
+            </span>
+          </button>
+        </header>
 
-        <div className="popover-content">
-          <header>
-            <div title="Account">Account</div>
-            <button className="btn" onClick={handleClose}>
-              <span className="trl icon-close"></span>
-            </button>
-          </header>
+        <div className="popover-account-content">
+          <nav>
+            <ul className="clean-list">
+              <div className="flex">
+                <div>
+                  <div
+                    title={`${loggedinUser.fullname}(${loggedinUser.username})`}
+                  >
+                    <span
+                      style={getStyle()}
+                      title={`${loggedinUser.fullname}(${loggedinUser.username})`}
+                    ></span>
+                  </div>
+                </div>
+
+                <div>
+                  <div>{loggedinUser.fullname}</div>
+                  <span>{loggedinUser.email}</span>
+                </div>
+              </div>
+
+              <hr />
+
+              <li className="popover-li" onClick={onLogout}>
+                Log out
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </Popover>

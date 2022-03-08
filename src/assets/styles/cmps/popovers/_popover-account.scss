@@ -6,13 +6,10 @@
     text-align: center;
     display: grid;
     grid-template-columns: 12px 1fr 12px;
+    color: $clr4;
 
     & > :first-child {
-      //   font-size: 14px;
-      //   line-height: 20px;
-      //   font-weight: 400;
       border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-      color: #5e6c84;
       height: 40px;
       display: block;
       line-height: 40px;
@@ -20,21 +17,85 @@
       overflow: hidden;
       padding: 0 32px;
       position: relative;
-      //   text-overflow: ellipsis;
-      //   white-space: nowrap;
       grid-column: 1 / span 3;
       grid-row: 1;
     }
 
     & > :last-child {
-      font-size: 18px;
-      color: #5e6c84;
+      color: lighten(desaturate($clr5, 3.45), 4.12);
+      font-size: 16px;
       grid-column: 3;
       grid-row: 1;
       z-index: 2;
-      &:hover {
-        color: #172b4d;
+
+      span {
+        height: auto;
+        width: 10px;
+        color: currentcolor;
+        display: inline-block;
+        fill: $clr0;
+        flex-shrink: 0;
+        line-height: 1;
+        svg {
+          height: 16px;
+          width: 16px;
+          max-height: 100%;
+          max-width: 100%;
+          overflow: hidden;
+          pointer-events: none;
+          vertical-align: bottom;
+        }
       }
+
+      &:hover {
+        color: $clr3;
+      }
+    }
+  }
+
+  .popover-account-content {
+    padding-bottom: 12px;
+    color: $clr3;
+    nav {
+      ul {
+        & > :first-child {
+          & > :first-child {
+            padding: 4px 8px 4px 12px;
+            div {
+              position: relative;
+              line-height: 10px;
+              overflow: hidden;
+              white-space: nowrap;
+              span {
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                display: inline-flex;
+              }
+            }
+          }
+
+          & > :last-child {
+            div {
+              margin-top: 4px;
+              max-width: 230px;
+            }
+            span {
+              font-size: 9pt;
+              color: lighten(saturate(adjust-hue($clr5, -1), 0.39), 9.8);
+              display: block;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              max-width: 230px;
+            }
+          }
+        }
+      }
+    }
+
+    hr {
+      margin: 8px auto;
+      width: calc(100% - 20px);
     }
   }
 }

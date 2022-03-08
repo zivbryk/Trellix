@@ -1,0 +1,60 @@
+.login-signup {
+  .login-signup-main {
+    .login-signup-logo {
+      height: 43px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      & > :first-child {
+        width: 40px;
+      }
+
+      & > :last-child {
+        font-family: SourceSans-Bold;
+        font-size: rem(55px);
+        line-height: 48px;
+        color: #293856;
+        margin-inline-start: 14px;
+        // margin-block-end: 1px;
+      }
+    }
+
+    .inner-section {
+      width: 100%;
+      padding: 0px;
+      overflow: visible;
+      margin-bottom: 30px;
+      .section-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .background {
+    z-index: -900;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    .left-large,
+    .right-large {
+      position: absolute;
+      width: 400px;
+      bottom: 0;
+      z-index: -999;
+      max-width: 30%;
+    }
+
+    .left-large {
+      left: 0;
+    }
+    .right-large {
+      right: 0;
+    }
+  }
+}

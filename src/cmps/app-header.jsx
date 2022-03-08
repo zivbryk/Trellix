@@ -30,6 +30,7 @@ export const AppHeader = () => {
       _id: "u101",
       fullname: "Ziv Bryk",
       username: "zivbryk",
+      email: "ziv.bryk@gmail.com",
       imgUrl:
         "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
       isAdmin: true,

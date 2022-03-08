@@ -5,13 +5,16 @@ import { useLocation } from "react-router-dom";
 import { AppHeader } from "./cmps/app-header";
 import { DynamicPopover } from "./cmps/popovers/dynamic-popover";
 // import { boardService } from "./services/board.service";
+// import { userService } from "./services/user.service";
 // import { boards } from "./frontTempData/boards.js";
+// import { users } from "./frontTempData/users";
 import routes from "./routes";
 
 export const RootCmp = () => {
-  // Remove this local storage loading of boards before production REMOVE_COMMENT
+  // Remove this local storage loading of boards/users before production REMOVE_COMMENT + imports
   // console.log("loading data to local storage!");
   // boardService.loadDataManual(boards);
+  // userService.loadDataManual(users);
 
   const board = useSelector((state) => state.boardReducer.board);
   const pathname = useLocation().pathname;

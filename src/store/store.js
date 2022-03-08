@@ -3,12 +3,13 @@ import thunk from "redux-thunk";
 
 import { boardReducer } from "./reducers/board.reducer";
 import { appReducer } from "./reducers/app.reducer";
+import { userReducer } from "./reducers/user.reducer";
 // import { userReducer } from './user.reducer.js'
 
 const rootReducer = combineReducers({
   boardReducer,
   appReducer,
-  //   userModule: userReducer,
+  userReducer,
 });
 
 // export const store = createStore(rootReducer, applyMiddleware(thunk))
