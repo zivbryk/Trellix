@@ -1,4 +1,5 @@
 import { storageService } from "./async-storage.service.js";
+import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service";
 import { utilService } from "./util.service.js";
 import _ from "lodash";
 // import { userService } from "./user.service.js";
@@ -26,19 +27,34 @@ function loadDataManual(entities) {
 }
 
 function query() {
-  return storageService.query(STORAGE_KEY);
+  try {
+    return storageService.query(STORAGE_KEY);
+  } catch (err) {
+    showErrorMsg("Cannot rerieve board");
+    console.log("board.service: err @ query", err);
+  }
 }
 
 function getById(boardId) {
-  return storageService.get(STORAGE_KEY, boardId);
+  try {
+    return storageService.get(STORAGE_KEY, boardId);
+  } catch (err) {
+    showErrorMsg("Cannot find board");
+    console.log("board.service: err @ getById", err);
+  }
 }
 
 function save(board) {
-  if (board._id) {
-    return storageService.put(STORAGE_KEY, board);
-  } else {
-    // board.owner = userService.getLoggedinUser();
-    return storageService.post(STORAGE_KEY, board);
+  try {
+    if (board._id) {
+      return storageService.put(STORAGE_KEY, board);
+    } else {
+      // board.owner = userService.getLoggedinUser();
+      return storageService.post(STORAGE_KEY, board);
+    }
+  } catch (err) {
+    showErrorMsg("Cannot save board");
+    console.log("board.service: err @ save", err);
   }
 }
 

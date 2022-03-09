@@ -3,12 +3,13 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
-import { onEditBoard } from "../store/actions/board.actions";
-import { loadBoard } from "../store/actions/board.actions";
 import { BoardHeader } from "../cmps/board/board-header";
 import { LoaderCmp } from "../cmps/loader-cmp";
 import { CardsList } from "../cmps/list/cards-list";
 import { ListAddCmp } from "../cmps/list/list-add-cmp";
+
+import { onEditBoard } from "../store/actions/board.actions";
+import { loadBoard } from "../store/actions/board.actions";
 
 export const BoardPage = () => {
   const board = useSelector((state) => state.boardReducer.board);
