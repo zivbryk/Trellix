@@ -1,3 +1,10 @@
+export const HomePage = () => {
+  return (
+    <section className="home-page">
+      <h1>Home Page</h1>
+    </section>
+  );
+};
 // import React from "react";
 // import { connect } from "react-redux";
 

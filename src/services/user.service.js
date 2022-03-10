@@ -8,8 +8,9 @@ const STORAGE_KEY = "user";
 export const userService = {
   loadDataManual,
   login,
-  // logout,
+  logout,
   signup,
+  checkPassword,
   getLoggedinUser,
   // getUsers,
   // getById,
@@ -48,10 +49,14 @@ function loadDataManual(entities) {
 //   return user;
 // }
 
-async function login(userCred) {
+async function login(credentials) {
   try {
     const users = await storageService.query("user");
-    const user = users.find((user) => user.username === userCred.username);
+    const user = users.find(
+      (user) =>
+        user.username === credentials.username &&
+        user.password === credentials.password
+    );
     if (user) return _saveLocalUser(user);
   } catch (err) {
     console.log("user.service: err @ login", err);
@@ -62,9 +67,26 @@ async function login(userCred) {
   //   // if (user) return _saveLocalUser(user)
 }
 
-async function signup(userCred) {
+async function checkPassword(credentials) {
   try {
-    const user = await storageService.post("user", userCred);
+    const users = await storageService.query("user");
+    let match = false;
+    users.forEach((currUser) => {
+      if (currUser.username === credentials.username) {
+        match =
+          currUser.username === credentials.username &&
+          currUser.password === credentials.password;
+      }
+    });
+    return match;
+  } catch (err) {
+    console.log("user.service: err @ checkPassword", err);
+  }
+}
+
+async function signup(credentials) {
+  try {
+    const user = await storageService.post("user", credentials);
     return _saveLocalUser(user);
   } catch (err) {
     console.log("user.service: err @ signup", err);
@@ -75,19 +97,15 @@ async function signup(userCred) {
   // return _saveLocalUser(user);
 }
 
-// async function logout() {
-//   sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
-//   // socketService.emit('unset-user-socket');
-//   // return await httpService.post('auth/logout')
-// }
-
-// async function changeScore(by) {
-//   const user = getLoggedinUser();
-//   if (!user) throw new Error("Not loggedin");
-//   user.score = user.score + by || by;
-//   await update(user);
-//   return user.score;
-// }
+async function logout() {
+  try {
+    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
+    // socketService.emit('unset-user-socket');
+    // return await httpService.post('auth/logout')
+  } catch (err) {
+    console.log("user.service: err @ logout", err);
+  }
+}
 
 function _saveLocalUser(user) {
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user));

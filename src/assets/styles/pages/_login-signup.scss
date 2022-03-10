@@ -1,4 +1,5 @@
 .login-signup {
+  background-color: #f9fafc;
   .login-signup-main {
     .login-signup-logo {
       height: 43px;
@@ -42,6 +43,19 @@
             margin: 10px 0 25px;
           }
           form {
+            .errors {
+              text-align: initial;
+              p {
+                background: #eb5a46;
+                color: #fbedeb;
+                font-size: 14px;
+                border-radius: 4px;
+                border: 1px solid #eb5a46;
+                display: inline-block;
+                padding: 0.5em 1em;
+                margin: 0 0 5px;
+              }
+            }
             text-align: center;
           }
           input {
@@ -73,6 +87,7 @@
           .btn-login {
             background-color: #5aac44;
             color: $clr0;
+            cursor: pointer;
           }
           .hr {
             border-top: 1px solid #ccc;

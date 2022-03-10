@@ -4,9 +4,7 @@ import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 export function onLogin(credentials) {
   return async (dispatch) => {
     try {
-      const user = await userService.login(
-        (credentials = { username: "zivbryk", password: "1234" })
-      );
+      const user = await userService.login(credentials);
       dispatch({
         type: "SET_USER",
         user,
@@ -28,6 +26,26 @@ export function onSignup(credentials) {
     } catch (err) {
       showErrorMsg("Cannot signup");
       console.log("user.actions: err @ signup", err);
+    }
+  };
+}
+
+export function onLogout() {
+  return async (dispatch) => {
+    try {
+      userService.logout();
+      dispatch({
+        type: "SET_USER",
+        user: null,
+      });
+      dispatch({
+        type: "SET_AUTH_STATUS",
+        authStatus: false,
+      });
+      // showSuccessMsg("User logged out successfully");
+    } catch (err) {
+      showErrorMsg("Cannot logout");
+      console.log("user.actions: err @ logout", err);
     }
   };
 }

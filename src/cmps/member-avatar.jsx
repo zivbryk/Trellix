@@ -9,6 +9,9 @@ export const MemberAvatar = ({
   onOpenPopver,
   isInAppHeader = false,
 }) => {
+  const guestImgUrl =
+    "https://res.cloudinary.com/zivcloud555/image/upload/v1633605060/Trellis%20permanent%20img/Avatars/guest_funut6.png";
+
   const getMemberTypeStyle = () => {
     if (!member.isAdmin) return {};
 
@@ -42,7 +45,7 @@ export const MemberAvatar = ({
     >
       {member && (
         <img
-          src={member.imgUrl}
+          src={`${member.imgUrl ? member.imgUrl : guestImgUrl}`}
           alt=""
           title={`${member.fullname} (${member.username})`}
           style={{ height: `${size}px`, width: `${size}px` }}

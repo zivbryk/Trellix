@@ -1,7 +1,14 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import Popover from "@mui/material/Popover";
 import { ReactComponent as CloseIcon } from "../../assets/img/icons/close.svg";
+import { onLogout } from "../../store/actions/user.actions";
 
 export const PopoverAccount = ({ elPos, handleClose, loggedinUser }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const getStyle = () => {
     return {
       backgroundImage: `url(${loggedinUser.imgUrl})`,
@@ -9,8 +16,10 @@ export const PopoverAccount = ({ elPos, handleClose, loggedinUser }) => {
     };
   };
 
-  const onLogout = () => {
-    console.log("logging out!");
+  const onLogoutUser = () => {
+    dispatch(onLogout());
+    handleClose();
+    navigate("/");
   };
 
   return (
@@ -57,7 +66,7 @@ export const PopoverAccount = ({ elPos, handleClose, loggedinUser }) => {
 
               <hr />
 
-              <li className="popover-li" onClick={onLogout}>
+              <li className="popover-li" onClick={onLogoutUser}>
                 Log out
               </li>
             </ul>

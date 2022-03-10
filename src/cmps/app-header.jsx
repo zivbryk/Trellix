@@ -1,13 +1,18 @@
 import React from "react";
 import { useLocation, NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 import { ReactComponent as BoardsIcon } from "../assets/img/icons/boards.svg";
 import BoardsAnimation from "../assets/img/animations/trello-logo-loader.gif";
 import { UserMsg } from "../cmps/user-msg";
 import { MemberAvatar } from "./member-avatar";
 import { openPopover } from "../store/actions/app.actions";
 
+// import { userService } from "../services/user.service";
+
 export const AppHeader = () => {
+  const loggedinUser = useSelector((state) => state.userReducer.user);
+
   const dispatch = useDispatch();
   const pathname = useLocation().pathname;
 
@@ -23,18 +28,6 @@ export const AppHeader = () => {
     const elPos = ev.target.getBoundingClientRect();
     const popoverProps = { loggedinUser, isInCard: false };
     dispatch(openPopover(popoverName, elPos, popoverProps));
-  };
-
-  const getloggedinUser = () => {
-    return {
-      _id: "u101",
-      fullname: "Ziv Bryk",
-      username: "zivbryk",
-      email: "ziv.bryk@gmail.com",
-      imgUrl:
-        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
-      isAdmin: true,
-    };
   };
 
   return (
@@ -81,7 +74,7 @@ export const AppHeader = () => {
 
           <MemberAvatar
             size={"32"}
-            member={getloggedinUser()}
+            member={loggedinUser}
             isBadge={false}
             onOpenPopver={onOpenPopver}
             isInAppHeader={true}

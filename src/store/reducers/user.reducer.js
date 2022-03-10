@@ -11,7 +11,6 @@ export function userReducer(state = initialState, action) {
     case "SET_USER":
       newState = { ...state, user: action.user };
       break;
-
     default:
   }
   // For debug:

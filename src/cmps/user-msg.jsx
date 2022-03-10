@@ -49,20 +49,31 @@ export class UserMsg extends React.Component {
 
   state = {
     msg: null,
+    _isMounted: false,
   };
 
   componentDidMount() {
+    this.setState((prevState) => ({
+      ...prevState,
+      _isMounted: true,
+    }));
     // Here we listen to the event that we emited, its important to remove the listener
     this.removeEvent = eventBusService.on("show-user-msg", (msg) => {
-      this.setState({ msg });
-      setTimeout(() => {
-        this.setState({ msg: null });
-      }, 2500);
+      if (this.state._isMounted) {
+        this.setState({ msg });
+        setTimeout(() => {
+          this.setState({ msg: null });
+        }, 2500);
+      }
     });
   }
 
   componentWillUnmount() {
     this.removeEvent();
+    this.setState((prevState) => ({
+      ...prevState,
+      _isMounted: false,
+    }));
   }
 
   render() {
