@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { GoogleLogin } from "react-google-login";
 
 import { ReactComponent as LeftLarge } from "../assets/img/backgrounds/login-left-large.svg";
 import { ReactComponent as RightLarge } from "../assets/img/backgrounds/login-right-large.svg";
 import TrelloMainLogo from "../assets/img/icons/trello-main-logo.svg";
 import AtlassianLogo from "../assets/img/icons/atlassian-logo.png";
-import { onLogin, onSignup } from "../store/actions/user.actions";
+import {
+  onLogin,
+  onSignup,
+  onGoogleLogin,
+} from "../store/actions/user.actions";
 import { userService } from "../services/user.service";
 
 export const LoginSignup = () => {
@@ -26,6 +31,7 @@ export const LoginSignup = () => {
     username: "",
     password: "",
   });
+  const [isInputValid, setIsInputValid] = useState(false);
 
   //REMOVE_COMMENT: delete dpendencies array??
   useEffect(() => {
@@ -80,51 +86,75 @@ export const LoginSignup = () => {
       }
     }
 
+    if (Object.keys(errors).length === 0) setIsInputValid(true);
+    else setIsInputValid(false);
+
     return errors;
+  };
+
+  const onGoogleSuccess = (res) => {
+    console.log(res);
+    const { tokenId } = res;
+    dispatch(onGoogleLogin(tokenId));
+  };
+
+  const onGoogleFailure = (res) => {
+    console.log("Google login failed:", res);
   };
 
   return (
     <section className="login-signup">
       <div className="login-signup-main">
-        <div className="login-signup-logo flex justify-center align-center">
-          <img src={TrelloMainLogo} alt="logo" />
-          <span>Trellix</span>
-        </div>
+        <Link to="/">
+          <div className="login-signup-logo flex justify-center align-center">
+            <img src={TrelloMainLogo} alt="logo" />
+            <span>Trellix</span>
+          </div>
+        </Link>
 
         <section className="inner-section">
           <div className="section-wrapper">
             {authPage === "signup" && (
               <div className="form-container flex column">
-                <h1>Signup for your account</h1>
                 <Formik
                   enableReinitialize={true}
                   initialValues={fullCredentials}
                   validate={validate}
                   onSubmit={onSubmit}
-                  validateOnChange={false}
+                  validateOnChange={true}
                   validateOnBlur={false}
                 >
                   <Form className="flex column">
+                    <div className="errors">
+                      <ErrorMessage name="username" component="p" />
+                      <ErrorMessage name="password" component="p" />
+                      <ErrorMessage name="fullname" component="p" />
+                    </div>
+
+                    <h1>Signup for your account</h1>
+
                     <Field
                       type="username"
                       placeholder="Enter username"
                       name="username"
                       autoFocus
                     />
-                    <ErrorMessage name="username" component="div" />
                     <Field
                       type="fullname"
                       placeholder="Enter full name"
                       name="fullname"
                     />
-                    <ErrorMessage name="fullname" component="div" />
                     <Field
                       type="password"
                       placeholder="Enter password"
                       name="password"
                     />
-                    <ErrorMessage name="password" component="div" />
-                    <button type="submit">Continue</button>
+                    <button
+                      type="submit"
+                      className={`${isInputValid ? "btn-login" : ""}`}
+                    >
+                      Continue
+                    </button>
 
                     <div className="hr"></div>
 
@@ -138,13 +168,12 @@ export const LoginSignup = () => {
 
             {authPage === "login" && (
               <div className="form-container flex column">
-                {/* <h1>Login to Trellix</h1> */}
                 <Formik
                   enableReinitialize={true}
                   initialValues={credentials}
                   validate={validate}
                   onSubmit={onSubmit}
-                  validateOnChange={false}
+                  validateOnChange={true}
                   validateOnBlur={false}
                 >
                   <Form className="flex column">
@@ -161,20 +190,33 @@ export const LoginSignup = () => {
                       name="username"
                       autoFocus
                     />
-                    {/* <ErrorMessage name="username" component="div" /> */}
                     <Field
                       type="password"
                       placeholder="Enter password"
                       name="password"
                     />
-                    {/* <ErrorMessage name="password" component="div" /> */}
-                    <button className="btn-login" type="submit pointer">
+                    <button
+                      className={`${isInputValid ? "btn-login" : ""}`}
+                      type="submit pointer"
+                    >
                       Log in
                     </button>
                     <div className="hr"></div>
                     <Link to="/auth/signup">Sign up for an account</Link>
                   </Form>
                 </Formik>
+
+                <div className="login-method-seperator">or</div>
+
+                <div className="login-method-container">
+                  <GoogleLogin
+                    clientId="649411481714-edurkl997sd4lanpecnb46irhla8fcjk.apps.googleusercontent.com"
+                    buttonText="Login"
+                    onSuccess={onGoogleSuccess}
+                    onFailure={onGoogleFailure}
+                    cookiePolicy={"single_host_origin"}
+                  />
+                </div>
               </div>
             )}
           </div>

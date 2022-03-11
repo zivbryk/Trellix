@@ -17,6 +17,22 @@ export function onLogin(credentials) {
   };
 }
 
+export function onGoogleLogin(tokenId) {
+  return async (dispatch) => {
+    try {
+      const user = await userService.googleLogin(tokenId);
+      dispatch({
+        type: "SET_USER",
+        user,
+      });
+      showSuccessMsg("User logged in successfully");
+    } catch (err) {
+      showErrorMsg("Cannot login");
+      console.log("user.actions: err @ googleLogin", err);
+    }
+  };
+}
+
 export function onSignup(credentials) {
   return async (dispatch) => {
     try {

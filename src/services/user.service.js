@@ -8,6 +8,7 @@ const STORAGE_KEY = "user";
 export const userService = {
   loadDataManual,
   login,
+  googleLogin,
   logout,
   signup,
   checkPassword,
@@ -65,6 +66,27 @@ async function login(credentials) {
   //   // const user = await httpService.post('auth/login', userCred)
   //   // socketService.emit('set-user-socket', user._id);
   //   // if (user) return _saveLocalUser(user)
+}
+
+async function googleLogin(tokenId) {
+  try {
+    const googleRes = await fetch(
+      `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${tokenId}`
+    )
+      .then((res) => res.json())
+      .then((data) => data);
+    const { name, picture } = googleRes;
+    const user = {
+      fullname: name,
+      username: name.toLowerCase().replace(/\s/g, ""),
+      password: name.toLowerCase().replace(/\s/g, ""),
+      imgUrl: picture,
+    };
+    console.log("user", user);
+    if (user) return _saveLocalUser(user);
+  } catch (err) {
+    console.log("user.service: err @ gooleLogin", err);
+  }
 }
 
 async function checkPassword(credentials) {
