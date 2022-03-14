@@ -23,7 +23,9 @@
     "react-scripts": "4.0.3",
     "react-transition-group": "^1.2.1",
     "redux-thunk": "^2.3.0",
+    "rgbaster": "^2.1.1",
     "socket.io-client": "^4.2.0",
+    "tinycolor2": "^1.4.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

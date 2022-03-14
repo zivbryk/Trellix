@@ -37,6 +37,7 @@ export const CardsList = ({ list, board, listIdx }) => {
                       currCard={card}
                       cardIdx={idx}
                       currList={list}
+                      currBoard={board}
                     />
                   ))}
                   {provided.placeholder}

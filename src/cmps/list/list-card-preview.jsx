@@ -3,7 +3,7 @@ import { Draggable } from "react-beautiful-dnd";
 
 import { ListCardContent } from "./list-card-content";
 
-export const ListCardPreview = ({ currCard, currList, cardIdx }) => {
+export const ListCardPreview = ({ currBoard, currCard, currList, cardIdx }) => {
   return (
     <Draggable key={currCard.id} draggableId={currCard.id} index={cardIdx}>
       {(provided) => (
@@ -13,7 +13,11 @@ export const ListCardPreview = ({ currCard, currList, cardIdx }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <ListCardContent currCard={currCard} currList={currList} />
+          <ListCardContent
+            currBoard={currBoard}
+            currList={currList}
+            currCard={currCard}
+          />
         </section>
       )}
     </Draggable>

@@ -1,0 +1,43 @@
+.card-details-cover {
+  background-color: #091e4214;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 160px;
+  position: relative;
+  transition: opacity 85ms;
+  width: 100%;
+
+  .window-cover-menu {
+    align-items: center;
+    bottom: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+    position: absolute;
+    width: 100%;
+    .window-cover-menu-btn {
+      background-color: #00000014;
+      border-radius: 3px;
+      color: #172b4d;
+      padding: 6px 12px 6px 6px;
+      text-decoration: none;
+      &:hover {
+        background-color: #00000029;
+      }
+      span {
+        color: inherit;
+        margin-inline-end: 4px;
+      }
+    }
+
+    .cover-btn-light {
+      color: $clr0;
+      background-color: #ffffff3d;
+      &:hover {
+        background-color: #ffffff52;
+      }
+    }
+  }
+}

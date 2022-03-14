@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 import { BoardHeader } from "../cmps/board/board-header";
 import { LoaderCmp } from "../cmps/loader-cmp";
 import { CardsList } from "../cmps/list/cards-list";
+import { CardDetails } from "../pages/card-details";
 import { ListAddCmp } from "../cmps/list/list-add-cmp";
 
 import { onEditBoard } from "../store/actions/board.actions";
@@ -93,6 +95,12 @@ export const BoardPage = () => {
             )}
           </Droppable>
         </div>
+      </section>
+
+      <section className="nested-routes">
+        <Routes>
+          <Route path=":listId/:cardId" element={<CardDetails />} />
+        </Routes>
       </section>
     </DragDropContext>
   );

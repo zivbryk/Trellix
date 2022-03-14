@@ -101,6 +101,39 @@
             font-size: rem(12px);
             margin-block: 16px;
           }
+
+          .login-method-container {
+            .google-login-btn {
+              color: rgba(0, 0, 0, 0.54);
+              box-shadow: rgba(black, 0.2) 1px 1px 5px 0 !important;
+              display: flex !important;
+              justify-content: center !important;
+              width: 99% !important;
+              height: 39px !important;
+
+              transition: background-color 0.2s ease-in-out 0s,
+                border-color 0.2s ease-in-out 0s !important;
+              &:hover {
+                background-color: #f9fafc !important;
+                color: unset !important;
+                opacity: unset !important;
+              }
+
+              div {
+                padding: unset !important;
+                height: 18px;
+                vertical-align: middle;
+                margin-right: 6px !important;
+              }
+              span {
+                font-weight: bold !important;
+                color: darken(saturate($clr4, 3.58), 4.9);
+                font-family: "-apple-system", BlinkMacSystemFont, "Segoe UI",
+                  Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans",
+                  "Helvetica Neue", sans-serif !important;
+              }
+            }
+          }
         }
       }
     }

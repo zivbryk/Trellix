@@ -1,0 +1,28 @@
+.card-details {
+  .window-overlay {
+    display: flex;
+
+    .window {
+      background-color: #f4f5f7;
+      border-radius: 2px;
+      margin: 48px 0 80px;
+      overflow: hidden;
+      position: relative;
+      width: 768px;
+      z-index: 25;
+    }
+
+    .window-wrapper {
+      .dialog-close-btn {
+        span {
+          color: inherit;
+        }
+      }
+
+      .card-details-window {
+        .window-cover {
+        }
+      }
+    }
+  }
+}

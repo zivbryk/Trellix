@@ -210,8 +210,9 @@ export const LoginSignup = () => {
 
                 <div className="login-method-container">
                   <GoogleLogin
+                    className="google-login-btn"
                     clientId="649411481714-edurkl997sd4lanpecnb46irhla8fcjk.apps.googleusercontent.com"
-                    buttonText="Login"
+                    buttonText="Continue with google"
                     onSuccess={onGoogleSuccess}
                     onFailure={onGoogleFailure}
                     cookiePolicy={"single_host_origin"}

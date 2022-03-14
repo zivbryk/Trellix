@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import React, { useState, useEffect, useRef } from "react";
 import { ListCardDetails } from "./list-card-details";
 
-export const ListCardContent = ({ currCard, currList }) => {
+export const ListCardContent = ({ currBoard, currList, currCard }) => {
   // REMOVE_COMMENT TODO: In order for card cover background img not to get cut, aspect ratio (r=w/h) of the image can be obtained and then height of the cover image is 256/r (width is set to the width of the card 256px). get aspect ratio func here works great but there is a problem whith useEffect - error message that there is a memory leak as the state is updated after the component is unmounted!
   //*When pplying the true aspect ratio of the img, style:background-size: contain should be used.This can result with white edges and require a way to detect the img background color and apply it as the cover div bgc!
 
@@ -76,22 +77,24 @@ export const ListCardContent = ({ currCard, currList }) => {
   };
 
   return (
-    <section
-      className={`list-card-content ${
-        currCard.style.cover ? "is-covered" : ""
-      }`}
-    >
-      <div
-        className={"list-card-cover"}
-        style={getCoverStyle()}
-        // style={coverStyle}
-      ></div>
+    <Link to={`/board/${currBoard._id}/${currList.id}/${currCard.id}`}>
+      <section
+        className={`list-card-content ${
+          currCard.style.cover ? "is-covered" : ""
+        }`}
+      >
+        <div
+          className={"list-card-cover"}
+          style={getCoverStyle()}
+          // style={coverStyle}
+        ></div>
 
-      <button className="btn btn-edit-card">
-        <span className="trl icon-edit icon-sm"></span>
-      </button>
+        <button className="btn btn-edit-card">
+          <span className="trl icon-edit icon-sm"></span>
+        </button>
 
-      <ListCardDetails currCard={currCard} currList={currList} />
-    </section>
+        <ListCardDetails currCard={currCard} currList={currList} />
+      </section>
+    </Link>
   );
 };

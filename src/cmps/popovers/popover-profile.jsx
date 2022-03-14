@@ -1,6 +1,4 @@
-import React from "react";
 import { useDispatch } from "react-redux";
-
 import Popover from "@mui/material/Popover";
 import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
@@ -37,7 +35,6 @@ export const PopoverProfile = ({
   return (
     <Popover
       className="popover"
-      //   id={id}
       open={true}
       onClose={handleClose}
       anchorReference="anchorPosition"

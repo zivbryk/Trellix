@@ -470,8 +470,9 @@ export const boards = [
             id: "f13N",
             title: "CardDetails Page",
             style: {
-              cover: null,
-              isImage: false,
+              cover:
+                "https://res.cloudinary.com/zivcloud555/image/upload/v1647277624/Trellis%20permanent%20img/Card%20Images/saveit1_zxmm4s.jpg",
+              isImage: true,
             },
             labelIds: ["tp301", "vm941"],
             cardMembers: [
@@ -512,8 +513,9 @@ export const boards = [
               },
             ],
             style: {
-              cover: null,
-              isImage: false,
+              cover:
+                "https://res.cloudinary.com/zivcloud555/image/upload/v1633700384/Trellis%20permanent%20img/Card%20Images/dnd_vtt3tn.png",
+              isImage: true,
             },
             cardMembers: [
               {

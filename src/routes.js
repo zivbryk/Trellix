@@ -1,7 +1,8 @@
 import { HomePage } from "./pages/home-page.jsx";
 import { LoginSignup } from "./pages/login-signup";
 import { WorkspacePage } from "./pages/workspace-page.jsx";
-import { BoardPage } from "./pages/board-page.jsx";
+import { BoardPage } from "./pages/board-page";
+// import { CardDetails } from "./pages/card-details";
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -21,10 +22,15 @@ const routes = [
     label: "Workspace",
   },
   {
-    path: "/board/:boardId",
+    path: "/board/:boardId/*",
     element: <BoardPage />,
     label: "Boards",
   },
+  // {
+  //   path: "/board/:boardId/:listId/:cardId",
+  //   element: <CardDetails />,
+  //   label: "CardDetails",
+  // },
 
   // {
   //   path: "/",

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { PopoverProfile } from "../popovers/popover-profile";
 import { PopoverAccount } from "../popovers/popover-account";
+import { PopoverCover } from "../popovers/popover-cover";
 import { closePopover } from "../../store/actions/app.actions";
 
 export const DynamicPopover = () => {
@@ -26,6 +27,14 @@ export const DynamicPopover = () => {
     case "ACCOUNT":
       return (
         <PopoverAccount
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+    case "COVER":
+      return (
+        <PopoverCover
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

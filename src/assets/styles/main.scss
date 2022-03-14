@@ -9,8 +9,8 @@
 @import "basics/layout";
 @import "basics/base";
 @import "basics/links";
-@import "basics/icons";
 @import "basics/forms";
+@import "basics/icons";
 
 // Pages
 @import "pages/root-cmp";
@@ -18,12 +18,14 @@
 @import "pages/login-signup";
 @import "pages/workspace-page";
 @import "pages/board-page";
+@import "pages/card-details";
 
 // Components
 @import "cmps/app-header";
 @import "cmps/loader-cmp";
 @import "cmps/user-msg";
 @import "cmps/member-avatar";
+@import "cmps/window-overlay";
 /*Board*/
 @import "cmps/board/board-list";
 @import "cmps/board/board-preview";
@@ -38,7 +40,7 @@
 @import "cmps/list/list-card-badges";
 @import "cmps/list/add-card";
 /*Card*/
-// @import "cmps/card/???";
+@import "cmps/card/card-details-cover";
 /*Popovers*/
 @import "cmps/popovers/popover";
 @import "cmps/popovers/popover-profile";

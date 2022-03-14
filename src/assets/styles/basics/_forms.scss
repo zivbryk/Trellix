@@ -54,6 +54,38 @@ textarea {
     }
   }
 }
+.dialog-close-btn {
+  border-radius: 50%;
+  color: darken(saturate($clr4, 8.19), 9.8);
+  // height: 32px;
+  // width: 32px;
+  margin: 4px;
+  overflow: hidden;
+  padding: 4px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background-color 85ms, color 85ms;
+  z-index: 2;
+  &:hover {
+    background-color: #091e4214;
+  }
+
+  &-dark {
+    background-color: #00000014;
+    &:hover {
+      background-color: #00000029;
+    }
+  }
+
+  &-light {
+    background-color: #ffffff3d;
+    color: #fff;
+    &:hover {
+      background-color: #ffffff52;
+    }
+  }
+}
 
 .btn-header {
   height: 32px;
