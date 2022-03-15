@@ -137,6 +137,7 @@ export const boards = [
               cover:
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1633764702/Trellis%20permanent%20img/Card%20Images/chart4_sgrvtg.png",
               isImage: true,
+              coverMode: "half",
             },
             description: "create EditDate Cmp",
             labelIds: [
@@ -255,6 +256,7 @@ export const boards = [
             style: {
               cover: "#7BC86C",
               isImage: false,
+              coverMode: "half",
             },
             description: null,
             labelIds: ["tp301", "yh703"],
@@ -287,6 +289,7 @@ export const boards = [
               cover:
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1634026001/Trellis%20permanent%20img/Card%20Images/launch_kucwit.jpg",
               isImage: true,
+              coverMode: "half",
             },
             labelIds: ["tp301", "yh703"],
             cardMembers: [
@@ -425,6 +428,7 @@ export const boards = [
             style: {
               cover: "#EF7564",
               isImage: false,
+              coverMode: "half",
             },
             isWatched: false,
             isComplete: false,
@@ -435,6 +439,7 @@ export const boards = [
             style: {
               cover: null,
               isImage: false,
+              coverMode: "half",
             },
             dueDate: 1645787152,
             labelIds: ["tp301", "yh703"],
@@ -458,6 +463,7 @@ export const boards = [
             style: {
               cover: "#29CCE5",
               isImage: false,
+              coverMode: "half",
             },
             labelIds: ["yh703"],
             cardMembers: [],
@@ -473,6 +479,7 @@ export const boards = [
               cover:
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1647277624/Trellis%20permanent%20img/Card%20Images/saveit1_zxmm4s.jpg",
               isImage: true,
+              coverMode: "half",
             },
             labelIds: ["tp301", "vm941"],
             cardMembers: [
@@ -516,6 +523,7 @@ export const boards = [
               cover:
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1633700384/Trellis%20permanent%20img/Card%20Images/dnd_vtt3tn.png",
               isImage: true,
+              coverMode: "half",
             },
             cardMembers: [
               {
@@ -616,6 +624,7 @@ export const boards = [
             style: {
               cover: "#6DECA9",
               isImage: false,
+              coverMode: "half",
             },
             isWatched: false,
             isComplete: false,
@@ -632,6 +641,7 @@ export const boards = [
             style: {
               cover: "#F5DD29",
               isImage: false,
+              coverMode: "half",
             },
             labelIds: ["tp301", "yh703"],
             cardMembers: [],
@@ -700,6 +710,7 @@ export const boards = [
             style: {
               cover: null,
               isImage: false,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: true,
@@ -819,6 +830,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -832,6 +844,7 @@ export const boards = [
             style: {
               cover: "f4f5f7",
               isImage: false,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -851,6 +864,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -901,6 +915,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1026,6 +1041,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1039,6 +1055,7 @@ export const boards = [
             style: {
               cover: "f4f5f7",
               isImage: false,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1058,6 +1075,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1109,6 +1127,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1173,6 +1192,7 @@ export const boards = [
     style: {
       cover: "#0079BF",
       isImage: true,
+      coverMode: "half",
     },
     labels: [
       {
@@ -1227,6 +1247,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             isWatched: false,
             checklists: [],
@@ -1240,6 +1261,7 @@ export const boards = [
             style: {
               cover: "f4f5f7",
               isImage: false,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1259,6 +1281,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1310,6 +1333,7 @@ export const boards = [
             style: {
               cover: "/assets/img/ball.jpg",
               isImage: true,
+              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1372,6 +1396,7 @@ export const boards = [
     style: {
       cover: "#0079BF",
       isImage: false,
+      coverMode: "half",
     },
     labels: [],
     boardMembers: [
@@ -1399,6 +1424,7 @@ export const boards = [
     style: {
       cover: "#0079BF",
       isImage: false,
+      coverMode: "half",
     },
     labels: [],
     boardMembers: [
@@ -1426,6 +1452,7 @@ export const boards = [
     style: {
       cover: "#0079BF",
       isImage: false,
+      coverMode: "half",
     },
     labels: [],
     boardMembers: [
@@ -1453,6 +1480,7 @@ export const boards = [
     style: {
       cover: "#0079BF",
       isImage: false,
+      coverMode: "half",
     },
     labels: [],
     boardMembers: [
@@ -1480,6 +1508,7 @@ export const boards = [
     style: {
       cover: "#0079BF",
       isImage: false,
+      coverMode: "half",
     },
     labels: [],
     boardMembers: [

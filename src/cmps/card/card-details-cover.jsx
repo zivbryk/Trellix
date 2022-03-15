@@ -4,6 +4,7 @@ import { openPopover } from "../../store/actions/app.actions";
 export const CardDetailsCover = ({
   currCard,
   currList,
+  board,
   dominantColor,
   isLightMode,
 }) => {
@@ -42,7 +43,7 @@ export const CardDetailsCover = ({
 
   const onOpenPopver = (ev) => {
     const elPos = ev.target.getBoundingClientRect();
-    const popoverProps = {};
+    const popoverProps = { currCard, board };
     dispatch(openPopover("COVER", elPos, popoverProps));
   };
 

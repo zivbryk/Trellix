@@ -12,7 +12,8 @@ export const ListCardDetails = ({ currCard, currList }) => {
   );
   const dispatch = useDispatch();
 
-  const onToggleListCardLabels = () => {
+  const onToggleListCardLabels = (ev) => {
+    ev.preventDefault();
     dispatch(toggleListCardLabels(!isLabelsTextVisible));
   };
 

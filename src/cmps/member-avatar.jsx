@@ -26,6 +26,7 @@ export const MemberAvatar = ({
   };
 
   const onClickAvatar = (ev) => {
+    ev.preventDefault();
     if (!onOpenPopver) return;
     if (isInAppHeader) onOpenPopver(ev, "ACCOUNT", member);
     else onOpenPopver(ev, "PROFILE", member);

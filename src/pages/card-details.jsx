@@ -35,7 +35,7 @@ export const CardDetails = () => {
     }
 
     const brightness = (red * 299 + green * 587 + blue * 114) / 1000;
-    console.log("isColorLight => brightness", brightness);
+    // console.log("isColorLight => brightness", brightness);
     return brightness > 140;
   }
 
@@ -96,6 +96,7 @@ export const CardDetails = () => {
               <CardDetailsCover
                 currCard={currCard}
                 currList={currList}
+                board={board}
                 dominantColor={dominantColor}
                 isLightMode={isLightMode}
               />

@@ -50,7 +50,8 @@ export const ListCardBadges = ({ currCard, currList }) => {
     }).format(currCard.dueDate);
   };
 
-  const toggleComplete = () => {
+  const toggleComplete = (ev) => {
+    ev.preventDefault();
     setIsCardComplete(!isCardComplete);
 
     const clonedBoard = _.cloneDeep(board);
