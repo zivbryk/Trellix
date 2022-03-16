@@ -1,0 +1,115 @@
+.cover-size-container {
+  .cover-size-btns {
+    //   -webkit-transform: translate3d(0, 0, 0);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 4px;
+    margin: 0 -4px;
+    overflow-x: hidden;
+
+    .cover-size-half,
+    .cover-size-full {
+      height: 64px;
+      margin: 0;
+      // height: 72px;
+      width: 134px;
+      // background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-shadow: none;
+      cursor: pointer;
+      background: #ffffff;
+      border-radius: 3px;
+      position: relative;
+      width: 136px;
+      // height: 34px;
+      border: 1px solid rgba(9, 30, 66, 0.08);
+      &:hover {
+        filter: saturate(85%) brightness(85%);
+      }
+    }
+
+    .cover-size-focus {
+      box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #5ba4cf;
+      filter: none;
+    }
+
+    .cover-size-half {
+      & > :first-child {
+        background-size: cover;
+        height: 28px;
+        border-radius: 3px 3px 0 0;
+      }
+      & > :last-child {
+        padding: 6px 4px 4px 6px;
+        position: relative;
+        & > :nth-child(1),
+        :nth-child(2) {
+          background: #6b778c;
+          height: 4px;
+          border-radius: 2px;
+        }
+        & > :nth-child(1) {
+          width: 122px;
+        }
+        & > :nth-child(2) {
+          width: 98px;
+          margin-top: 4px;
+        }
+        & > :nth-child(3) {
+          display: flex;
+          margin-top: 6px;
+          & > div {
+            width: 16px;
+            height: 6px;
+            background: #6b778c;
+            border-radius: 2px;
+            margin-right: 2px;
+          }
+        }
+        & > :nth-child(4) {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          right: 4px;
+          bottom: 4px;
+          background: #6b778c;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    .cover-size-full {
+      & > div {
+        position: absolute;
+        bottom: 4px;
+        padding: 6px 4px 4px 6px;
+        & > :first-child,
+        :last-child {
+          &.color-white {
+            background: #ffffff;
+          }
+          &.color-black {
+            background: rgba(9, 30, 66, 0.6);
+          }
+          height: 4px;
+          border-radius: 2px;
+        }
+        & > :first-child {
+          width: 116px;
+        }
+        & > :last-child {
+          width: 92px;
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+  .btn-remove-cover {
+    margin: 4px 0 0;
+    width: 100%;
+    background-color: #091e420a;
+  }
+}

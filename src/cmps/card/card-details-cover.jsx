@@ -13,7 +13,7 @@ export const CardDetailsCover = ({
   const getCoverStyle = () => {
     if (!currCard) return;
 
-    if (!currCard.style.cover)
+    if (!currCard.style.coverMode)
       return {
         display: "none",
       };

@@ -138,6 +138,7 @@ export const boards = [
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1633764702/Trellis%20permanent%20img/Card%20Images/chart4_sgrvtg.png",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             description: "create EditDate Cmp",
             labelIds: [
@@ -257,6 +258,7 @@ export const boards = [
               cover: "#7BC86C",
               isImage: false,
               coverMode: "half",
+              isColorWhite: true,
             },
             description: null,
             labelIds: ["tp301", "yh703"],
@@ -290,6 +292,7 @@ export const boards = [
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1634026001/Trellis%20permanent%20img/Card%20Images/launch_kucwit.jpg",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             labelIds: ["tp301", "yh703"],
             cardMembers: [
@@ -343,6 +346,12 @@ export const boards = [
             id: "p73g",
             title: "BoardPage",
             description: "Page should render login/logout conditionally",
+            style: {
+              cover: "#EF7564",
+              isImage: false,
+              coverMode: "half",
+              isColorWhite: true,
+            },
             comments: [
               {
                 id: "Z4P7m",
@@ -425,11 +434,6 @@ export const boards = [
               imgUrl: "/avatars/ziv.png",
               isAdmin: true,
             },
-            style: {
-              cover: "#EF7564",
-              isImage: false,
-              coverMode: "half",
-            },
             isWatched: false,
             isComplete: false,
           },
@@ -440,6 +444,7 @@ export const boards = [
               cover: null,
               isImage: false,
               coverMode: "half",
+              isColorWhite: true,
             },
             dueDate: 1645787152,
             labelIds: ["tp301", "yh703"],
@@ -464,6 +469,7 @@ export const boards = [
               cover: "#29CCE5",
               isImage: false,
               coverMode: "half",
+              isColorWhite: true,
             },
             labelIds: ["yh703"],
             cardMembers: [],
@@ -480,6 +486,7 @@ export const boards = [
                 "https://res.cloudinary.com/zivcloud555/image/upload/v1647277624/Trellis%20permanent%20img/Card%20Images/saveit1_zxmm4s.jpg",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             labelIds: ["tp301", "vm941"],
             cardMembers: [
@@ -505,6 +512,13 @@ export const boards = [
           {
             id: "f1G2",
             title: "CardCentral Cmp",
+            style: {
+              cover:
+                "https://res.cloudinary.com/zivcloud555/image/upload/v1633700384/Trellis%20permanent%20img/Card%20Images/dnd_vtt3tn.png",
+              isImage: true,
+              coverMode: "half",
+              isColorWhite: true,
+            },
             comments: [
               {
                 id: "Z4P7m",
@@ -519,12 +533,6 @@ export const boards = [
                 },
               },
             ],
-            style: {
-              cover:
-                "https://res.cloudinary.com/zivcloud555/image/upload/v1633700384/Trellis%20permanent%20img/Card%20Images/dnd_vtt3tn.png",
-              isImage: true,
-              coverMode: "half",
-            },
             cardMembers: [
               {
                 _id: "u102",
@@ -543,6 +551,12 @@ export const boards = [
             id: "pK35",
             title: "CopyCard",
             description: "Page should render login/logout conditionally",
+            style: {
+              cover: "#6DECA9",
+              isImage: false,
+              coverMode: "half",
+              isColorWhite: true,
+            },
             comments: [
               {
                 id: "Z4P7m",
@@ -621,11 +635,6 @@ export const boards = [
               imgUrl: "/avatars/ziv.png",
               isAdmin: true,
             },
-            style: {
-              cover: "#6DECA9",
-              isImage: false,
-              coverMode: "half",
-            },
             isWatched: false,
             isComplete: false,
           },
@@ -642,6 +651,7 @@ export const boards = [
               cover: "#F5DD29",
               isImage: false,
               coverMode: "half",
+              isColorWhite: true,
             },
             labelIds: ["tp301", "yh703"],
             cardMembers: [],
@@ -654,6 +664,12 @@ export const boards = [
             id: "p830",
             title: "Workspace Page",
             description: "Page should render login/logout conditionally",
+            style: {
+              cover: null,
+              isImage: false,
+              coverMode: "half",
+              isColorWhite: true,
+            },
             comments: [
               {
                 id: "Z4P7m",
@@ -706,11 +722,6 @@ export const boards = [
               username: "zivbryk",
               imgUrl: "/avatars/ziv.png",
               isAdmin: true,
-            },
-            style: {
-              cover: null,
-              isImage: false,
-              coverMode: "half",
             },
             attachments: [],
             isWatched: true,
@@ -831,6 +842,7 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             attachments: [],
             isWatched: false,
@@ -845,6 +857,7 @@ export const boards = [
               cover: "f4f5f7",
               isImage: false,
               coverMode: "half",
+              isColorWhite: true,
             },
             attachments: [],
             isWatched: false,
@@ -865,6 +878,7 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             attachments: [],
             isWatched: false,
@@ -874,6 +888,12 @@ export const boards = [
             id: "c104",
             title: "Help me",
             description: "description",
+            style: {
+              cover: "/assets/img/ball.jpg",
+              isImage: true,
+              coverMode: "half",
+              isColorWhite: true,
+            },
             comments: [
               {
                 id: "ZdPnm",
@@ -911,11 +931,6 @@ export const boards = [
               username: "zivbryk",
               imgUrl: "/avatars/ziv.png",
               isAdmin: true,
-            },
-            style: {
-              cover: "/assets/img/ball.jpg",
-              isImage: true,
-              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1042,6 +1057,7 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             attachments: [],
             isWatched: false,
@@ -1056,6 +1072,7 @@ export const boards = [
               cover: "f4f5f7",
               isImage: false,
               coverMode: "half",
+              isColorWhite: true,
             },
             attachments: [],
             isWatched: false,
@@ -1076,6 +1093,7 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             attachments: [],
             isWatched: false,
@@ -1086,6 +1104,12 @@ export const boards = [
             id: "c104",
             title: "Help me",
             description: "description",
+            style: {
+              cover: "/assets/img/ball.jpg",
+              isImage: true,
+              coverMode: "half",
+              isColorWhite: true,
+            },
             comments: [
               {
                 id: "ZdPnm",
@@ -1123,11 +1147,6 @@ export const boards = [
               username: "zivbryk",
               imgUrl: "/avatars/ziv.png",
               isAdmin: true,
-            },
-            style: {
-              cover: "/assets/img/ball.jpg",
-              isImage: true,
-              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1192,7 +1211,6 @@ export const boards = [
     style: {
       cover: "#0079BF",
       isImage: true,
-      coverMode: "half",
     },
     labels: [
       {
@@ -1248,6 +1266,7 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             isWatched: false,
             checklists: [],
@@ -1262,6 +1281,7 @@ export const boards = [
               cover: "f4f5f7",
               isImage: false,
               coverMode: "half",
+              isColorWhite: true,
             },
             attachments: [],
             isWatched: false,
@@ -1282,6 +1302,7 @@ export const boards = [
               cover: "/assets/img/ball.jpg",
               isImage: true,
               coverMode: "half",
+              isColorWhite: true,
             },
             attachments: [],
             isWatched: false,
@@ -1292,6 +1313,12 @@ export const boards = [
             id: "c104",
             title: "Help me",
             description: "description",
+            style: {
+              cover: "/assets/img/ball.jpg",
+              isImage: true,
+              coverMode: "half",
+              isColorWhite: true,
+            },
             comments: [
               {
                 id: "ZdPnm",
@@ -1329,11 +1356,6 @@ export const boards = [
               username: "zivbryk",
               imgUrl: "/avatars/ziv.png",
               isAdmin: true,
-            },
-            style: {
-              cover: "/assets/img/ball.jpg",
-              isImage: true,
-              coverMode: "half",
             },
             attachments: [],
             isWatched: false,
@@ -1396,7 +1418,6 @@ export const boards = [
     style: {
       cover: "#0079BF",
       isImage: false,
-      coverMode: "half",
     },
     labels: [],
     boardMembers: [

@@ -5,7 +5,7 @@ import { ListCardBadges } from "./list-card-badges";
 import { MemberAvatar } from "../member-avatar";
 import { openPopover } from "../../store/actions/app.actions";
 
-export const ListCardDetails = ({ currCard, currList }) => {
+export const ListCardDetails = ({ currCard, currList, coverMode }) => {
   const board = useSelector((state) => state.boardReducer.board);
   const isLabelsTextVisible = useSelector(
     (state) => state.appReducer.isLabelsTextVisible
@@ -24,45 +24,63 @@ export const ListCardDetails = ({ currCard, currList }) => {
   };
 
   return (
-    <div className="list-card-details">
-      <div className="list-card-labels">
-        {currCard.labelIds?.map((labelId) => {
-          const label = board.labels.find((label) => label.id === labelId);
-          return (
-            <span
-              className={`card-label card-label-${label.color} mod-list-card ${
-                isLabelsTextVisible ? "label-text-on" : "label-text-off"
-              }`}
-              key={labelId}
-              onClick={onToggleListCardLabels}
-            >
+    <div
+      className={`list-card-details ${
+        coverMode === "full" ? "full-cover-details" : ""
+      } ${currCard.style.isImage ? "image-cover" : "color-cover"}`}
+    >
+      {coverMode === "half" && (
+        <div className="list-card-labels">
+          {currCard.labelIds?.map((labelId) => {
+            const label = board.labels.find((label) => label.id === labelId);
+            return (
               <span
-                className={`label-text ${
-                  isLabelsTextVisible ? "label-text-on" : ""
+                className={`card-label card-label-${
+                  label.color
+                } mod-list-card ${
+                  isLabelsTextVisible ? "label-text-on" : "label-text-off"
                 }`}
+                key={labelId}
+                onClick={onToggleListCardLabels}
               >
-                {label.title}
+                <span
+                  className={`label-text ${
+                    isLabelsTextVisible ? "label-text-on" : ""
+                  }`}
+                >
+                  {label.title}
+                </span>
               </span>
-            </span>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
 
-      <span className="list-card-title">{currCard.title}</span>
+      <span
+        className={`list-card-title ${
+          coverMode === "full" ? "full-cover-title" : ""
+        } ${currCard.style.isImage ? "image-cover" : "color-cover"}`}
+      >
+        {currCard.title}
+      </span>
 
-      <ListCardBadges currCard={currCard} currList={currList} />
+      {coverMode === "half" && (
+        <ListCardBadges currCard={currCard} currList={currList} />
+      )}
 
-      <div className="list-card-members">
-        {currCard.cardMembers.map((member) => (
-          <MemberAvatar
-            size={"28"}
-            member={member}
-            isBadge={false}
-            key={member._id}
-            onOpenPopver={onOpenPopver}
-          />
-        ))}
-      </div>
+      {coverMode === "half" && (
+        <div className="list-card-members">
+          {currCard.cardMembers.map((member) => (
+            <MemberAvatar
+              size={"28"}
+              member={member}
+              isBadge={false}
+              key={member._id}
+              onOpenPopver={onOpenPopver}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,9 +1,14 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import React, { useState, useEffect, useRef } from "react";
 import { ListCardDetails } from "./list-card-details";
 
 export const ListCardContent = ({ currBoard, currList, currCard }) => {
+  const [coverMode, setCoverMode] = useState(currCard.style.coverMode);
+
+  useEffect(() => {
+    setCoverMode(currCard.style.coverMode);
+  }, [currCard]);
   // REMOVE_COMMENT TODO: In order for card cover background img not to get cut, aspect ratio (r=w/h) of the image can be obtained and then height of the cover image is 256/r (width is set to the width of the card 256px). get aspect ratio func here works great but there is a problem whith useEffect - error message that there is a memory leak as the state is updated after the component is unmounted!
   //*When pplying the true aspect ratio of the img, style:background-size: contain should be used.This can result with white edges and require a way to detect the img background color and apply it as the cover div bgc!
 
@@ -59,19 +64,49 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
   //   };
   // });
 
-  const getCoverStyle = () => {
-    if (!currCard.style.cover) return {};
+  const getCardContentStyle = () => {
+    if (!coverMode) return {};
+    let cardContentStyle = null;
 
-    const coverStyle = currCard.style.isImage
-      ? {
-          height: "152px",
-          backgroundImage: `url(${currCard.style.cover})`,
-          backgroundSize: "cover",
-        }
-      : {
-          height: "32px",
-          backgroundColor: `${currCard.style.cover}`,
-        };
+    if (coverMode === "full") {
+      cardContentStyle = currCard.style.isImage
+        ? {
+            minHeight: "170px",
+            backgroundImage: `url(${currCard.style.cover})`,
+            backgroundSize: "cover",
+          }
+        : {
+            minHeight: "56px",
+            backgroundColor: `${currCard.style.cover}`,
+          };
+    } else if (coverMode === "half") {
+      cardContentStyle = {};
+    }
+
+    return cardContentStyle;
+  };
+
+  const getCoverStyle = () => {
+    if (!coverMode) return {};
+
+    let coverStyle = null;
+
+    if (coverMode === "half") {
+      coverStyle = currCard.style.isImage
+        ? {
+            height: "152px",
+            backgroundImage: `url(${currCard.style.cover})`,
+            backgroundSize: "cover",
+          }
+        : {
+            height: "32px",
+            backgroundColor: `${currCard.style.cover}`,
+          };
+    } else if (coverMode === "full") {
+      coverStyle = {
+        display: "none",
+      };
+    }
 
     return coverStyle;
   };
@@ -81,7 +116,8 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
       <section
         className={`list-card-content ${
           currCard.style.cover ? "is-covered" : ""
-        }`}
+        } ${coverMode === "full" ? "flex" : ""}`}
+        style={getCardContentStyle()}
       >
         <div
           className={"list-card-cover"}
@@ -93,7 +129,11 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
           <span className="trl icon-edit icon-sm"></span>
         </button>
 
-        <ListCardDetails currCard={currCard} currList={currList} />
+        <ListCardDetails
+          currCard={currCard}
+          currList={currList}
+          coverMode={coverMode}
+        />
       </section>
     </Link>
   );

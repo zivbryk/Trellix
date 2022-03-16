@@ -35,11 +35,12 @@ textarea {
   background-color: transparent;
   border: none;
   border-radius: 3px;
-  padding: 0;
+  padding: 6px 12px;
   cursor: pointer;
   transition-property: background-color, border-color, box-shadow;
   transition-duration: 85ms;
   transition-timing-function: ease;
+  color: $clr3;
 
   &-primary {
     height: 32px;

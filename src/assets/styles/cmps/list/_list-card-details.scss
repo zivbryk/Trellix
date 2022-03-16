@@ -131,6 +131,17 @@
     display: block;
     margin: 0 0 4px;
     overflow: hidden;
+
+    &.full-cover-title {
+      &.image-cover {
+        color: $clr0;
+      }
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 0;
+      padding-bottom: 8px;
+    }
   }
 
   .list-card-members {
@@ -140,6 +151,27 @@
     .member-avatar {
       float: right;
       margin: 0 0 4px 4px;
+    }
+  }
+
+  &.image-cover {
+    &.full-cover-details {
+      background: linear-gradient(180deg, #00000080, #000);
+      align-self: flex-end;
+      width: 100%;
+      overflow: visible;
+
+      &::before {
+        background: linear-gradient(180deg, #0000, #00000080);
+        mix-blend-mode: normal;
+        content: "";
+        height: 32px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: -32px;
+        width: 100%;
+      }
     }
   }
 }

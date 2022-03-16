@@ -1,98 +1,61 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { PopoverCmp } from "../popovers/popover-cmp";
+import { CoverSize } from "../popovers/cover-size";
+import { ColorPallete } from "../popovers/color-pallete";
 
 import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
 
 export const PopoverCover = ({ elPos, handleClose, currCard, board }) => {
   const [coverMode, setCoverMode] = useState(currCard.style.coverMode);
+  const [coverColor, setCoverColor] = useState(null);
+  const [isColorWhite] = useState(currCard.style.isColorWhite);
   const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   setCoverMode(currCard.style.coverMode);
-  // }, []);
+  //   if (!currCard.style.isImage) setCoverColor(currCard.style.cover);
+  // }, [currCard.style.isImage, currCard.style.cover]);
 
   useEffect(() => {
     saveCover();
-  }, [coverMode]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coverMode, coverColor]);
 
-  const saveCover = () => {
-    console.log(coverMode);
+  const onSetCoverMode = async (mode) => {
+    setCoverMode(mode);
+  };
+
+  const onSetCoverColor = async (colorCode) => {
+    console.log(colorCode);
+    setCoverColor(colorCode);
+  };
+
+  const saveCover = async () => {
     const updatedCard = { ...currCard };
     updatedCard.style.coverMode = coverMode;
+    // TODO: this line makes an error.
+    //if a color is chosen => change isImage to false and set cover to the color code!
+    // if (!currCard.style.isImage) updatedCard.style.cover = coverColor;
     const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
     dispatch(onEditBoard(updatedBoard));
   };
 
-  const getCoverSizeStyle = (coverModeSize) => {
-    if (!currCard) return;
-
-    if (!currCard.style.cover) return {};
-
-    let coverStyle = {};
-
-    if (coverModeSize === "half") {
-      coverStyle = currCard.style.isImage
-        ? {
-            backgroundImage: `url(${currCard.style.cover})`,
-          }
-        : {
-            backgroundColor: currCard.style.cover,
-          };
-    } else if (coverModeSize === "full") {
-      coverStyle = currCard.style.isImage
-        ? {
-            background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${currCard.style.cover})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }
-        : {
-            backgroundColor: currCard.style.cover,
-          };
-    }
-
-    return coverStyle;
-  };
   return (
     <PopoverCmp title="Cover" handleClose={handleClose} elPos={elPos}>
       <div className="popover-cover-content">
-        <div className="cover-size-container">
-          <h4>Size</h4>
-          <div className="cover-size-btns">
-            <div
-              className={`cover-size-half ${
-                coverMode === "half" ? "cover-size-focus" : ""
-              }`}
-              onClick={() => setCoverMode("half")}
-            >
-              <div className="top-half" style={getCoverSizeStyle("half")}></div>
-              <div className="bottom-half">
-                <div></div>
-                <div></div>
-                <div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <div></div>
-              </div>
-            </div>
-            <div
-              className={`cover-size-full ${
-                coverMode === "full" ? "cover-size-focus" : ""
-              }`}
-              style={getCoverSizeStyle("full")}
-              onClick={() => setCoverMode("full")}
-            >
-              <div>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button className="btn button btn-remove-cover">Remove Cover</button>
+        <h4 className="size-title">Size</h4>
+        <CoverSize
+          onSetCoverMode={onSetCoverMode}
+          coverMode={coverMode}
+          isColorWhite={isColorWhite}
+          currCard={currCard}
+        />
+        <h4 className="colors-title">Colors</h4>
+        <ColorPallete
+          onSetCoverColor={onSetCoverColor}
+          coverColor={coverColor}
+        />
       </div>
     </PopoverCmp>
   );
