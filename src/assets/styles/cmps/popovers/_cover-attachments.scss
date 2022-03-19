@@ -1,0 +1,39 @@
+.cover-attachments {
+  .attachments-container {
+    -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    padding: 4px;
+    margin: 0 -4px;
+    overflow-x: hidden;
+    button {
+      margin: 0;
+      border-radius: 3px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      //   box-shadow: none;
+      height: 48px;
+      width: 88px;
+      &:hover {
+        filter: saturate(85%) brightness(85%);
+      }
+    }
+  }
+
+  .upload-container {
+    margin-top: 4px;
+    .upload-btn {
+      margin: 0;
+      width: 100%;
+    }
+    label {
+      display: block;
+      text-align: center;
+    }
+    input {
+      display: none;
+    }
+  }
+}

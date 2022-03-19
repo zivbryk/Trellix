@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-export const ColorPallete = ({ onSetCoverColor, coverColor }) => {
+export const ColorPalette = ({ onSetCoverColor, coverColor }) => {
   const colors = [
     "#7BC86C",
     "#F5DD29",
@@ -18,7 +16,7 @@ export const ColorPallete = ({ onSetCoverColor, coverColor }) => {
     <div className="color-palette">
       {colors.map((colorCode) => (
         <button
-          className={`btn ${coverColor === colorCode ? "color-focus" : ""}`}
+          className={`btn ${coverColor === colorCode ? "focus" : ""}`}
           style={{ background: colorCode }}
           key={colorCode}
           onClick={() => onSetCoverColor(colorCode)}

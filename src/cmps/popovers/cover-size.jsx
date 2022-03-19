@@ -1,3 +1,4 @@
+import { LoaderCmp } from "../loader-cmp";
 export const CoverSize = ({
   onSetCoverMode,
   coverMode,
@@ -27,12 +28,12 @@ export const CoverSize = ({
       if (currCard.style.isImage) {
         coverStyle = currCard.style.isColorWhite
           ? {
-              background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${currCard.style.cover})`,
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${currCard.style.cover})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }
           : {
-              background: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${currCard.style.cover})`,
+              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${currCard.style.cover})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             };
@@ -50,6 +51,7 @@ export const CoverSize = ({
     onSetCoverMode(null);
   };
 
+  if (!currCard) return <LoaderCmp />;
   return (
     <div className="cover-size-container">
       <div className="cover-size-btns">
@@ -88,7 +90,10 @@ export const CoverSize = ({
         </div>
       </div>
 
-      <button className="btn btn-remove-cover" onClick={onRemoveCover}>
+      <button
+        className="btn btn-popover btn-remove-cover"
+        onClick={onRemoveCover}
+      >
         Remove Cover
       </button>
     </div>

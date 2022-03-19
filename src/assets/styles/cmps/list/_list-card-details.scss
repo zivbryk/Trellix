@@ -134,7 +134,9 @@
 
     &.full-cover-title {
       &.image-cover {
-        color: $clr0;
+        &.white {
+          color: $clr0;
+        }
       }
       font-size: 16px;
       font-weight: 500;
@@ -156,13 +158,23 @@
 
   &.image-cover {
     &.full-cover-details {
-      background: linear-gradient(180deg, #00000080, #000);
+      &.white {
+        background: linear-gradient(180deg, #00000080, #000);
+        &::before {
+          background: linear-gradient(180deg, #0000, #00000080);
+        }
+      }
+      &.black {
+        background: linear-gradient(180deg, #ffffff80, #fff);
+        &::before {
+          background: linear-gradient(180deg, #fff0, #ffffff80);
+        }
+      }
       align-self: flex-end;
       width: 100%;
       overflow: visible;
 
       &::before {
-        background: linear-gradient(180deg, #0000, #00000080);
         mix-blend-mode: normal;
         content: "";
         height: 32px;

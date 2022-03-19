@@ -27,7 +27,9 @@ export const ListCardDetails = ({ currCard, currList, coverMode }) => {
     <div
       className={`list-card-details ${
         coverMode === "full" ? "full-cover-details" : ""
-      } ${currCard.style.isImage ? "image-cover" : "color-cover"}`}
+      }  ${currCard.style.isColorWhite ? "white" : "black"} ${
+        currCard.style.isImage ? "image-cover" : "color-cover"
+      }`}
     >
       {coverMode === "half" && (
         <div className="list-card-labels">
@@ -59,7 +61,9 @@ export const ListCardDetails = ({ currCard, currList, coverMode }) => {
       <span
         className={`list-card-title ${
           coverMode === "full" ? "full-cover-title" : ""
-        } ${currCard.style.isImage ? "image-cover" : "color-cover"}`}
+        } ${currCard.style.isColorWhite ? "white" : "black"} ${
+          currCard.style.isImage ? "image-cover" : "color-cover"
+        }`}
       >
         {currCard.title}
       </span>

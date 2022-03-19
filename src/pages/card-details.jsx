@@ -58,13 +58,14 @@ export const CardDetails = () => {
   useEffect(() => {
     (async () => {
       if (!currCard) return;
+      if (!currCard.style.cover) return;
       if (currCard?.style.isImage) {
-        const result = await analyze(currCard?.style.cover);
-        setDominantColor(result[1].color);
-        setIsLightMode(isColorLight(result[1].color, "rgb"));
+        const imagePalette = await analyze(currCard.style.cover);
+        setDominantColor(imagePalette[1].color);
+        setIsLightMode(isColorLight(imagePalette[1].color, "rgb"));
       } else {
         console.log("currCard?.style.cover:", currCard?.style.cover);
-        setIsLightMode(isColorLight(currCard?.style.cover, "hex"));
+        setIsLightMode(isColorLight(currCard.style.cover, "hex"));
       }
     })();
   }, [currCard, dominantColor]);

@@ -13,18 +13,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    box-shadow: none;
     width: 50px;
     height: 32px;
     cursor: pointer;
 
     &:hover {
       filter: saturate(85%) brightness(85%);
-    }
-
-    &.color-focus {
-      box-shadow: 0 0 0 2px $clr0, 0 0 0 4px $clr6;
-      filter: none;
     }
   }
 }

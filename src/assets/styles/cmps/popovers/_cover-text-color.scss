@@ -1,0 +1,41 @@
+.cover-text-color {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  .text-color-btns {
+    display: grid;
+    gap: 8px;
+    padding: 4px;
+    margin: 0 -4px;
+    overflow-x: hidden;
+    grid-template-columns: 1fr 1fr;
+    & div {
+      margin: 0;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      border-radius: 3px;
+      width: unset;
+      //   height: 20px;
+      background-size: cover;
+      background-position: center;
+      padding: 6px 10px 6px 12px;
+      overflow: hidden;
+      &:hover {
+        filter: saturate(85%) brightness(85%);
+      }
+      h3 {
+        margin-bottom: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        line-height: 20px;
+        &.white-text {
+          color: $clr0;
+        }
+      }
+    }
+  }
+}

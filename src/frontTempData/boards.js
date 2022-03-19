@@ -179,7 +179,22 @@ export const boards = [
             ],
             isWatched: true,
             dueDate: 1645902408000,
-            attachments: [],
+            attachments: [
+              {
+                _id: "0b4F",
+                url: "https://res.cloudinary.com/zivcloud555/image/upload/v1633764702/Trellis%20permanent%20img/Card%20Images/chart4_sgrvtg.png",
+                filename: "test1",
+                format: "test1",
+                uploadedAt: 1645902408000,
+              },
+              {
+                _id: "S9lD",
+                url: "https://res.cloudinary.com/zivcloud555/image/upload/v1633790626/Trellis%20permanent%20img/Card%20Images/reactPdf_timefn.png",
+                filename: "test2",
+                format: "test2",
+                uploadedAt: 1645902408033,
+              },
+            ],
             checklists: [
               {
                 id: "YEhs8",
@@ -406,6 +421,9 @@ export const boards = [
                 name: "star_for_button.png",
                 type: "img",
                 url: "http://res.cloudinary.com/zivcloud555/image/upload/v1632990567/dczryta6ewdoeg8vu9wd.png",
+                filename: "test2",
+                format: "test2",
+                uploadedAt: 1645902408033,
               },
               {
                 id: "dK4vF",
@@ -413,6 +431,9 @@ export const boards = [
                 name: "A Complete Guide to Flexbox",
                 type: "link",
                 url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+                filename: "test2",
+                format: "test2",
+                uploadedAt: 1645902408033,
               },
             ],
             cardMembers: [
@@ -578,6 +599,9 @@ export const boards = [
                 name: "Crop this to circle.JPG",
                 type: "img",
                 url: "http://res.cloudinary.com/zivcloud555/image/upload/v1632987289/sbzhu6amtaxxreqjzbcy.jpg",
+                filename: "test2",
+                format: "test2",
+                uploadedAt: 1645902408033,
               },
               {
                 id: "dK4vF",
@@ -585,6 +609,9 @@ export const boards = [
                 name: "Article about fixing the svg here",
                 type: "link",
                 url: "https://css-tricks.com/svg-line-animation-works/",
+                filename: "test2",
+                format: "test2",
+                uploadedAt: 1645902408033,
               },
             ],
             checklists: [
