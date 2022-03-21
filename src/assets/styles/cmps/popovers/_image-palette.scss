@@ -1,0 +1,100 @@
+.image-palette {
+  display: grid;
+
+  gap: 8px;
+  padding: 4px;
+  margin: 0 -4px;
+  overflow-x: hidden;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  & > div {
+    position: relative;
+    button {
+      margin: 0;
+      border-radius: 3px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-shadow: none;
+      height: 48px;
+      width: 88px;
+      &:hover {
+        filter: saturate(85%) brightness(85%);
+      }
+      & > div {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        &:hover {
+          a {
+            opacity: 1;
+          }
+        }
+        a {
+          background: #00000080;
+          border-radius: 0 0 2px 2px;
+          bottom: 0;
+          box-sizing: border-box;
+          color: #dfe1e6;
+          cursor: pointer;
+          left: 0;
+          opacity: 0;
+          overflow: hidden;
+          padding: 2px 4px;
+          position: absolute;
+          text-align: left;
+          font-size: 12px;
+          height: 16px;
+          line-height: 12px;
+          text-decoration: underline;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
+          z-index: 1;
+          &:hover {
+            background: #000c;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  &.large-images {
+    grid-template-columns: 1fr 1fr;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-right: 0;
+    max-height: 512px;
+
+    // -webkit-overflow-scrolling: touch;
+
+    /*Scroll-Bar*/
+    &::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track-piece {
+      border-radius: 3px;
+      margin: 0 30px;
+      width: 8px;
+      background-color: #dadbe2;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: #bfc4ce;
+    }
+
+    .single-image {
+      height: 81px;
+      width: 136px;
+      margin: 0;
+    }
+  }
+}

@@ -23,6 +23,14 @@ export const PopoverCover = ({ elPos, handleClose, currCard, board }) => {
     setCoverMode(currCard.style.coverMode);
     setIsColorWhite(currCard.style.isColorWhite);
     if (currCard.style.isImage) setImageUrl(currCard.style.cover);
+
+    return function cleanup() {
+      // Side-effect cleanup
+      setCoverColor(null);
+      setCoverMode(null);
+      setIsColorWhite(null);
+      setImageUrl(null);
+    };
   }, [currCard]);
 
   const onSetCoverMode = (mode) => {
@@ -129,7 +137,12 @@ export const PopoverCover = ({ elPos, handleClose, currCard, board }) => {
         />
 
         <h4>Photos from Unsplash</h4>
-        <CoverUnsplashImages />
+        <CoverUnsplashImages
+          onSetCoverImage={onSetCoverImage}
+          currCard={currCard}
+          board={board}
+          PopoverCoverPos={elPos}
+        />
       </div>
     </PopoverCmp>
   );

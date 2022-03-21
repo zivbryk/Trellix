@@ -1,38 +1,28 @@
-import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { ImagePalette } from "../popovers/image-palette";
 
-import { unSplashService } from "../../services/unsplash.service";
+import { openPopover } from "../../store/actions/app.actions";
 
-export const CoverUnsplashImages = () => {
-  const [imgs, setImgs] = useState(null);
-  const [keyword, setKeyword] = useState(null);
+export const CoverUnsplashImages = ({
+  onSetCoverImage,
+  currCard,
+  board,
+  PopoverCoverPos,
+}) => {
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    loadImgs();
-  }, []);
-
-  const loadImgs = async () => {
-    try {
-      const resImages = await unSplashService.getTenImgs();
-      setImgs(resImages);
-    } catch (err) {
-      console.log(err);
-    }
+  const onOpenPopver = (ev) => {
+    const elPos = PopoverCoverPos;
+    const popoverProps = { currCard, board, onSetCoverImage };
+    dispatch(openPopover("PHOTO-SEARCH", elPos, popoverProps));
   };
 
-  if (!imgs) return <div></div>;
   return (
     <div className="cover-unsplash-images">
-      <div>
-        {imgs.map((img) => (
-          <div key={img.id}>
-            <button
-              className="btn"
-              style={{ backgroundImage: `url(${img.small})` }}
-            ></button>
-          </div>
-        ))}
-      </div>
-      <button></button>
+      <ImagePalette onSetCoverImage={onSetCoverImage} perPage={"6"} />
+      <button className="btn btn-popover" onClick={(ev) => onOpenPopver(ev)}>
+        Search for photos
+      </button>
     </div>
   );
 };

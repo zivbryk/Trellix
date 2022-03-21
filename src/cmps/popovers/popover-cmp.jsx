@@ -1,6 +1,6 @@
 import Popover from "@mui/material/Popover";
 
-export const PopoverCmp = ({ elPos, handleClose, title, children }) => {
+export const PopoverCmp = ({ elPos, handleClose, title, children, onBack }) => {
   return (
     <Popover
       open={true}
@@ -11,7 +11,12 @@ export const PopoverCmp = ({ elPos, handleClose, title, children }) => {
       <div className="popover-wrapper">
         <div className="popover-header">
           <span className="popover-header-title">{title}</span>
-          <button className="btn" onClick={handleClose}>
+          {onBack && (
+            <button className="btn btn-back" onClick={onBack}>
+              <span className="trl icon-back icon-sm"></span>
+            </button>
+          )}
+          <button className="btn btn-close" onClick={handleClose}>
             <span className="trl icon-close icon-sm"></span>
           </button>
         </div>

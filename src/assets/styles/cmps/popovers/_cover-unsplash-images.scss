@@ -1,24 +1,6 @@
 .cover-unsplash-images {
-  & > :first-child {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 4px;
-    margin: 0 -4px;
-    overflow-x: hidden;
-    grid-template-columns: 1fr 1fr 1fr;
-    & > div {
-      position: relative;
-      button {
-        margin: 0;
-        border-radius: 3px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        box-shadow: none;
-        height: 48px;
-        width: 88px;
-      }
-    }
+  button {
+    margin: 4px 0 0;
+    width: 100%;
   }
 }
