@@ -49,27 +49,17 @@
       }
     }
 
-    & > :nth-child(3) {
+    .photo-gallery {
       .unsplash-footer {
         display: flex;
+        flex-direction: row-reverse;
         justify-content: space-between;
         color: $clr4;
         font-size: 12px;
         line-height: 16px;
         margin-top: 8px;
         height: 16px;
-        flex-direction: row-reverse;
         & > :first-child {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          transition-duration: 85ms;
-          transition-timing-function: ease;
-          flex: 0 1 auto;
-          opacity: 1;
-          transition-property: opacity;
-        }
-        & > :last-child {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -78,6 +68,16 @@
             color: $clr4;
             text-decoration: underline;
           }
+        }
+        & > :last-child {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          transition-duration: 85ms;
+          transition-timing-function: ease;
+          flex: 0 1 auto;
+          opacity: 1;
+          transition-property: opacity;
         }
       }
     }

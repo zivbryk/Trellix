@@ -64,13 +64,13 @@
   }
   &.large-images {
     grid-template-columns: 1fr 1fr;
-    overflow-y: scroll;
-    overflow-x: hidden;
     margin-right: 0;
     max-height: 512px;
-
-    // -webkit-overflow-scrolling: touch;
-
+    -webkit-overflow-scrolling: touch;
+    .gallery-scroll {
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
     /*Scroll-Bar*/
     &::-webkit-scrollbar {
       height: 8px;

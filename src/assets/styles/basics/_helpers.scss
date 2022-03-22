@@ -21,20 +21,6 @@
   font-size: rem(30px);
 }
 
-.hidden {
-  display: none;
-  // z-index: 1;
-}
-.shown {
-  display: block;
-}
-.relative {
-  position: relative;
-}
-.absolute {
-  position: absolute;
-}
-
 .red {
   background-color: red;
 }
@@ -123,4 +109,31 @@
 .focus {
   box-shadow: 0 0 0 2px $clr0, 0 0 0 4px $clr6;
   filter: none;
+}
+
+.quiet,
+.quiet a {
+  color: #5e6c84;
+}
+
+.hidden {
+  display: none;
+  // z-index: 1;
+}
+.shown {
+  display: block;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+
+.no-shadow {
+  box-shadow: none;
+}
+
+.link {
+  text-decoration: underline;
 }

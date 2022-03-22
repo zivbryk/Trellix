@@ -5,6 +5,8 @@ import analyze from "rgbaster";
 
 import { WindowOverlay } from "../cmps/window-overlay";
 import { CardDetailsCover } from "../cmps/card/card-details-cover";
+import { CardDetailsHeader } from "../cmps/card/card-details-header";
+import { CardDetailsMain } from "../cmps/card/card-details-main";
 
 export const CardDetails = () => {
   const board = useSelector((state) => state.boardReducer.board);
@@ -59,7 +61,7 @@ export const CardDetails = () => {
     (async () => {
       if (!currCard) return;
       if (!currCard.style.cover) return;
-      if (currCard?.style.isImage) {
+      if (currCard.style.isImage) {
         const imagePalette = await analyze(currCard.style.cover);
         setDominantColor(imagePalette[1].color);
         setIsLightMode(isColorLight(imagePalette[1].color, "rgb"));
@@ -102,9 +104,9 @@ export const CardDetails = () => {
                 isLightMode={isLightMode}
               />
 
-              <div className="window-header"></div>
+              <CardDetailsHeader currCard={currCard} currList={currList} />
 
-              <div className="window-main-col"></div>
+              <CardDetailsMain currCard={currCard} />
 
               <div className="window-sidbar"></div>
             </div>

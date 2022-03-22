@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { PopoverCmp } from "../popovers/popover-cmp";
 import { ImagePalette } from "../popovers/image-palette";
 import { ReactComponent as CloseIcon } from "../../assets/img/icons/close.svg";
 import { LoaderCmp } from "../loader-cmp";
 
-import { unSplashService } from "../../services/unsplash.service";
 import { openPopover } from "../../store/actions/app.actions";
 
 export const PopverPhotoSearch = ({
@@ -19,6 +18,7 @@ export const PopverPhotoSearch = ({
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
   const [isSearching, setIsSearching] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onBack = () => {
     const popoverProps = { currCard, board, elPos };
@@ -43,7 +43,6 @@ export const PopverPhotoSearch = ({
 
   const handleChange = ({ target }) => {
     const { value } = target;
-    console.log(value);
     value !== "" ? setIsSearching(true) : setIsSearching(false);
     setKeyword(value);
   };
@@ -104,27 +103,28 @@ export const PopverPhotoSearch = ({
             </div>
           )}
 
-          <div>
+          <div className="photo-gallery">
             {isSearching ? <h4>Results</h4> : <h4>Top photos</h4>}
             <ImagePalette
               onSetCoverImage={onSetCoverImage}
               perPage={isSearching ? "300" : "12"}
               keyword={keyword}
               isSearching={isSearching}
+              setIsLoading={setIsLoading}
             />
             <div className="unsplash-footer">
-              {true && (
-                <div>
-                  <LoaderCmp mode={"block"} />
-                  <span>Loading...</span>
-                </div>
-              )}
-
               <div>
                 Photos from
                 <span> </span>
                 <a href="https://unsplash.com/">Unsplash</a>
               </div>
+
+              {isLoading && (
+                <div className="flex">
+                  <LoaderCmp mode={"block"} />
+                  <span>Loading...</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
