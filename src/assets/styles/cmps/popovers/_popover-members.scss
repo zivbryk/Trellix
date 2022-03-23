@@ -1,0 +1,53 @@
+.popover-members-content {
+  input {
+    margin: 4px 0 12px;
+    width: 100%;
+  }
+
+  .board-members {
+    margin-top: 12px;
+
+    ul {
+      li {
+        > div {
+          border-radius: 3px;
+          display: block;
+          //   height: 32px;
+          line-height: 32px;
+          margin-bottom: 2px;
+          overflow: hidden;
+          padding: 4px;
+          position: relative;
+          text-decoration: none;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          cursor: pointer;
+          &:hover {
+            background-color: #091e420a;
+          }
+
+          .member-avatar {
+            margin-right: 8px;
+            margin-bottom: 0px;
+          }
+
+          .icon-check {
+            vertical-align: unset;
+            background-clip: content-box;
+            background-origin: content-box;
+            padding: 11px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            display: none;
+            &.active {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

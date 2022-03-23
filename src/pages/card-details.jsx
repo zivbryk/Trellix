@@ -106,7 +106,7 @@ export const CardDetails = () => {
 
               <CardDetailsHeader currCard={currCard} currList={currList} />
 
-              <CardDetailsMain currCard={currCard} />
+              <CardDetailsMain currCard={currCard} board={board} />
 
               <div className="window-sidbar"></div>
             </div>

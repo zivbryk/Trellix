@@ -1,9 +1,9 @@
 import { CardDetailsData } from "./card-details-data";
 
-export const CardDetailsMain = ({ currCard }) => {
+export const CardDetailsMain = ({ currCard, board }) => {
   return (
     <section className="card-details-main">
-      <CardDetailsData currCard={currCard} />
+      <CardDetailsData currCard={currCard} board={board} />
 
       <div className="card-details-description"></div>
 
