@@ -41,7 +41,7 @@ export const CardDetailsCover = ({
     return coverStyle;
   };
 
-  const onOpenPopver = (ev) => {
+  const onOpenPopover = (ev) => {
     const elPos = ev.target.getBoundingClientRect();
     elPos.height += 4;
     const popoverProps = { currCard, board };
@@ -55,7 +55,7 @@ export const CardDetailsCover = ({
           className={`btn window-cover-menu-btn ${
             isLightMode ? "" : "cover-btn-light"
           }`}
-          onClick={(ev) => onOpenPopver(ev)}
+          onClick={(ev) => onOpenPopover(ev)}
         >
           <span className="icon-sm trl icon-card-cover"></span>
           Cover

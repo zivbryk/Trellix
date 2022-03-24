@@ -55,10 +55,9 @@ export const PopoverMembers = ({ elPos, handleClose, currCard, board }) => {
         <input
           type="text"
           placeholder="Search members"
-          //  autoFocus
           value={filterBy.txt}
-          // ref={searchInput}
           onChange={handleChange}
+          autoFocus
         />
 
         <div className="board-members">

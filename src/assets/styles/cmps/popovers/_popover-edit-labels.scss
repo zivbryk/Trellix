@@ -1,0 +1,80 @@
+.popover-edit-labels-content {
+  .labels-container {
+    margin-top: 12px;
+
+    ul.edit-labels {
+      margin-bottom: 8px;
+
+      li {
+        padding-right: 36px;
+        position: relative;
+
+        .btn-label-edit {
+          border-radius: 3px;
+          padding: 6px;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        span.card-label {
+          border-radius: 3px;
+          cursor: pointer;
+          font-weight: 700;
+          margin: 0 0 4px;
+          min-height: 20px;
+          padding: 6px 12px;
+          position: relative;
+          transition: padding 85ms, margin 85ms, box-shadow 85ms;
+          color: #fff;
+          display: block;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          &.card-label-green {
+            background-color: $green;
+          }
+          &.card-label-yellow {
+            background-color: $yellow;
+          }
+          &.card-label-orange {
+            background-color: $orange;
+          }
+          &.card-label-red {
+            background-color: $red;
+          }
+          &.card-label-purple {
+            background-color: $purple;
+          }
+          &.card-label-blue {
+            background-color: $blue;
+          }
+          &.card-label-sky {
+            background-color: $sky;
+          }
+          &.card-label-lime {
+            background-color: $lime;
+          }
+          &.card-label-pink {
+            background-color: $pink;
+          }
+          &.card-label-black {
+            background-color: $black;
+          }
+
+          span.icon-check {
+            right: 6px;
+            color: #fff;
+            position: absolute;
+            display: none;
+            &.active {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

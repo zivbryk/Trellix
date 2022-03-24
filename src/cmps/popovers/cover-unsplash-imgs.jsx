@@ -11,7 +11,7 @@ export const CoverUnsplashImages = ({
 }) => {
   const dispatch = useDispatch();
 
-  const onOpenPopver = (ev) => {
+  const onOpenPopover = (ev) => {
     const elPos = PopoverCoverPos;
     const popoverProps = { currCard, board, onSetCoverImage };
     dispatch(openPopover("PHOTO-SEARCH", elPos, popoverProps));
@@ -20,7 +20,7 @@ export const CoverUnsplashImages = ({
   return (
     <div className="cover-unsplash-images">
       <ImagePalette onSetCoverImage={onSetCoverImage} perPage={"6"} />
-      <button className="btn btn-popover" onClick={(ev) => onOpenPopver(ev)}>
+      <button className="btn btn-popover" onClick={(ev) => onOpenPopover(ev)}>
         Search for photos
       </button>
     </div>

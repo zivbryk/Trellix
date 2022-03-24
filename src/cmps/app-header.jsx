@@ -24,7 +24,7 @@ export const AppHeader = () => {
     return null;
   }
 
-  const onOpenPopver = (ev, popoverName, loggedinUser) => {
+  const onOpenPopover = (ev, popoverName, loggedinUser) => {
     const elPos = ev.target.getBoundingClientRect();
     const popoverProps = { loggedinUser, isInCard: false };
     dispatch(openPopover(popoverName, elPos, popoverProps));
@@ -76,7 +76,7 @@ export const AppHeader = () => {
             size={"32"}
             member={loggedinUser}
             isBadge={false}
-            onOpenPopver={onOpenPopver}
+            onOpenPopover={onOpenPopover}
             isInAppHeader={true}
           />
         </nav>

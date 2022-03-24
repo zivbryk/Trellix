@@ -6,7 +6,7 @@ import { openPopover } from "../../store/actions/app.actions";
 export const CardDetailsMembers = ({ currCard, board }) => {
   const dispatch = useDispatch();
 
-  const onOpenPopver = (ev, popoverName, member) => {
+  const onOpenPopover = (ev, popoverName, member) => {
     const elPos = ev.target.getBoundingClientRect();
     const popoverProps = member
       ? { member, board, currCard }
@@ -24,12 +24,12 @@ export const CardDetailsMembers = ({ currCard, board }) => {
             key={member._id}
             size={"32"}
             member={member}
-            onOpenPopver={onOpenPopver}
+            onOpenPopover={onOpenPopover}
           />
         ))}
         <button
           className="btn btn-add"
-          onClick={(ev) => onOpenPopver(ev, "MEMBERS", null)}
+          onClick={(ev) => onOpenPopover(ev, "MEMBERS", null)}
         >
           <span className="icon-sm trl icon-add"></span>
         </button>

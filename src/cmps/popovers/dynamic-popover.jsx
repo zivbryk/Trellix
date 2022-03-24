@@ -5,6 +5,7 @@ import { PopoverAccount } from "../popovers/popover-account";
 import { PopoverCover } from "../popovers/popover-cover";
 import { PopverPhotoSearch } from "../popovers/popover-photo-search";
 import { PopoverMembers } from "../popovers/popover-members";
+import { PopoverEditLabels } from "../popovers/popover-edit-labels";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -54,6 +55,14 @@ export const DynamicPopover = () => {
     case "MEMBERS":
       return (
         <PopoverMembers
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+    case "LABELS":
+      return (
+        <PopoverEditLabels
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

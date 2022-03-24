@@ -1,0 +1,158 @@
+.card-labels {
+  overflow: auto;
+  position: relative;
+  .card-label {
+    &.mod-list-card {
+      float: left;
+      font-size: 12px;
+      font-weight: 700;
+      height: 8px;
+      line-height: 100px;
+      margin: 0 4px 4px 0;
+      max-width: 40px;
+      min-width: 40px;
+      padding: 0;
+      text-shadow: none;
+      width: auto;
+      &.label-text-on {
+        height: 16px;
+        line-height: 16px;
+        max-width: 198px;
+        padding: 0 8px;
+        animation: label-text-appear 0.45s ease-out;
+      }
+      &.label-text-off {
+        max-width: 198px;
+        animation: label-text-disappear 0.45s ease-in forwards;
+      }
+    }
+
+    &.mod-card-details {
+      border-radius: 3px;
+      box-sizing: border-box;
+      display: block;
+      float: left;
+      font-weight: 600;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 4px 4px 0;
+      min-width: 40px;
+      padding: 0 12px;
+      width: auto;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #b3bac5;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    margin-right: 4px;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 4px 6px;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    .label-text {
+      display: none;
+      &.label-text-on {
+        display: initial;
+      }
+    }
+
+    &.card-label-green {
+      background-color: $green;
+    }
+    &.card-label-yellow {
+      background-color: $yellow;
+    }
+    &.card-label-orange {
+      background-color: $orange;
+    }
+    &.card-label-red {
+      background-color: $red;
+    }
+    &.card-label-purple {
+      background-color: $purple;
+    }
+    &.card-label-blue {
+      background-color: $blue;
+    }
+    &.card-label-sky {
+      background-color: $sky;
+    }
+    &.card-label-lime {
+      background-color: $lime;
+    }
+    &.card-label-pink {
+      background-color: $pink;
+    }
+    &.card-label-black {
+      background-color: $black;
+    }
+  }
+
+  &:hover {
+    .card-label.mod-list-card {
+      &.card-label-green {
+        background-color: darken(adjust-hue($green, -5), 11.57);
+      }
+      &.card-label-yellow {
+        background-color: darken(adjust-hue($yellow, -5), 11.57);
+      }
+      &.card-label-orange {
+        background-color: darken(adjust-hue($orange, -5), 11.57);
+      }
+      &.card-label-red {
+        background-color: darken(adjust-hue($red, -5), 11.57);
+      }
+      &.card-label-purple {
+        background-color: darken(adjust-hue($purple, -5), 11.57);
+      }
+      &.card-label-blue {
+        background-color: darken(adjust-hue($blue, -5), 11.57);
+      }
+      &.card-label-sky {
+        background-color: darken(adjust-hue($sky, -5), 11.57);
+      }
+      &.card-label-lime {
+        background-color: darken(adjust-hue($lime, -5), 11.57);
+      }
+      &.card-label-pink {
+        background-color: darken(adjust-hue($pink, -5), 11.57);
+      }
+      &.card-label-black {
+        background-color: darken(adjust-hue($black, -5), 11.57);
+      }
+    }
+  }
+
+  .btn-add {
+    background-color: #091e420a;
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+    margin: 0 8px 8px 0;
+    transition-duration: 85ms;
+    transition-property: background-color, border-color, box-shadow;
+    transition-timing-function: ease;
+
+    .icon-sm {
+      display: inline-table;
+      font-size: 16px;
+      height: 16px;
+      line-height: 16px;
+      padding: 8px;
+      width: 16px;
+    }
+  }
+}

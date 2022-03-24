@@ -45,7 +45,7 @@ export const BoardHeader = ({ board }) => {
     dispatch(onEditBoard(clonedBoard));
   };
 
-  const onOpenPopver = (ev, popoverName, member) => {
+  const onOpenPopover = (ev, popoverName, member) => {
     const elPos = ev.target.getBoundingClientRect();
     const popoverProps = { member, isInCard: false };
     dispatch(openPopover(popoverName, elPos, popoverProps));
@@ -107,7 +107,7 @@ export const BoardHeader = ({ board }) => {
                   isBadge={true}
                   idx={board.boardMembers.length - idx}
                   key={member._id}
-                  onOpenPopver={onOpenPopver}
+                  onOpenPopover={onOpenPopover}
                 />
               ))}
             <MemberAvatar
