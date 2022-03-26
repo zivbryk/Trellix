@@ -44,6 +44,7 @@ export const CardLabels = ({ currCard, board, mod }) => {
     <div className="card-labels">
       {currCard.labelIds?.map((labelId) => {
         const label = board.labels.find((label) => label.id === labelId);
+        if (label.color === "none" && mod === "list-card") return "";
         return (
           <span
             className={`card-label card-label-${

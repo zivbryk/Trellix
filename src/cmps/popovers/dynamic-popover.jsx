@@ -6,6 +6,7 @@ import { PopoverCover } from "../popovers/popover-cover";
 import { PopverPhotoSearch } from "../popovers/popover-photo-search";
 import { PopoverMembers } from "../popovers/popover-members";
 import { PopoverEditLabels } from "../popovers/popover-edit-labels";
+import { PopoverAddEditLabel } from "../popovers/popover-add-edit-label";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -63,6 +64,14 @@ export const DynamicPopover = () => {
     case "LABELS":
       return (
         <PopoverEditLabels
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+    case "ADD-LABEL":
+      return (
+        <PopoverAddEditLabel
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

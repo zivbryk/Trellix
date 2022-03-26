@@ -18,6 +18,7 @@
         }
 
         span.card-label {
+          background-color: #b3bac5;
           border-radius: 3px;
           cursor: pointer;
           font-weight: 700;
@@ -33,35 +34,80 @@
           text-overflow: ellipsis;
           white-space: nowrap;
 
+          &.selected {
+            box-shadow: -8px 0 #97a0af;
+            margin-left: 4px;
+          }
+
           &.card-label-green {
             background-color: $green;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($green, 1), 16.96), 11.18);
+            }
           }
           &.card-label-yellow {
             background-color: $yellow;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($yellow, 1), 16.96), 11.18);
+            }
           }
           &.card-label-orange {
             background-color: $orange;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($orange, 1), 16.96), 11.18);
+            }
           }
           &.card-label-red {
             background-color: $red;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($red, 1), 16.96), 11.18);
+            }
           }
           &.card-label-purple {
             background-color: $purple;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($purple, 1), 16.96), 11.18);
+            }
           }
           &.card-label-blue {
             background-color: $blue;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($blue, 1), 16.96), 11.18);
+            }
           }
           &.card-label-sky {
             background-color: $sky;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($sky, 1), 16.96), 11.18);
+            }
           }
           &.card-label-lime {
             background-color: $lime;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($lime, 1), 16.96), 11.18);
+            }
           }
           &.card-label-pink {
             background-color: $pink;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($pink, 1), 16.96), 11.18);
+            }
           }
           &.card-label-black {
             background-color: $black;
+            &.selected {
+              box-shadow: -8px 0
+                darken(desaturate(adjust-hue($black, 1), 16.96), 11.18);
+            }
           }
 
           span.icon-check {
@@ -75,6 +121,10 @@
           }
         }
       }
+    }
+
+    .btn-create-label {
+      margin: 8px 4px 8px 0;
     }
   }
 }

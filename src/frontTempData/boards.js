@@ -66,6 +66,11 @@ export const boards = [
         title: "Documentation needed",
         color: "black",
       },
+      {
+        id: "gc041",
+        title: "Documentation needed",
+        color: "none",
+      },
     ],
     boardMembers: [
       {
@@ -151,7 +156,8 @@ export const boards = [
               "pc309",
               "ib492",
               "vm941",
-              // "dl995",
+              "dl995",
+              "gc041",
             ],
             cardMembers: [
               {

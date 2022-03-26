@@ -124,8 +124,9 @@ export const PopoverCover = ({ elPos, handleClose, currCard, board }) => {
 
         <h4>Colors</h4>
         <ColorPalette
-          onSetCoverColor={onSetCoverColor}
+          onSetColor={onSetCoverColor}
           coverColor={coverColor}
+          mod="cover-color"
         />
 
         <h4>Attachments</h4>

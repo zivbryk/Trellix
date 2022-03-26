@@ -17,8 +17,62 @@
     height: 32px;
     cursor: pointer;
 
-    &:hover {
-      filter: saturate(85%) brightness(85%);
+    span {
+      color: $clr0;
+      display: none;
     }
+
+    &.cover-color {
+      &:hover {
+        filter: saturate(85%) brightness(85%);
+      }
+    }
+
+    &.edit-label {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &.selected {
+      span {
+        display: inline-block;
+      }
+    }
+
+    &.green {
+      background-color: $green;
+    }
+    &.yellow {
+      background-color: $yellow;
+    }
+    &.orange {
+      background-color: $orange;
+    }
+    &.red {
+      background-color: $red;
+    }
+    &.purple {
+      background-color: $purple;
+    }
+    &.blue {
+      background-color: $blue;
+    }
+    &.sky {
+      background-color: $sky;
+    }
+    &.lime {
+      background-color: $lime;
+    }
+    &.pink {
+      background-color: $pink;
+    }
+    &.black {
+      background-color: $black;
+    }
+  }
+
+  .edit-label-no-color {
+    //
   }
 }

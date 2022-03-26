@@ -66,7 +66,6 @@ export const CardDetails = () => {
         setDominantColor(imagePalette[1].color);
         setIsLightMode(isColorLight(imagePalette[1].color, "rgb"));
       } else {
-        console.log("currCard?.style.cover:", currCard?.style.cover);
         setIsLightMode(isColorLight(currCard.style.cover, "hex"));
       }
     })();
