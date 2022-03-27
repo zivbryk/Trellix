@@ -39,7 +39,7 @@ export const CardLabels = ({ currCard, board, mod }) => {
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
-  if (!currCard || !board) return <div>Loading..</div>;
+  if (!currCard || !board) return <div>Loading...</div>;
   return (
     <div className="card-labels">
       {currCard.labelIds?.map((labelId) => {

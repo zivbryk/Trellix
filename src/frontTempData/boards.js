@@ -300,10 +300,10 @@ export const boards = [
               },
             ],
             dueDate: 1645779952000,
+            isComplete: false,
             attachments: [],
             isWatched: true,
             checklists: [],
-            isComplete: false,
           },
           {
             id: "c103",

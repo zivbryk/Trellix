@@ -1,13 +1,21 @@
 .color-palette {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 4px;
-  margin: 0 -4px;
-  overflow-x: hidden;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  .palette-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 0 -4px 8px -4px;
+    overflow-x: hidden;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
-  button {
+    &.edit-label {
+      padding-inline: 4px;
+    }
+    &.cover-color {
+      padding: 4px;
+    }
+  }
+
+  button.color-item {
     margin: 0;
     border-radius: 3px;
     background-size: cover;
@@ -70,9 +78,26 @@
     &.black {
       background-color: $black;
     }
+    &.none {
+      background-color: #b3bac5;
+    }
   }
 
   .edit-label-no-color {
-    //
+    & > :first-child {
+      button {
+        margin-inline-end: 8px;
+      }
+    }
+
+    & > :nth-child(2) {
+      p {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      & > :last-child {
+        color: #5e6c84;
+      }
+    }
   }
 }

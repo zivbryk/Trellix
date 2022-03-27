@@ -1,10 +1,4 @@
-export const ColorPalette = ({
-  onSetColor,
-  coverColor,
-  selectedLabel,
-  mod,
-}) => {
-  console.log("selectedLabel", selectedLabel);
+export const ColorPalette = ({ onSetColor, coverColor, label, mod }) => {
   const colors = [
     { code: "#7BC86C", colorName: "green" },
     { code: "#F5DD29", colorName: "yellow" },
@@ -19,16 +13,14 @@ export const ColorPalette = ({
   ];
 
   const getClassName = (color) => {
-    let className = "btn";
+    let className = "btn color-item";
     if (mod === "cover-color") {
       className += " cover-color";
       className += `${coverColor === color.code ? " focus" : ""}`;
     } else if (mod === "edit-label") {
       className += ` edit-label ${color.colorName}`;
-      if (selectedLabel) {
-        className += `${
-          selectedLabel.color === color.colorName ? " selected" : ""
-        }`;
+      if (label) {
+        className += `${label.color === color.colorName ? " selected" : ""}`;
       } else {
         //
       }
@@ -54,26 +46,40 @@ export const ColorPalette = ({
 
   return (
     <div className="color-palette">
-      {colors.map((color) => (
-        <button
-          className={getClassName(color)}
-          style={getStyle(color)}
-          key={color.code}
-          onClick={() => onColorClicked(color)}
-        >
-          <span className={`trl icon-check icon-sm light`}></span>
-        </button>
-      ))}
+      <div
+        className={`palette-container ${
+          mod === "cover-color" ? "cover-color" : "edit-label"
+        }`}
+      >
+        {colors.map((color) => (
+          <button
+            className={getClassName(color)}
+            style={getStyle(color)}
+            key={color.code}
+            onClick={() => onColorClicked(color)}
+          >
+            <span className={`trl icon-check icon-sm light`}></span>
+          </button>
+        ))}
+      </div>
 
       {mod === "edit-label" && (
-        <div className="edit-label-no-color">
+        <div className="edit-label-no-color flex">
           <div>
-            <span
+            <button
               className={getClassName({
-                code: "#C2C8D1",
-                colorName: "no-color",
+                code: "#b3bac5",
+                colorName: "none",
               })}
-            ></span>
+              onClick={() =>
+                onColorClicked({
+                  code: "#b3bac5",
+                  colorName: "none",
+                })
+              }
+            >
+              <span className={`trl icon-check icon-sm light`}></span>
+            </button>
           </div>
 
           <div>

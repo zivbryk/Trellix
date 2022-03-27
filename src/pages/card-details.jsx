@@ -37,7 +37,6 @@ export const CardDetails = () => {
     }
 
     const brightness = (red * 299 + green * 587 + blue * 114) / 1000;
-    // console.log("isColorLight => brightness", brightness);
     return brightness > 140;
   }
 
@@ -52,7 +51,6 @@ export const CardDetails = () => {
 
   useEffect(() => {
     const { card, list } = getCardAndList();
-    // console.log(card);
     setCurrCard(card);
     setCurrList(list);
   }, [getCardAndList]);
@@ -69,7 +67,7 @@ export const CardDetails = () => {
         setIsLightMode(isColorLight(currCard.style.cover, "hex"));
       }
     })();
-  }, [currCard, dominantColor]);
+  }, [currCard]);
 
   const goBackToBoard = (ev) => {
     ev.stopPropagation();

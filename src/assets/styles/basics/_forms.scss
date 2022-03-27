@@ -59,6 +59,15 @@ textarea {
       background-color: darken(desaturate($clr6, 6.9), 9.02);
     }
   }
+
+  &-danger {
+    background-color: #b04632;
+    color: $clr0;
+  }
+
+  &.wide {
+    padding-inline: 24px;
+  }
 }
 .dialog-close-btn {
   border-radius: 50%;

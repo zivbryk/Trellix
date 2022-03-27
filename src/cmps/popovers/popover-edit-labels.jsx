@@ -16,11 +16,12 @@ export const PopoverEditLabels = ({ elPos, handleClose, currCard, board }) => {
   }, [board]);
 
   useEffect(() => {
+    if (!board) return;
     const filteredList = board.labels.filter((label) =>
       label.title.toLowerCase().includes(filterBy.txt.toLowerCase())
     );
     setFilteredLabels(filteredList);
-  }, [filterBy.txt, board.labels]);
+  }, [filterBy.txt, board]);
 
   const handleChange = ({ target }) => {
     const { value } = target;
