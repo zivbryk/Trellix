@@ -1,6 +1,6 @@
 .MuiPopover-paper {
   position: relative;
-  width: 304px;
+  min-width: 304px;
   overflow: hidden;
   border-radius: 3px !important; //To override Mui settings
   z-index: 70;
@@ -15,7 +15,7 @@
       .popover-header-title {
         border-bottom: 1px solid #091e4221;
         box-sizing: border-box;
-        color: #5e6c84;
+        color: $clr4;
         display: block;
         line-height: 40px;
         margin: 0 12px;

@@ -11,8 +11,12 @@ export const CardDetailsData = ({ currCard, board }) => {
         <h3 className="card-details-item-header">Labels</h3>
         <CardLabels currCard={currCard} board={board} mod={"card-details"} />
 
-        <h3 className="card-details-item-header">Due-date</h3>
-        <CardDueDate currCard={currCard} board={board} />
+        {currCard?.dueDate && (
+          <>
+            <h3 className="card-details-item-header">Due-date</h3>
+            <CardDueDate currCard={currCard} board={board} />
+          </>
+        )}
       </div>
     </section>
   );

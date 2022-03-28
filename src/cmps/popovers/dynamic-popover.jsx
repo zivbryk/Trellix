@@ -7,6 +7,7 @@ import { PopverPhotoSearch } from "../popovers/popover-photo-search";
 import { PopoverMembers } from "../popovers/popover-members";
 import { PopoverEditLabels } from "../popovers/popover-edit-labels";
 import { PopoverAddEditLabel } from "../popovers/popover-add-edit-label";
+import { PopoverDate } from "../popovers/popover-date";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -72,6 +73,14 @@ export const DynamicPopover = () => {
     case "ADD-LABEL":
       return (
         <PopoverAddEditLabel
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+    case "DATE":
+      return (
+        <PopoverDate
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

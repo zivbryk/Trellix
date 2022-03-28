@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { ReactComponent as ChevronDown } from "../../assets/img/icons/chevron-down.svg";
 
+import { boardService } from "../../services/board.service";
+import { onEditBoard } from "../../store/actions/board.actions";
+import { openPopover } from "../../store/actions/app.actions";
+
 export const CardDueDate = ({ currCard, board }) => {
+  const dispatch = useDispatch();
+
   const [isCardComplete, setIsCardComplete] = useState(false);
   const [due, setDue] = useState(null);
 
@@ -69,30 +76,40 @@ export const CardDueDate = ({ currCard, board }) => {
 
   const toggleComplete = (ev) => {
     ev.preventDefault();
-    //   setIsCardComplete(!isCardComplete);
+    setIsCardComplete(!isCardComplete);
 
-    //   const clonedBoard = _.cloneDeep(board);
-    //   const listIdx = board.lists.findIndex((list) => list.id === currList.id);
-    //   const cardIdx = currList.cards.findIndex(
-    //     (card) => card.id === currCard.id
-    //   );
-    //   clonedBoard.lists[listIdx].cards[cardIdx].isComplete = !isCardComplete;
+    const updatedCard = { ...currCard };
+    updatedCard.isComplete = !isCardComplete;
+    const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
+    dispatch(onEditBoard(updatedBoard));
+  };
 
-    //   dispatch(onEditBoard(clonedBoard));
+  const onOpenPopover = (ev, popoverName) => {
+    const elPos = ev.target.getBoundingClientRect();
+    elPos.height = 10;
+    elPos.y = 28;
+    elPos.x = 250;
+    const popoverProps = { board, currCard };
+    dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
   if (!currCard || !board) return <div>Loading..</div>;
   return (
-    <div className="card-due-date flex" onClick={toggleComplete}>
-      <button className="btn complete-checkbox">
-        <span></span>
+    <div className="card-due-date flex">
+      <button
+        className={`btn complete-checkbox  ${
+          isCardComplete ? "isComplete" : ""
+        }`}
+        onClick={toggleComplete}
+      >
+        <span className="trl icon-check"></span>
       </button>
 
       <div>
         <button className="btn due-date-container" title={getDueDateTitle()}>
           <span>{getFormatedDueDate()}</span>
           <span className={` ${getDueDateStyle()}`}>{getDueDateStatus()}</span>
-          <span>
+          <span onClick={(ev) => onOpenPopover(ev, "DATE", null)}>
             <ChevronDown />
           </span>
         </button>
