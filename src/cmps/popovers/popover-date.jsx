@@ -21,6 +21,7 @@ export const PopoverDate = ({ elPos, handleClose, currCard, board }) => {
       setDate(currCard.dueDate);
       date ? setIsDueDate(true) : setIsDueDate(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currCard]);
 
   const handleChange = (newDate) => {

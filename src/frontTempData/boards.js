@@ -424,7 +424,6 @@ export const boards = [
               {
                 id: "HKrvQ",
                 createdAt: 1632987289278,
-                name: "star_for_button.png",
                 type: "img",
                 url: "http://res.cloudinary.com/zivcloud555/image/upload/v1632990567/dczryta6ewdoeg8vu9wd.png",
                 filename: "test2",
@@ -434,7 +433,6 @@ export const boards = [
               {
                 id: "dK4vF",
                 createdAt: 1632987289278,
-                name: "A Complete Guide to Flexbox",
                 type: "link",
                 url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
                 filename: "test2",
@@ -453,7 +451,7 @@ export const boards = [
             ],
             labelIds: ["tp301", "yh703"],
             createdAt: 1590999730348,
-            dueDate: 1615651492,
+            dueDate: 1615651492000,
             byMember: {
               _id: "u101",
               fullname: "Ziv Bryk",
@@ -473,7 +471,7 @@ export const boards = [
               coverMode: "half",
               isColorWhite: true,
             },
-            dueDate: 1645787152,
+            dueDate: 1645787152000,
             labelIds: ["tp301", "yh703"],
             cardMembers: [
               {
@@ -602,7 +600,6 @@ export const boards = [
               {
                 id: "HKrvQ",
                 createdAt: 1632987289278,
-                name: "Crop this to circle.JPG",
                 type: "img",
                 url: "http://res.cloudinary.com/zivcloud555/image/upload/v1632987289/sbzhu6amtaxxreqjzbcy.jpg",
                 filename: "test2",
@@ -612,7 +609,6 @@ export const boards = [
               {
                 id: "dK4vF",
                 createdAt: 1632987289278,
-                name: "Article about fixing the svg here",
                 type: "link",
                 url: "https://css-tricks.com/svg-line-animation-works/",
                 filename: "test2",
@@ -660,7 +656,7 @@ export const boards = [
             ],
             labelIds: ["tp301", "yh703"],
             createdAt: 1590999730348,
-            dueDate: 1615651492,
+            dueDate: 1615651492000,
             byMember: {
               _id: "u101",
               fullname: "Ziv Bryk",
@@ -748,7 +744,7 @@ export const boards = [
             cardMembers: [],
             labelIds: ["tp301", "yh703"],
             createdAt: 1590999730348,
-            dueDate: 1615651492,
+            dueDate: 1615651492000,
             byMember: {
               _id: "u101",
               fullname: "Ziv Bryk",

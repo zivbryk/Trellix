@@ -1,11 +1,14 @@
 .MuiPopover-paper {
   position: relative;
-  min-width: 304px;
   overflow: hidden;
   border-radius: 3px !important; //To override Mui settings
   z-index: 70;
 
   .popover-wrapper {
+    min-width: 304px;
+    &.restrict-width {
+      width: 304px;
+    }
     overflow: hidden;
     .popover-header {
       height: 40px;

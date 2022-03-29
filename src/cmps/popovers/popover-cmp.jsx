@@ -1,6 +1,13 @@
 import Popover from "@mui/material/Popover";
 
-export const PopoverCmp = ({ elPos, handleClose, title, children, onBack }) => {
+export const PopoverCmp = ({
+  elPos,
+  handleClose,
+  title,
+  children,
+  onBack,
+  restrictWidth = false,
+}) => {
   return (
     <Popover
       open={true}
@@ -8,7 +15,9 @@ export const PopoverCmp = ({ elPos, handleClose, title, children, onBack }) => {
       anchorReference="anchorPosition"
       anchorPosition={{ top: elPos.top + elPos.height + 6, left: elPos.left }}
     >
-      <div className="popover-wrapper">
+      <div
+        className={`popover-wrapper ${restrictWidth ? "restrict-width" : ""}`}
+      >
         <div className="popover-header">
           <span className="popover-header-title">{title}</span>
           {onBack && (

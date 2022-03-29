@@ -6,4 +6,24 @@
   position: relative;
   width: 552px;
   z-index: 0;
+
+  .card-details-title-icon {
+    top: 2px;
+    // top: 8px;
+    left: -40px;
+    position: absolute;
+    color: darken(saturate($clr4, 8.19), 9.8);
+  }
+
+  .card-details-title {
+    position: relative;
+    margin: 0 0 4px 40px;
+    padding: 8px 0;
+    min-height: 18px;
+    min-width: 40px;
+    width: auto;
+    h3 {
+      min-height: 18px;
+    }
+  }
 }

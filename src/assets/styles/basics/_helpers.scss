@@ -113,13 +113,18 @@
 
 .quiet,
 .quiet a {
-  color: #5e6c84;
+  color: $clr4;
 }
 
 .hidden {
   display: none;
   // z-index: 1;
 }
+
+.transparent {
+  opacity: 0;
+}
+
 .shown {
   display: block;
 }

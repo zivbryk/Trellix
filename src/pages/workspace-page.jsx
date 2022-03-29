@@ -6,14 +6,13 @@ import { BoardList } from "../cmps/board/board-list";
 
 export const WorkspacePage = () => {
   const boards = useSelector((state) => state.boardReducer.boards);
-  // console.log("WorkspacePage => boards", boards);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadBoards());
   }, [dispatch]);
 
-  if (!boards.length) return <LoaderCmp />;
+  if (!boards.length) return <LoaderCmp mod={"full"} />;
 
   return (
     <section className="workspace-page flex justify-center">

@@ -2,8 +2,14 @@
   &.full {
     position: fixed;
     top: 50%;
-    left: 50%;
-    transform: translate(-50% -50%);
+    left: 40%;
+    // transform: translate(-50% -50%);
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    svg {
+      height: 200px;
+      width: 200px;
+    }
   }
   &.block {
     svg {

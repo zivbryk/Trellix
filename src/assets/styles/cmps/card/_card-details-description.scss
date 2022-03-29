@@ -1,0 +1,48 @@
+.card-details-description {
+  clear: both;
+  margin-bottom: 24px;
+  position: relative;
+
+  .card-details-title {
+    .card-details-title-icon {
+      top: 8px;
+    }
+
+    button {
+      margin-left: 8px;
+    }
+  }
+
+  p {
+    margin: 0 0 0 40px;
+  }
+
+  .description-edit {
+    display: block;
+    float: left;
+    padding-bottom: 9px;
+    width: 100%;
+    z-index: 50;
+    margin-left: 40px;
+
+    textarea {
+      margin-bottom: 4px;
+      width: 100%;
+      background: #fff;
+      min-height: 108px;
+      resize: none;
+    }
+
+    .edit-controls {
+      margin-top: 8px;
+      & > :first-child {
+        float: left;
+        margin: 0 4px 0 0;
+      }
+
+      & > :last-child {
+        padding: 0;
+      }
+    }
+  }
+}

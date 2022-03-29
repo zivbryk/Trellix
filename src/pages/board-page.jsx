@@ -68,7 +68,7 @@ export const BoardPage = () => {
     dispatch(onEditBoard(boardToEdit));
   };
 
-  if (!board) return <LoaderCmp />;
+  if (!board) return <LoaderCmp mode={"full"} />;
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <section className="board-page flex column">
