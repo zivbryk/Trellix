@@ -6,7 +6,7 @@ export const PopoverCmp = ({
   title,
   children,
   onBack,
-  restrictWidth = false,
+  releaseWidth = false,
 }) => {
   return (
     <Popover
@@ -15,9 +15,7 @@ export const PopoverCmp = ({
       anchorReference="anchorPosition"
       anchorPosition={{ top: elPos.top + elPos.height + 6, left: elPos.left }}
     >
-      <div
-        className={`popover-wrapper ${restrictWidth ? "restrict-width" : ""}`}
-      >
+      <div className={`popover-wrapper ${releaseWidth ? "release-width" : ""}`}>
         <div className="popover-header">
           <span className="popover-header-title">{title}</span>
           {onBack && (

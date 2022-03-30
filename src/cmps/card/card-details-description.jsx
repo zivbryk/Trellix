@@ -29,8 +29,6 @@ export const CardDetailsDescription = ({ currCard, board }) => {
   };
 
   const onCloseEditor = (ev) => {
-    console.log("onCloseEditor => ev", ev);
-    console.log("ev.relatedTarget:", ev.relatedTarget);
     if (ev.relatedTarget?.contains(ev.target)) {
       return;
     } else if (
@@ -94,8 +92,9 @@ export const CardDetailsDescription = ({ currCard, board }) => {
             >
               Save
             </button>
-            <button id="btn-close" className="btn">
+            <button className="btn">
               <span
+                id="btn-close"
                 className="trl icon-close icon-lg"
                 onClick={() => setIsEditing(false)}
                 tabIndex="0"

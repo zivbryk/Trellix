@@ -5,9 +5,10 @@
   z-index: 70;
 
   .popover-wrapper {
-    min-width: 304px;
-    &.restrict-width {
-      width: 304px;
+    width: 304px;
+    &.release-width {
+      width: unset;
+      min-width: 304px;
     }
     overflow: hidden;
     .popover-header {

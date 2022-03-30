@@ -65,7 +65,12 @@ export const PopoverDate = ({ elPos, handleClose, currCard, board }) => {
   };
 
   return (
-    <PopoverCmp title="Dates" handleClose={handleClose} elPos={elPos}>
+    <PopoverCmp
+      title="Dates"
+      handleClose={handleClose}
+      elPos={elPos}
+      releaseWidth={true}
+    >
       <div className="popover-date-content">
         <div className="calendar-container">
           <LocalizationProvider dateAdapter={AdapterDateFns}>

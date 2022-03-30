@@ -64,7 +64,6 @@ export const PopverPhotoSearch = ({
       handleClose={handleClose}
       elPos={elPos}
       onBack={onBack}
-      restrictWidth={true}
     >
       <div className="popover-photo-search-content">
         <div>

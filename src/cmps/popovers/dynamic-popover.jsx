@@ -8,6 +8,8 @@ import { PopoverMembers } from "../popovers/popover-members";
 import { PopoverEditLabels } from "../popovers/popover-edit-labels";
 import { PopoverAddEditLabel } from "../popovers/popover-add-edit-label";
 import { PopoverDate } from "../popovers/popover-date";
+import { PopoverDeleteAttachment } from "../popovers/PopoverDeleteAttachment";
+import { PopoverAttachment } from "../popovers/popover-attachment";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -81,6 +83,22 @@ export const DynamicPopover = () => {
     case "DATE":
       return (
         <PopoverDate
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+    case "ATTACHMENT":
+      return (
+        <PopoverAttachment
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+    case "DELETE-ATTACHMENT":
+      return (
+        <PopoverDeleteAttachment
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

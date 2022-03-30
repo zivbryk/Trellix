@@ -1,0 +1,30 @@
+.popover-attachment-content {
+  ul {
+    li.uploader {
+      clear: both;
+      cursor: pointer;
+      height: 34px;
+      position: relative;
+      width: 100%;
+
+      .computer-upload {
+        font-size: 14px;
+        &:hover {
+          background-color: #091e420a;
+        }
+        cursor: pointer;
+        font-weight: 400;
+        margin: 0 -12px;
+        padding: 6px 12px;
+        position: relative;
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+
+  hr {
+    margin: 8px 0;
+  }
+}

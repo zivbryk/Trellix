@@ -34,7 +34,10 @@ export const CoverAttachments = ({
         secure_url: url,
         format,
         original_filename: fileName,
-      } = await cloudinaryService.uploadImg(ev);
+      } = await cloudinaryService.uploadImg(
+        ev.target.files[0],
+        "card-attachments"
+      );
       //Add a check here that the img is valid
       onSaveNewAttachment(url, fileName, format);
     } catch (err) {
