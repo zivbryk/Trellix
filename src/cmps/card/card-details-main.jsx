@@ -15,10 +15,11 @@ export const CardDetailsMain = ({ currCard, board }) => {
       <CardDetailsAttachments currCard={currCard} board={board} />
 
       <div className="checklist-list">
-        {currCard.checklists.map((checklist) => (
+        {currCard.checklists.map((checklist, idx) => (
           <CardDetailsChecklist
             key={checklist.id}
             checklist={checklist}
+            checklistIdx={idx}
             currCard={currCard}
             board={board}
           />

@@ -1,3 +1,107 @@
 .card-details-checklist {
   margin-bottom: 24px;
+  .icon-checkbox-checked {
+    top: 8px;
+  }
+
+  .checklist-title {
+    h3 {
+      margin: 6px 0;
+    }
+
+    .title-options {
+      margin: 0 2px 0 auto;
+    }
+  }
+
+  .edit-controls,
+  .add-todo-controls {
+    margin-top: 8px;
+    & > :first-child {
+      float: left;
+      margin: 0 4px 0 0;
+    }
+
+    & > :last-child {
+      padding: 0;
+      span:hover {
+        color: $clr8;
+      }
+    }
+  }
+
+  .checklist-title-editor {
+    textarea {
+      overflow: hidden;
+      overflow-wrap: break-word;
+      resize: none;
+      height: 54px;
+      background: #091e420a;
+      border-color: #091e4221;
+      box-shadow: inset 0 0 0 1px #091e4221;
+      margin-bottom: 4px;
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 700;
+    }
+  }
+
+  .checklist-progress {
+    margin-bottom: 6px;
+    position: relative;
+    .checklist-progress-percentage {
+      color: #5e6c84;
+      font-size: 11px;
+      left: 0;
+      line-height: 10px;
+      position: absolute;
+      text-align: center;
+      top: -1px;
+      width: 32px;
+    }
+
+    .checklist-progress-bar {
+      background: #091e4214;
+      border-radius: 4px;
+      clear: both;
+      height: 8px;
+      margin: 0 0 0 40px;
+      overflow: hidden;
+      position: relative;
+      .checklist-progress-bar-current {
+        background: #5ba4cf;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition-duration: 0.14s;
+        transition-property: width, background;
+        transition-timing-function: ease-in;
+        transition-delay: 0.2s;
+        &.checklist-complete {
+          background: #61bd4f;
+        }
+      }
+    }
+  }
+
+  .todos-list {
+    min-height: 8px;
+  }
+
+  .add-todo-container {
+    margin-left: 40px;
+    .btn-add-todo {
+      margin-block: 8px;
+    }
+
+    .add-todo-editor {
+      .add-todo-textarea {
+        overflow: hidden;
+        overflow-wrap: break-word;
+        resize: vertical;
+        min-height: 32px;
+      }
+    }
+  }
 }

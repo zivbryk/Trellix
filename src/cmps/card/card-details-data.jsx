@@ -5,12 +5,16 @@ import { CardDueDate } from "./card-due-date";
 export const CardDetailsData = ({ currCard, board }) => {
   return (
     <section className="card-details-data">
-      <CardDetailsMembers currCard={currCard} board={board} />
+      {currCard.cardMembers.length !== 0 && (
+        <CardDetailsMembers currCard={currCard} board={board} />
+      )}
 
-      <div className="card-details-item">
-        <h3 className="card-details-item-header">Labels</h3>
-        <CardLabels currCard={currCard} board={board} mod={"card-details"} />
-      </div>
+      {currCard.labelIds.length !== 0 && (
+        <div className="card-details-item">
+          <h3 className="card-details-item-header">Labels</h3>
+          <CardLabels currCard={currCard} board={board} mod={"card-details"} />
+        </div>
+      )}
 
       <div className="card-details-item">
         {currCard?.dueDate && (

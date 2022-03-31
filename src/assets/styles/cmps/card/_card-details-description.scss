@@ -42,6 +42,9 @@
 
       & > :last-child {
         padding: 0;
+        span:hover {
+          color: $clr8;
+        }
       }
     }
   }

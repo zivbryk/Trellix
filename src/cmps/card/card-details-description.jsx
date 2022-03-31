@@ -92,6 +92,7 @@ export const CardDetailsDescription = ({ currCard, board }) => {
             >
               Save
             </button>
+
             <button className="btn">
               <span
                 id="btn-close"
