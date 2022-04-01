@@ -69,7 +69,7 @@
       overflow: hidden;
       position: relative;
       .checklist-progress-bar-current {
-        background: #5ba4cf;
+        background: lighten(desaturate($clr6, 45.28), 20.98);
         bottom: 0;
         left: 0;
         position: absolute;
@@ -79,7 +79,7 @@
         transition-timing-function: ease-in;
         transition-delay: 0.2s;
         &.checklist-complete {
-          background: #61bd4f;
+          background: $green;
         }
       }
     }

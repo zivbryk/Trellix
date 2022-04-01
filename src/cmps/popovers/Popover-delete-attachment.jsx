@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { PopoverCmp } from "../popovers/popover-cmp";
+import { PopoverCmp } from "./popover-cmp";
 
 import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";

@@ -49,8 +49,8 @@
       background-color: $clr6;
       box-shadow: inset 0 0 0 2px $clr6;
       &:hover {
-        background-color: #5ba4cf;
-        box-shadow: inset 0 0 0 2px #5ba4cf;
+        background-color: lighten(desaturate($clr6, 45.28), 20.98);
+        box-shadow: inset 0 0 0 2px lighten(desaturate($clr6, 45.28), 20.98);
       }
       span {
         opacity: 1;
@@ -91,6 +91,37 @@
             background-color: rgba(9, 30, 66, 0.04);
             &:hover {
               background-color: #091e4214;
+            }
+          }
+        }
+      }
+
+      .todo-editor {
+        display: block;
+        float: left;
+        padding-bottom: 9px;
+        width: 100%;
+        z-index: 50;
+
+        textarea {
+          background: #091e420a;
+          border-color: #091e4221;
+          box-shadow: inset 0 0 0 1px #091e4221;
+          margin-bottom: 4px;
+          resize: none;
+        }
+
+        .edit-todo-controls {
+          margin-top: 8px;
+          & > :first-child {
+            float: left;
+            margin: 0 4px 0 0;
+          }
+
+          & > :last-child {
+            padding: 0;
+            span:hover {
+              color: $clr8;
             }
           }
         }

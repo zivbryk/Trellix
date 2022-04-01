@@ -8,8 +8,9 @@ import { PopoverMembers } from "../popovers/popover-members";
 import { PopoverEditLabels } from "../popovers/popover-edit-labels";
 import { PopoverAddEditLabel } from "../popovers/popover-add-edit-label";
 import { PopoverDate } from "../popovers/popover-date";
-import { PopoverDeleteAttachment } from "../popovers/PopoverDeleteAttachment";
+import { PopoverDeleteAttachment } from "../popovers/Popover-delete-attachment";
 import { PopoverAttachment } from "../popovers/popover-attachment";
+import { PopoverDeleteChecklist } from "../popovers/popover-delete-checklist";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -99,6 +100,14 @@ export const DynamicPopover = () => {
     case "DELETE-ATTACHMENT":
       return (
         <PopoverDeleteAttachment
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+    case "DELETE-CHECKLIST":
+      return (
+        <PopoverDeleteChecklist
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

@@ -6,6 +6,9 @@ import { TextareaAutosize } from "@mui/material";
 import { boardService } from "../../services/board.service";
 import { utilService } from "../../services/util.service";
 import { onEditBoard } from "../../store/actions/board.actions";
+import { openPopover } from "../../store/actions/app.actions";
+
+import { closePopover } from "../../store/actions/app.actions";
 
 export const CardDetailsChecklist = ({
   checklist,
@@ -18,7 +21,6 @@ export const CardDetailsChecklist = ({
   const [titleTxt, setTitleTxt] = useState("");
   const [isEditingTodo, setIsEditingTodo] = useState(false);
   const [todoTxt, setTodoTxt] = useState("");
-  const [isChecklistComplete, setIsChecklistComplete] = useState(false);
   const checklistTextarea = useRef(null);
   const todoTextarea = useRef(null);
 
@@ -31,6 +33,12 @@ export const CardDetailsChecklist = ({
       checklistTextarea.current.select();
     }
   }, [isEditingTitle]);
+
+  useEffect(() => {
+    if (isEditingTodo) {
+      todoTextarea.current.select();
+    }
+  }, [isEditingTodo]);
 
   const handleChange = ({ target }) => {
     const { value } = target;
@@ -57,10 +65,10 @@ export const CardDetailsChecklist = ({
 
   const onEnter = (ev) => {
     if (ev.key === "Enter") {
-      console.log(ev.target);
+      ev.preventDefault();
       ev.target.name === "checklist-title-textarea"
         ? onSaveChecklistTitle()
-        : onSaveNewTodo();
+        : onSaveTodo();
     }
   };
 
@@ -72,6 +80,14 @@ export const CardDetailsChecklist = ({
     setIsEditingTitle(false);
   };
 
+  const onDeleteChecklist = () => {
+    const updatedCard = { ...currCard };
+    updatedCard.checklists.splice(checklistIdx, 1);
+    const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
+    dispatch(onEditBoard(updatedBoard));
+    dispatch(closePopover());
+  };
+
   const getProgressPercentage = () => {
     const totalTodos = checklist.todos.length;
     const doneTodos = checklist.todos.reduce((acc, currTodo) => {
@@ -79,7 +95,6 @@ export const CardDetailsChecklist = ({
       return acc;
     }, 0);
     const percentage = Math.floor((doneTodos / totalTodos) * 100);
-    // if (percentage === 100) setIsChecklistComplete(true);
     return percentage;
   };
 
@@ -97,21 +112,38 @@ export const CardDetailsChecklist = ({
     dispatch(onEditBoard(updatedBoard));
   };
 
-  const onSaveNewTodo = () => {
+  const onSaveTodo = () => {
     if (todoTxt === "") {
       todoTextarea.current.focus();
       return;
     }
-    const newTodo = {
-      id: utilService.makeId(),
-      title: todoTxt,
-      isDone: false,
-    };
+    saveTodo(todoTxt);
+    setIsEditingTodo(false);
+    setTodoTxt("");
+  };
+
+  const saveTodo = (title, todoIdx = null) => {
+    console.log(todoIdx);
     const updatedCard = { ...currCard };
-    updatedCard.checklists[checklistIdx].todos.push(newTodo);
+    if (todoIdx === null) {
+      const newTodo = {
+        id: utilService.makeId(),
+        title,
+        isDone: false,
+      };
+      updatedCard.checklists[checklistIdx].todos.push(newTodo);
+    } else {
+      updatedCard.checklists[checklistIdx].todos[todoIdx].title = title;
+    }
     const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
     dispatch(onEditBoard(updatedBoard));
-    setIsEditingTodo(false);
+  };
+
+  const onOpenPopover = (ev, popoverName) => {
+    ev.preventDefault();
+    const elPos = ev.target.getBoundingClientRect();
+    const popoverProps = { checklist, onDeleteChecklist };
+    dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
   return (
@@ -126,7 +158,12 @@ export const CardDetailsChecklist = ({
             </h3>
 
             <div className="title-options">
-              <button className="btn btn-sub">Delete</button>
+              <button
+                className="btn btn-sub"
+                onClick={(ev) => onOpenPopover(ev, "DELETE-CHECKLIST")}
+              >
+                Delete
+              </button>
             </div>
           </div>
         )}
@@ -188,6 +225,7 @@ export const CardDetailsChecklist = ({
             todoIdx={todoIdx}
             onToggleTodo={onToggleTodo}
             onDeleteTodo={onDeleteTodo}
+            saveTodo={saveTodo}
           />
         ))}
       </div>
@@ -225,7 +263,7 @@ export const CardDetailsChecklist = ({
               <button
                 id="btn-save"
                 className="btn btn-primary"
-                onClick={onSaveNewTodo}
+                onClick={onSaveTodo}
               >
                 Add
               </button>
