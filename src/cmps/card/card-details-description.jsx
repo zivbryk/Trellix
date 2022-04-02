@@ -65,9 +65,22 @@ export const CardDetailsDescription = ({ currCard, board }) => {
           Edit
         </button>
       </div>
+
       {!isEditing && (
         <p className="pointer" onClick={() => setIsEditing(true)} tabIndex="0">
           {currCard.description}
+        </p>
+      )}
+
+      {currCard.description === "" && !isEditing && (
+        <p
+          onClick={() => {
+            setIsEditing(true);
+          }}
+        >
+          <div className="description-fake-text">
+            Add a more detailed description…
+          </div>
         </p>
       )}
 

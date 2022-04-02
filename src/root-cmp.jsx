@@ -1,10 +1,8 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router";
 import { useLocation } from "react-router-dom";
 import { AppHeader } from "./cmps/app-header";
 import { DynamicPopover } from "./cmps/popovers/dynamic-popover";
-// import { boardService } from "./services/board.service";
 // import { userService } from "./services/user.service";
 // import { boards } from "./frontTempData/boards.js";
 // import { users } from "./frontTempData/users";

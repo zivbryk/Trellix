@@ -7,6 +7,7 @@ import { WindowOverlay } from "../cmps/window-overlay";
 import { CardDetailsCover } from "../cmps/card/card-details-cover";
 import { CardDetailsHeader } from "../cmps/card/card-details-header";
 import { CardDetailsMain } from "../cmps/card/card-details-main";
+import { CardDetailsSideBar } from "../cmps/card/card-details-sidebar";
 
 export const CardDetails = () => {
   const board = useSelector((state) => state.boardReducer.board);
@@ -105,7 +106,7 @@ export const CardDetails = () => {
 
               <CardDetailsMain currCard={currCard} board={board} />
 
-              <div className="window-sidbar"></div>
+              <CardDetailsSideBar currCard={currCard} board={board} />
             </div>
           </div>
         </div>

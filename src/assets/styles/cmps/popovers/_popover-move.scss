@@ -1,0 +1,65 @@
+.popover-move-content {
+  h4.move-header {
+    margin-bottom: 8px !important;
+  }
+
+  .form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .form-grid-child {
+    flex: 1;
+    margin: 0 0 8px;
+  }
+
+  .form-grid-child-full {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .form-grid-child-threequarters {
+    flex: 3;
+    margin-right: 8px;
+  }
+
+  .setting {
+    float: left;
+    height: 48px;
+    margin-top: 0;
+    position: relative;
+
+    & .label {
+      color: #5e6c84;
+      display: block;
+      font-size: 12px;
+      line-height: 16px;
+      margin-bottom: 0;
+    }
+    & .value {
+      display: block;
+      font-size: 14px;
+      line-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    & select {
+      border: none;
+      cursor: pointer;
+      height: 50px;
+      left: 0;
+      margin: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    & label {
+      display: none;
+    }
+  }
+}

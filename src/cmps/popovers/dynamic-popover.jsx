@@ -11,6 +11,8 @@ import { PopoverDate } from "../popovers/popover-date";
 import { PopoverDeleteAttachment } from "../popovers/Popover-delete-attachment";
 import { PopoverAttachment } from "../popovers/popover-attachment";
 import { PopoverDeleteChecklist } from "../popovers/popover-delete-checklist";
+import { PopoverAddChecklist } from "../popovers/popover-add-checklist";
+import { PopoverMove } from "../popovers/popover-move";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -108,6 +110,24 @@ export const DynamicPopover = () => {
     case "DELETE-CHECKLIST":
       return (
         <PopoverDeleteChecklist
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "CHECKLIST":
+      return (
+        <PopoverAddChecklist
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "MOVE":
+      return (
+        <PopoverMove
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

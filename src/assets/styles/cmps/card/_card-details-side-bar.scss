@@ -1,0 +1,63 @@
+.card-details-side-bar {
+  float: right;
+  overflow: hidden;
+  padding: 0 16px 8px 8px;
+  width: calc(100% - 600px);
+  z-index: 10;
+
+  h3 {
+    color: #5e6c84;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    line-height: 20px;
+    margin-bottom: -4px;
+    margin-top: 16px;
+  }
+
+  .no-top-margin {
+    margin-top: 0;
+  }
+
+  .btn-sidebar {
+    text-align: start;
+    width: 100%;
+    margin-top: 8px;
+    max-width: 300px;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    transition-duration: 85ms;
+    transition-property: background-color, border-color, box-shadow;
+    transition-timing-function: ease;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+
+    .icon-sm {
+      margin: 0 6px 0 -6px;
+    }
+  }
+
+  .suggested-actions {
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .add-to-card {
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .card-actions {
+    hr {
+      margin: 8px 0;
+    }
+
+    div {
+      & > :last-child {
+        margin: 0;
+      }
+    }
+  }
+}
