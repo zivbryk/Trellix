@@ -1,19 +1,27 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import _ from "lodash";
 
 import { userService } from "../../services/user.service";
 import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
 import { openPopover } from "../../store/actions/app.actions";
+import { closePopover } from "../../store/actions/app.actions";
 
-export const CardDetailsSideBar = ({ currCard, board }) => {
+export const CardDetailsSideBar = ({ currCard, currList, board }) => {
   const dispatch = useDispatch();
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [isCardArchived, setIsCardArchived] = useState(false);
 
   useEffect(() => {
     const user = userService.getLoggedinUser();
     setLoggedInUser(user);
   }, []);
+
+  useEffect(() => {
+    if (currCard.archiveData)
+      setIsCardArchived(currCard.archiveData.isArchived);
+  }, [currCard]);
 
   const isUserCardMember = () => {
     return currCard.cardMembers.find(
@@ -28,13 +36,45 @@ export const CardDetailsSideBar = ({ currCard, board }) => {
     dispatch(onEditBoard(updatedBoard));
   };
 
-  const onOpenPopover = (ev, popoverName) => {
+  const onOpenPopover = (ev, popoverName, mod = null) => {
     const elPos = ev.target.getBoundingClientRect();
-    const popoverProps = { board, currCard };
+    let popoverProps = {};
+    if (popoverName === "DELETE-CARD") {
+      popoverProps = {
+        board,
+        currCard,
+        onDeleteCard,
+      };
+    } else {
+      popoverProps = { board, currCard, mod };
+    }
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
-  if (!currCard) return <div></div>;
+  const toggleArchiveCard = () => {
+    const updatedCard = { ...currCard };
+    updatedCard.archiveData.isArchived = !updatedCard.archiveData.isArchived;
+    if (updatedCard.archiveData.isArchived) {
+      updatedCard.archiveData.sourceBoardId = board._id;
+      updatedCard.archiveData.sourceBoardId = currList.id;
+    }
+    const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
+    dispatch(onEditBoard(updatedBoard));
+  };
+
+  const onDeleteCard = async () => {
+    const updatedCard = { ...currCard };
+    const clonedBoard = await _.cloneDeep(board);
+    clonedBoard.lists.forEach((list) => {
+      list.cards.forEach((card, idx) => {
+        if (card.id === updatedCard.id) list.cards.splice(idx, 1);
+      });
+    });
+    dispatch(onEditBoard(clonedBoard));
+    dispatch(closePopover());
+  };
+
+  if (!currCard || !loggedInUser) return <div></div>;
   return (
     <div className="card-details-side-bar">
       {!isUserCardMember() && (
@@ -101,7 +141,7 @@ export const CardDetailsSideBar = ({ currCard, board }) => {
         <div>
           <button
             className="btn btn-sub btn-sidebar"
-            onClick={(ev) => onOpenPopover(ev, "MOVE")}
+            onClick={(ev) => onOpenPopover(ev, "MOVE", "move")}
           >
             <span className="icon-sm trl icon-move"></span>
             <span>Move</span>
@@ -109,7 +149,7 @@ export const CardDetailsSideBar = ({ currCard, board }) => {
 
           <button
             className="btn btn-sub btn-sidebar"
-            // onClick={(ev) => onOpenPopover(ev, "ATTACHMENT")}
+            onClick={(ev) => onOpenPopover(ev, "MOVE", "copy")}
           >
             <span className="icon-sm trl icon-copy"></span>
             <span>Copy</span>
@@ -117,13 +157,36 @@ export const CardDetailsSideBar = ({ currCard, board }) => {
 
           <hr />
 
-          <button
-            className="btn btn-sub btn-sidebar"
-            // onClick={(ev) => onOpenPopover(ev, "ATTACHMENT")}
-          >
-            <span className="icon-sm trl icon-archive"></span>
-            <span>Archive</span>
-          </button>
+          {!isCardArchived && (
+            <button
+              className="btn btn-sub btn-sidebar"
+              onClick={toggleArchiveCard}
+              // onClick={(ev) => onOpenPopover(ev, "ATTACHMENT")}
+            >
+              <span className="icon-sm trl icon-archive"></span>
+              <span>Archive</span>
+            </button>
+          )}
+
+          {isCardArchived && (
+            <button
+              className="btn btn-sub btn-sidebar"
+              onClick={toggleArchiveCard}
+            >
+              <span className="icon-sm trl icon-refresh"></span>
+              <span>Send to board</span>
+            </button>
+          )}
+
+          {isCardArchived && (
+            <button
+              className="btn btn-danger btn-sidebar"
+              onClick={(ev) => onOpenPopover(ev, "DELETE-CARD")}
+            >
+              <span className="icon-sm trl icon-remove"></span>
+              <span>Delete</span>
+            </button>
+          )}
         </div>
       </div>
     </div>

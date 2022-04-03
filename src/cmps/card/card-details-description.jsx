@@ -73,7 +73,8 @@ export const CardDetailsDescription = ({ currCard, board }) => {
       )}
 
       {currCard.description === "" && !isEditing && (
-        <p
+        <div
+          className="fake-text-container"
           onClick={() => {
             setIsEditing(true);
           }}
@@ -81,7 +82,7 @@ export const CardDetailsDescription = ({ currCard, board }) => {
           <div className="description-fake-text">
             Add a more detailed description…
           </div>
-        </p>
+        </div>
       )}
 
       {isEditing && (

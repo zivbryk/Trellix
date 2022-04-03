@@ -36,6 +36,9 @@
 
     .icon-sm {
       margin: 0 6px 0 -6px;
+      &.icon-remove {
+        color: $clr0;
+      }
     }
   }
 
@@ -55,7 +58,7 @@
     }
 
     div {
-      & > :last-child {
+      & > :nth-child(4) {
         margin: 0;
       }
     }

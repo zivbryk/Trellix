@@ -31,15 +31,19 @@ export const CardsList = ({ list, board, listIdx }) => {
                 <ListHeader list={list} board={board} />
 
                 <div className="card-previews">
-                  {list.cards.map((card, idx) => (
-                    <ListCardPreview
-                      key={card.id}
-                      currCard={card}
-                      cardIdx={idx}
-                      currList={list}
-                      currBoard={board}
-                    />
-                  ))}
+                  {list.cards.map((card, idx) => {
+                    return card.archiveData?.isArchived ? (
+                      <div key={card.id}></div>
+                    ) : (
+                      <ListCardPreview
+                        key={card.id}
+                        currCard={card}
+                        cardIdx={idx}
+                        currList={list}
+                        currBoard={board}
+                      />
+                    );
+                  })}
                   {provided.placeholder}
                   {isAddingCard && (
                     <AddCard

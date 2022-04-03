@@ -136,7 +136,7 @@ export const boards = [
         title: "Components",
         cards: [
           {
-            id: "c101",
+            id: "l7v4x",
             title: "EditDate Cmp",
             style: {
               cover:
@@ -246,9 +246,14 @@ export const boards = [
               },
             ],
             isComplete: true,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "c102",
+            id: "49mlh",
             title: "EditAttachmet Cmp",
             comments: [
               {
@@ -304,9 +309,14 @@ export const boards = [
             attachments: [],
             isWatched: true,
             checklists: [],
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "c103",
+            id: "ckk0g",
             title: "CoverColors Cmp",
             style: {
               cover:
@@ -356,6 +366,11 @@ export const boards = [
             attachments: [],
             isWatched: false,
             isComplete: true,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
         ],
       },
@@ -364,7 +379,7 @@ export const boards = [
         title: "Pages",
         cards: [
           {
-            id: "p73g",
+            id: "ksg7z",
             title: "BoardPage",
             description: "Page should render login/logout conditionally",
             style: {
@@ -461,9 +476,14 @@ export const boards = [
             },
             isWatched: false,
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "f1Gp",
+            id: "kl488",
             title: "LoginLogout Page",
             style: {
               cover: null,
@@ -486,9 +506,13 @@ export const boards = [
             isWatched: false,
             checklists: [],
             isComplete: false,
+            archiveData: {
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "f12f",
+            id: "sgv54",
             title: "Workspace Page",
             style: {
               cover: "#29CCE5",
@@ -502,9 +526,14 @@ export const boards = [
             isWatched: true,
             checklists: [],
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "f13N",
+            id: "lo937",
             title: "CardDetails Page",
             style: {
               cover:
@@ -527,6 +556,11 @@ export const boards = [
             isWatched: false,
             checklists: [],
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
         ],
       },
@@ -535,7 +569,7 @@ export const boards = [
         title: "Development",
         cards: [
           {
-            id: "f1G2",
+            id: "57jdv",
             title: "CardCentral Cmp",
             style: {
               cover:
@@ -571,9 +605,14 @@ export const boards = [
             isWatched: true,
             checklists: [],
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "pK35",
+            id: "78kvm",
             title: "CopyCard",
             description: "Page should render login/logout conditionally",
             style: {
@@ -666,6 +705,11 @@ export const boards = [
             },
             isWatched: false,
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
         ],
       },
@@ -674,7 +718,7 @@ export const boards = [
         title: "Done",
         cards: [
           {
-            id: "f149",
+            id: "3486x",
             title: "Modal Cmp",
             style: {
               cover: "#F5DD29",
@@ -688,9 +732,14 @@ export const boards = [
             isWatched: false,
             checklists: [],
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "p830",
+            id: "538nl",
             title: "Workspace Page",
             description: "Page should render login/logout conditionally",
             style: {
@@ -755,6 +804,11 @@ export const boards = [
             attachments: [],
             isWatched: true,
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
         ],
       },
@@ -860,11 +914,11 @@ export const boards = [
     ],
     lists: [
       {
-        id: "g101",
+        id: "j937",
         title: "List 1",
         cards: [
           {
-            id: "c101",
+            id: "rv76a",
             title: "Replace logo",
             labelIds: ["yh703"],
             style: {
@@ -877,9 +931,14 @@ export const boards = [
             isWatched: false,
             checklists: [],
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "c102",
+            id: "993gl",
             title: "Add Samples",
             labelIds: ["tp301", "yh703"],
             style: {
@@ -892,15 +951,20 @@ export const boards = [
             isWatched: false,
             checklists: [],
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
         ],
       },
       {
-        id: "g102",
+        id: "v037",
         title: "List 2",
         cards: [
           {
-            id: "c103",
+            id: "200nl",
             title: "Do that",
             labelIds: ["tp301", "yh703"],
             style: {
@@ -912,9 +976,14 @@ export const boards = [
             attachments: [],
             isWatched: false,
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
           {
-            id: "c104",
+            id: "39cl9",
             title: "Help me",
             description: "description",
             style: {
@@ -964,6 +1033,11 @@ export const boards = [
             attachments: [],
             isWatched: false,
             isComplete: false,
+            archiveData: {
+              isArchived: false,
+              sourceBoardId: null,
+              sourceListId: null,
+            },
           },
         ],
       },
@@ -1075,11 +1149,11 @@ export const boards = [
     ],
     lists: [
       {
-        id: "g101",
+        id: "s580",
         title: "List 1",
         cards: [
           {
-            id: "c101",
+            id: "csl88",
             title: "Replace logo",
             labelIds: ["yh703"],
             style: {
@@ -1094,7 +1168,7 @@ export const boards = [
             isComplete: false,
           },
           {
-            id: "c102",
+            id: "20ngl",
             title: "Add Samples",
             labelIds: ["tp301", "yh703"],
             style: {
@@ -1111,11 +1185,11 @@ export const boards = [
         ],
       },
       {
-        id: "g102",
+        id: "d003",
         title: "List 2",
         cards: [
           {
-            id: "c103",
+            id: "2sgcl",
             title: "Do that",
             labelIds: [],
             style: {
@@ -1130,7 +1204,7 @@ export const boards = [
             isComplete: false,
           },
           {
-            id: "c104",
+            id: "78ndh",
             title: "Help me",
             description: "description",
             style: {
@@ -1284,11 +1358,11 @@ export const boards = [
     ],
     lists: [
       {
-        id: "g101",
+        id: "h806",
         title: "List 1",
         cards: [
           {
-            id: "c101",
+            id: "c477h",
             title: "Replace logo",
             labelIds: [],
             style: {
@@ -1303,7 +1377,7 @@ export const boards = [
             isComplete: false,
           },
           {
-            id: "c102",
+            id: "120ca",
             title: "Add Samples",
             labelIds: ["tp301", "yh703"],
             style: {
@@ -1320,11 +1394,11 @@ export const boards = [
         ],
       },
       {
-        id: "g102",
+        id: "f662",
         title: "List 2",
         cards: [
           {
-            id: "c103",
+            id: "39cgj",
             title: "Do that",
             labelIds: [],
             style: {
@@ -1339,7 +1413,7 @@ export const boards = [
             isComplete: false,
           },
           {
-            id: "c104",
+            id: "ak5oc",
             title: "Help me",
             description: "description",
             style: {

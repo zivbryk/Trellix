@@ -86,6 +86,11 @@ function getEmptyCard(cardTtile = "") {
     checklists: [],
     comments: [],
     isComplete: false,
+    archiveData: {
+      isArchived: false,
+      sourceBoardId: null,
+      sourceListId: null,
+    },
   };
 }
 

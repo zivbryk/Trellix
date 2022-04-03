@@ -21,7 +21,55 @@
       }
 
       .card-details-window {
-        .window-cover {
+        .card-banner {
+          & > :first-child {
+            background-color: #fdfae5;
+            background-image: linear-gradient(
+              to bottom right,
+              rgba(0, 0, 0, 0.05) 25%,
+              transparent 25%,
+              transparent 50%,
+              rgba(0, 0, 0, 0.05) 50%,
+              rgba(0, 0, 0, 0.05) 75%,
+              transparent 75%,
+              transparent
+            );
+            background-size: 14px 14px;
+            min-height: 30px;
+            padding: 12px 12px 12px 50px;
+            position: relative;
+
+            p {
+              font-size: 16px;
+              line-height: 30px;
+              margin: 0;
+            }
+
+            & > :first-child {
+              display: inline-block;
+              line-height: 1;
+              position: absolute;
+              top: 12px;
+              left: 12px;
+              & > :first-child {
+                color: rgb(66, 82, 110);
+                display: inline-block;
+                fill: inherit;
+                flex-shrink: 0;
+                line-height: 1;
+                svg {
+                  max-height: 100%;
+                  max-width: 100%;
+                  overflow: hidden;
+                  pointer-events: none;
+                  vertical-align: bottom;
+                  height: 24px;
+                  width: 24px;
+                  line-height: 24px;
+                }
+              }
+            }
+          }
         }
       }
     }

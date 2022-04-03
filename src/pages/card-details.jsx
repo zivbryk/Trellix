@@ -2,12 +2,12 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import analyze from "rgbaster";
-
 import { WindowOverlay } from "../cmps/window-overlay";
 import { CardDetailsCover } from "../cmps/card/card-details-cover";
 import { CardDetailsHeader } from "../cmps/card/card-details-header";
 import { CardDetailsMain } from "../cmps/card/card-details-main";
 import { CardDetailsSideBar } from "../cmps/card/card-details-sidebar";
+import { ReactComponent as ArchiveIcon } from "../assets/img/icons/archive-icon.svg";
 
 export const CardDetails = () => {
   const board = useSelector((state) => state.boardReducer.board);
@@ -76,6 +76,7 @@ export const CardDetails = () => {
     if (ev.target.id === "close-window") navigate(`/board/${board._id}`);
   };
 
+  if (!currCard) return <div></div>;
   return (
     <section className="card-details">
       <WindowOverlay goBack={goBackToBoard}>
@@ -102,11 +103,29 @@ export const CardDetails = () => {
                 isLightMode={isLightMode}
               />
 
+              {currCard.archiveData?.isArchived && (
+                <div className="card-banner">
+                  <div>
+                    <span>
+                      <span>
+                        <ArchiveIcon />
+                      </span>
+                    </span>
+
+                    <p>This card is archived.</p>
+                  </div>
+                </div>
+              )}
+
               <CardDetailsHeader currCard={currCard} currList={currList} />
 
               <CardDetailsMain currCard={currCard} board={board} />
 
-              <CardDetailsSideBar currCard={currCard} board={board} />
+              <CardDetailsSideBar
+                currCard={currCard}
+                currList={currList}
+                board={board}
+              />
             </div>
           </div>
         </div>
