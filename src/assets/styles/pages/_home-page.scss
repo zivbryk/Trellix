@@ -1,0 +1,351 @@
+.home-page {
+  font-family: "SourceSans-Light";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #091e42;
+
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: rem(6px) rem(12px);
+    font-size: rem(20px);
+    line-height: 1.5;
+    border-radius: 6px;
+    -webkit-transition: color 0.15s ease-in-out,
+      background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .btn-link {
+    font-weight: 400;
+    color: #0065ff;
+    background-color: transparent;
+  }
+
+  .btn-sm {
+    padding: rem(4px) rem(8px);
+    font-size: rem(17.5px);
+    line-height: 1.5;
+    border-radius: rem(3px);
+  }
+
+  .text-primary {
+    color: #0065ff;
+  }
+
+  .bg-primary {
+    background-color: #0065ff;
+  }
+
+  .btn-prim {
+    color: #fff;
+    background-color: #0065ff;
+    border-color: #0065ff;
+    &:hover {
+      background-color: #0056d9;
+      border-color: #0051cc;
+    }
+  }
+
+  .btn-outline-prim {
+    color: #0065ff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #0065ff;
+    &:hover {
+      color: #fff;
+      background-color: #0065ff;
+      border-color: #0065ff;
+    }
+  }
+
+  .text-white {
+    color: #fff;
+  }
+
+  .text-center {
+    text-align: center !important;
+  }
+
+  .font-bold {
+    font-weight: 500;
+  }
+
+  img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .grid-column,
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12,
+  .col,
+  .col-auto,
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12,
+  .col-sm,
+  .col-sm-auto,
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12,
+  .col-md,
+  .col-md-auto,
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12,
+  .col-lg,
+  .col-lg-auto,
+  .col-xl-1,
+  .col-xl-2,
+  .col-xl-3,
+  .col-xl-4,
+  .col-xl-5,
+  .col-xl-6,
+  .col-xl-7,
+  .col-xl-8,
+  .col-xl-9,
+  .col-xl-10,
+  .col-xl-11,
+  .col-xl-12,
+  .col-xl,
+  .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .text-md-left {
+    text-align: left !important;
+  }
+
+  .pl-3,
+  .px-3 {
+    padding-left: 1rem !important;
+  }
+
+  .mb-4,
+  .my-4 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .pt-md-6,
+  .py-md-6 {
+    padding-top: 5rem !important;
+  }
+
+  .pt-7,
+  .py-7 {
+    padding-top: 7rem !important;
+  }
+
+  .pb-6,
+  .py-6 {
+    padding-bottom: 5rem !important;
+  }
+
+  .offset-lg-1 {
+    margin-left: 8.33333333%;
+  }
+
+  .col-lg-5 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 41.66666667%;
+    -ms-flex: 0 0 41.66666667%;
+    flex: 0 0 41.66666667%;
+    max-width: 41.66666667%;
+  }
+
+  .col-lg-7 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 58.33333333%;
+    -ms-flex: 0 0 58.33333333%;
+    flex: 0 0 58.33333333%;
+    max-width: 58.33333333%;
+  }
+
+  .col-lg-10 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 83.33333333%;
+    -ms-flex: 0 0 83.33333333%;
+    flex: 0 0 83.33333333%;
+    max-width: 83.33333333%;
+  }
+
+  .order-2 {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1.25;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .col {
+    -webkit-flex-basis: 0;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  .align-items-center {
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+  }
+
+  .w-100 {
+    width: 100% !important;
+  }
+
+  .d-block {
+    display: block !important;
+  }
+
+  .container {
+    max-width: 1140px; //change with @media
+    width: 100%;
+    padding: 112px 15px 80px 15px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+  }
+
+  section.hero {
+    background: #eae6ff;
+    background: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(#fff),
+      to(#eae6ff)
+    );
+    background: linear-gradient(0deg, #fff, #eae6ff 100%);
+    overflow-x: hidden;
+
+    .hero-image {
+      text-align: left; //change with @media
+      margin-right: -8.33333333%; //change with @media
+      display: block; //change with @media
+    }
+
+    .hero-details {
+      h1 {
+        font-family: "SourceSans-Semibold";
+        font-weight: 500;
+      }
+      p {
+        font-family: "SourceSans-Light";
+        font-weight: 600;
+      }
+      button {
+        padding-inline: 24px;
+        line-height: 1.3;
+        padding-bottom: 8px;
+      }
+    }
+  }
+
+  section.product {
+    h2 {
+      font-size: 2.25rem;
+      font-family: "SourceSans-Semibold";
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-family: "SourceSans-Light";
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 24px;
+    }
+
+    a {
+      line-height: 1.3;
+      padding-bottom: 8px;
+    }
+  }
+}

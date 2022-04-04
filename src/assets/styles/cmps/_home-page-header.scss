@@ -1,0 +1,39 @@
+.home-page-header {
+  display: block;
+
+  &.visibleBg {
+    nav.navbar {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  nav.navbar {
+    -webkit-transition: background 1s ease 0s;
+    transition: background 1s ease 0s;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 1rem;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+
+    .logo {
+      align-items: center;
+      font-size: 36px;
+      line-height: 36px;
+      font-family: "SourceSans-Bold";
+      color: #293856;
+      svg {
+        width: 26px;
+        height: 26px;
+        margin-right: 8px;
+      }
+    }
+
+    .login-signup-btns {
+      float: right;
+      a {
+        font-weight: 500;
+      }
+    }
+  }
+}
