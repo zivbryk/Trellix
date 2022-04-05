@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import React, { useState, useEffect, useRef } from "react";
 import { ListCardDetails } from "./list-card-details";
 
 export const ListCardContent = ({ currBoard, currList, currCard }) => {

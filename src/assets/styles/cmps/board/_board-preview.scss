@@ -10,6 +10,78 @@
     border-radius: 3px;
     padding: 8px;
     position: relative;
+    color: $clr0;
+    &:hover {
+      .board-tile-fade {
+        background-color: #0006;
+      }
+    }
+
+    .board-tile-fade {
+      background-color: #00000026;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      &:hover {
+        background-color: #0006;
+      }
+    }
+
+    .board-tile-details {
+      height: 80px;
+      position: relative;
+      .board-name {
+        word-wrap: break-word;
+        display: inline-block;
+        flex: 0 0 auto;
+        font-size: 16px;
+        font-weight: 700;
+        max-height: 40px;
+        overflow: hidden;
+        width: 100%;
+        & > div {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+        }
+      }
+      .tile-sub-container {
+        align-items: baseline;
+        display: flex;
+        flex: 0 0 auto;
+        justify-content: flex-end;
+        .owner-name {
+          color: #ffffffd9;
+          display: block;
+          flex: 1 1 auto;
+          letter-spacing: 0.02em;
+          line-height: 18px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
+        }
+        .tile-options {
+          align-items: center;
+          display: flex;
+          flex: 0 0 auto;
+          margin-left: 4px;
+          overflow: hidden;
+          position: relative;
+          right: -4px;
+          .icon-sm {
+            color: #f2d600;
+            margin-right: 6px;
+            opacity: 1;
+            width: 18px;
+          }
+        }
+      }
+    }
 
     .board-title {
       height: 80px;

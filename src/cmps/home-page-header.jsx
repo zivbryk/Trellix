@@ -44,7 +44,7 @@ export const HomePageHeader = () => {
           </Link>
           <Link
             to="/auth/signup"
-            className="btn btn-sm bg-primary text-white font-bold"
+            className="btn btn-sm btn-prim text-white font-bold"
           >
             Sign up
           </Link>

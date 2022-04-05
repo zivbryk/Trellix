@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import AutosizeInput from "react-input-autosize";
 import { useDispatch } from "react-redux";
 import _ from "lodash";
@@ -125,10 +126,12 @@ export const BoardHeader = ({ board }) => {
       </div>
 
       <div className="board-header-right flex">
-        <button className="btn board-header-btn board-header-btn-wide flex align-center">
-          <span className="trl icon-dashboard board-header-btn-icon icon-sm"></span>
-          <span>Dashboard</span>
-        </button>
+        <Link to={`/board/${board._id}/dashboard`}>
+          <button className="btn board-header-btn board-header-btn-wide flex align-center">
+            <span className="trl icon-dashboard board-header-btn-icon icon-sm"></span>
+            <span>Dashboard</span>
+          </button>
+        </Link>
 
         <button className="btn board-header-btn board-header-btn-wide flex align-center">
           <span className="trl icon-tri-dots-hor board-header-btn-icon icon-sm"></span>

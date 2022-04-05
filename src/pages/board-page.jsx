@@ -3,15 +3,18 @@ import { useParams } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import _ from "lodash";
 
 import { BoardHeader } from "../cmps/board/board-header";
 import { LoaderCmp } from "../cmps/loader-cmp";
 import { CardsList } from "../cmps/list/cards-list";
 import { CardDetails } from "../pages/card-details";
 import { ListAddCmp } from "../cmps/list/list-add-cmp";
+import { BoardDashboard } from "../pages/board-dashboard";
 
 import { onEditBoard } from "../store/actions/board.actions";
 import { loadBoard } from "../store/actions/board.actions";
+import { closePopover } from "../store/actions/app.actions";
 
 export const BoardPage = () => {
   const board = useSelector((state) => state.boardReducer.board);
@@ -22,6 +25,29 @@ export const BoardPage = () => {
   useEffect(() => {
     dispatch(loadBoard(boardId));
   }, [dispatch, boardId]);
+
+  const onDeleteList = async (list) => {
+    console.log("Deleting List!");
+    const clonedBoard = await _.cloneDeep(board);
+    const listIdx = clonedBoard.lists.findIndex(
+      (boardList) => boardList.id === list.id
+    );
+    clonedBoard.lists.splice(listIdx, 1);
+    dispatch(onEditBoard(clonedBoard));
+    dispatch(closePopover());
+  };
+
+  // const onDeleteCard = async () => {
+  //   const updatedCard = { ...currCard };
+  //   const clonedBoard = await _.cloneDeep(board);
+  //   clonedBoard.lists.forEach((list) => {
+  //     list.cards.forEach((card, idx) => {
+  //       if (card.id === updatedCard.id) list.cards.splice(idx, 1);
+  //     });
+  //   });
+  //   dispatch(onEditBoard(clonedBoard));
+  //   dispatch(closePopover());
+  // };
 
   const onDragEnd = (result) => {
     const { destination, source, type } = result;
@@ -87,6 +113,7 @@ export const BoardPage = () => {
                     board={board}
                     key={list.id}
                     listIdx={idx}
+                    onDeleteList={onDeleteList}
                   />
                 ))}
                 <ListAddCmp board={board} />
@@ -100,6 +127,7 @@ export const BoardPage = () => {
       <section className="nested-routes">
         <Routes>
           <Route path=":listId/:cardId" element={<CardDetails />} />
+          <Route path="/dashboard" element={<BoardDashboard />} />
         </Routes>
       </section>
     </DragDropContext>

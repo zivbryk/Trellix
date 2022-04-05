@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import _ from "lodash";
-import { onEditBoard } from "../../store/actions/board.actions";
 
-export const ListHeader = ({ list, board }) => {
+import { onEditBoard } from "../../store/actions/board.actions";
+import { openPopover } from "../../store/actions/app.actions";
+
+export const ListHeader = ({ list, board, onDeleteList }) => {
   const dispatch = useDispatch();
   const [isEditTitle, setIsEditTitle] = useState(false);
   const [listTitle, setListTitle] = useState("");
@@ -36,6 +38,13 @@ export const ListHeader = ({ list, board }) => {
     toggleTitleEdit();
   };
 
+  const onOpenPopover = (ev, popoverName) => {
+    const elPos = ev.target.getBoundingClientRect();
+    const popoverProps = { list, onDeleteList };
+
+    dispatch(openPopover(popoverName, elPos, popoverProps));
+  };
+
   return (
     <section className="list-header flex align-center">
       {isEditTitle ? (
@@ -54,7 +63,10 @@ export const ListHeader = ({ list, board }) => {
         </h2>
       )}
 
-      <button className="list-title-extras">
+      <button
+        className="list-title-extras"
+        onClick={(ev) => onOpenPopover(ev, "LIST-ACTIONS")}
+      >
         <span className="trl icon-tri-dots-hor icon-sm"></span>
       </button>
     </section>

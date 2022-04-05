@@ -51,7 +51,7 @@ export const HomePage = () => {
                 place.
               </p>
               <p>
-                <Link to="/workspace" class="btn btn-outline-prim px-3">
+                <Link to="/workspace" className="btn btn-outline-prim px-3">
                   Start doing →
                 </Link>
               </p>

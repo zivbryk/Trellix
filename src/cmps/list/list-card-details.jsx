@@ -44,7 +44,7 @@ export const ListCardDetails = ({ currCard, currList, coverMode }) => {
 
       {coverMode === "half" && (
         <div className="list-card-members">
-          {currCard.cardMembers.map((member) => (
+          {currCard.cardMembers?.map((member) => (
             <MemberAvatar
               size={"28"}
               member={member}

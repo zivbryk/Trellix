@@ -31,6 +31,12 @@
 
     .login-signup-btns {
       float: right;
+      & > :first-child {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
       a {
         font-weight: 500;
       }

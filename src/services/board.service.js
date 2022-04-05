@@ -2,13 +2,14 @@ import { storageService } from "./async-storage.service.js";
 import { showErrorMsg } from "../services/event-bus.service";
 import { utilService } from "./util.service.js";
 import _ from "lodash";
-// import { userService } from "./user.service.js";
+import { boards } from "../frontTempData/boards";
 
 const STORAGE_KEY = "board";
+storageService.load(STORAGE_KEY, boards);
 // const listeners = [];
 
 export const boardService = {
-  loadDataManual,
+  // loadDataManual,
   query,
   getById,
   save,
@@ -22,9 +23,9 @@ export const boardService = {
 // window.cs = boardService;
 
 //REMOVE_COMMENT: Remove after connecting Backend
-function loadDataManual(entities) {
-  storageService.load(STORAGE_KEY, entities);
-}
+// function loadDataManual(entities) {
+//   storageService.load(STORAGE_KEY, entities);
+// }
 
 function query() {
   try {

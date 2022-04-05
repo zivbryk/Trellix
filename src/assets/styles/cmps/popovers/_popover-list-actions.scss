@@ -1,0 +1,15 @@
+.popover-list-actions-content {
+  ul {
+    li {
+      cursor: pointer;
+      height: 34px;
+      label {
+        margin: 0 -12px;
+        padding: 6px 12px;
+        &:hover {
+          background-color: #091e420a;
+        }
+      }
+    }
+  }
+}

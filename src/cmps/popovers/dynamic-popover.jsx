@@ -14,6 +14,7 @@ import { PopoverDeleteChecklist } from "../popovers/popover-delete-checklist";
 import { PopoverAddChecklist } from "../popovers/popover-add-checklist";
 import { PopoverMove } from "../popovers/popover-move";
 import { PopoverDeleteCard } from "../popovers/popover-delete-card";
+import { PopoverListActions } from "../popovers/popover-list-actions";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -138,6 +139,15 @@ export const DynamicPopover = () => {
     case "DELETE-CARD":
       return (
         <PopoverDeleteCard
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "LIST-ACTIONS":
+      return (
+        <PopoverListActions
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

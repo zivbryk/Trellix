@@ -27,23 +27,11 @@ export const PopoverAddEditLabel = ({
 
   useEffect(() => {
     if (selectedLabel) setLabel(selectedLabel);
-    //   {id: 'tp301', title: '+Design Team', color: 'green', isSelected: true}
-    // setLabel({
-    //   labelName: selectedLabel.title,
-    //   labelColor: selectedLabel.color,
-    // });
   }, [selectedLabel]);
 
   const handleFocus = (ev) => {
     ev.target.select();
   };
-
-  //   useEffect(() => {
-  //     const filteredList = board.labels.filter((label) =>
-  //       label.title.toLowerCase().includes(filterBy.txt.toLowerCase())
-  //     );
-  //     setFilteredLabels(filteredList);
-  //   }, [filterBy.txt, board.labels]);
 
   const onBack = () => {
     const popoverProps = { currCard, board, elPos };
@@ -53,7 +41,6 @@ export const PopoverAddEditLabel = ({
   const handleChange = ({ target }) => {
     const field = target.name;
     const value = target.type === "number" ? +target.value : target.value;
-    // console.log({ ...label, [field]: value });
     setLabel({ ...label, [field]: value });
   };
 
@@ -99,39 +86,6 @@ export const PopoverAddEditLabel = ({
     dispatch(openPopover("LABELS", elPos, popoverProps));
   };
 
-  //   const isCardLabel = (label) => {
-  //     const test = currCard.labelIds.find((cardLabel) => cardLabel === label.id);
-  //     return currCard.labelIds.find((cardLabel) => cardLabel === label.id);
-  //   };
-
-  //   const selectLabel = (label) => {
-  //     setSelectedLabel(label);
-  //     const updatedList = filteredLabels.map((currLabel) => {
-  //       if (currLabel.id === label.id) {
-  //         currLabel.isSelected = true;
-  //         return currLabel;
-  //       } else {
-  //         currLabel.isSelected = false;
-  //         return currLabel;
-  //       }
-  //     });
-  //     setFilteredLabels(updatedList);
-  //   };
-
-  //   const toggleLabel = (boardLabel, boardLabelIdx) => {
-  //     const updatedCard = { ...currCard };
-  //     const cardLabelIdx = updatedCard.labelIds.findIndex(
-  //       (cardLabel) => cardLabel === boardLabel.id
-  //     );
-  //     if (cardLabelIdx !== -1) updatedCard.labelIds.splice(cardLabelIdx, 1);
-  //     else {
-  //       // updatedCard.labelIds.unshift(boardLabel.id);
-  //       updatedCard.labelIds.splice(boardLabelIdx, 0, boardLabel.id);
-  //     }
-  //     const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
-  //     dispatch(onEditBoard(updatedBoard));
-  //   };
-
   return (
     <PopoverCmp
       title={selectedLabel ? "Change label" : "Create label"}
@@ -166,34 +120,6 @@ export const PopoverAddEditLabel = ({
             Delete
           </button>
         </div>
-        {/* <div className="labels-container">
-          <h4>Labels</h4>
-          <ul className="edit-labels clean-list">
-            {filteredLabels.map((label, idx) => {
-              return (
-                <li key={label.id} onMouseOver={() => selectLabel(label)}>
-                  <button className="btn btn-label-edit">
-                    <span className="trl icon-edit icon-sm"></span>
-                  </button>
-
-                  <span
-                    className={`card-label card-label-${label.color} ${
-                      label.isSelected ? "selected" : ""
-                    }`}
-                    onClick={() => toggleLabel(label, idx)}
-                  >
-                    {label.title}
-                    <span
-                      className={`icon-sm trl icon-check ${
-                        isCardLabel(label) ? "active" : ""
-                      }`}
-                    ></span>
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </div> */}
       </div>
     </PopoverCmp>
   );

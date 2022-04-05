@@ -1,19 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Routes, Route } from "react-router";
 import { useLocation } from "react-router-dom";
 import { AppHeader } from "./cmps/app-header";
 import { DynamicPopover } from "./cmps/popovers/dynamic-popover";
-// import { userService } from "./services/user.service";
-// import { boardService } from "./services/board.service";
-// import { boards } from "./frontTempData/boards.js";
-// import { users } from "./frontTempData/users";
+
+import { loadUsers } from "./store/actions/user.actions";
 import routes from "./routes";
 
 export const RootCmp = () => {
-  // Remove this local storage loading of boards/users before production REMOVE_COMMENT + imports
-  // console.log("loading data to local storage!");
-  // boardService.loadDataManual(boards);
-  // userService.loadDataManual(users);
+  const dispatch = useDispatch();
+  dispatch(loadUsers());
 
   const board = useSelector((state) => state.boardReducer.board);
   const pathname = useLocation().pathname;

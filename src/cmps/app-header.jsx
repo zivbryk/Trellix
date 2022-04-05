@@ -1,20 +1,26 @@
-import React from "react";
+import { useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as BoardsIcon } from "../assets/img/icons/boards.svg";
+import { ReactComponent as BellIcon } from "../assets/img/icons/bell.svg";
 import BoardsAnimation from "../assets/img/animations/trello-logo-loader.gif";
 import { UserMsg } from "../cmps/user-msg";
 import { MemberAvatar } from "./member-avatar";
 import { openPopover } from "../store/actions/app.actions";
+import { onLogin } from "../store/actions/user.actions";
 
 // import { userService } from "../services/user.service";
 
 export const AppHeader = () => {
-  const loggedinUser = useSelector((state) => state.userReducer.user);
+  const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
 
   const dispatch = useDispatch();
   const pathname = useLocation().pathname;
+
+  useEffect(() => {
+    if (!loggedInUser) dispatch(onLogin());
+  }, [loggedInUser, dispatch]);
 
   function getStyle() {
     if (pathname.includes("/workspace")) {
@@ -24,9 +30,9 @@ export const AppHeader = () => {
     return null;
   }
 
-  const onOpenPopover = (ev, popoverName, loggedinUser) => {
+  const onOpenPopover = (ev, popoverName, loggedInUser) => {
     const elPos = ev.target.getBoundingClientRect();
-    const popoverProps = { loggedinUser, isInCard: false };
+    const popoverProps = { loggedInUser, isInCard: false };
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
@@ -50,10 +56,15 @@ export const AppHeader = () => {
           </NavLink>
 
           <div className="flex">
-            <button className="btn btn-header btn-header-wide flex align-center">
-              <span>Workspace</span>
-              <span className="trl icon-chevron-down icon-sm"></span>
-            </button>
+            <NavLink
+              to={"/workspace"}
+              className="btn-workspaces flex align-center"
+            >
+              <button className="btn btn-header btn-header-wide flex align-center">
+                <span>Workspace</span>
+                <span className="trl icon-chevron-down icon-sm"></span>
+              </button>
+            </NavLink>
 
             <button className="btn btn-header btn-header-wide flex align-center">
               <span>Starred</span>
@@ -68,13 +79,18 @@ export const AppHeader = () => {
         </nav>
 
         <nav className="right-pane flex align-center">
-          <button className="btn btn-header flex">
-            <span className="trl icon-bell icon-md"></span>
+          <button className="btn btn-header flex align-center">
+            <span>
+              <span>
+                <BellIcon />
+              </span>
+            </span>
+            {/* <span className="trl icon-bell icon-md"></span> */}
           </button>
 
           <MemberAvatar
             size={"32"}
-            member={loggedinUser}
+            member={loggedInUser}
             isBadge={false}
             onOpenPopover={onOpenPopover}
             isInAppHeader={true}

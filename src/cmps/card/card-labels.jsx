@@ -42,23 +42,25 @@ export const CardLabels = ({ currCard, board, mod }) => {
   if (!currCard || !board) return <div>Loading...</div>;
   return (
     <div className="card-labels">
-      {currCard.labelIds?.map((labelId) => {
-        const label = board.labels.find((label) => label.id === labelId);
-        if (label.color === "none" && mod === "list-card") return "";
-        return (
-          <span
-            className={`card-label card-label-${
-              label.color
-            } mod-${mod} ${getClassName()}`}
-            key={labelId}
-            onClick={onClickLabel}
-          >
-            <span className={`label-text ${getClassName()}`}>
-              {label.title}
+      {currCard.labelIs !== [] &&
+        currCard.labelIds?.map((labelId) => {
+          const label = board.labels.find((label) => label.id === labelId);
+          if (!label) return "";
+          if (label.color === "none" && mod === "list-card") return "";
+          return (
+            <span
+              className={`card-label card-label-${
+                label.color
+              } mod-${mod} ${getClassName()}`}
+              key={labelId}
+              onClick={onClickLabel}
+            >
+              <span className={`label-text ${getClassName()}`}>
+                {label.title}
+              </span>
             </span>
-          </span>
-        );
-      })}
+          );
+        })}
 
       {mod === "card-details" && (
         <button

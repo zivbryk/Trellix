@@ -1,7 +1,29 @@
 import { userService } from "../../services/user.service";
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 
-export function onLogin(credentials) {
+export function loadUsers() {
+  return async (dispatch) => {
+    try {
+      const users = await userService.getUsers();
+      dispatch({
+        type: "SET_USERS",
+        users,
+      });
+      showSuccessMsg("Users loaded successfully");
+    } catch (err) {
+      showErrorMsg("Cannot load users");
+      console.log("user.actions: err @ loadUsers", err);
+    }
+  };
+}
+
+export function onLogin(
+  credentials = {
+    fullname: "Ziv Bryk",
+    username: "zivbryk",
+    password: "zivbryk",
+  }
+) {
   return async (dispatch) => {
     try {
       const user = await userService.login(credentials);

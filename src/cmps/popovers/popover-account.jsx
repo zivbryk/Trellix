@@ -5,13 +5,13 @@ import Popover from "@mui/material/Popover";
 import { ReactComponent as CloseIcon } from "../../assets/img/icons/close.svg";
 import { onLogout } from "../../store/actions/user.actions";
 
-export const PopoverAccount = ({ elPos, handleClose, loggedinUser }) => {
+export const PopoverAccount = ({ elPos, handleClose, loggedInUser }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const getStyle = () => {
     return {
-      backgroundImage: `url(${loggedinUser.imgUrl})`,
+      backgroundImage: `url(${loggedInUser.imgUrl})`,
       backgroundSize: "cover",
     };
   };
@@ -49,18 +49,18 @@ export const PopoverAccount = ({ elPos, handleClose, loggedinUser }) => {
               <div className="flex">
                 <div>
                   <div
-                    title={`${loggedinUser.fullname}(${loggedinUser.username})`}
+                    title={`${loggedInUser.fullname}(${loggedInUser.username})`}
                   >
                     <span
                       style={getStyle()}
-                      title={`${loggedinUser.fullname}(${loggedinUser.username})`}
+                      title={`${loggedInUser.fullname}(${loggedInUser.username})`}
                     ></span>
                   </div>
                 </div>
 
                 <div>
-                  <div>{loggedinUser.fullname}</div>
-                  <span>{loggedinUser.email}</span>
+                  <div>{loggedInUser.fullname}</div>
+                  <span>{loggedInUser.email}</span>
                 </div>
               </div>
 

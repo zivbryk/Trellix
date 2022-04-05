@@ -55,6 +55,9 @@
     &:hover {
       background-color: #0056d9;
       border-color: #0051cc;
+      &:hover {
+        background-color: #0051cc;
+      }
     }
   }
 

@@ -1,9 +1,14 @@
+import { users } from "../frontTempData/users";
+
 import { storageService } from "./async-storage.service";
 // import { httpService } from './http.service'
 // import { socketService, SOCKET_EVENT_USER_UPDATED } from "./socket.service";
+
 const STORAGE_KEY_LOGGEDIN_USER = "loggedinUser";
 const STORAGE_KEY = "user";
 // var gWatchedUser = null;
+
+storageService.load(STORAGE_KEY, users);
 
 export const userService = {
   loadDataManual,
@@ -13,7 +18,7 @@ export const userService = {
   signup,
   checkPassword,
   getLoggedinUser,
-  // getUsers,
+  getUsers,
   // getById,
   // remove,
   // update,
@@ -24,6 +29,9 @@ window.userService = userService;
 //REMOVE_COMMENT: Remove after connecting Backend
 function loadDataManual(entities) {
   storageService.load(STORAGE_KEY, entities);
+}
+function getUsers() {
+  return storageService.query(STORAGE_KEY);
 }
 
 // function getUsers() {

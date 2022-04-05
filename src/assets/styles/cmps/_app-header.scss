@@ -51,6 +51,36 @@
   }
 
   .right-pane {
+    & > :first-child {
+      padding: 0;
+      margin: 0 4px 0 0;
+      span {
+        display: flex;
+        width: 32px;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        span {
+          color: rgb(255, 255, 255);
+          display: inline-block;
+          fill: inherit;
+          flex-shrink: 0;
+          line-height: 1;
+          font-size: 14px;
+          svg {
+            max-height: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            vertical-align: bottom;
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+
     .member-avatar {
       margin: 0;
     }

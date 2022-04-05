@@ -5,7 +5,7 @@ import { ListHeader } from "./list-header";
 import { ListCardPreview } from "./list-card-preview";
 import { AddCard } from "./add-card";
 
-export const CardsList = ({ list, board, listIdx }) => {
+export const CardsList = ({ list, board, listIdx, onDeleteList }) => {
   const [isAddingCard, setIsAddingCard] = useState(false);
 
   const toggleAddingCard = () => {
@@ -28,7 +28,11 @@ export const CardsList = ({ list, board, listIdx }) => {
                 ref={provided.innerRef}
                 {...provided.droppableProps}
               >
-                <ListHeader list={list} board={board} />
+                <ListHeader
+                  list={list}
+                  board={board}
+                  onDeleteList={onDeleteList}
+                />
 
                 <div className="card-previews">
                   {list.cards.map((card, idx) => {

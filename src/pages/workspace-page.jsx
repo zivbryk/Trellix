@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loadBoards } from "../store/actions/board.actions";
 import { LoaderCmp } from "../cmps/loader-cmp";
 import { BoardList } from "../cmps/board/board-list";
+import underConstruction from "../assets/img/backgrounds/under-construction.png";
 
 export const WorkspacePage = () => {
   const boards = useSelector((state) => state.boardReducer.boards);
   const dispatch = useDispatch();
+  const [menuSelection, setMenuSelection] = useState("boards");
 
   useEffect(() => {
     dispatch(loadBoards());
@@ -18,110 +20,94 @@ export const WorkspacePage = () => {
     <section className="workspace-page flex justify-center">
       <div className="workspace-left-sidebar">
         <ul className="clean-list">
-          <li>
-            <span className="trl icon-board"></span>
-            <span>Boards</span>
+          <li
+            onClick={() => {
+              setMenuSelection("boards");
+            }}
+          >
+            <div className={`${menuSelection === "boards" ? "selected" : ""}`}>
+              <span>
+                <span>
+                  <span className="trl icon-sm icon-board"></span>
+                </span>
+              </span>
+              <span>Boards</span>
+            </div>
           </li>
 
-          <li>
-            <span className="trl icon-template-board"></span>
-            <span>Templates</span>
+          <li
+            onClick={() => {
+              setMenuSelection("templates");
+            }}
+          >
+            <div
+              className={`${menuSelection === "templates" ? "selected" : ""}`}
+            >
+              <span>
+                <span>
+                  <span className="trl icon-sm icon-template-board"></span>
+                </span>
+              </span>
+
+              <span>Templates</span>
+            </div>
           </li>
 
-          <li>
-            <span className="trl icon-home"></span>
-            <span>Home</span>
+          <li
+            onClick={() => {
+              setMenuSelection("home");
+            }}
+          >
+            <div className={`${menuSelection === "home" ? "selected" : ""}`}>
+              <span className="trl icon-sm icon-home"></span>
+              <span>Home</span>
+            </div>
           </li>
         </ul>
       </div>
 
-      <div className="all-boards flex column">
-        <div className="starred-boards flex">
-          <div className="starred-boards-header flex">
-            <div>
-              <span className="trl icon-star icon-lg"></span>
+      {menuSelection === "boards" && (
+        <div className="all-boards flex column">
+          <div className="starred-boards flex">
+            <div className="starred-boards-header flex">
+              <div>
+                <span className="trl icon-star icon-lg"></span>
+              </div>
+              <h3>Starred boards</h3>
             </div>
-            <h3>Starred boards</h3>
+          </div>
+          <BoardList
+            boards={boards}
+            filterBy={"isStarred"}
+            isStarredContainer={true}
+          />
+
+          <div className="workspace-boards">
+            <h3>YOUR WORKSPACE</h3>
+            <BoardList boards={boards} />
           </div>
         </div>
+      )}
 
-        <div className="workspace-boards">
-          <h3>YOUR WORKSPACE</h3>
-          <BoardList boards={boards} />
+      {menuSelection === "templates" && (
+        <div className="all-boards flex column">
+          <img
+            className=""
+            src={underConstruction}
+            alt={"Under Construction"}
+          />
         </div>
-      </div>
+      )}
+
+      {menuSelection === "home" && (
+        <div className="all-boards flex column">
+          <img
+            className=""
+            src={underConstruction}
+            alt={"Under Construction"}
+          />
+        </div>
+      )}
     </section>
   );
 };
-
-//////////////////////////////////////////////////////////
-
-// import React from "react";
-// import { connect } from "react-redux";
-// import { loadBoards } from "../store/actions/board.actions";
-// import { LoaderCmp } from "../cmps/loader-cmp";
-// import { BoardList } from "../cmps/board/board-list";
-
-// class _WorkspacePage extends React.Component {
-//   componentDidMount() {
-//     this.props.loadBoards();
-//   }
-
-//   render() {
-//     const { boards } = this.props;
-//     if (!boards.length) return <LoaderCmp />;
-
-//     return (
-//       <section className="workspace-page flex justify-center">
-//         <div className="workspace-left-sidebar">
-//           <ul className="clean-list">
-//             <li>
-//               <span className="trl icon-board"></span>
-//               <span>Boards</span>
-//             </li>
-
-//             <li>
-//               <span className="trl icon-template-board"></span>
-//               <span>Templates</span>
-//             </li>
-
-//             <li>
-//               <span className="trl icon-home"></span>
-//               <span>Home</span>
-//             </li>
-//           </ul>
-//         </div>
-
-//         <div className="all-boards flex column">
-//           <div className="starred-boards flex">
-//             <div className="starred-boards-header flex">
-//               <div>
-//                 <span className="trl icon-star icon-lg"></span>
-//               </div>
-//               <h3>Starred boards</h3>
-//             </div>
-//           </div>
-
-//           <div className="workspace-boards">
-//             <h3>YOUR WORKSPACE</h3>
-//             <BoardList boards={boards} />
-//           </div>
-//         </div>
-//       </section>
-//     );
-//   }
-// }
-
-// function mapStateToProps(state) {
-//   return {
-//     boards: state.boardModule.boards,
-//   };
-// }
-// const mapDispatchToProps = {
-//   loadBoards,
-// };
-
-// export const WorkspacePage = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(_WorkspacePage);
