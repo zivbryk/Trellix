@@ -48,7 +48,11 @@ export const BoardHeader = ({ board }) => {
 
   const onOpenPopover = (ev, popoverName, member) => {
     const elPos = ev.target.getBoundingClientRect();
-    const popoverProps = { member, isInCard: false };
+    let popoverProps = {};
+    member
+      ? (popoverProps = { member, isInCard: false })
+      : (popoverProps = { board });
+
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
@@ -133,7 +137,12 @@ export const BoardHeader = ({ board }) => {
           </button>
         </Link>
 
-        <button className="btn board-header-btn board-header-btn-wide flex align-center">
+        <button
+          className="btn board-header-btn board-header-btn-wide flex align-center"
+          onClick={(ev) => {
+            onOpenPopover(ev, "MENU", null);
+          }}
+        >
           <span className="trl icon-tri-dots-hor board-header-btn-icon icon-sm"></span>
           <span>Show menu</span>
         </button>
@@ -141,162 +150,3 @@ export const BoardHeader = ({ board }) => {
     </section>
   );
 };
-
-///////////////////////////////////////////////////////////////////////////////////////
-
-// import React from "react";
-// import { connect } from "react-redux";
-// import { LoaderCmp } from "../loader-cmp";
-// import _ from "lodash";
-// import { onEditBoard } from "../../store/actions/board.actions";
-
-// class _BoardHeader extends React.Component {
-//   state = {
-//     isEditTitle: false,
-//     title: "",
-//     titleInputWidth: 0,
-//   };
-
-//   //When convertinto hooks - find alternative to refs - maybe AutosizeInput from npm REMOVE_COMMENT
-//   h1Title = React.createRef();
-//   titleInput = React.createRef();
-
-//   componentDidUpdate(prevProps) {
-//     //updates board title only when board prop arrives from store
-//     if (prevProps.board !== this.props.board) {
-//       this.setState((prevState) => ({
-//         ...prevState,
-//         title: this.props.board.title,
-//       }));
-//     }
-//   }
-
-//   handleTitleChange = (ev) => {
-//     const { value } = ev.target;
-//     this.setState((prevState) => ({ ...prevState, title: value }));
-//   };
-
-//   toggleTitleEdit = () => {
-//     const { isEditTitle } = this.state;
-//     let { titleInputWidth } = this.state;
-//     if (!isEditTitle)
-//       titleInputWidth = this.h1Title.current.getBoundingClientRect().width;
-//     this.setState(
-//       (prevState) => ({
-//         ...prevState,
-//         isEditTitle: !isEditTitle,
-//         titleInputWidth,
-//       }),
-//       () => {
-//         if (this.state.isEditTitle) this.titleInput.current.select();
-//       }
-//     );
-//   };
-
-//   onSaveBoardTitle = (ev) => {
-//     ev.preventDefault();
-//     const { title } = this.state;
-//     const { board } = this.props;
-//     const clonedBoard = _.cloneDeep(board);
-//     clonedBoard.title = title;
-//     this.props.onEditBoard(clonedBoard);
-//     this.toggleTitleEdit();
-//   };
-
-//   toggleStarred = () => {
-//     const { board } = this.props;
-//     const clonedBoard = _.cloneDeep(board);
-//     clonedBoard.isStarred = !clonedBoard.isStarred;
-//     this.props.onEditBoard(clonedBoard);
-//   };
-
-//   render() {
-//     const { board } = this.props;
-//     if (!board) return <LoaderCmp />;
-//     const { isEditTitle, title, titleInputWidth } = this.state;
-//     return (
-//       <section className="board-header flex space-between">
-//         <div className="board-header-left flex">
-//           <div className="board-title">
-//             {isEditTitle ? (
-//               <form onSubmit={this.onSaveBoardTitle}>
-//                 <input
-//                   style={{ width: `${titleInputWidth}px` }}
-//                   className="board-name-input"
-//                   type="text"
-//                   value={title}
-//                   onChange={this.handleTitleChange}
-//                   onBlur={this.onSaveBoardTitle}
-//                   autoFocus
-//                   ref={this.titleInput}
-//                 />
-//               </form>
-//             ) : (
-//               <h1
-//                 className="btn board-header-btn"
-//                 onClick={this.toggleTitleEdit}
-//                 ref={this.h1Title}
-//               >
-//                 {board.title}
-//               </h1>
-//             )}
-//           </div>
-
-//           <button
-//             className="btn board-header-btn btn-star-container"
-//             title="Click to star or unstar this board."
-//             onClick={this.toggleStarred}
-//           >
-//             {/* <span className="trl icon-star board-header-btn-icon icon-sm"></span> */}
-//             <span
-//               className={`trl board-header-btn-icon icon-sm ${
-//                 board.isStarred ? "icon-starred" : "icon-star"
-//               }`}
-//             ></span>
-//           </button>
-
-//           <span className="board-header-btn-divider"></span>
-
-//           <button className="avatar-group btn board-header-btn board-header-btn-wide">
-//             Avatar Group
-//           </button>
-
-//           <button className="btn board-header-btn board-header-btn-wide flex align-center btn-add-member">
-//             <span className="trl icon-add-member icon-sm"></span>
-//             <span>Invite</span>
-//           </button>
-//         </div>
-
-//         <div className="board-header-right flex">
-//           <button className="btn board-header-btn board-header-btn-wide flex align-center">
-//             <span className="trl icon-dashboard board-header-btn-icon icon-sm"></span>
-//             <span>Dashboard</span>
-//           </button>
-
-//           <button className="btn board-header-btn board-header-btn-wide flex align-center">
-//             <span className="trl icon-tri-dots-hor board-header-btn-icon icon-sm"></span>
-//             <span>Show menu</span>
-//           </button>
-//         </div>
-//       </section>
-//     );
-//   }
-// }
-
-// function mapStateToProps(state) {
-//   return {
-//     board: state.boardModule.board,
-//     // user: state.userModule.user,
-//   };
-// }
-
-// const mapDispatchToProps = {
-//   onEditBoard,
-//   // onLogin,
-//   // onSignup
-// };
-
-// export const BoardHeader = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(_BoardHeader);

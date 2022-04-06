@@ -3,9 +3,18 @@
   overflow: hidden;
   border-radius: 3px !important; //To override Mui settings
   z-index: 70;
+  &.menu {
+    animation: open-menu 0.25s ease-in;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
 
   .popover-wrapper {
     width: 304px;
+    &.menu {
+      height: calc(100vh - 44px);
+      overflow: auto;
+    }
     &.release-width {
       width: unset;
       min-width: 304px;
@@ -85,11 +94,20 @@
         margin-top: 4px;
       }
 
+      @keyframes open-menu {
+        from {
+          transform: translateX(22.5rem);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
       //Add scrollbar??
     }
   }
   /////////////////////////////////////////////////////////////
-  //Relevant for popovers: profile & account - make them work with the genral pop overs css!!
+  //Relevant for popovers: profile & account - make them work with the general pop overs css!!
   button.btn-close-popover {
     color: $clr0;
     padding: 10px 12px 10px 8px;

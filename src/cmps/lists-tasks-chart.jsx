@@ -1,4 +1,7 @@
 import { Doughnut } from "react-chartjs-2";
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
+Chart.register(CategoryScale);
 
 export function ListsTasksChart({ tasksPerListData }) {
   const data = {

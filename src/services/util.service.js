@@ -6,7 +6,7 @@ export const utilService = {
   delay,
 };
 
-function makeId(length = 6) {
+function makeId(length = 10) {
   var txt = "";
   var possible =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

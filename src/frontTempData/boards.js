@@ -2,7 +2,8 @@ export const boards = [
   {
     _id: "b101",
     title: "Trello Dev Project",
-    createdAt: 1589983468418,
+    createdAt: 1641459447000,
+    dueDate: 1654502247000,
     isStarred: true,
     createdBy: {
       _id: "u102",
@@ -839,7 +840,8 @@ export const boards = [
   {
     _id: "fk94gv",
     title: "Test board",
-    createdAt: 1589983468418,
+    createdAt: 1641459447000,
+    dueDate: 1654502247000,
     isStarred: false,
     createdBy: {
       _id: "u102",
@@ -908,7 +910,8 @@ export const boards = [
   {
     _id: "h0lx46",
     title: "Test board",
-    createdAt: 1589983468418,
+    createdAt: 1641459447000,
+    dueDate: 1654502247000,
     isStarred: false,
     createdBy: {
       _id: "u102",
@@ -977,7 +980,8 @@ export const boards = [
   {
     _id: "df9m4c",
     title: "Test board",
-    createdAt: 1589983468418,
+    createdAt: 1641459447000,
+    dueDate: 1654502247000,
     isStarred: false,
     createdBy: {
       _id: "u102",
@@ -1046,7 +1050,8 @@ export const boards = [
   {
     _id: "7lcg32",
     title: "Test board",
-    createdAt: 1589983468418,
+    createdAt: 1641459447000,
+    dueDate: 1654502247000,
     isStarred: false,
     createdBy: {
       _id: "u102",
@@ -1115,7 +1120,8 @@ export const boards = [
   {
     _id: "6bk9d4",
     title: "Test board",
-    createdAt: 1589983468418,
+    createdAt: 1641459447000,
+    dueDate: 1654502247000,
     isStarred: false,
     createdBy: {
       _id: "u102",
@@ -1184,7 +1190,8 @@ export const boards = [
   {
     _id: "ds360v",
     title: "Test board",
-    createdAt: 1589983468418,
+    createdAt: 1641459447000,
+    dueDate: 1654502247000,
     isStarred: false,
     createdBy: {
       _id: "u102",

@@ -14,7 +14,9 @@ export const BoardDashboard = () => {
 
   const completedTasks = () => {
     const boardCards = AllBoardCards();
-    const completedTasks = boardCards.filter((boardCard) => boardCard.isDone);
+    const completedTasks = boardCards.filter(
+      (boardCard) => boardCard.isComplete
+    );
     return completedTasks.length;
   };
 
@@ -28,7 +30,7 @@ export const BoardDashboard = () => {
   const openTasks = () => {
     // return 100 - this.completedTasks
     const boardCards = AllBoardCards();
-    const openTasks = boardCards.filter((boardCard) => !boardCard.isDone);
+    const openTasks = boardCards.filter((boardCard) => !boardCard.isComplete);
     return openTasks.length;
   };
 
@@ -103,7 +105,8 @@ export const BoardDashboard = () => {
       const doneTasksCount = boardCards.reduce((acc, card) => {
         if (
           card.cardMembers.some(
-            (cardMember) => cardMember._id === boardMember._id && card.isDone
+            (cardMember) =>
+              cardMember._id === boardMember._id && card.isComplete
           )
         )
           acc++;
@@ -113,7 +116,8 @@ export const BoardDashboard = () => {
       const openTasksCount = boardCards.reduce((acc, card) => {
         if (
           card.cardMembers.some(
-            (cardMember) => cardMember._id === boardMember._id && !card.isDone
+            (cardMember) =>
+              cardMember._id === boardMember._id && !card.isComplete
           )
         )
           acc++;
@@ -146,12 +150,12 @@ export const BoardDashboard = () => {
             <ProjectDurationChart durationData={durationData()} />
           </div>
 
-          {/* <div className="list-task-chart flex align-center justify-center">
+          <div className="list-task-chart flex align-center justify-center">
             <ListsTasksChart tasksPerListData={tasksPerListData()} />
-          </div> */}
+          </div>
         </div>
 
-        {/* <div className="flex column space-between">
+        <div className="flex column space-between">
           <div className="dashboard-stats flex space-between">
             <div className="flex column align-center">
               <h1>Completed Tasks</h1>
@@ -208,7 +212,7 @@ export const BoardDashboard = () => {
           <div className="member-task-chart flex justify-center align-center">
             <MemberTasksChart tasksPerMemberData={tasksPerMemberData()} />
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   );
