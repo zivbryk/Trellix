@@ -16,6 +16,9 @@ import { PopoverMove } from "../popovers/popover-move";
 import { PopoverDeleteCard } from "../popovers/popover-delete-card";
 import { PopoverListActions } from "../popovers/popover-list-actions";
 import { PopoverMenu } from "../popovers/popover-menu";
+import { PopoverChangeBackground } from "../popovers/popover-change-background";
+import { PopoverUnsplashPhotos } from "../popovers/popover-unsplash-photos";
+import { PopoverBoardBgColors } from "../popovers/popover-board-bg-colors";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -163,6 +166,34 @@ export const DynamicPopover = () => {
           handleClose={handleClose}
         />
       );
+
+    case "CHANGE-BACKGROUND":
+      return (
+        <PopoverChangeBackground
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "UNSPLASH-PHOTOS":
+      return (
+        <PopoverUnsplashPhotos
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "BOARD-BG-COLORS":
+      return (
+        <PopoverBoardBgColors
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
     default:
       return "";
   }

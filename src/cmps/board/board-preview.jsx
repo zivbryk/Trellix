@@ -11,7 +11,9 @@ export function BoardPreview({ board, isStarredContainer }) {
       <Link to={`/board/${board._id}`} key={board._id}>
         <div
           className="board-tile"
-          style={{ background: `${board.style.cover} center center / cover ` }}
+          style={{
+            background: `url(${board.style.cover}) center center / cover `,
+          }}
         >
           <span className="board-tile-fade"></span>
           <div className="board-tile-details flex column space-between">

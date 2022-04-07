@@ -13,8 +13,9 @@ export const boards = [
     },
     style: {
       cover:
-        "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1536x1920/6f71cac1044c84cb52d37c5b464c70d0/photo-1643037508102-46fb319979c5.jpg')",
+        "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1536x1920/6f71cac1044c84cb52d37c5b464c70d0/photo-1643037508102-46fb319979c5.jpg",
       isImage: true,
+      boardCoverAttachments: [],
     },
     labels: [
       {
@@ -851,8 +852,9 @@ export const boards = [
     },
     style: {
       cover:
-        "url('https://res.cloudinary.com/zivcloud555/image/upload/v1633802046/Trellis%20permanent%20img/Card%20Images/beach_xnpfn0.jpg')",
+        "https://res.cloudinary.com/zivcloud555/image/upload/v1633802046/Trellis%20permanent%20img/Card%20Images/beach_xnpfn0.jpg",
       isImage: true,
+      boardCoverAttachments: [],
     },
     labels: [
       {
@@ -921,8 +923,9 @@ export const boards = [
     },
     style: {
       cover:
-        "url('https://res.cloudinary.com/zivcloud555/image/upload/v1633801650/Trellis%20permanent%20img/Card%20Images/redmountain_hlsgmg.jpg')",
+        "https://res.cloudinary.com/zivcloud555/image/upload/v1633801650/Trellis%20permanent%20img/Card%20Images/redmountain_hlsgmg.jpg",
       isImage: true,
+      boardCoverAttachments: [],
     },
     labels: [
       {
@@ -991,8 +994,9 @@ export const boards = [
     },
     style: {
       cover:
-        "url('https://res.cloudinary.com/zivcloud555/image/upload/v1633802376/Trellis%20permanent%20img/Card%20Images/forest_aqdjpw.jpg')",
+        "https://res.cloudinary.com/zivcloud555/image/upload/v1633802376/Trellis%20permanent%20img/Card%20Images/forest_aqdjpw.jpg",
       isImage: true,
+      boardCoverAttachments: [],
     },
     labels: [
       {
@@ -1061,8 +1065,9 @@ export const boards = [
     },
     style: {
       cover:
-        "url('https://res.cloudinary.com/zivcloud555/image/upload/v1633801647/Trellis%20permanent%20img/Card%20Images/galaxy_kuuw2l.jpg')",
+        "https://res.cloudinary.com/zivcloud555/image/upload/v1633801647/Trellis%20permanent%20img/Card%20Images/galaxy_kuuw2l.jpg",
       isImage: true,
+      boardCoverAttachments: [],
     },
     labels: [
       {
@@ -1131,8 +1136,9 @@ export const boards = [
     },
     style: {
       cover:
-        "url('https://res.cloudinary.com/zivcloud555/image/upload/v1649159732/Trellis%20permanent%20img/Card%20Images/react-bg_bbnh7b.jpg')",
+        "https://res.cloudinary.com/zivcloud555/image/upload/v1649159732/Trellis%20permanent%20img/Card%20Images/react-bg_bbnh7b.jpg",
       isImage: true,
+      boardCoverAttachments: [],
     },
     labels: [
       {
@@ -1201,8 +1207,9 @@ export const boards = [
     },
     style: {
       cover:
-        "url('https://res.cloudinary.com/zivcloud555/image/upload/v1649159888/Trellis%20permanent%20img/Card%20Images/snow-bg_sscwzl.jpg')",
+        "https://res.cloudinary.com/zivcloud555/image/upload/v1649159888/Trellis%20permanent%20img/Card%20Images/snow-bg_sscwzl.jpg",
       isImage: true,
+      boardCoverAttachments: [],
     },
     labels: [
       {

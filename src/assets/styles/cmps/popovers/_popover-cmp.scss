@@ -7,14 +7,15 @@
     animation: open-menu 0.25s ease-in;
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
+    background-color: #f4f5f7;
   }
 
   .popover-wrapper {
     width: 304px;
     &.menu {
-      height: calc(100vh - 44px);
-      overflow: auto;
+      width: 339px;
     }
+
     &.release-width {
       width: unset;
       min-width: 304px;
@@ -62,6 +63,63 @@
       }
     }
 
+    .popover-header-mod-menu {
+      margin-bottom: 8px;
+      flex: 0 0 auto;
+      height: 48px;
+      padding: 0 6px 0 12px;
+      position: relative;
+      transition: opacity 0.2s ease-in;
+      width: 100%;
+      overflow: visible;
+      .popover-header-title {
+        a {
+          text-decoration: underline;
+        }
+      }
+      .popover-header-content {
+        border-bottom: 1px solid #091e4221;
+        .btn-back {
+          font-size: 20px;
+          left: 12px;
+          overflow: hidden;
+          position: absolute;
+          top: 8px;
+          transition: transform 0.12s ease-in;
+          padding: 0;
+          .icon-lg {
+            font-size: rem(20px);
+            &:hover {
+              color: #091e42;
+            }
+          }
+        }
+        h3.popover-header-title {
+          flex: 1;
+          line-height: 20px;
+          margin: 14px 32px;
+          overflow: hidden;
+          text-align: center;
+          text-overflow: ellipsis;
+          transition: margin 0.12s ease-in;
+          white-space: nowrap;
+        }
+        .btn-close {
+          font-size: 20px;
+          position: absolute;
+          right: 6px;
+          top: 8px;
+          padding: 0;
+          .icon-lg {
+            font-size: rem(20px);
+            &:hover {
+              color: #091e42;
+            }
+          }
+        }
+      }
+    }
+
     .popover-content {
       overflow-x: hidden;
       overflow-y: auto;
@@ -104,6 +162,24 @@
       }
 
       //Add scrollbar??
+    }
+
+    &.menu {
+      height: calc(100vh - 44px);
+      overflow: auto;
+      .popover-header-title {
+        // flex: 1;
+        // line-height: 20px;
+        // margin: 14px 32px;
+        // overflow: hidden;
+        // text-align: center;
+        font-size: rem(16px);
+        font-weight: 600;
+        color: #172b4d;
+        text-overflow: ellipsis;
+        transition: margin 0.12s ease-in;
+        white-space: nowrap;
+      }
     }
   }
   /////////////////////////////////////////////////////////////

@@ -1,0 +1,115 @@
+.popover-change-background-content {
+  .change-background-tiles {
+    overflow-y: hidden;
+    .change-background-tile {
+      box-sizing: border-box;
+      cursor: pointer;
+      float: left;
+      padding: 0 4px;
+      position: relative;
+      text-align: center;
+      width: 50%;
+      .image {
+        background-color: #dfe1e6;
+        background-size: cover;
+        border-radius: 8px;
+        height: 96px;
+        margin-bottom: 8px;
+        width: 100%;
+      }
+      .title {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  h2 {
+    color: #172b4d;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .custom-list {
+    position: relative;
+    .background-select {
+      border-radius: 8px;
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 0 4px 8px;
+      position: relative;
+      text-align: left;
+      vertical-align: top;
+      width: 50%;
+      z-index: 1;
+      .background-box {
+        background-color: #dfe1e6;
+        background-size: cover;
+        border-radius: 8px;
+        display: block;
+        height: 96px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+          .bg-options {
+            display: block;
+            &:hover {
+              background: #000c;
+            }
+          }
+        }
+
+        .bg-options {
+          background: #00000080;
+          border-radius: 0 0 3px 3px;
+          bottom: 0;
+          box-sizing: border-box;
+          color: #dfe1e6;
+          text-align: left;
+          display: none;
+          height: 24px;
+          left: 0;
+          line-height: 20px;
+          overflow: hidden;
+          padding: 2px 12px 2px 8px;
+          position: absolute;
+          right: 0;
+          text-decoration: none;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          z-index: 2;
+          .icon-close {
+            vertical-align: bottom;
+            color: $clr0;
+          }
+          .text {
+            text-decoration: underline;
+          }
+        }
+      }
+      &.background-select-upload {
+        overflow: hidden;
+        .background-box {
+          margin: 0;
+          background-color: #091e420a;
+          border-radius: 8px;
+          position: relative;
+          z-index: 0;
+          &:hover {
+            background-color: #091e4214;
+          }
+          input {
+            display: none;
+          }
+          .icon-add {
+            line-height: 96px;
+            text-align: center;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

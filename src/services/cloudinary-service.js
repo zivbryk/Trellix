@@ -11,6 +11,9 @@ function uploadImg(file, folder = "card-attachments") {
     case "card-attachments":
       preset = "aua2dblj";
       break;
+    case "board-attachments":
+      preset = "ofk7song";
+      break;
 
     default:
       break;

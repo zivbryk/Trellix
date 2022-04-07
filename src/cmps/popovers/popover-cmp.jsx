@@ -8,6 +8,7 @@ export const PopoverCmp = ({
   onBack,
   releaseWidth = false,
   mod,
+  menuType,
 }) => {
   return (
     <Popover
@@ -20,24 +21,44 @@ export const PopoverCmp = ({
           : { top: elPos.top + elPos.height + 6, left: elPos.left }
       }
       marginThreshold={mod === "menu" ? 0 : 16}
-      classes={{ paper: mod === "menu" ? "menu" : "" }}
+      classes={{
+        paper: mod === "menu" ? "menu" : "",
+      }}
     >
       <div
         className={`popover-wrapper ${releaseWidth ? "release-width" : ""} ${
           mod === "menu" ? "menu" : ""
         }`}
       >
-        <div className="popover-header">
-          <span className="popover-header-title">{title}</span>
-          {onBack && (
-            <button className="btn btn-back" onClick={onBack}>
-              <span className="trl icon-back icon-sm"></span>
+        {mod !== "menu" && (
+          <div className="popover-header">
+            <span className="popover-header-title">{title}</span>
+            {onBack && (
+              <button className="btn btn-back" onClick={onBack}>
+                <span className="trl icon-back icon-sm"></span>
+              </button>
+            )}
+            <button className="btn btn-close" onClick={handleClose}>
+              <span className="trl icon-close icon-sm"></span>
             </button>
-          )}
-          <button className="btn btn-close" onClick={handleClose}>
-            <span className="trl icon-close icon-sm"></span>
-          </button>
-        </div>
+          </div>
+        )}
+
+        {mod === "menu" && (
+          <div className="popover-header-mod-menu">
+            <div className="popover-header-content flex align-center">
+              {onBack && (
+                <button className="btn btn-back" onClick={onBack}>
+                  <span className="trl icon-back icon-lg"></span>
+                </button>
+              )}
+              <h3 className="popover-header-title">{title}</h3>
+              <button className="btn btn-close" onClick={handleClose}>
+                <span className="trl icon-close icon-lg"></span>
+              </button>
+            </div>
+          </div>
+        )}
 
         <div>
           <div className="popover-content">{children}</div>

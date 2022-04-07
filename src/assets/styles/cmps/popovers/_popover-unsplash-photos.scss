@@ -1,0 +1,16 @@
+.popover-unsplash-photos-content {
+  .search-photos {
+    margin: 1px;
+    position: relative;
+    input {
+      padding-left: 32px;
+      //   background: #fafbfc;
+      //   width: 100%;
+    }
+    span {
+      left: 8px;
+      position: absolute;
+      top: 8px;
+    }
+  }
+}

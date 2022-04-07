@@ -67,6 +67,10 @@
     margin-right: 0;
     max-height: 512px;
     -webkit-overflow-scrolling: touch;
+    &.menu-height {
+      max-height: 730px;
+    }
+
     .gallery-scroll {
       overflow-y: scroll;
       overflow-x: hidden;
