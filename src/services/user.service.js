@@ -1,4 +1,4 @@
-import { users } from "../frontTempData/users";
+// import { users } from "../frontTempData/users";
 
 import { storageService } from "./async-storage.service";
 // import { httpService } from './http.service'
@@ -8,7 +8,7 @@ const STORAGE_KEY_LOGGEDIN_USER = "loggedinUser";
 const STORAGE_KEY = "user";
 // var gWatchedUser = null;
 
-storageService.load(STORAGE_KEY, users);
+// storageService.load(STORAGE_KEY, users);
 
 export const userService = {
   loadDataManual,

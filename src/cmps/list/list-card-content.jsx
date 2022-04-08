@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
 import { ListCardDetails } from "./list-card-details";
+import { closePopover } from "../../store/actions/app.actions";
 
 export const ListCardContent = ({ currBoard, currList, currCard }) => {
+  const dispatch = useDispatch();
   const [coverMode, setCoverMode] = useState(currCard.style.coverMode);
 
   useEffect(() => {
@@ -63,6 +67,10 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
   //   };
   // });
 
+  const closeAllPopovers = () => {
+    dispatch(closePopover());
+  };
+
   const getCardContentStyle = () => {
     if (!coverMode) return {};
     let cardContentStyle = null;
@@ -111,7 +119,10 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
   };
 
   return (
-    <Link to={`/board/${currBoard._id}/${currList.id}/${currCard.id}`}>
+    <Link
+      to={`/board/${currBoard._id}/${currList.id}/${currCard.id}`}
+      onClick={closeAllPopovers}
+    >
       <section
         className={`list-card-content ${
           currCard.style.cover ? "is-covered" : ""

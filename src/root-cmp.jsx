@@ -1,15 +1,16 @@
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router";
 import { useLocation } from "react-router-dom";
 import { AppHeader } from "./cmps/app-header";
 import { DynamicPopover } from "./cmps/popovers/dynamic-popover";
 
-import { loadUsers } from "./store/actions/user.actions";
+// import { loadUsers } from "./store/actions/user.actions";
 import routes from "./routes";
 
 export const RootCmp = () => {
-  const dispatch = useDispatch();
-  dispatch(loadUsers());
+  // const dispatch = useDispatch();
+  // dispatch(loadUsers());
 
   const board = useSelector((state) => state.boardReducer.board);
   const pathname = useLocation().pathname;

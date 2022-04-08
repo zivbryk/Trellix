@@ -1,0 +1,38 @@
+.popover-archive-content {
+  .archive-controls {
+    .archive-search {
+      //   flex: 1 1 auto;
+      margin: 0 6px 0 0;
+      input {
+        width: unset;
+        margin: unset;
+        margin-block-end: 12px;
+      }
+    }
+    button {
+      margin: 2px 0px;
+    }
+  }
+
+  .archive-content {
+    .archive-items {
+      .archived-list-card {
+        display: block;
+        margin: 8px auto 16px;
+        max-width: 260px;
+
+        p.controls {
+          margin: 0 0 8px 8px;
+          button {
+            padding: 0;
+            text-decoration: underline;
+            color: $clr4;
+            &:hover {
+              color: $clr3;
+            }
+          }
+        }
+      }
+    }
+  }
+}

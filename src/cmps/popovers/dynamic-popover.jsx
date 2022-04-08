@@ -19,6 +19,7 @@ import { PopoverMenu } from "../popovers/popover-menu";
 import { PopoverChangeBackground } from "../popovers/popover-change-background";
 import { PopoverUnsplashPhotos } from "../popovers/popover-unsplash-photos";
 import { PopoverBoardBgColors } from "../popovers/popover-board-bg-colors";
+import { PopoverArchive } from "../popovers/popover-archive";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -188,6 +189,15 @@ export const DynamicPopover = () => {
     case "BOARD-BG-COLORS":
       return (
         <PopoverBoardBgColors
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "ARCHIVE":
+      return (
+        <PopoverArchive
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

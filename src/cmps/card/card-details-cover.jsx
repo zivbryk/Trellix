@@ -20,7 +20,8 @@ export const CardDetailsCover = ({
 
     const coverStyle = currCard.style.isImage
       ? {
-          backgroundColor: dominantColor,
+          backgroundColor: dominantColor, //Uncomment when using dominant color detection
+          // backgroundColor: "#ffffff", //Comment when using dominant color detection
           backgroundImage: `url(${currCard.style.cover})`,
           height: "152px",
           minHeight: "152px",
@@ -53,7 +54,8 @@ export const CardDetailsCover = ({
       <div className="window-cover-menu">
         <button
           className={`btn window-cover-menu-btn ${
-            isLightMode ? "" : "cover-btn-light"
+            isLightMode ? "" : "cover-btn-light" //Uncomment when using dominant color detection
+            // "cover-btn-light" //Comment when using dominant color detection
           }`}
           onClick={(ev) => onOpenPopover(ev)}
         >

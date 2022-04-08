@@ -23,8 +23,8 @@
 
 // Components
 @import "cmps/app-header";
-@import "cmps/loader-cmp";
 @import "cmps/user-msg";
+@import "cmps/spinner";
 @import "cmps/member-avatar";
 @import "cmps/window-overlay";
 @import "cmps/home-page-header";
@@ -82,3 +82,4 @@
 @import "cmps/popovers/popover-change-background";
 @import "cmps/popovers/popover-unsplash-photos";
 @import "cmps/popovers/board-color-palette";
+@import "cmps/popovers/popover-archive";

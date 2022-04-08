@@ -30,7 +30,6 @@ export const PopoverUnsplashPhotos = ({
 
   const handleChange = ({ target }) => {
     const { value } = target;
-
     setKeyword(value);
   };
 

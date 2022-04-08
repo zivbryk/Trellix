@@ -8,12 +8,10 @@ export const boards = [
     createdBy: {
       _id: "u102",
       fullname: "May Almog",
-      imgUrl:
-        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+      imgUrl: "/assets/images/avatars/may.png",
     },
     style: {
-      cover:
-        "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1536x1920/6f71cac1044c84cb52d37c5b464c70d0/photo-1643037508102-46fb319979c5.jpg",
+      cover: "/assets/images/board-bg/black-future.jpg",
       isImage: true,
       boardCoverAttachments: [],
     },
@@ -79,24 +77,21 @@ export const boards = [
         _id: "u101",
         fullname: "Ziv Bryk",
         username: "zivbryk",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+        imgUrl: "/assets/images/avatars/ziv.png",
         isAdmin: true,
       },
       {
         _id: "u102",
         fullname: "May Almog",
         username: "mayalmog",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+        imgUrl: "/assets/images/avatars/may.png",
         isAdmin: false,
       },
       {
         _id: "u103",
         fullname: "Dese Besunech",
         username: "desebesunech",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516881/Trellis%20permanent%20img/Avatars/dese_zv3kgc.png",
+        imgUrl: "/assets/images/avatars/dese.png",
         isAdmin: false,
       },
       {
@@ -141,8 +136,9 @@ export const boards = [
             id: "l7v4x",
             title: "EditDate Cmp",
             style: {
-              cover:
-                "https://res.cloudinary.com/zivcloud555/image/upload/v1633764702/Trellis%20permanent%20img/Card%20Images/chart4_sgrvtg.png",
+              // cover:
+              //   "https://res.cloudinary.com/zivcloud555/image/upload/v1633764702/Trellis%20permanent%20img/Card%20Images/chart4_sgrvtg.png",
+              cover: "/assets/images/card-cover/chart4.png",
               isImage: true,
               coverMode: "half",
               isColorWhite: true,
@@ -166,23 +162,20 @@ export const boards = [
                 _id: "u101",
                 fullname: "Ziv Bryk",
                 username: "zivbryk",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+                imgUrl: "/assets/images/avatars/ziv.png",
                 isAdmin: true,
               },
               {
                 _id: "u102",
                 fullname: "May Almog",
                 username: "mayalmog",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+                imgUrl: "/assets/images/avatars/may.png",
               },
               {
                 _id: "u103",
                 fullname: "Dese Besunech",
                 username: "desebesunech",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516881/Trellis%20permanent%20img/Avatars/dese_zv3kgc.png",
+                imgUrl: "/assets/images/avatars/dese.png",
               },
             ],
             isWatched: true,
@@ -266,7 +259,7 @@ export const boards = [
                   _id: "u101",
                   fullname: "Ziv Bryk",
                   username: "zivbryk",
-                  imgUrl: "/avatars/ziv.png",
+                  imgUrl: "/assets/images/avatars/ziv.png",
                   isAdmin: true,
                 },
               },
@@ -278,7 +271,7 @@ export const boards = [
                   _id: "u102",
                   fullname: "May Almog",
                   username: "mayalmog",
-                  imgUrl: "/avatars/may.png",
+                  imgUrl: "/assets/images/avatars/may.png",
                 },
               },
             ],
@@ -295,15 +288,13 @@ export const boards = [
                 _id: "u102",
                 fullname: "May Almog",
                 username: "mayalmog",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+                imgUrl: "/assets/images/avatars/may.png",
               },
               {
                 _id: "u103",
                 fullname: "Dese Besunech",
                 username: "desebesunech",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516881/Trellis%20permanent%20img/Avatars/dese_zv3kgc.png",
+                imgUrl: "/assets/images/avatars/dese.png",
               },
             ],
             dueDate: 1645779952000,
@@ -321,10 +312,9 @@ export const boards = [
             id: "ckk0g",
             title: "CoverColors Cmp",
             style: {
-              cover:
-                "https://res.cloudinary.com/zivcloud555/image/upload/v1634026001/Trellis%20permanent%20img/Card%20Images/launch_kucwit.jpg",
+              cover: "/assets/images/card-cover/launch.jpg",
               isImage: true,
-              coverMode: "half",
+              coverMode: "full",
               isColorWhite: true,
             },
             labelIds: ["tp301", "yh703"],
@@ -333,8 +323,7 @@ export const boards = [
                 _id: "u103",
                 fullname: "Dese Besunech",
                 username: "desebesunech",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516881/Trellis%20permanent%20img/Avatars/dese_zv3kgc.png",
+                imgUrl: "/assets/images/avatars/dese.png",
               },
             ],
             checklists: [
@@ -399,7 +388,7 @@ export const boards = [
                   _id: "u101",
                   fullname: "Ziv Bryk",
                   username: "zivbryk",
-                  imgUrl: "/avatars/ziv.png",
+                  imgUrl: "/assets/images/avatars/ziv.png",
                   isAdmin: true,
                 },
               },
@@ -462,8 +451,7 @@ export const boards = [
                 _id: "u103",
                 fullname: "Dese Besunech",
                 username: "desebesunech",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516881/Trellis%20permanent%20img/Avatars/dese_zv3kgc.png",
+                imgUrl: "/assets/images/avatars/dese.png",
               },
             ],
             labelIds: ["tp301", "yh703"],
@@ -473,7 +461,7 @@ export const boards = [
               _id: "u101",
               fullname: "Ziv Bryk",
               username: "zivbryk",
-              imgUrl: "/avatars/ziv.png",
+              imgUrl: "/assets/images/avatars/ziv.png",
               isAdmin: true,
             },
             isWatched: false,
@@ -488,8 +476,8 @@ export const boards = [
             id: "kl488",
             title: "LoginLogout Page",
             style: {
-              cover: null,
-              isImage: false,
+              cover: "/assets/images/card-cover/formik.png",
+              isImage: true,
               coverMode: "half",
               isColorWhite: true,
             },
@@ -500,8 +488,7 @@ export const boards = [
                 _id: "u102",
                 fullname: "May Almog",
                 username: "mayalmog",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+                imgUrl: "/assets/images/avatars/may.png",
               },
             ],
             attachments: [],
@@ -538,8 +525,7 @@ export const boards = [
             id: "lo937",
             title: "CardDetails Page",
             style: {
-              cover:
-                "https://res.cloudinary.com/zivcloud555/image/upload/v1647277624/Trellis%20permanent%20img/Card%20Images/saveit1_zxmm4s.jpg",
+              cover: "/assets/images/card-cover/css-tricks.png",
               isImage: true,
               coverMode: "half",
               isColorWhite: true,
@@ -550,8 +536,7 @@ export const boards = [
                 _id: "u102",
                 fullname: "May Almog",
                 username: "mayalmog",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+                imgUrl: "/assets/images/avatars/may.png",
               },
             ],
             attachments: [],
@@ -574,8 +559,7 @@ export const boards = [
             id: "57jdv",
             title: "CardCentral Cmp",
             style: {
-              cover:
-                "https://res.cloudinary.com/zivcloud555/image/upload/v1633700384/Trellis%20permanent%20img/Card%20Images/dnd_vtt3tn.png",
+              cover: "/assets/images/card-cover/dnd.png",
               isImage: true,
               coverMode: "half",
               isColorWhite: true,
@@ -589,7 +573,7 @@ export const boards = [
                   _id: "u101",
                   fullname: "Ziv Bryk",
                   username: "zivbryk",
-                  imgUrl: "/avatars/ziv.png",
+                  imgUrl: "/assets/images/avatars/ziv.png",
                   isAdmin: true,
                 },
               },
@@ -599,8 +583,7 @@ export const boards = [
                 _id: "u102",
                 fullname: "May Almog",
                 username: "mayalmog",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+                imgUrl: "/assets/images/avatars/may.png",
               },
             ],
             attachments: [],
@@ -632,7 +615,7 @@ export const boards = [
                   _id: "u101",
                   fullname: "Ziv Bryk",
                   username: "zivbryk",
-                  imgUrl: "/avatars/ziv.png",
+                  imgUrl: "/assets/images/avatars/ziv.png",
                   isAdmin: true,
                 },
               },
@@ -690,8 +673,7 @@ export const boards = [
                 _id: "u101",
                 fullname: "Ziv Bryk",
                 username: "zivbryk",
-                imgUrl:
-                  "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+                imgUrl: "/assets/images/avatars/ziv.png",
                 isAdmin: true,
               },
             ],
@@ -702,7 +684,7 @@ export const boards = [
               _id: "u101",
               fullname: "Ziv Bryk",
               username: "zivbryk",
-              imgUrl: "/avatars/ziv.png",
+              imgUrl: "/assets/images/avatars/ziv.png",
               isAdmin: true,
             },
             isWatched: false,
@@ -759,7 +741,7 @@ export const boards = [
                   _id: "u101",
                   fullname: "Ziv Bryk",
                   username: "zivbryk",
-                  imgUrl: "/avatars/ziv.png",
+                  imgUrl: "/assets/images/avatars/ziv.png",
                   isAdmin: true,
                 },
               },
@@ -800,7 +782,7 @@ export const boards = [
               _id: "u101",
               fullname: "Ziv Bryk",
               username: "zivbryk",
-              imgUrl: "/avatars/ziv.png",
+              imgUrl: "/assets/images/avatars/ziv.png",
               isAdmin: true,
             },
             attachments: [],
@@ -824,7 +806,7 @@ export const boards = [
           _id: "u101",
           fullname: "Ziv Bryk",
           username: "zivbryk",
-          imgUrl: "/avatars/ziv.png",
+          imgUrl: "/assets/images/avatars/ziv.png",
           isAdmin: true,
         },
         list: {
@@ -847,8 +829,7 @@ export const boards = [
     createdBy: {
       _id: "u102",
       fullname: "May Almog",
-      imgUrl:
-        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+      imgUrl: "/assets/images/avatars/may.png",
     },
     style: {
       cover:
@@ -893,16 +874,14 @@ export const boards = [
         _id: "u101",
         fullname: "Ziv Bryk",
         username: "zivbryk",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+        imgUrl: "/assets/images/avatars/ziv.png",
         isAdmin: true,
       },
       {
         _id: "u102",
         fullname: "May Almog",
         username: "mayalmog",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+        imgUrl: "/assets/images/avatars/may.png",
         isAdmin: false,
       },
     ],
@@ -918,8 +897,7 @@ export const boards = [
     createdBy: {
       _id: "u102",
       fullname: "May Almog",
-      imgUrl:
-        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+      imgUrl: "/assets/images/avatars/may.png",
     },
     style: {
       cover:
@@ -964,16 +942,14 @@ export const boards = [
         _id: "u101",
         fullname: "Ziv Bryk",
         username: "zivbryk",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+        imgUrl: "/assets/images/avatars/ziv.png",
         isAdmin: true,
       },
       {
         _id: "u102",
         fullname: "May Almog",
         username: "mayalmog",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+        imgUrl: "/assets/images/avatars/may.png",
         isAdmin: false,
       },
     ],
@@ -989,8 +965,7 @@ export const boards = [
     createdBy: {
       _id: "u102",
       fullname: "May Almog",
-      imgUrl:
-        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+      imgUrl: "/assets/images/avatars/may.png",
     },
     style: {
       cover:
@@ -1035,16 +1010,14 @@ export const boards = [
         _id: "u101",
         fullname: "Ziv Bryk",
         username: "zivbryk",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+        imgUrl: "/assets/images/avatars/ziv.png",
         isAdmin: true,
       },
       {
         _id: "u102",
         fullname: "May Almog",
         username: "mayalmog",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+        imgUrl: "/assets/images/avatars/may.png",
         isAdmin: false,
       },
     ],
@@ -1060,8 +1033,7 @@ export const boards = [
     createdBy: {
       _id: "u102",
       fullname: "May Almog",
-      imgUrl:
-        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+      imgUrl: "/assets/images/avatars/may.png",
     },
     style: {
       cover:
@@ -1106,16 +1078,14 @@ export const boards = [
         _id: "u101",
         fullname: "Ziv Bryk",
         username: "zivbryk",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+        imgUrl: "/assets/images/avatars/ziv.png",
         isAdmin: true,
       },
       {
         _id: "u102",
         fullname: "May Almog",
         username: "mayalmog",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+        imgUrl: "/assets/images/avatars/may.png",
         isAdmin: false,
       },
     ],
@@ -1131,8 +1101,7 @@ export const boards = [
     createdBy: {
       _id: "u102",
       fullname: "May Almog",
-      imgUrl:
-        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+      imgUrl: "/assets/images/avatars/may.png",
     },
     style: {
       cover:
@@ -1177,16 +1146,14 @@ export const boards = [
         _id: "u101",
         fullname: "Ziv Bryk",
         username: "zivbryk",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+        imgUrl: "/assets/images/avatars/ziv.png",
         isAdmin: true,
       },
       {
         _id: "u102",
         fullname: "May Almog",
         username: "mayalmog",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+        imgUrl: "/assets/images/avatars/may.png",
         isAdmin: false,
       },
     ],
@@ -1202,8 +1169,7 @@ export const boards = [
     createdBy: {
       _id: "u102",
       fullname: "May Almog",
-      imgUrl:
-        "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+      imgUrl: "/assets/images/avatars/may.png",
     },
     style: {
       cover:
@@ -1248,16 +1214,14 @@ export const boards = [
         _id: "u101",
         fullname: "Ziv Bryk",
         username: "zivbryk",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516871/Trellis%20permanent%20img/Avatars/ziv_f4seir.png",
+        imgUrl: "/assets/images/avatars/ziv.png",
         isAdmin: true,
       },
       {
         _id: "u102",
         fullname: "May Almog",
         username: "mayalmog",
-        imgUrl:
-          "https://res.cloudinary.com/zivcloud555/image/upload/v1633516861/Trellis%20permanent%20img/Avatars/may_jfkenx.png",
+        imgUrl: "/assets/images/avatars/may.png",
         isAdmin: false,
       },
     ],

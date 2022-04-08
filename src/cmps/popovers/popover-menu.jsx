@@ -43,7 +43,10 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
           </li>
 
           <li className="menu-nav-item">
-            <button className="btn menu-nav-item-link">
+            <button
+              className="btn menu-nav-item-link"
+              onClick={(ev) => onOpenPopover(ev, "ARCHIVE")}
+            >
               <span className="item-link-icon trl icon-archive icon-sm"></span>
               &nbsp;Archived items
             </button>

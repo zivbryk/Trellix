@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import analyze from "rgbaster";
+
 import { WindowOverlay } from "../cmps/window-overlay";
 import { CardDetailsCover } from "../cmps/card/card-details-cover";
 import { CardDetailsHeader } from "../cmps/card/card-details-header";
@@ -54,6 +55,11 @@ export const CardDetails = () => {
     const { card, list } = getCardAndList();
     setCurrCard(card);
     setCurrList(list);
+
+    return () => {
+      setCurrCard(null);
+      setCurrList(null);
+    };
   }, [getCardAndList]);
 
   useEffect(() => {
@@ -68,11 +74,15 @@ export const CardDetails = () => {
         setIsLightMode(isColorLight(currCard.style.cover, "hex"));
       }
     })();
+
+    return () => {
+      setDominantColor(null);
+      setIsLightMode(null);
+    };
   }, [currCard]);
 
   const goBackToBoard = (ev) => {
     ev.stopPropagation();
-    //close popvoers with dispatch
     if (ev.target.id === "close-window") navigate(`/board/${board._id}`);
   };
 
@@ -85,7 +95,8 @@ export const CardDetails = () => {
             <button
               id="close-window"
               className={`btn dialog-close-btn ${
-                isLightMode ? "dialog-close-btn-dark" : "dialog-close-btn-light"
+                isLightMode ? "dialog-close-btn-dark" : "dialog-close-btn-light" //Uncomment when using dominant color detection
+                // "dialog-close-btn-light" //Comment when using dominant color detection
               } `}
               onClick={(ev) => {
                 goBackToBoard(ev);
