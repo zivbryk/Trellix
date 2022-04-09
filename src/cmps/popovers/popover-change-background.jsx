@@ -10,6 +10,7 @@ import { utilService } from "../../services/util.service";
 
 export const PopoverChangeBackground = ({ elPos, handleClose }) => {
   const board = useSelector((state) => state.boardReducer.board);
+  console.log("PopoverChangeBackground => board", board);
   const dispatch = useDispatch();
 
   const onBack = () => {

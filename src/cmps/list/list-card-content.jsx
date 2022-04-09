@@ -129,11 +129,7 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
         } ${coverMode === "full" ? "flex" : ""}`}
         style={getCardContentStyle()}
       >
-        <div
-          className={"list-card-cover"}
-          style={getCoverStyle()}
-          // style={coverStyle}
-        ></div>
+        <div className={"list-card-cover"} style={getCoverStyle()}></div>
 
         <button className="btn btn-edit-card">
           <span className="trl icon-edit icon-sm"></span>

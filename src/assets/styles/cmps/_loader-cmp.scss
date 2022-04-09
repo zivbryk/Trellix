@@ -1,14 +1,13 @@
 .loader-cmp {
-  &.full {
+  &.full-page {
     position: fixed;
     top: 50%;
     left: 40%;
-    // transform: translate(-50% -50%);
     transform: translateX(-50%);
     transform: translateY(-50%);
     svg {
-      height: 200px;
-      width: 200px;
+      height: 150px;
+      width: 150px;
     }
   }
   &.block {

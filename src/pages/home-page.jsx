@@ -31,7 +31,7 @@ export const HomePage = () => {
                 unique—accomplish it all with Trello.
               </p>
 
-              <Link to="/board/b101/">
+              <Link to="/board/62519d07234b9f9224c06d68/">
                 <button className="btn btn-prim">Start as guest!</button>
               </Link>
             </div>

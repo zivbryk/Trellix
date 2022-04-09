@@ -132,6 +132,14 @@ export const CardDetailsSideBar = ({ currCard, currList, board }) => {
             <span className="icon-sm trl icon-attachment"></span>
             <span>Attachment</span>
           </button>
+
+          <button
+            className="btn btn-sub btn-sidebar"
+            onClick={(ev) => onOpenPopover(ev, "COVER")}
+          >
+            <span className="icon-sm trl icon-card-cover"></span>
+            <span>Cover</span>
+          </button>
         </div>
       </div>
 

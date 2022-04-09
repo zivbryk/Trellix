@@ -13,20 +13,9 @@ export const PopoverArchive = ({ elPos, handleClose }) => {
   const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const [archivedCardsList, setArchivedCardsList] = useState([]);
-
-  const loadCards = () => {
-    // const allArchivedCards = board.lists.reduce((perBoardAcc, list) => {
-    //   const archivedCardsPerList = list.cards.reduce((perListAcc, card) => {
-    //     if (card.archiveData.isArchived) perListAcc.push(card);
-    //     return perListAcc;
-    //   }, []);
-    //   perBoardAcc.push(...archivedCardsPerList);
-    //   return perBoardAcc;
-    // }, []);
-    // setArchivedCardsList(allArchivedCards);
-  };
 
   useEffect(() => {
     const allArchivedCards = board.lists.reduce((perBoardAcc, list) => {
@@ -91,27 +80,6 @@ export const PopoverArchive = ({ elPos, handleClose }) => {
     });
     dispatch(onEditBoard(clonedBoard));
   };
-
-  const onOpenPopover = (ev, popoverName) => {
-    // const elPos = ev.target.getBoundingClientRect();
-    // let popoverProps = {};
-    // if (popoverName === "UNSPLASH-PHOTOS") {
-    //   popoverProps = { board, saveCoverImage };
-    // } else if (popoverName === "BOARD-BG-COLORS") {
-    //   popoverProps = { board, onSetCoverColor };
-    // } else {
-    //   popoverProps = { board };
-    // }
-    // dispatch(openPopover(popoverName, elPos, popoverProps));
-  };
-
-  // //Images//
-  // const saveCoverImage = (url) => {
-  //   const clonedBoard = _.cloneDeep(board);
-  //   clonedBoard.style.cover = url;
-  //   clonedBoard.style.isImage = true;
-  //   dispatch(onEditBoard(clonedBoard));
-  // };
 
   if (!board) return <div></div>;
   return (

@@ -2,6 +2,7 @@
 import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router";
 import { useLocation } from "react-router-dom";
+
 import { AppHeader } from "./cmps/app-header";
 import { DynamicPopover } from "./cmps/popovers/dynamic-popover";
 
@@ -26,7 +27,7 @@ export const RootCmp = () => {
               : `${board.style.cover}`
           }`,
         }
-      : { background: "#0079bf" };
+      : { background: "#ffffff" };
     return bgcStyle;
   }
 

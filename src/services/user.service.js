@@ -1,22 +1,22 @@
-// import { users } from "../frontTempData/users";
-
 import { storageService } from "./async-storage.service";
-// import { httpService } from './http.service'
+
+import { httpService } from "./http.service";
 // import { socketService, SOCKET_EVENT_USER_UPDATED } from "./socket.service";
 
 const STORAGE_KEY_LOGGEDIN_USER = "loggedinUser";
 const STORAGE_KEY = "user";
 // var gWatchedUser = null;
 
+/////// UNCOMMENT FOR FRONTEND DEVELOPMENT ///////
+// import { users } from "../frontTempData/users";
 // storageService.load(STORAGE_KEY, users);
 
 export const userService = {
-  loadDataManual,
+  // loadDataManual,
   login,
   googleLogin,
   logout,
   signup,
-  checkPassword,
   getLoggedinUser,
   getUsers,
   // getById,
@@ -26,10 +26,70 @@ export const userService = {
 };
 
 window.userService = userService;
-//REMOVE_COMMENT: Remove after connecting Backend
-function loadDataManual(entities) {
-  storageService.load(STORAGE_KEY, entities);
+
+async function login(credentials) {
+  try {
+    const user = await httpService.post("auth/login", credentials);
+    if (user) return _saveLocalUser(user);
+  } catch (err) {
+    throw err;
+  }
 }
+
+async function signup(credentials) {
+  try {
+    const user = await httpService.post("auth/signup", credentials);
+    return _saveLocalUser(user);
+  } catch (err) {
+    throw err;
+  }
+}
+
+async function logout(user) {
+  // socketService.emit('unset-user-socket');
+  try {
+    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
+    return await httpService.post("auth/logout", user);
+  } catch (err) {
+    throw err;
+  }
+}
+
+/////// UNCOMMENT FOR FRONTEND DEVELOPMENT ///////
+/****DEVELOPMENT LOCAL STORAGE FUNCTIONS ****/
+// async function login(credentials) {
+//   try {
+//     const users = await storageService.query("user");
+//     const user = users.find(
+//       (user) =>
+//         user.username === credentials.username &&
+//         user.password === credentials.password
+//     );
+//     if (user) return _saveLocalUser(user);
+//   } catch (err) {
+//     console.log("user.service: err @ login", err);
+//   }
+// }
+
+// async function signup(credentials) {
+//   try {
+//     const user = await storageService.post("user", credentials);
+//     return _saveLocalUser(user);
+//   } catch (err) {
+//     console.log("user.service: err @ signup", err);
+//   }
+// }
+
+// async function logout() {
+//   try {
+//     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
+//   } catch (err) {
+//     console.log("user.service: err @ logout", err);
+//   }
+// }
+
+/////////////////////////////////////////////////
+
 function getUsers() {
   return storageService.query(STORAGE_KEY);
 }
@@ -58,24 +118,6 @@ function getUsers() {
 //   return user;
 // }
 
-async function login(credentials) {
-  try {
-    const users = await storageService.query("user");
-    const user = users.find(
-      (user) =>
-        user.username === credentials.username &&
-        user.password === credentials.password
-    );
-    if (user) return _saveLocalUser(user);
-  } catch (err) {
-    console.log("user.service: err @ login", err);
-  }
-
-  //   // const user = await httpService.post('auth/login', userCred)
-  //   // socketService.emit('set-user-socket', user._id);
-  //   // if (user) return _saveLocalUser(user)
-}
-
 async function googleLogin(tokenId) {
   try {
     const googleRes = await fetch(
@@ -94,46 +136,6 @@ async function googleLogin(tokenId) {
     if (user) return _saveLocalUser(user);
   } catch (err) {
     console.log("user.service: err @ gooleLogin", err);
-  }
-}
-
-async function checkPassword(credentials) {
-  try {
-    const users = await storageService.query("user");
-    let match = false;
-    users.forEach((currUser) => {
-      if (currUser.username === credentials.username) {
-        match =
-          currUser.username === credentials.username &&
-          currUser.password === credentials.password;
-      }
-    });
-    return match;
-  } catch (err) {
-    console.log("user.service: err @ checkPassword", err);
-  }
-}
-
-async function signup(credentials) {
-  try {
-    const user = await storageService.post("user", credentials);
-    return _saveLocalUser(user);
-  } catch (err) {
-    console.log("user.service: err @ signup", err);
-  }
-
-  // const user = await httpService.post('auth/signup', userCred)
-  // socketService.emit('set-user-socket', user._id);
-  // return _saveLocalUser(user);
-}
-
-async function logout() {
-  try {
-    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
-    // socketService.emit('unset-user-socket');
-    // return await httpService.post('auth/logout')
-  } catch (err) {
-    console.log("user.service: err @ logout", err);
   }
 }
 

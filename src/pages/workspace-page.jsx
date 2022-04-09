@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import { loadBoards } from "../store/actions/board.actions";
 import { LoaderCmp } from "../cmps/loader-cmp";
 import { BoardList } from "../cmps/board/board-list";
@@ -7,6 +8,7 @@ import underConstruction from "../assets/img/backgrounds/under-construction.png"
 
 export const WorkspacePage = () => {
   const boards = useSelector((state) => state.boardReducer.boards);
+  console.log("WorkspacePage => boards", boards);
   const dispatch = useDispatch();
   const [menuSelection, setMenuSelection] = useState("boards");
 
@@ -14,7 +16,7 @@ export const WorkspacePage = () => {
     dispatch(loadBoards());
   }, [dispatch]);
 
-  if (!boards.length) return <LoaderCmp mod={"full"} />;
+  if (!boards.length) return <LoaderCmp mode={"full-page"} />;
 
   return (
     <section className="workspace-page flex justify-center">

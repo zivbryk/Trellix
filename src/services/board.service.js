@@ -1,63 +1,113 @@
-import { storageService } from "./async-storage.service.js";
-import { showErrorMsg } from "../services/event-bus.service";
+import { httpService } from "./http.service";
 import { utilService } from "./util.service.js";
 import _ from "lodash";
-import { boards } from "../frontTempData/boards";
 
-const STORAGE_KEY = "board";
-storageService.load(STORAGE_KEY, boards);
+/////// UNCOMMENT FOR FRONTEND DEVELOPMENT ///////
+// import { storageService } from "./async-storage.service.js";
+// import { showErrorMsg } from "../services/event-bus.service";
+// import { boards } from "../frontTempData/boards";
+// const STORAGE_KEY = "board";
+// storageService.load(STORAGE_KEY, boards);
+
 // const listeners = [];
 
 export const boardService = {
-  // loadDataManual,
   query,
   getById,
   save,
-  //   remove,
+  remove,
   //   getEmptyBoard,
   getEmptyList,
   getEmptyCard,
   updateCardInBoard,
   //   subscribe,
 };
-// window.cs = boardService;
 
-//REMOVE_COMMENT: Remove after connecting Backend
-// function loadDataManual(entities) {
-//   storageService.load(STORAGE_KEY, entities);
+window.cs = boardService;
+
+async function query(filterBy = { ctg: "" }) {
+  try {
+    return await httpService.get("board", filterBy);
+  } catch (err) {
+    throw err;
+  }
+}
+
+async function getById(boardId) {
+  try {
+    return await httpService.get(`board/${boardId}`);
+  } catch (err) {
+    throw err;
+  }
+}
+
+async function save(board) {
+  if (board._id) {
+    try {
+      return await httpService.put(`board/${board._id}`, board);
+    } catch (err) {
+      throw err;
+    }
+  } else {
+    try {
+      return await httpService.post("board/", board);
+    } catch (err) {
+      throw err;
+    }
+    // board.owner = userService.getLoggedinUser()
+  }
+}
+
+async function remove(boardId) {
+  try {
+    return await httpService.delete(`board/${boardId}`);
+  } catch (err) {
+    throw err;
+  }
+  // return storageService.remove(STORAGE_KEY, boardId)
+}
+
+/////// UNCOMMENT FOR FRONTEND DEVELOPMENT ///////
+/****DEVELOPMENT LOCAL STORAGE FUNCTIONS ****/
+// async function query() {
+//   try {
+//     return await storageService.query(STORAGE_KEY);
+//   } catch (err) {
+//     showErrorMsg("Cannot rerieve board");
+//     console.log("board.service: err @ query", err);
+//   }
 // }
 
-function query() {
-  try {
-    return storageService.query(STORAGE_KEY);
-  } catch (err) {
-    showErrorMsg("Cannot rerieve board");
-    console.log("board.service: err @ query", err);
-  }
-}
+// function getById(boardId) {
+//   try {
+//     return storageService.get(STORAGE_KEY, boardId);
+//   } catch (err) {
+//     showErrorMsg("Cannot find board");
+//     console.log("board.service: err @ getById", err);
+//   }
+// }
 
-function getById(boardId) {
-  try {
-    return storageService.get(STORAGE_KEY, boardId);
-  } catch (err) {
-    showErrorMsg("Cannot find board");
-    console.log("board.service: err @ getById", err);
-  }
-}
+// function save(board) {
+//   try {
+//     if (board._id) {
+//       return storageService.put(STORAGE_KEY, board);
+//     } else {
+//       // board.owner = userService.getLoggedinUser();
+//       return storageService.post(STORAGE_KEY, board);
+//     }
+//   } catch (err) {
+//     showErrorMsg("Cannot save board");
+//     console.log("board.service: err @ save", err);
+//   }
+// }
 
-function save(board) {
-  try {
-    if (board._id) {
-      return storageService.put(STORAGE_KEY, board);
-    } else {
-      // board.owner = userService.getLoggedinUser();
-      return storageService.post(STORAGE_KEY, board);
-    }
-  } catch (err) {
-    showErrorMsg("Cannot save board");
-    console.log("board.service: err @ save", err);
-  }
-}
+// function remove(boardId) {
+//   // return new Promise((resolve, reject) => {
+//   //     setTimeout(reject, 2000)
+//   // })
+//   // return Promise.reject('Not now!');
+//   return storageService.remove(STORAGE_KEY, boardId);
+// }
 
 function getEmptyList(listTitle) {
   return {
@@ -107,14 +157,6 @@ function updateCardInBoard(board, updatedCard) {
   return boardToSave;
 }
 
-// function remove(boardId) {
-//   // return new Promise((resolve, reject) => {
-//   //     setTimeout(reject, 2000)
-//   // })
-//   // return Promise.reject('Not now!');
-//   return storageService.remove(STORAGE_KEY, boardId);
-// }
-
 // function getEmptyBoard() {
 //   return {
 //     vendor: "Susita-" + (Date.now() % 1000),
@@ -137,6 +179,3 @@ function updateCardInBoard(board, updatedCard) {
 //     _notifySubscribersBoardsChanged(boards);
 //   });
 // });
-
-// TEST DATA
-// storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))

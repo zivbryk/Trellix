@@ -24,7 +24,7 @@ export const ListCardDetails = ({ currCard, currList, coverMode }) => {
         currCard.style.isImage ? "image-cover" : "color-cover"
       }`}
     >
-      {coverMode === "half" && (
+      {(coverMode === "half" || coverMode === null) && (
         <CardLabels currCard={currCard} board={board} mod={"list-card"} />
       )}
 
@@ -38,11 +38,11 @@ export const ListCardDetails = ({ currCard, currList, coverMode }) => {
         {currCard.title}
       </span>
 
-      {coverMode === "half" && (
+      {(coverMode === "half" || coverMode === null) && (
         <ListCardBadges currCard={currCard} currList={currList} />
       )}
 
-      {coverMode === "half" && (
+      {(coverMode === "half" || coverMode === null) && (
         <div className="list-card-members">
           {currCard.cardMembers?.map((member) => (
             <MemberAvatar

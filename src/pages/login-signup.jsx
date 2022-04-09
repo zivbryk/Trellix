@@ -13,7 +13,6 @@ import {
   onSignup,
   onGoogleLogin,
 } from "../store/actions/user.actions";
-import { userService } from "../services/user.service";
 
 export const LoginSignup = () => {
   const user = useSelector((state) => state.userReducer.user);
@@ -33,7 +32,6 @@ export const LoginSignup = () => {
   });
   const [isInputValid, setIsInputValid] = useState(false);
 
-  //REMOVE_COMMENT: delete dpendencies array??
   useEffect(() => {
     if (user) navigate("/workspace");
     const { mode } = params;
@@ -51,11 +49,6 @@ export const LoginSignup = () => {
   const onSubmit = (values) => {
     authPage === "signup" ? onSignupUser(values) : onLoginUser(values);
     navigate("/workspace");
-  };
-
-  const isPasswordCorrect = async (values) => {
-    const pass = await userService.checkPassword(values);
-    return pass;
   };
 
   const validate = async (values) => {
@@ -79,11 +72,6 @@ export const LoginSignup = () => {
       errors.password = "*Password is a required field";
     } else if (values.password.length < 5) {
       errors.password = "Enter a password of at least 5 characters";
-    } else if (authPage === "login") {
-      const match = await isPasswordCorrect(values);
-      if (!match) {
-        errors.password = "Password is wrong";
-      }
     }
 
     if (Object.keys(errors).length === 0) setIsInputValid(true);
