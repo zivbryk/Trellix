@@ -16,7 +16,7 @@ export const ListAddCmp = ({ board }) => {
 
   useEffect(() => {
     if (board.lists.length === 0) setIsEditTitle(true);
-  }, []);
+  }, [board.lists.length]);
 
   const handleTitleChange = (ev) => {
     const { value } = ev.target;

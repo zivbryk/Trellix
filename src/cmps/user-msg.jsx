@@ -1,3 +1,5 @@
+////////////////////////////////////////////////////////////
+//TODO: fix this hooks version of user-msg
 // import React, { useState, useEffect } from "react";
 
 // import { eventBusService } from "../services/event-bus.service.js";
@@ -57,7 +59,7 @@ export class UserMsg extends React.Component {
       ...prevState,
       _isMounted: true,
     }));
-    // Here we listen to the event that we emited, its important to remove the listener
+    // Here I listen to the event that we emited, remember to remove the listener
     this.removeEvent = eventBusService.on("show-user-msg", (msg) => {
       if (this.state._isMounted) {
         this.setState({ msg });

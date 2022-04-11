@@ -98,9 +98,6 @@ export const BoardHeader = ({ board }) => {
 
         <span className="board-header-btn-divider"></span>
 
-        {/* <button className="avatar-group btn board-header-btn board-header-btn-wide">
-          Avatar Group
-        </button> */}
         <div>
           <div className="board-header-facepile">
             {board.boardMembers

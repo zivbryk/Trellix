@@ -4,7 +4,6 @@ import thunk from "redux-thunk";
 import { boardReducer } from "./reducers/board.reducer";
 import { appReducer } from "./reducers/app.reducer";
 import { userReducer } from "./reducers/user.reducer";
-// import { userReducer } from './user.reducer.js'
 
 const rootReducer = combineReducers({
   boardReducer,
@@ -12,9 +11,7 @@ const rootReducer = combineReducers({
   userReducer,
 });
 
-// export const store = createStore(rootReducer, applyMiddleware(thunk))
-// window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__();
-// Lets wire up thunk and also redux-dev-tools:
+// Wire up thunk & redux-dev-tools:
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
   rootReducer,

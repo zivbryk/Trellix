@@ -12,7 +12,6 @@ export const PopoverProfile = ({
   handleClose,
 }) => {
   const dispatch = useDispatch();
-  //   const id = "12345"; //TODO: change this id!
 
   const getStyle = () => {
     return {

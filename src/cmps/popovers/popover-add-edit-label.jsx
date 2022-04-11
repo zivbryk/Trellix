@@ -4,7 +4,6 @@ import _ from "lodash";
 import { PopoverCmp } from "./popover-cmp";
 import { ColorPalette } from "../popovers/color-palette.jsx";
 
-// import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
 import { openPopover } from "../../store/actions/app.actions";
 import { utilService } from "../../services/util.service";
@@ -23,7 +22,6 @@ export const PopoverAddEditLabel = ({
     color: "",
     isSelected: false,
   });
-  //   const [filteredLabels, setFilteredLabels] = useState([]);
 
   useEffect(() => {
     if (selectedLabel) setLabel(selectedLabel);

@@ -64,11 +64,11 @@ export const AppHeader = () => {
                 <span className="trl icon-chevron-down icon-sm"></span>
               </button>
             </NavLink>
-
+            {/* 
             <button className="btn btn-header btn-header-wide flex align-center">
               <span>Starred</span>
               <span className="trl icon-chevron-down icon-sm"></span>
-            </button>
+            </button> */}
 
             <button
               className="btn btn-header btn-header-wide flex align-center"
@@ -87,7 +87,6 @@ export const AppHeader = () => {
                 <BellIcon />
               </span>
             </span>
-            {/* <span className="trl icon-bell icon-md"></span> */}
           </button>
 
           <MemberAvatar

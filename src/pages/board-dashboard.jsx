@@ -45,7 +45,6 @@ export const BoardDashboard = () => {
     const { dueDate, createdAt } = board;
     if (dueDate) {
       const days = Math.floor((Date.now() - createdAt) / 86400000);
-      // const days = moment((Date.now() - createdAt)).startOf('day')
 
       return days;
     }
@@ -137,7 +136,6 @@ export const BoardDashboard = () => {
       <CloseIcon
         className="close-btn"
         onClick={() => {
-          //   this.props.history.push(`/board/${board._id}`);
           navigate(`/board/${board._id}`);
         }}
       />

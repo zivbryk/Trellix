@@ -91,8 +91,6 @@ export const PopoverDate = ({ elPos, handleClose, currCard, board }) => {
           </LocalizationProvider>
         </div>
 
-        {/* {console.log(date)} */}
-
         <div className="selected-due">
           <label>Due date</label>
           <div className="date-time-container flex">

@@ -169,7 +169,6 @@ export const CardDetailsSideBar = ({ currCard, currList, board }) => {
             <button
               className="btn btn-sub btn-sidebar"
               onClick={toggleArchiveCard}
-              // onClick={(ev) => onOpenPopover(ev, "ATTACHMENT")}
             >
               <span className="icon-sm trl icon-archive"></span>
               <span>Archive</span>

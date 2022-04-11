@@ -37,10 +37,6 @@ export const PopverPhotoSearch = ({
     "Animals",
   ];
 
-  // useEffect(() => {
-  //   if
-  // }, [keyword]);
-
   const handleChange = ({ target }) => {
     const { value } = target;
     value !== "" ? setIsSearching(true) : setIsSearching(false);

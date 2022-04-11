@@ -1,5 +1,3 @@
-// import { ReactComponent as adminChevron } from "../assets/img/badges/admin-chevron.png";
-
 export const MemberAvatar = ({
   size,
   member = null,

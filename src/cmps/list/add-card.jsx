@@ -25,7 +25,6 @@ export const AddCard = ({ toggleAddingCard, currList }) => {
 
   const onAddCard = (ev) => {
     if (!cardTitle) {
-      // textArea.focus();
       return;
     }
 

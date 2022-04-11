@@ -54,7 +54,6 @@ async function save(board) {
     } catch (err) {
       throw err;
     }
-    // board.owner = userService.getLoggedinUser()
   }
 }
 
@@ -64,50 +63,9 @@ async function remove(boardId) {
   } catch (err) {
     throw err;
   }
-  // return storageService.remove(STORAGE_KEY, boardId)
 }
 
-/////// UNCOMMENT FOR FRONTEND DEVELOPMENT ///////
-/****DEVELOPMENT LOCAL STORAGE FUNCTIONS ****/
-// async function query() {
-//   try {
-//     return await storageService.query(STORAGE_KEY);
-//   } catch (err) {
-//     showErrorMsg("Cannot rerieve board");
-//     console.log("board.service: err @ query", err);
-//   }
-// }
-
-// function getById(boardId) {
-//   try {
-//     return storageService.get(STORAGE_KEY, boardId);
-//   } catch (err) {
-//     showErrorMsg("Cannot find board");
-//     console.log("board.service: err @ getById", err);
-//   }
-// }
-
-// function save(board) {
-//   try {
-//     if (board._id) {
-//       return storageService.put(STORAGE_KEY, board);
-//     } else {
-//       // board.owner = userService.getLoggedinUser();
-//       return storageService.post(STORAGE_KEY, board);
-//     }
-//   } catch (err) {
-//     showErrorMsg("Cannot save board");
-//     console.log("board.service: err @ save", err);
-//   }
-// }
-
-// function remove(boardId) {
-//   // return new Promise((resolve, reject) => {
-//   //     setTimeout(reject, 2000)
-//   // })
-//   // return Promise.reject('Not now!');
-//   return storageService.remove(STORAGE_KEY, boardId);
-// }
+///// Board Utility /////
 
 function getEmptyList(listTitle) {
   return {
@@ -243,6 +201,50 @@ function updateCardInBoard(board, updatedCard) {
 
   return boardToSave;
 }
+
+/////// UNCOMMENT FOR FRONTEND DEVELOPMENT ///////
+/****DEVELOPMENT LOCAL STORAGE FUNCTIONS ****/
+// async function query() {
+//   try {
+//     return await storageService.query(STORAGE_KEY);
+//   } catch (err) {
+//     showErrorMsg("Cannot rerieve board");
+//     console.log("board.service: err @ query", err);
+//   }
+// }
+
+// function getById(boardId) {
+//   try {
+//     return storageService.get(STORAGE_KEY, boardId);
+//   } catch (err) {
+//     showErrorMsg("Cannot find board");
+//     console.log("board.service: err @ getById", err);
+//   }
+// }
+
+// function save(board) {
+//   try {
+//     if (board._id) {
+//       return storageService.put(STORAGE_KEY, board);
+//     } else {
+//       // board.owner = userService.getLoggedinUser();
+//       return storageService.post(STORAGE_KEY, board);
+//     }
+//   } catch (err) {
+//     showErrorMsg("Cannot save board");
+//     console.log("board.service: err @ save", err);
+//   }
+// }
+
+// function remove(boardId) {
+//   // return new Promise((resolve, reject) => {
+//   //     setTimeout(reject, 2000)
+//   // })
+//   // return Promise.reject('Not now!');
+//   return storageService.remove(STORAGE_KEY, boardId);
+// }
+
+//////////////////////////// TODO: Sockets /////////////////////////
 
 // function subscribe(listener) {
 //   listeners.push(listener);

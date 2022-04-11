@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
 import { PopoverCmp } from "../popovers/popover-cmp";
-// import { LoaderCmp } from "../loader-cmp";
 
 import { utilService } from "../../services/util.service";
 import { onEditBoard } from "../../store/actions/board.actions";
@@ -87,8 +86,6 @@ export const PopoverMove = ({ elPos, handleClose, currCard, board, mod }) => {
   const onMoveCard = async () => {
     const clonedBoard = await _.cloneDeep(board);
     const clonedCard = await _.cloneDeep(currCard);
-    // const clonedBoard = await { ...board };
-    // const clonedBoard = JSON.parse(JSON.stringify(board));
 
     clonedBoard.lists.forEach((list) => {
       if (list.id === currList.id) {
@@ -129,8 +126,6 @@ export const PopoverMove = ({ elPos, handleClose, currCard, board, mod }) => {
       else if (mod === "copy") return "Copy";
     }
   };
-
-  //   if (!boards.length || !boardDestination) return <LoaderCmp mod={"medium"} />;
 
   if (!boards.length || !boardDestination || !listDestination)
     return <div></div>;

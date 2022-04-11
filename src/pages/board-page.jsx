@@ -37,18 +37,6 @@ export const BoardPage = () => {
     dispatch(closePopover());
   };
 
-  // const onDeleteCard = async () => {
-  //   const updatedCard = { ...currCard };
-  //   const clonedBoard = await _.cloneDeep(board);
-  //   clonedBoard.lists.forEach((list) => {
-  //     list.cards.forEach((card, idx) => {
-  //       if (card.id === updatedCard.id) list.cards.splice(idx, 1);
-  //     });
-  //   });
-  //   dispatch(onEditBoard(clonedBoard));
-  //   dispatch(closePopover());
-  // };
-
   const onDragEnd = (result) => {
     const { destination, source, type } = result;
     let boardToEdit = { ...board };

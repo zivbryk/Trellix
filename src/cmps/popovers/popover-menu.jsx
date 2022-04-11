@@ -35,12 +35,12 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
             </button>
           </li>
 
-          <li className="menu-nav-item">
+          {/* <li className="menu-nav-item">
             <button className="btn menu-nav-item-link">
               <span className="item-link-icon trl icon-label icon-sm"></span>
               &nbsp;Labels
             </button>
-          </li>
+          </li> */}
 
           <li className="menu-nav-item">
             <button
@@ -52,12 +52,12 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
             </button>
           </li>
 
-          <li className="menu-nav-item">
+          {/* <li className="menu-nav-item">
             <button className="btn menu-nav-item-link">
               <span className="item-link-icon trl icon-search icon-sm"></span>
               &nbsp;Search cards
             </button>
-          </li>
+          </li> */}
         </ul>
       </div>
     </PopoverCmp>

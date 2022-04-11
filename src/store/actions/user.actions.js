@@ -1,5 +1,5 @@
 import { userService } from "../../services/user.service";
-import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
+// import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 
 export function loadUsers() {
   return async (dispatch) => {
@@ -9,9 +9,9 @@ export function loadUsers() {
         type: "SET_USERS",
         users,
       });
-      showSuccessMsg("Users loaded successfully");
+      // showSuccessMsg("Users loaded successfully");
     } catch (err) {
-      showErrorMsg("Cannot load users");
+      // showErrorMsg("Cannot load users");
       console.log("user.actions: err @ loadUsers", err);
     }
   };
@@ -31,9 +31,9 @@ export function onLogin(
         type: "SET_USER",
         user,
       });
-      showSuccessMsg("User logged in successfully");
+      // showSuccessMsg("User logged in successfully");
     } catch (err) {
-      showErrorMsg("Cannot login");
+      // showErrorMsg("Cannot login");
       console.log("user.actions: err @ login", err);
     }
   };
@@ -47,9 +47,9 @@ export function onGoogleLogin(tokenId) {
         type: "SET_USER",
         user,
       });
-      showSuccessMsg("User logged in successfully");
+      // showSuccessMsg("User logged in successfully");
     } catch (err) {
-      showErrorMsg("Cannot login");
+      // showErrorMsg("Cannot login");
       console.log("user.actions: err @ googleLogin", err);
     }
   };
@@ -60,9 +60,9 @@ export function onSignup(credentials) {
     try {
       const user = await userService.signup(credentials);
       dispatch({ type: "SET_USER", user });
-      showSuccessMsg("User signed up successfully");
+      // showSuccessMsg("User signed up successfully");
     } catch (err) {
-      showErrorMsg("Cannot signup");
+      // showErrorMsg("Cannot signup");
       console.log("user.actions: err @ signup", err);
     }
   };
@@ -82,7 +82,7 @@ export function onLogout() {
       });
       // showSuccessMsg("User logged out successfully");
     } catch (err) {
-      showErrorMsg("Cannot logout");
+      // showErrorMsg("Cannot logout");
       console.log("user.actions: err @ logout", err);
     }
   };

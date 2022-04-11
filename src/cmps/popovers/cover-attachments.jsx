@@ -38,7 +38,7 @@ export const CoverAttachments = ({
         ev.target.files[0],
         "card-attachments"
       );
-      //Add a check here that the img is valid
+      //TODO:Add a check here that the img is valid
       onSaveNewAttachment(url, fileName, format);
     } catch (err) {
       console.log("url faild to arrive from cloudinary:", err);

@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ListCardBadges } from "./list-card-badges";
 import { MemberAvatar } from "../member-avatar";

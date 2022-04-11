@@ -107,24 +107,6 @@ export const PopoverCreateBoard = ({ elPos, handleClose }) => {
     navigate(`/board/${board._id}`);
   };
 
-  // const onDeleteLabel = () => {
-  //   const clonedBoard = _.cloneDeep(board);
-  //   const updatedCard = { ...currCard };
-  //   const cardLabelIdx = updatedCard.labelIds.findIndex(
-  //     (labelId) => labelId === label.id
-  //   );
-  //   updatedCard.labelIds.splice(cardLabelIdx, 1);
-
-  //   const boardLabelIdx = clonedBoard.labels.findIndex(
-  //     (boardLabel) => boardLabel.id === label.id
-  //   );
-  //   clonedBoard.labels.splice(boardLabelIdx, 1);
-
-  //   dispatch(onEditBoard(clonedBoard));
-  //   const popoverProps = { currCard: updatedCard, board: clonedBoard, elPos };
-  //   dispatch(openPopover("LABELS", elPos, popoverProps));
-  // };
-
   if (!boardCover) return <div></div>;
   return (
     <PopoverCmp

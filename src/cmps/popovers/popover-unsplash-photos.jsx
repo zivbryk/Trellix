@@ -6,11 +6,6 @@ import { ImagePalette } from "../popovers/image-palette";
 import { LoaderCmp } from "../loader-cmp";
 
 import { openPopover } from "../../store/actions/app.actions";
-// import { closePopover } from "../../store/actions/app.actions";
-// import { cloudinaryService } from "../../services/cloudinary-service";
-// import { onEditBoard } from "../../store/actions/board.actions";
-// import { utilService } from "../../services/util.service";
-// import { boardService } from "../../services/board.service";
 
 export const PopoverUnsplashPhotos = ({
   elPos,
@@ -20,7 +15,6 @@ export const PopoverUnsplashPhotos = ({
 }) => {
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
-  //   const [imageUrl, setImageUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const onBack = () => {

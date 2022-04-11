@@ -57,7 +57,6 @@ export const PopoverEditLabels = ({ elPos, handleClose, currCard, board }) => {
     );
     if (cardLabelIdx !== -1) updatedCard.labelIds.splice(cardLabelIdx, 1);
     else {
-      // updatedCard.labelIds.unshift(boardLabel.id);
       updatedCard.labelIds.splice(boardLabelIdx, 0, boardLabel.id);
     }
     const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
@@ -65,7 +64,6 @@ export const PopoverEditLabels = ({ elPos, handleClose, currCard, board }) => {
   };
 
   const onOpenPopover = (ev, popoverName, selectedLabel) => {
-    // const elPos = ev.target.getBoundingClientRect();
     const popoverProps = selectedLabel
       ? { selectedLabel, board, currCard }
       : { board, currCard };

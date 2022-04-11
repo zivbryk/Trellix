@@ -1,23 +1,13 @@
-// import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { PopoverCmp } from "./popover-cmp";
 import { ReactComponent as BoardIcon } from "../../assets/img/icons/board-icon.svg";
 
-// import { boardService } from "../../services/board.service";
-// import { onEditBoard } from "../../store/actions/board.actions";
 import { openPopover } from "../../store/actions/app.actions";
 
 export const PopoverCreate = ({ elPos, handleClose }) => {
   const dispatch = useDispatch();
-  // const [filterBy, setFilterBy] = useState({ txt: "" });
-  // const [filteredLabels, setFilteredLabels] = useState([]);
-
-  // useEffect(() => {
-  //   setFilteredLabels(board.labels);
-  // }, [board]);
 
   const onOpenPopover = (ev, popoverName) => {
-    // const elPos = ev.target.getBoundingClientRect();
     const popoverProps = {};
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };

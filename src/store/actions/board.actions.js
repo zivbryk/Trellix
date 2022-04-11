@@ -1,19 +1,17 @@
 import { boardService } from "../../services/board.service.js";
-import { showSuccessMsg, showErrorMsg } from "../../services/event-bus.service";
+// import { showSuccessMsg, showErrorMsg } from "../../services/event-bus.service";
 
 export function loadBoards() {
   return async (dispatch) => {
     try {
-      // console.log("loading boards!");
       const boards = await boardService.query();
-      // console.log(boards);
       dispatch({
         type: "SET_BOARDS",
         boards,
       });
-      showSuccessMsg("Boards loaded succesfully");
+      // showSuccessMsg("Boards loaded succesfully");
     } catch (err) {
-      showErrorMsg("Cannot load boards");
+      // showErrorMsg("Cannot load boards");
       console.log("board.actions: err @ loadboards", err);
     }
   };
@@ -24,9 +22,9 @@ export function loadBoard(boardId) {
     try {
       const board = await boardService.getById(boardId);
       dispatch({ type: "SET_BOARD", board });
-      showSuccessMsg("Board loaded succesfully");
+      // showSuccessMsg("Board loaded succesfully");
     } catch (err) {
-      showErrorMsg("Cannot load board");
+      // showErrorMsg("Cannot load board");
       console.log("board.actions: err @ loadBoard", err);
     }
   };
@@ -37,9 +35,9 @@ export function onEditBoard(boardToSave) {
     try {
       const savedBoard = await boardService.save(boardToSave);
       dispatch({ type: "UPDATE_BOARD", board: savedBoard });
-      showSuccessMsg("Board updated succesfully");
+      // showSuccessMsg("Board updated succesfully");
     } catch (err) {
-      showErrorMsg("Cannot update board");
+      // showErrorMsg("Cannot update board");
       console.log("board.actions: err @ onEditBoard", err);
     }
   };

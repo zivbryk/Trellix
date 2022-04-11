@@ -13,7 +13,6 @@ export const PopoverArchive = ({ elPos, handleClose }) => {
   const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
-  // const [isLoading, setIsLoading] = useState(false);
   const [isLoading] = useState(false);
   const [archivedCardsList, setArchivedCardsList] = useState([]);
 

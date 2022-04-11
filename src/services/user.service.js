@@ -1,28 +1,21 @@
+/////// UNCOMMENT FOR FRONTEND DEVELOPMENT ///////
 // import { storageService } from "./async-storage.service";
 
 import { httpService } from "./http.service";
-// import { socketService, SOCKET_EVENT_USER_UPDATED } from "./socket.service";
 
 const STORAGE_KEY_LOGGEDIN_USER = "loggedinUser";
 // const STORAGE_KEY = "user";
-// var gWatchedUser = null;
 
 /////// UNCOMMENT FOR FRONTEND DEVELOPMENT ///////
 // import { users } from "../frontTempData/users";
 // storageService.load(STORAGE_KEY, users);
 
 export const userService = {
-  // loadDataManual,
   login,
   googleLogin,
   logout,
   signup,
   getLoggedinUser,
-  getUsers,
-  // getById,
-  // remove,
-  // update,
-  // changeScore,
 };
 
 window.userService = userService;
@@ -66,17 +59,12 @@ async function signup(credentials) {
 }
 
 async function logout(user) {
-  // socketService.emit('unset-user-socket');
   try {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
     return await httpService.post("auth/logout", user);
   } catch (err) {
     throw err;
   }
-}
-
-function getUsers() {
-  // return httpService.get(`user`)
 }
 
 function _saveLocalUser(user) {
@@ -128,57 +116,3 @@ function getLoggedinUser() {
 // }
 
 /////////////////////////////////////////////////
-
-// async function getById(userId) {
-//   const user = await storageService.get("user", userId);
-//   // const user = await httpService.get(`user/${userId}`)
-//   gWatchedUser = user;
-//   return user;
-// }
-
-// function remove(userId) {
-//   return storageService.remove("user", userId);
-//   // return httpService.delete(`user/${userId}`)
-// }
-
-// async function update(user) {
-//   await storageService.put("user", user);
-//   // user = await httpService.put(`user/${user._id}`, user)
-//   // Handle case in which admin updates other user's details
-//   if (getLoggedinUser()._id === user._id) _saveLocalUser(user);
-//   return user;
-// }
-
-// // (async ()=>{
-// //     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})
-// //     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-// //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-// // })();
-
-// // This IIFE functions for Dev purposes
-// // It allows testing of real time updates (such as sockets) by listening to storage events
-// (async () => {
-//   // var user = getLoggedinUser()
-//   // Dev Helper: Listens to when localStorage changes in OTHER browser
-
-//   // Here we are listening to changes for the watched user (comming from other browsers)
-//   window.addEventListener("storage", async () => {
-//     if (!gWatchedUser) return;
-//     const freshUsers = await storageService.query("user");
-//     const watchedUser = freshUsers.find((u) => u._id === gWatchedUser._id);
-//     if (!watchedUser) return;
-//     if (gWatchedUser.score !== watchedUser.score) {
-//       console.log(
-//         "Watched user score changed - localStorage updated from another browser"
-//       );
-//       socketService.emit(SOCKET_EVENT_USER_UPDATED, watchedUser);
-//     }
-//     gWatchedUser = watchedUser;
-//   });
-// })();
-
-// This is relevant when backend is connected
-// (async () => {
-//     var user = getLoggedinUser()
-//     if (user) socketService.emit('set-user-socket', user._id)
-// })();

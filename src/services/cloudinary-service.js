@@ -7,7 +7,6 @@ function uploadImg(file, folder = "card-attachments") {
   const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
   let preset = "";
   switch (folder) {
-    // the "aua2dblj" cloudinary preset send the file to: "/user_uploaded/card_attachments"
     case "card-attachments":
       preset = "aua2dblj";
       break;

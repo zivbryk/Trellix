@@ -28,45 +28,6 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
   //   });
   // };
 
-  // useEffect(() => {
-  //   let isCancelled = false;
-  //   const getCoverStyle = async () => {
-  //     try {
-  //       const aspectRatio = await getAspectRatio();
-  //       console.log("getCoverStyle => aspectRatio", aspectRatio);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-
-  //     let currCoverStyle;
-  //     if (!card.style.cover) {
-  //       currCoverStyle = {};
-  //     } else {
-  //       if (card.style.isImage) {
-  //         currCoverStyle = {
-  //           height: "152px",
-  //           backgroundImage: `${card.style.cover}`,
-  //           backgroundSize: "cover",
-  //         };
-  //       } else {
-  //         currCoverStyle = {
-  //           height: "32px",
-  //           backgroundColor: `${card.style.cover}`,
-  //         };
-  //       }
-  //     }
-
-  //     if (!isCancelled) setCoverStyle(currCoverStyle);
-  //   };
-
-  //   getCoverStyle();
-
-  //   //Cleanup
-  //   return () => {
-  //     isCancelled = true;
-  //   };
-  // });
-
   const closeAllPopovers = () => {
     dispatch(closePopover());
   };

@@ -38,11 +38,6 @@ export function BoardPreview({ board, isStarredContainer }) {
               )}
             </div>
           </div>
-
-          {/* <div className="board-title"> */}
-          {/* {board.style.isImage && <img src={board.style.cover} alt="cover" />} */}
-          {/* <h3>{board.title}</h3> */}
-          {/* </div> */}
         </div>
       </Link>
     </li>
