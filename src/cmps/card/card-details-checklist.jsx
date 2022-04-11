@@ -94,7 +94,9 @@ export const CardDetailsChecklist = ({
       if (currTodo.isDone) acc++;
       return acc;
     }, 0);
-    const percentage = Math.floor((doneTodos / totalTodos) * 100);
+    const percentage = totalTodos
+      ? Math.floor((doneTodos / totalTodos) * 100)
+      : 0;
     return percentage;
   };
 
@@ -123,7 +125,6 @@ export const CardDetailsChecklist = ({
   };
 
   const saveTodo = (title, todoIdx = null) => {
-    console.log(todoIdx);
     const updatedCard = { ...currCard };
     if (todoIdx === null) {
       const newTodo = {

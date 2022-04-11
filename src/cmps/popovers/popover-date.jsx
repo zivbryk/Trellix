@@ -18,13 +18,14 @@ export const PopoverDate = ({ elPos, handleClose, currCard, board }) => {
 
   useEffect(() => {
     if (currCard) {
-      setDate(currCard.dueDate);
+      currCard.dueDate ? setDate(currCard.dueDate) : setDate(Date.now());
       date ? setIsDueDate(true) : setIsDueDate(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currCard]);
 
   const handleChange = (newDate) => {
+    console.log("handleChange => newDate", newDate);
     setDate(newDate);
   };
 
@@ -48,8 +49,11 @@ export const PopoverDate = ({ elPos, handleClose, currCard, board }) => {
   };
 
   const saveDueDate = () => {
+    const timeStampDate = new Date(date).getTime();
     const updatedCard = { ...currCard };
-    isDueDate ? (updatedCard.dueDate = date) : (updatedCard.dueDate = null);
+    isDueDate
+      ? (updatedCard.dueDate = timeStampDate)
+      : (updatedCard.dueDate = null);
     const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
     dispatch(onEditBoard(updatedBoard));
     dispatch(closePopover());
@@ -91,7 +95,7 @@ export const PopoverDate = ({ elPos, handleClose, currCard, board }) => {
 
         <div className="selected-due">
           <label>Due date</label>
-          <div className="date-time-container">
+          <div className="date-time-container flex">
             <button
               className={`btn complete-checkbox  ${
                 isDueDate ? "isComplete" : ""

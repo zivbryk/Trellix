@@ -14,6 +14,10 @@ export const ListAddCmp = ({ board }) => {
     if (isEditTitle) titleInput.current.select();
   }, [isEditTitle]);
 
+  useEffect(() => {
+    if (board.lists.length === 0) setIsEditTitle(true);
+  }, []);
+
   const handleTitleChange = (ev) => {
     const { value } = ev.target;
     setListTitle(value);

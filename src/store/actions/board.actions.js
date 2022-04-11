@@ -6,7 +6,6 @@ export function loadBoards() {
     try {
       // console.log("loading boards!");
       const boards = await boardService.query();
-      console.log("return => boards", boards);
       // console.log(boards);
       dispatch({
         type: "SET_BOARDS",

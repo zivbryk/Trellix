@@ -66,6 +66,7 @@
       .date-container,
       .time-container {
         width: 90px;
+        height: 32px;
         margin-inline-end: 8px;
         background-color: #ebecf0;
         box-shadow: none;
@@ -89,7 +90,6 @@
 
       .time-container {
         display: inline-block;
-        width: 65px;
       }
     }
   }

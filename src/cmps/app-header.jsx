@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,19 +7,12 @@ import BoardsAnimation from "../assets/img/animations/trello-logo-loader.gif";
 import { UserMsg } from "../cmps/user-msg";
 import { MemberAvatar } from "./member-avatar";
 import { openPopover } from "../store/actions/app.actions";
-import { onLogin } from "../store/actions/user.actions";
-
-// import { userService } from "../services/user.service";
 
 export const AppHeader = () => {
   const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
 
   const dispatch = useDispatch();
   const pathname = useLocation().pathname;
-
-  useEffect(() => {
-    if (!loggedInUser) dispatch(onLogin());
-  }, [loggedInUser, dispatch]);
 
   function getStyle() {
     if (pathname.includes("/workspace")) {
@@ -32,7 +24,14 @@ export const AppHeader = () => {
 
   const onOpenPopover = (ev, popoverName, loggedInUser) => {
     const elPos = ev.target.getBoundingClientRect();
-    const popoverProps = { loggedInUser, isInCard: false };
+
+    let popoverProps = {};
+    if (popoverName === "ACCOUNT") {
+      popoverProps = { loggedInUser, isInCard: false };
+    } else if (popoverName === "CREATE") {
+      popoverProps = {};
+    }
+
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
@@ -71,7 +70,10 @@ export const AppHeader = () => {
               <span className="trl icon-chevron-down icon-sm"></span>
             </button>
 
-            <button className="btn btn-header btn-header-wide flex align-center">
+            <button
+              className="btn btn-header btn-header-wide flex align-center"
+              onClick={(ev) => onOpenPopover(ev, "CREATE")}
+            >
               <span>Create</span>
               <span className="trl icon-chevron-down icon-sm"></span>
             </button>

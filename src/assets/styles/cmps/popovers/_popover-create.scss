@@ -1,0 +1,56 @@
+.popover-create-content {
+  nav {
+    ul {
+      li {
+        button {
+          text-align: left;
+          & > :first-child {
+            display: inline-flex;
+            align-items: center;
+            height: 20px;
+            width: 20px;
+            & > :first-child {
+              color: rgb(66, 82, 110);
+              display: inline-block;
+              fill: inherit;
+              flex-shrink: 0;
+              line-height: 1;
+              svg {
+                max-height: 100%;
+                max-width: 100%;
+                overflow: hidden;
+                pointer-events: none;
+                vertical-align: bottom;
+                height: 16px;
+                width: 16px;
+                line-height: 16px;
+              }
+            }
+          }
+
+          & > :nth-child(2) {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+          }
+
+          & > :nth-child(3) {
+            color: #5e6c84;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            margin: 4px 0 0 0;
+            padding: 0;
+          }
+
+          &:hover {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            background: rgba(9, 30, 66, 0.04);
+          }
+        }
+      }
+    }
+  }
+}

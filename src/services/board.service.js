@@ -16,7 +16,7 @@ export const boardService = {
   getById,
   save,
   remove,
-  //   getEmptyBoard,
+  getEmptyBoard,
   getEmptyList,
   getEmptyCard,
   updateCardInBoard,
@@ -145,6 +145,93 @@ function getEmptyCard(cardTtile = "") {
   };
 }
 
+function getEmptyBoard(boardTitle, boardCover, isImage, loggedinUser) {
+  return {
+    createdAt: null,
+    title: boardTitle,
+    createdBy: {
+      _id: loggedinUser._id,
+      fullname: loggedinUser.fullname,
+      imgUrl: loggedinUser.imgUrl,
+    },
+    dueDate: null,
+    isStarred: false,
+    style: {
+      cover: boardCover,
+      isImage,
+      boardCoverAttachments: [],
+    },
+    labels: [
+      {
+        id: "tp301",
+        title: "",
+        color: "green",
+      },
+      {
+        id: "yh703",
+        title: "",
+        color: "yellow",
+      },
+      {
+        id: "up003",
+        title: "",
+        color: "orange",
+      },
+      {
+        id: "dd204",
+        title: "",
+        color: "red",
+      },
+      {
+        id: "sn306",
+        title: "",
+        color: "purple",
+      },
+      {
+        id: "mq552",
+        title: "",
+        color: "blue",
+      },
+      {
+        id: "pc309",
+        title: "",
+        color: "sky",
+      },
+      {
+        id: "ib492",
+        title: "",
+        color: "lime",
+      },
+      {
+        id: "vm941",
+        title: "",
+        color: "pink",
+      },
+      {
+        id: "dl995",
+        title: "",
+        color: "black",
+      },
+      {
+        id: "gc041",
+        title: "",
+        color: "none",
+      },
+    ],
+    boardMembers: [
+      {
+        _id: loggedinUser._id,
+        fullname: loggedinUser.fullname,
+        username: loggedinUser.username,
+        imgUrl: loggedinUser.imgUrl,
+        isAdmin: true,
+      },
+    ],
+    lists: [],
+    activities: [],
+  };
+}
+
 function updateCardInBoard(board, updatedCard) {
   let boardToSave = _.cloneDeep(board);
 
@@ -156,13 +243,6 @@ function updateCardInBoard(board, updatedCard) {
 
   return boardToSave;
 }
-
-// function getEmptyBoard() {
-//   return {
-//     vendor: "Susita-" + (Date.now() % 1000),
-//     price: utilService.getRandomIntInclusive(1000, 9000),
-//   };
-// }
 
 // function subscribe(listener) {
 //   listeners.push(listener);

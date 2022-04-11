@@ -1,10 +1,26 @@
-import { HomePageHeader } from "../cmps/home-page-header";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
+import { HomePageHeader } from "../cmps/home-page-header";
 import heroImageOne from "../assets/img/backgrounds/hero-img-1.png";
 import boardView from "../assets/img/backgrounds/board-view.png";
 
+import { onLogin } from "../store/actions/user.actions";
+
 export const HomePage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onStartAsAGuest = () => {
+    navigate("/board/6252d734234b9f922408738a/");
+    dispatch(onLogin());
+  };
+
+  const onStartDoing = () => {
+    navigate("/workspace");
+    dispatch(onLogin());
+  };
+
   return (
     <section className="home-page">
       <HomePageHeader />
@@ -31,9 +47,9 @@ export const HomePage = () => {
                 unique—accomplish it all with Trello.
               </p>
 
-              <Link to="/board/62519d07234b9f9224c06d68/">
-                <button className="btn btn-prim">Start as guest!</button>
-              </Link>
+              <button className="btn btn-prim" onClick={onStartAsAGuest}>
+                Start as guest!
+              </button>
             </div>
           </div>
         </div>
@@ -50,10 +66,8 @@ export const HomePage = () => {
                 projects, organize tasks, and build team spirit—all in one
                 place.
               </p>
-              <p>
-                <Link to="/workspace" className="btn btn-outline-prim px-3">
-                  Start doing →
-                </Link>
+              <p onClick={onStartDoing}>
+                <span className="btn btn-outline-prim px-3">Start doing →</span>
               </p>
             </div>
           </div>

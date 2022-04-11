@@ -15,7 +15,7 @@ import {
 } from "../store/actions/user.actions";
 
 export const LoginSignup = () => {
-  const user = useSelector((state) => state.userReducer.user);
+  const user = useSelector((state) => state.userReducer.loggedInUser);
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ export const LoginSignup = () => {
   const [fullCredentials] = useState({
     username: "",
     fullname: "",
+    email: "",
     password: "",
   });
   const [credentials] = useState({
@@ -65,6 +66,20 @@ export const LoginSignup = () => {
         errors.fullname = "*Fullname is a required field";
       } else if (values.fullname.length < 5) {
         errors.fullname = "*Enter fullname of at least 5 characters";
+      }
+
+      if (!values.email) {
+        errors.email = "*Email is a required field";
+      }
+      // else {
+      //   //regex test here for email validity
+      //   errors.password = "*Enter a valid email address";
+      // }
+
+      if (!values.password) {
+        errors.password = "*Password name is a required field";
+      } else if (values.password.length < 5) {
+        errors.password = "*Enter fullname of at least 5 characters";
       }
     }
 
@@ -117,6 +132,7 @@ export const LoginSignup = () => {
                       <ErrorMessage name="username" component="p" />
                       <ErrorMessage name="password" component="p" />
                       <ErrorMessage name="fullname" component="p" />
+                      <ErrorMessage name="email" component="p" />
                     </div>
 
                     <h1>Signup for your account</h1>
@@ -131,6 +147,11 @@ export const LoginSignup = () => {
                       type="fullname"
                       placeholder="Enter full name"
                       name="fullname"
+                    />
+                    <Field
+                      type="email"
+                      placeholder="Enter email"
+                      name="email"
                     />
                     <Field
                       type="password"

@@ -5,15 +5,21 @@ import { LoaderCmp } from "../../cmps/loader-cmp";
 export function BoardPreview({ board, isStarredContainer }) {
   const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
 
-  if (!board) return <LoaderCmp />;
+  if (!board || !loggedInUser) return <LoaderCmp />;
   return (
     <li className="board-preview">
       <Link to={`/board/${board._id}`} key={board._id}>
         <div
           className="board-tile"
-          style={{
-            background: `url(${board.style.cover}) center center / cover `,
-          }}
+          style={
+            board.style.isImage
+              ? {
+                  background: `url(${board.style.cover}) center center / cover`,
+                }
+              : {
+                  background: `${board.style.cover}`,
+                }
+          }
         >
           <span className="board-tile-fade"></span>
           <div className="board-tile-details flex column space-between">
