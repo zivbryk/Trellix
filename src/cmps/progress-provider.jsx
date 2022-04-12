@@ -8,7 +8,7 @@ export const ProgressProvider = ({ valueStart, valueEnd, children }) => {
       setValue(valueEnd);
     }, 400);
     setTimeout(timeoutTmp);
-  }, [setValue]);
+  }, [setValue, valueEnd]);
 
   useEffect(() => {
     myFunc();
@@ -16,6 +16,7 @@ export const ProgressProvider = ({ valueStart, valueEnd, children }) => {
       // Side-effect cleanup
       window.clearTimeout(timeout);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [myFunc]);
 
   useEffect(() => {

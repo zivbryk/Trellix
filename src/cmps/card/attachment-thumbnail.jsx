@@ -37,7 +37,9 @@ export const AttachmentThumbnail = ({ attachment, currCard, board }) => {
   return (
     <div className="attachment-thumbnail">
       <a href={attachment.url} className="thumbnail-preview" style={getStyle()}>
-        {" "}
+        {!attachment.format && (
+          <span className="icon-lg trl icon-attachment"></span>
+        )}
       </a>
 
       <a href={attachment.url}>

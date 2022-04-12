@@ -21,10 +21,18 @@ export const PopoverAttachment = ({ elPos, handleClose, currCard, board }) => {
     const fileName = imageUrl.split("\\").pop().split("/").pop().split("?")[0];
     const format = fileName.split(".")[1];
 
+    if (linkName === "") {
+      const name = imageUrl.slice(0, -1).split("/").slice(-1).pop();
+      setLinkName(name);
+    }
+
     const attachment = {
       _id: utilService.makeId(),
       url: imageUrl,
-      fileName: linkName !== "" ? `${linkName}.${format}` : fileName,
+      fileName:
+        linkName !== ""
+          ? `${linkName}.${format}`
+          : imageUrl.slice(0, -1).split("/").slice(-1).pop(),
       format,
       uploadedAt: Date.now(),
     };
