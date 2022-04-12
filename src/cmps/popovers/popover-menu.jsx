@@ -8,7 +8,12 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
 
   const onOpenPopover = (ev, popoverName) => {
     const elPos = ev.target.getBoundingClientRect();
-    const popoverProps = { board };
+    let popoverProps;
+    if (popoverName === "LABELS") {
+      popoverProps = { board, mod: "menu" };
+    } else {
+      popoverProps = { board };
+    }
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
@@ -35,12 +40,15 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
             </button>
           </li>
 
-          {/* <li className="menu-nav-item">
-            <button className="btn menu-nav-item-link">
+          <li className="menu-nav-item">
+            <button
+              className="btn menu-nav-item-link"
+              onClick={(ev) => onOpenPopover(ev, "LABELS")}
+            >
               <span className="item-link-icon trl icon-label icon-sm"></span>
               &nbsp;Labels
             </button>
-          </li> */}
+          </li>
 
           <li className="menu-nav-item">
             <button

@@ -24,11 +24,15 @@ export const AppHeader = () => {
 
   const onOpenPopover = (ev, popoverName, loggedInUser) => {
     const elPos = ev.target.getBoundingClientRect();
-
+    console.log("hi");
     let popoverProps = {};
     if (popoverName === "ACCOUNT") {
       popoverProps = { loggedInUser, isInCard: false };
     } else if (popoverName === "CREATE") {
+      popoverProps = {};
+    } else if (popoverName === "STARRED-BOARDS") {
+      popoverProps = {};
+    } else if (popoverName === "NOTIFICATIONS") {
       popoverProps = {};
     }
 
@@ -64,11 +68,14 @@ export const AppHeader = () => {
                 <span className="trl icon-chevron-down icon-sm"></span>
               </button>
             </NavLink>
-            {/* 
-            <button className="btn btn-header btn-header-wide flex align-center">
+
+            <button
+              className="btn btn-header btn-header-wide flex align-center"
+              onClick={(ev) => onOpenPopover(ev, "STARRED-BOARDS")}
+            >
               <span>Starred</span>
               <span className="trl icon-chevron-down icon-sm"></span>
-            </button> */}
+            </button>
 
             <button
               className="btn btn-header btn-header-wide flex align-center"
@@ -81,7 +88,10 @@ export const AppHeader = () => {
         </nav>
 
         <nav className="right-pane flex align-center">
-          <button className="btn btn-header flex align-center">
+          <button
+            className="btn btn-header flex align-center"
+            onClick={(ev) => onOpenPopover(ev, "NOTIFICATIONS")}
+          >
             <span>
               <span>
                 <BellIcon />

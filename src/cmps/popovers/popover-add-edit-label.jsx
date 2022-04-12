@@ -14,6 +14,7 @@ export const PopoverAddEditLabel = ({
   currCard,
   board,
   selectedLabel,
+  mod,
 }) => {
   const dispatch = useDispatch();
   const [label, setLabel] = useState({
@@ -32,7 +33,13 @@ export const PopoverAddEditLabel = ({
   };
 
   const onBack = () => {
-    const popoverProps = { currCard, board, elPos };
+    let popoverProps = {};
+    if (mod === "menu") {
+      popoverProps = { board, elPos, mod: "menu" };
+    } else {
+      popoverProps = { currCard, board, elPos };
+    }
+
     dispatch(openPopover("LABELS", elPos, popoverProps));
   };
 
@@ -62,17 +69,24 @@ export const PopoverAddEditLabel = ({
     }
 
     dispatch(onEditBoard(clonedBoard));
-    const popoverProps = { currCard, board: clonedBoard, elPos };
+    const popoverProps =
+      mod === "menu"
+        ? { board: clonedBoard, elPos, mod: "menu" }
+        : { currCard, board: clonedBoard, elPos };
+
     dispatch(openPopover("LABELS", elPos, popoverProps));
   };
 
   const onDeleteLabel = () => {
     const clonedBoard = _.cloneDeep(board);
-    const updatedCard = { ...currCard };
-    const cardLabelIdx = updatedCard.labelIds.findIndex(
-      (labelId) => labelId === label.id
-    );
-    updatedCard.labelIds.splice(cardLabelIdx, 1);
+    let updatedCard;
+    if (mod !== "menu") {
+      updatedCard = { ...currCard };
+      const cardLabelIdx = updatedCard.labelIds.findIndex(
+        (labelId) => labelId === label.id
+      );
+      updatedCard.labelIds.splice(cardLabelIdx, 1);
+    }
 
     const boardLabelIdx = clonedBoard.labels.findIndex(
       (boardLabel) => boardLabel.id === label.id
@@ -80,7 +94,10 @@ export const PopoverAddEditLabel = ({
     clonedBoard.labels.splice(boardLabelIdx, 1);
 
     dispatch(onEditBoard(clonedBoard));
-    const popoverProps = { currCard: updatedCard, board: clonedBoard, elPos };
+    const popoverProps =
+      mod === "menu"
+        ? { board: clonedBoard, elPos, mod: "menu" }
+        : { currCard: updatedCard, board: clonedBoard, elPos };
     dispatch(openPopover("LABELS", elPos, popoverProps));
   };
 

@@ -119,10 +119,15 @@ export const BoardHeader = ({ board }) => {
             />
           </div>
 
-          {/* <button className="btn board-header-btn board-header-btn-wide flex align-center btn-add-member">
+          <button
+            className="btn board-header-btn board-header-btn-wide flex align-center btn-add-member"
+            onClick={(ev) => {
+              onOpenPopover(ev, "INVITE");
+            }}
+          >
             <span className="trl icon-add-member icon-sm"></span>
             <span>Invite</span>
-          </button> */}
+          </button>
         </div>
       </div>
 

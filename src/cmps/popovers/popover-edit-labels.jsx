@@ -6,7 +6,13 @@ import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
 import { openPopover } from "../../store/actions/app.actions";
 
-export const PopoverEditLabels = ({ elPos, handleClose, currCard, board }) => {
+export const PopoverEditLabels = ({
+  elPos,
+  handleClose,
+  currCard,
+  board,
+  mod,
+}) => {
   const dispatch = useDispatch();
   const [filterBy, setFilterBy] = useState({ txt: "" });
   const [filteredLabels, setFilteredLabels] = useState([]);
@@ -29,7 +35,9 @@ export const PopoverEditLabels = ({ elPos, handleClose, currCard, board }) => {
   };
 
   const isCardLabel = (label) => {
-    return currCard.labelIds.find((cardLabel) => cardLabel === label.id);
+    return mod === "menu"
+      ? false
+      : currCard.labelIds.find((cardLabel) => cardLabel === label.id);
   };
 
   const selectLabel = (label) => {
@@ -63,10 +71,23 @@ export const PopoverEditLabels = ({ elPos, handleClose, currCard, board }) => {
     dispatch(onEditBoard(updatedBoard));
   };
 
+  const onClickLabel = (ev, boardLabel, boardLabelIdx) => {
+    mod === "menu"
+      ? onOpenPopover(ev, "ADD-LABEL", boardLabel)
+      : toggleLabel(boardLabel, boardLabelIdx);
+  };
+
   const onOpenPopover = (ev, popoverName, selectedLabel) => {
-    const popoverProps = selectedLabel
-      ? { selectedLabel, board, currCard }
-      : { board, currCard };
+    let popoverProps;
+    if (mod === "menu") {
+      popoverProps = selectedLabel
+        ? { selectedLabel, board, mod: "menu" }
+        : { board, mod: "menu" };
+    } else {
+      popoverProps = selectedLabel
+        ? { selectedLabel, board, currCard }
+        : { board, currCard };
+    }
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
@@ -100,7 +121,7 @@ export const PopoverEditLabels = ({ elPos, handleClose, currCard, board }) => {
                     className={`card-label card-label-${label.color} ${
                       label.isSelected ? "selected" : ""
                     }`}
-                    onClick={() => toggleLabel(label, idx)}
+                    onClick={(ev) => onClickLabel(ev, label, idx)}
                   >
                     {label.title}
                     <span

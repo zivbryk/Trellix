@@ -22,6 +22,9 @@ import { PopoverBoardBgColors } from "../popovers/popover-board-bg-colors";
 import { PopoverArchive } from "../popovers/popover-archive";
 import { PopoverCreate } from "../popovers/popover-create";
 import { PopoverCreateBoard } from "../popovers/popover-create-board";
+import { PopoverStarredBoards } from "../popovers/popover-starred-boards";
+import { PopoverNotifications } from "../popovers/popover-notifications";
+import { PopoverInvite } from "../popovers/popover-invite";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -218,6 +221,33 @@ export const DynamicPopover = () => {
     case "CREATE-BOARD":
       return (
         <PopoverCreateBoard
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "STARRED-BOARDS":
+      return (
+        <PopoverStarredBoards
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "NOTIFICATIONS":
+      return (
+        <PopoverNotifications
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "INVITE":
+      return (
+        <PopoverInvite
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

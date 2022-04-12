@@ -25,7 +25,6 @@ export const PopoverDate = ({ elPos, handleClose, currCard, board }) => {
   }, [currCard]);
 
   const handleChange = (newDate) => {
-    console.log("handleChange => newDate", newDate);
     setDate(newDate);
   };
 
