@@ -1,37 +1,30 @@
-import React from "react";
+import { useState, useEffect, useCallback } from "react";
+export const ProgressProvider = ({ valueStart, valueEnd, children }) => {
+  const [timeout, setTimeout] = useState(undefined);
+  const [value, setValue] = useState(0);
 
-export class ProgressProvider extends React.Component {
-    timeout = undefined;
+  const myFunc = useCallback(() => {
+    const timeoutTmp = window.setTimeout(() => {
+      setValue(valueEnd);
+    }, 400);
+    setTimeout(timeoutTmp);
+  }, [setValue]);
 
-    state = {
-        value: this.props.valueStart
+  useEffect(() => {
+    myFunc();
+    return function cleanup() {
+      // Side-effect cleanup
+      window.clearTimeout(timeout);
     };
+  }, [myFunc]);
 
-    static defaultProps = {
-        valueStart: 0
-    };
+  useEffect(() => {
+    if (valueStart) setValue(valueStart);
+  }, [valueStart]);
 
-    componentDidMount() {
-        this.timeout = window.setTimeout(() => {
-            this.setState({
-                value: this.props.valueEnd
-            });
-        }, 400);
-    }
+  useEffect(() => {
+    setValue(valueEnd);
+  }, [valueEnd]);
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.valueEnd !== this.props.valueEnd) {
-            this.setState({
-                value: this.props.valueEnd
-            });
-        }
-    }
-
-    componentWillUnmount() {
-        window.clearTimeout(this.timeout);
-    }
-
-    render() {
-        return this.props.children(this.state.value);
-    }
-}
+  return <div>{children(value)}</div>;
+};
