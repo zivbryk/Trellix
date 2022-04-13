@@ -135,7 +135,7 @@ export const BoardHeader = ({ board }) => {
         <Link to={`/board/${board._id}/dashboard`}>
           <button className="btn board-header-btn board-header-btn-wide flex align-center">
             <span className="trl icon-dashboard board-header-btn-icon icon-sm"></span>
-            <span>Dashboard</span>
+            <span className="btn-description">Dashboard</span>
           </button>
         </Link>
 
@@ -146,7 +146,7 @@ export const BoardHeader = ({ board }) => {
           }}
         >
           <span className="trl icon-tri-dots-hor board-header-btn-icon icon-sm"></span>
-          <span>Show menu</span>
+          <span className="btn-description">Show menu</span>
         </button>
       </div>
     </section>

@@ -5,8 +5,9 @@ import { PopoverCmp } from "./popover-cmp";
 import { Spinner } from "../spinner";
 
 import { loadBoards } from "../../store/actions/board.actions";
+import { openPopover } from "../../store/actions/app.actions";
 
-export const PopoverStarredBoards = ({ elPos, handleClose }) => {
+export const PopoverStarredBoards = ({ elPos, handleClose, mod }) => {
   const boards = useSelector((state) => state.boardReducer.boards);
   const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
   const dispatch = useDispatch();
@@ -31,12 +32,18 @@ export const PopoverStarredBoards = ({ elPos, handleClose }) => {
         };
   };
 
+  const onBack = () => {
+    let popoverProps = {};
+    dispatch(openPopover("MORE", elPos, popoverProps));
+  };
+
   if (!boards) return <Spinner mode={"loading"} />;
   return (
     <PopoverCmp
       title={"Starred Boards"}
       handleClose={handleClose}
       elPos={elPos}
+      onBack={mod === "menu" ? onBack : undefined}
     >
       <div className="popover-starred-boards-content">
         <ul className="clean-list">

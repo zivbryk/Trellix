@@ -50,7 +50,7 @@ export function ListsTasksChart({ tasksPerListData }) {
       },
       title: {
         display: true,
-        align: "start",
+        align: "middle",
         text: "Tasks by List",
         padding: {
           top: 10,

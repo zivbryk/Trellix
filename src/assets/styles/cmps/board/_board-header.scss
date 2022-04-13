@@ -52,6 +52,9 @@
         font-weight: 700;
         line-height: 32px;
         padding: 0 12px;
+        overflow: hidden;
+        vertical-align: top;
+        text-overflow: ellipsis;
       }
     }
 
@@ -103,6 +106,38 @@
   .board-header-right {
     & > :not(:last-child) {
       margin-right: 4px;
+    }
+  }
+}
+
+@include for-mobile-layout {
+  .board-header {
+    .board-header-left {
+      .board-header-btn-divider {
+        display: none;
+      }
+
+      .board-header-facepile {
+        display: none;
+      }
+
+      .btn-add-member {
+        display: none;
+      }
+    }
+
+    .board-header-right {
+      .btn-description {
+        display: none;
+      }
+
+      .board-header-btn {
+        padding: 6px;
+        & > :first-child {
+          margin-right: 0;
+          // padding: 6px;
+        }
+      }
     }
   }
 }

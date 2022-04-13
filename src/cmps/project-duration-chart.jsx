@@ -46,7 +46,7 @@ export function ProjectDurationChart({ durationData }) {
       },
       title: {
         display: true,
-        align: "start",
+        align: "middle",
         text: "Project Progress",
         font: {
           size: 20,
@@ -89,6 +89,7 @@ export function ProjectDurationChart({ durationData }) {
         },
       },
     },
+    // maintainAspectRatio: false,
   };
 
   return <Bar data={data} options={options} />;

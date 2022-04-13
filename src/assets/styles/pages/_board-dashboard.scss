@@ -88,3 +88,85 @@
     }
   }
 }
+
+@include for-mobile-layout {
+  .board-dashboard {
+    padding: 10px;
+    .close-btn {
+      height: 30px;
+      width: 30px;
+
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      color: #fff;
+      z-index: 50;
+      transition: transform 0.2s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .dashboard-header {
+      font-size: 30px;
+      margin-bottom: 35px;
+      padding-bottom: 7px;
+      margin-top: 35px;
+      border-bottom: 2px solid #49fb35;
+    }
+
+    hr {
+      background-color: #49fb35;
+      width: 90%;
+      margin-block: 30px;
+    }
+
+    .dashboard-container {
+      flex-direction: column-reverse;
+      justify-content: unset;
+      overflow-y: scroll;
+      // height: 100%;
+      height: 100vh;
+      margin-inline: 0;
+      .left-bar {
+        align-items: center;
+        margin-inline-end: 5px;
+        .project-duration-chart {
+          margin-bottom: 10px;
+          width: 300px;
+        }
+
+        .list-task-chart {
+          width: 300px;
+          margin-block-end: 80px;
+        }
+      }
+
+      .right-bar {
+        align-items: center;
+        .dashboard-stats {
+          width: 350px;
+          padding-inline: 0px;
+          margin-inline: auto;
+          // margin-block-end: 40px;
+          h1 {
+            font-size: rem(20px);
+            text-align: center;
+          }
+          .CircularProgressbar {
+            width: 90px;
+          }
+        }
+
+        .member-task-chart {
+          width: 355px;
+          padding-inline: 0px;
+          margin-inline: auto;
+          // margin-block-end: 40px;
+          // height: 400px;
+        }
+      }
+    }
+  }
+}

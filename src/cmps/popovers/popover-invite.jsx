@@ -21,10 +21,10 @@ export const PopoverInvite = ({ elPos, handleClose }) => {
 
   useEffect(() => {
     setFilteredUsers(users);
-  }, [users, board]);
+  }, [users]);
 
   useEffect(() => {
-    const filteredList = board.boardMembers.filter(
+    const filteredList = users.filter(
       (boardMember) =>
         boardMember.fullname
           .toLowerCase()
@@ -32,7 +32,7 @@ export const PopoverInvite = ({ elPos, handleClose }) => {
         boardMember.username.toLowerCase().includes(filterBy.txt.toLowerCase())
     );
     setFilteredUsers(filteredList);
-  }, [filterBy.txt, board.boardMembers]);
+  }, [filterBy.txt, users]);
 
   const handleChange = ({ target }) => {
     const { value } = target;
@@ -79,7 +79,7 @@ export const PopoverInvite = ({ elPos, handleClose }) => {
               >
                 <div title={`${user.fullname} (${user.username})`}>
                   <MemberAvatar size={"32"} member={user} />
-                  <span>{`${user.fullname} (${user.username})`}</span>
+                  <div className="user-details">{`${user.fullname} (${user.username})`}</div>
                   <span
                     className={`icon-sm trl icon-check ${
                       isBoardMember(user) ? "active" : ""

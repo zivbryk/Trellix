@@ -24,7 +24,6 @@ export const AppHeader = () => {
 
   const onOpenPopover = (ev, popoverName, loggedInUser) => {
     const elPos = ev.target.getBoundingClientRect();
-    console.log("hi");
     let popoverProps = {};
     if (popoverName === "ACCOUNT") {
       popoverProps = { loggedInUser, isInCard: false };
@@ -33,6 +32,8 @@ export const AppHeader = () => {
     } else if (popoverName === "STARRED-BOARDS") {
       popoverProps = {};
     } else if (popoverName === "NOTIFICATIONS") {
+      popoverProps = {};
+    } else {
       popoverProps = {};
     }
 
@@ -58,7 +59,7 @@ export const AppHeader = () => {
             </div>
           </NavLink>
 
-          <div className="flex">
+          <div className="desktop-actions flex">
             <NavLink
               to={"/workspace"}
               className="btn-workspaces flex align-center"
@@ -82,6 +83,16 @@ export const AppHeader = () => {
               onClick={(ev) => onOpenPopover(ev, "CREATE")}
             >
               <span>Create</span>
+              <span className="trl icon-chevron-down icon-sm"></span>
+            </button>
+          </div>
+
+          <div className="mobile-actions">
+            <button
+              className="btn btn-header btn-header-wide flex align-center"
+              onClick={(ev) => onOpenPopover(ev, "MORE")}
+            >
+              <span>More</span>
               <span className="trl icon-chevron-down icon-sm"></span>
             </button>
           </div>

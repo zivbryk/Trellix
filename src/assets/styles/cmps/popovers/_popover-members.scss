@@ -31,6 +31,14 @@
             margin-bottom: 0px;
           }
 
+          .user-details {
+            display: inline-block;
+            width: 200px;
+            overflow: hidden;
+            vertical-align: top;
+            text-overflow: ellipsis;
+          }
+
           .icon-check {
             vertical-align: unset;
             background-clip: content-box;

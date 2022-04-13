@@ -8,6 +8,10 @@
       margin: 0 4px;
       gap: 4px;
     }
+
+    .mobile-actions {
+      display: none;
+    }
   }
 
   a.header-logo {
@@ -83,6 +87,19 @@
 
     .member-avatar {
       margin: 0;
+    }
+  }
+}
+
+@include for-mobile-layout {
+  .app-header {
+    .left-pane {
+      .desktop-actions {
+        display: none;
+      }
+      .mobile-actions {
+        display: block;
+      }
     }
   }
 }

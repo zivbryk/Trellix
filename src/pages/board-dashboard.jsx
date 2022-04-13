@@ -148,15 +148,17 @@ export const BoardDashboard = () => {
             <ProjectDurationChart durationData={durationData()} />
           </div>
 
+          <hr />
+
           <div className="list-task-chart flex align-center justify-center">
             <ListsTasksChart tasksPerListData={tasksPerListData()} />
           </div>
         </div>
 
-        <div className="flex column space-between">
+        <div className="right-bar flex column space-between">
           <div className="dashboard-stats flex space-between">
             <div className="flex column align-center">
-              <h1>Completed Tasks</h1>
+              <h1>Done Tasks</h1>
               <ProgressProvider
                 valueStart={0}
                 valueEnd={completedTasksPercent()}
@@ -207,9 +209,13 @@ export const BoardDashboard = () => {
             </div>
           </div>
 
+          <hr />
+
           <div className="member-task-chart flex justify-center align-center">
             <MemberTasksChart tasksPerMemberData={tasksPerMemberData()} />
           </div>
+
+          <hr />
         </div>
       </div>
     </section>

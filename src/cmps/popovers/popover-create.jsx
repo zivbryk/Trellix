@@ -4,7 +4,7 @@ import { ReactComponent as BoardIcon } from "../../assets/img/icons/board-icon.s
 
 import { openPopover } from "../../store/actions/app.actions";
 
-export const PopoverCreate = ({ elPos, handleClose }) => {
+export const PopoverCreate = ({ elPos, handleClose, mod }) => {
   const dispatch = useDispatch();
 
   const onOpenPopover = (ev, popoverName) => {
@@ -12,8 +12,18 @@ export const PopoverCreate = ({ elPos, handleClose }) => {
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
+  const onBack = () => {
+    let popoverProps = {};
+    dispatch(openPopover("MORE", elPos, popoverProps));
+  };
+
   return (
-    <PopoverCmp title="Create" handleClose={handleClose} elPos={elPos}>
+    <PopoverCmp
+      title="Create"
+      handleClose={handleClose}
+      elPos={elPos}
+      onBack={mod === "menu" ? onBack : undefined}
+    >
       <div className="popover-create-content">
         <nav>
           <ul className="clean-list">

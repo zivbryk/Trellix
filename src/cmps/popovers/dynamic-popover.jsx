@@ -25,6 +25,7 @@ import { PopoverCreateBoard } from "../popovers/popover-create-board";
 import { PopoverStarredBoards } from "../popovers/popover-starred-boards";
 import { PopoverNotifications } from "../popovers/popover-notifications";
 import { PopoverInvite } from "../popovers/popover-invite";
+import { PopoverMore } from "../popovers/popover-more";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -248,6 +249,15 @@ export const DynamicPopover = () => {
     case "INVITE":
       return (
         <PopoverInvite
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "MORE":
+      return (
+        <PopoverMore
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

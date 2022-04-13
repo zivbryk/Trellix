@@ -39,7 +39,7 @@ export function MemberTasksChart({ tasksPerMemberData }) {
       },
       title: {
         display: true,
-        align: "start",
+        align: "middle",
         text: "Board Member Tasks",
         font: {
           size: 20,

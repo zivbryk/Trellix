@@ -1,0 +1,49 @@
+.popover-more-content {
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+    button {
+      background-color: transparent;
+      height: 32px;
+      line-height: 32px;
+      white-space: nowrap;
+      color: #172b4d;
+      justify-content: space-between;
+      padding: 12px;
+      margin: 0;
+
+      &:hover,
+      :active {
+        background-color: #ebecf0;
+        color: #172b4d;
+      }
+
+      & > :first-child {
+        line-height: 32px;
+        display: flex;
+        margin-right: 2px;
+      }
+
+      & > :last-child {
+        display: inline-block;
+        line-height: 1;
+        min-width: 16px;
+        margin-left: 4px;
+        margin-right: -2px;
+        & > :last-child {
+          //
+          svg {
+            max-height: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            vertical-align: bottom;
+            height: 16px;
+            width: 16px;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
