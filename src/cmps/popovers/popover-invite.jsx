@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import _ from "lodash";
+
 import { PopoverCmp } from "./popover-cmp";
 import { MemberAvatar } from "../member-avatar";
 
 import { loadUsers } from "../../store/actions/user.actions";
-import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
 
-export const PopoverInvite = ({ elPos, handleClose, board }) => {
-  const users = useSelector((state) => state.UserReducer.users);
+export const PopoverInvite = ({ elPos, handleClose }) => {
+  const users = useSelector((state) => state.userReducer.users);
+  const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
   const [filterBy, setFilterBy] = useState({ txt: "" });
   const [filteredUsers, setFilteredUsers] = useState([]);
@@ -18,8 +20,8 @@ export const PopoverInvite = ({ elPos, handleClose, board }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    setFilteredUsers(board.BoardMembers);
-  }, [board]);
+    setFilteredUsers(users);
+  }, [users, board]);
 
   useEffect(() => {
     const filteredList = board.boardMembers.filter(
@@ -37,21 +39,20 @@ export const PopoverInvite = ({ elPos, handleClose, board }) => {
     setFilterBy({ txt: value });
   };
 
-  const isBoardMember = (member) => {
+  const isBoardMember = (user) => {
     return board.boardMembers.find(
-      (boardMember) => boardMember._id === member._id
+      (boardMember) => boardMember._id === user._id
     );
   };
 
   const toggleMember = (boardMember) => {
-    // const updatedCard = { ...currCard };
-    // const memberIdx = updatedCard.cardMembers.findIndex(
-    //   (cardMember) => cardMember._id === boardMember._id
-    // );
-    // if (memberIdx !== -1) updatedCard.cardMembers.splice(memberIdx, 1);
-    // else updatedCard.cardMembers.unshift(boardMember);
-    // const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
-    // dispatch(onEditBoard(updatedBoard));
+    const clonedBoard = _.cloneDeep(board);
+    const memberIdx = clonedBoard.boardMembers.findIndex(
+      (member) => member._id === boardMember._id
+    );
+    if (memberIdx !== -1) clonedBoard.boardMembers.splice(memberIdx, 1);
+    else clonedBoard.boardMembers.unshift(boardMember);
+    dispatch(onEditBoard(clonedBoard));
   };
 
   return (
@@ -66,22 +67,22 @@ export const PopoverInvite = ({ elPos, handleClose, board }) => {
         />
 
         <div className="board-members">
-          <h4>Users</h4>
+          <h4>Contacts</h4>
           <ul className="member-list clean-list">
-            {filteredUsers.map((member) => (
+            {filteredUsers.map((user) => (
               <li
-                key={member._id}
+                key={user._id}
                 className={`${false ? "selected" : ""} `}
                 onClick={() => {
-                  toggleMember(member);
+                  toggleMember(user);
                 }}
               >
-                <div title={`${member.fullname} (${member.username})`}>
-                  <MemberAvatar size={"32"} member={member} />
-                  <span>{`${member.fullname} (${member.username})`}</span>
+                <div title={`${user.fullname} (${user.username})`}>
+                  <MemberAvatar size={"32"} member={user} />
+                  <span>{`${user.fullname} (${user.username})`}</span>
                   <span
                     className={`icon-sm trl icon-check ${
-                      isBoardMember(member) ? "active" : ""
+                      isBoardMember(user) ? "active" : ""
                     }`}
                   ></span>
                 </div>

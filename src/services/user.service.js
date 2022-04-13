@@ -16,9 +16,18 @@ export const userService = {
   logout,
   signup,
   getLoggedinUser,
+  getUsers,
 };
 
 window.userService = userService;
+
+async function getUsers(filterBy = { ctg: "" }) {
+  try {
+    return await httpService.get("user", filterBy);
+  } catch (err) {
+    throw err;
+  }
+}
 
 async function googleLogin(tokenId) {
   try {
