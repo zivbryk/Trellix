@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import { ListsTasksChart } from "../cmps/lists-tasks-chart";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { ProgressProvider } from "../cmps/progress-provider";
 import { MemberTasksChart } from "../cmps/member-tasks-chart";
+import { LoaderCmp } from "../cmps/loader-cmp";
+
 import { ProjectDurationChart } from "../cmps/project-duration-chart";
 import CloseIcon from "@mui/icons-material/Close";
 import "react-circular-progressbar/dist/styles.css";
@@ -38,7 +41,6 @@ export const BoardDashboard = () => {
   };
 
   const openTasks = () => {
-    // return 100 - this.completedTasks
     const boardCards = AllBoardCards();
     const openTasks = boardCards.filter((boardCard) => !boardCard.isComplete);
     return openTasks.length;
@@ -140,6 +142,7 @@ export const BoardDashboard = () => {
     return tasksPerMember;
   };
 
+  if (!board) return <LoaderCmp />;
   return (
     <section className="board-dashboard">
       <div className="window-overlay"></div>
