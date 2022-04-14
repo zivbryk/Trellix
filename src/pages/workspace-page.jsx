@@ -8,7 +8,6 @@ import underConstruction from "../assets/img/backgrounds/under-construction.png"
 
 export const WorkspacePage = () => {
   const boards = useSelector((state) => state.boardReducer.boards);
-  console.log("WorkspacePage => boards", boards);
   const dispatch = useDispatch();
   const [menuSelection, setMenuSelection] = useState("boards");
 

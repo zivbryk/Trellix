@@ -64,3 +64,19 @@
     }
   }
 }
+
+@include for-mobile-layout {
+  .card-details-side-bar {
+    clear: both;
+    float: none;
+    margin: 8px;
+    padding: 0;
+    width: auto;
+
+    .btn-sidebar {
+      display: inline-block;
+      margin-right: 8px;
+      width: calc(50% - 8px);
+    }
+  }
+}

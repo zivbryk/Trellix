@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ListsTasksChart } from "../cmps/lists-tasks-chart";
@@ -11,6 +12,15 @@ import "react-circular-progressbar/dist/styles.css";
 export const BoardDashboard = () => {
   const board = useSelector((state) => state.boardReducer.board);
   const navigate = useNavigate();
+  const DashboardContainerRef = useRef(null);
+  const DashboardStatsRef = useRef(null);
+
+  useEffect(() => {
+    DashboardContainerRef.current.scrollTo(
+      0,
+      DashboardStatsRef.current.offsetTop
+    );
+  }, []);
 
   const completedTasks = () => {
     const boardCards = AllBoardCards();
@@ -142,7 +152,10 @@ export const BoardDashboard = () => {
       <div className="dashboard-header flex justify-center">
         <h1>{board.title}</h1>
       </div>{" "}
-      <div className="dashboard-container flex justify-center">
+      <div
+        className="dashboard-container flex justify-center"
+        ref={DashboardContainerRef}
+      >
         <div className="left-bar flex column space-between">
           <div className="project-duration-chart">
             <ProjectDurationChart durationData={durationData()} />
@@ -156,7 +169,10 @@ export const BoardDashboard = () => {
         </div>
 
         <div className="right-bar flex column space-between">
-          <div className="dashboard-stats flex space-between">
+          <div
+            className="dashboard-stats flex space-between"
+            ref={DashboardStatsRef}
+          >
             <div className="flex column align-center">
               <h1>Done Tasks</h1>
               <ProgressProvider

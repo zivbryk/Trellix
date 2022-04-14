@@ -191,7 +191,7 @@
 
   .pt-md-6,
   .py-md-6 {
-    padding-top: 5rem !important;
+    padding-top: 5rem;
   }
 
   .pt-7,
@@ -354,6 +354,75 @@
     span.btn-outline-prim {
       padding-top: 5px;
       padding-bottom: 7px;
+    }
+  }
+}
+
+@include for-mobile-layout {
+  .home-page {
+    section.hero {
+      .container {
+        & > :first-child {
+          flex-direction: column;
+          .hero-image {
+            display: none;
+            .img-fluid {
+              display: none;
+            }
+          }
+
+          .hero-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: unset;
+            h1 {
+              font-size: 2rem;
+              line-height: 1.25;
+              text-align: center;
+              margin-bottom: 8px;
+            }
+
+            p {
+              text-align: center;
+            }
+
+            button {
+              margin-block: 24px;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    section.product {
+      .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-bottom: 5rem;
+        padding-top: 0;
+
+        .row {
+          .col-lg-10.offset-lg-1 {
+            flex: unset;
+            max-width: unset;
+            margin-left: unset;
+            h2 {
+              font-size: 1.5rem;
+              line-height: 1.33333333;
+            }
+
+            p {
+              margin-top: 0;
+              margin-bottom: 1.5rem;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -27,3 +27,14 @@
     }
   }
 }
+
+@include for-mobile-layout {
+  .card-details-main {
+    float: none;
+    max-height: none;
+    max-width: none;
+    min-width: 0;
+    padding: 8px;
+    width: auto;
+  }
+}

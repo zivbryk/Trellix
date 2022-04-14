@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { PopoverCmp } from "./popover-cmp";
@@ -12,19 +12,12 @@ export const PopoverMore = ({ elPos, handleClose, onDeleteCard }) => {
   const navigate = useNavigate();
 
   const onGoToWorkspace = () => {
-    navigate("/");
+    navigate("/workspace");
     dispatch(closePopover());
   };
 
   const onOpenPopover = (ev, popoverName) => {
     const popoverProps = { mod: "menu" };
-    // if (popoverName === "STARRED-BOARDS") {
-    //   popoverProps = { mod: "menu" };
-    // }
-    // else if (popoverName === "CREATE") {
-    //   popoverProps = {};
-    // }
-
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 

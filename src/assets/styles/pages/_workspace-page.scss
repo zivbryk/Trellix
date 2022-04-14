@@ -101,3 +101,31 @@
     }
   }
 }
+
+@include for-mobile-layout {
+  .workspace-page {
+    .workspace-left-sidebar {
+      display: none;
+    }
+
+    .all-boards {
+      margin: 20px 16px 0;
+      .starred-boards {
+        padding-bottom: 0px;
+      }
+
+      .board-list {
+        ul {
+          li {
+            margin-bottom: 8px;
+            margin-right: 8px;
+            width: calc(50% - 4px);
+            &:nth-of-type(2n) {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

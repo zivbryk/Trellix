@@ -3,3 +3,9 @@
   margin-top: 8px;
   margin-left: 40px;
 }
+
+@include for-mobile-layout {
+  .card-details-data {
+    margin: 8px;
+  }
+}

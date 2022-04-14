@@ -85,6 +85,7 @@ export function MemberTasksChart({ tasksPerMemberData }) {
         },
       },
     },
+    maintainAspectRatio: false,
   };
 
   return <Bar data={data} options={options} />;

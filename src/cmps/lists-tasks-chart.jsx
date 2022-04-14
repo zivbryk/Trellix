@@ -63,6 +63,7 @@ export function ListsTasksChart({ tasksPerListData }) {
         },
         color: "#ffffff",
       },
+      maintainAspectRatio: false,
     },
   };
 

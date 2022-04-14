@@ -95,3 +95,27 @@
     white-space: nowrap;
   }
 }
+
+@include for-mobile-layout {
+  .card-details {
+    .window-overlay {
+      position: absolute;
+      .window {
+        margin: 36px 8px;
+        width: auto;
+        display: block;
+
+        .window-wrapper {
+          .card-details-window {
+            min-height: 600px;
+
+            .window-header {
+              margin: 8px 16px 8px 32px;
+              padding: 8px 0 0 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

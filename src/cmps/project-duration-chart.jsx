@@ -89,7 +89,7 @@ export function ProjectDurationChart({ durationData }) {
         },
       },
     },
-    // maintainAspectRatio: false,
+    maintainAspectRatio: false,
   };
 
   return <Bar data={data} options={options} />;

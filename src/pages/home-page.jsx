@@ -39,12 +39,12 @@ export const HomePage = () => {
             </div>
 
             <div className="hero-details col-lg-7">
-              <h1>Trello helps teams move work forward.</h1>
+              <h1>Trellix helps teams move work forward.</h1>
 
               <p>
                 Collaborate, manage projects, and reach new productivity peaks.
                 From high rises to the home office, the way your team works is
-                unique—accomplish it all with Trello.
+                unique—accomplish it all with Trellix.
               </p>
 
               <button className="btn btn-prim" onClick={onStartAsAGuest}>
