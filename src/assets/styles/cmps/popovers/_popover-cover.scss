@@ -1,5 +1,31 @@
 .popover-cover-content {
+  padding-right: 5px;
   h4.size-title {
     margin-top: 0;
+  }
+
+  max-height: 590px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  /*Scroll-Bar*/
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 6px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track-piece {
+    border-radius: 3px;
+    margin: 0 30px;
+    width: 6px;
+    background-color: #dadbe2;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #bfc4ce;
   }
 }

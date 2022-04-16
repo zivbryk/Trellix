@@ -45,6 +45,7 @@ export const CardDetailsCover = ({
   const onOpenPopover = (ev) => {
     const elPos = ev.target.getBoundingClientRect();
     elPos.height += 4;
+    elPos.y = 60;
     const popoverProps = { currCard, board };
     dispatch(openPopover("COVER", elPos, popoverProps));
   };

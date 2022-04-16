@@ -3,7 +3,7 @@
     display: grid;
     gap: 8px;
     padding: 4px;
-    margin: 0 -4px;
+    margin: 4px;
     overflow-x: hidden;
     grid-template-columns: 1fr 1fr;
     & div {
@@ -15,7 +15,6 @@
       align-items: flex-end;
       border-radius: 3px;
       width: unset;
-      //   height: 20px;
       background-size: cover;
       background-position: center;
       padding: 6px 10px 6px 12px;

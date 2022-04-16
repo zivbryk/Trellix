@@ -37,7 +37,6 @@
     display: block;
     // float: left;
     padding-bottom: 9px;
-    width: 100%;
     z-index: 50;
     margin-left: 40px;
 
@@ -62,6 +61,14 @@
           color: $clr8;
         }
       }
+    }
+  }
+}
+
+@include for-mobile-layout {
+  .card-details-description {
+    .description-edit {
+      //
     }
   }
 }
