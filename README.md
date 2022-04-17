@@ -90,8 +90,8 @@ the app will be up and running at localhost:3000 on your browser. enjoy!
 </br> -->
 
 <h3>Dashboard</h3>
-<img width="1007" alt="dashboard" src="https://user-images.githubusercontent.com/81034083/163720325-29f779f4-6710-414f-9135-d2c5b8cb381f.png">
+<img width="1007" alt="dashboard" src="https://user-images.githubusercontent.com/81034083/163720423-4648930b-7b86-4292-93b4-f9abff857967.png">
 
-<!-- <h3>Change Background</h3>
-<img width="1435" alt="Screen Shot 2021-07-03 at 7 22 16 PM" src="https://user-images.githubusercontent.com/81368377/124360762-26a9bb80-dc34-11eb-9d21-0b684591aa1c.png">
-</br>  -->
+<h3>Change Background</h3>
+<img width="1435" alt="background" src="https://user-images.githubusercontent.com/81034083/163720325-29f779f4-6710-414f-9135-d2c5b8cb381f.png">
+</br>
