@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6a819b01.chunk.css",
+    "main.js": "/static/js/main.c7d55e4a.chunk.js",
+    "main.js.map": "/static/js/main.c7d55e4a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ef6b1d0b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ef6b1d0b.js.map",
+    "static/css/2.6c0f60ba.chunk.css": "/static/css/2.6c0f60ba.chunk.css",
+    "static/js/2.0051edd0.chunk.js": "/static/js/2.0051edd0.chunk.js",
+    "static/js/2.0051edd0.chunk.js.map": "/static/js/2.0051edd0.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.6c0f60ba.chunk.css.map": "/static/css/2.6c0f60ba.chunk.css.map",
+    "static/css/main.6a819b01.chunk.css.map": "/static/css/main.6a819b01.chunk.css.map",
+    "static/js/2.0051edd0.chunk.js.LICENSE.txt": "/static/js/2.0051edd0.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/static/media/trellicons.4525327b3f0a2d81edda.4525327b.ttf",
+    "static/media/archive-icon.7936a01e.svg": "/static/media/archive-icon.7936a01e.svg",
+    "static/media/atlassian-logo.1b79fbd9.png": "/static/media/atlassian-logo.1b79fbd9.png",
+    "static/media/bell.449c5060.svg": "/static/media/bell.449c5060.svg",
+    "static/media/board-demo.52be4949.svg": "/static/media/board-demo.52be4949.svg",
+    "static/media/board-icon.09a0018e.svg": "/static/media/board-icon.09a0018e.svg",
+    "static/media/board-view.838da3a8.png": "/static/media/board-view.838da3a8.png",
+    "static/media/boards.3d1ac834.svg": "/static/media/boards.3d1ac834.svg",
+    "static/media/check-icon.55eed171.svg": "/static/media/check-icon.55eed171.svg",
+    "static/media/chevron-down.9b95f61e.svg": "/static/media/chevron-down.9b95f61e.svg",
+    "static/media/close.2eaea598.svg": "/static/media/close.2eaea598.svg",
+    "static/media/forward-icon.50ed546f.svg": "/static/media/forward-icon.50ed546f.svg",
+    "static/media/hero-img-1.e8878a54.png": "/static/media/hero-img-1.e8878a54.png",
+    "static/media/login-left-large.ff7c7688.svg": "/static/media/login-left-large.ff7c7688.svg",
+    "static/media/login-right-large.df08073f.svg": "/static/media/login-right-large.df08073f.svg",
+    "static/media/notifications-dog.95194bb4.svg": "/static/media/notifications-dog.95194bb4.svg",
+    "static/media/trello-loader.0eb7941b.svg": "/static/media/trello-loader.0eb7941b.svg",
+    "static/media/trello-logo-gradient.2736dc1d.svg": "/static/media/trello-logo-gradient.2736dc1d.svg",
+    "static/media/trello-main-logo.96c84344.svg": "/static/media/trello-main-logo.96c84344.svg",
+    "static/media/under-construction.eb5fad10.png": "/static/media/under-construction.eb5fad10.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ef6b1d0b.js",
+    "static/css/2.6c0f60ba.chunk.css",
+    "static/js/2.0051edd0.chunk.js",
+    "static/css/main.6a819b01.chunk.css",
+    "static/js/main.c7d55e4a.chunk.js"
+  ]
+}
