@@ -1,4 +1,6 @@
-# Trellix - Task Management App made with React.js, Node.js & MongoDB
+# Trellix - Task Management App
+
+## Made with React.js, Node.js & MongoDB
 
 Kanban-style task management board app inspired by trello.com
 </br>
