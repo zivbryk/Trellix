@@ -26,6 +26,7 @@ import { PopoverStarredBoards } from "../popovers/popover-starred-boards";
 import { PopoverNotifications } from "../popovers/popover-notifications";
 import { PopoverInvite } from "../popovers/popover-invite";
 import { PopoverMore } from "../popovers/popover-more";
+import { PopoverQuickCardEditor } from "../popovers/popover-quick-card-editor";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -258,6 +259,15 @@ export const DynamicPopover = () => {
     case "MORE":
       return (
         <PopoverMore
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "QUICK-CARD-EDITOR":
+      return (
+        <PopoverQuickCardEditor
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

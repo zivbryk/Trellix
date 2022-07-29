@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { ListCardDetails } from "./list-card-details";
-import { closePopover } from "../../store/actions/app.actions";
+import { closePopover, openPopover } from "../../store/actions/app.actions";
 
 export const ListCardContent = ({ currBoard, currList, currCard }) => {
   const dispatch = useDispatch();
@@ -79,6 +79,15 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
     return coverStyle;
   };
 
+  const onOpenPopover = (ev, popoverName, currCard) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    console.log("trying");
+    const elPos = ev.target.getBoundingClientRect();
+    let popoverProps = { currCard };
+    dispatch(openPopover(popoverName, elPos, popoverProps));
+  };
+
   return (
     <Link
       to={`/board/${currBoard._id}/${currList.id}/${currCard.id}`}
@@ -93,7 +102,12 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
         <div className={"list-card-cover"} style={getCoverStyle()}></div>
 
         <button className="btn btn-edit-card">
-          <span className="trl icon-edit icon-sm"></span>
+          <span
+            className="trl icon-edit icon-sm"
+            onClick={(ev) => {
+              onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard);
+            }}
+          ></span>
         </button>
 
         <ListCardDetails
