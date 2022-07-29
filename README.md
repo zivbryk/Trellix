@@ -49,7 +49,7 @@ git clone https://github.com/zivbryk/Trellix.git
 
 ```
 cd backend
-npm i
+npm ci
 npm start
 ```
 
@@ -59,7 +59,7 @@ You should get a console output that the server is up and running at port 3030
 
 ```
 cd frontend
-npm i
+npm ci
 npm start
 ```
 
