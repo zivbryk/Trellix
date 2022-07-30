@@ -1,14 +1,21 @@
 import { useDispatch } from "react-redux";
 // import { useSelector } from "react-redux";
+import { useState } from "react";
 
-import { ReactComponent as BoardIcon } from "../../assets/img/icons/board-icon.svg";
+// import { ReactComponent as BoardIcon } from "../../assets/img/icons/board-icon.svg";
 import { WindowOverlay } from "../window-overlay";
-import { openPopover, closePopover } from "../../store/actions/app.actions";
+import { ListCardQuickEdit } from "../list/list-card-quick-edit";
+import { closePopover } from "../../store/actions/app.actions";
 
-export const PopoverQuickCardEditor = ({ elPos, handleClose, mod }) => {
+export const PopoverQuickCardEditor = ({
+  currCard,
+  elPos,
+  handleClose,
+  mod,
+}) => {
   // const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
-
+  const [btnMenuRight] = useState(true);
   // const onOpenPopover = (ev, popoverName) => {
   //   const popoverProps = {};
   //   dispatch(openPopover(popoverName, elPos, popoverProps));
@@ -27,41 +34,20 @@ export const PopoverQuickCardEditor = ({ elPos, handleClose, mod }) => {
   return (
     <section className="quick-card-editor">
       <WindowOverlay goBack={goBackToBoard}>
-        <div>
-          <p>Hayush</p>
+        <div className="quick-card-editor-card">
+          <ListCardQuickEdit currCard={currCard} />
+          {/* <div className="list-card-quick-edit"></div> */}
+          <button id="add-card-btn" className="btn btn-primary">
+            Save
+          </button>
+          <div
+            className={`quick-card-editor-buttons ${
+              btnMenuRight
+                ? "quick-card-editor-buttons-right"
+                : "quick-card-editor-buttons-right"
+            } fade-in`}
+          ></div>
         </div>
-        {/* <PopoverCmp
-        title="Create"
-        handleClose={handleClose}
-        elPos={elPos}
-        // onBack={mod === "menu" ? onBack : undefined}
-      >
-        <div className="popover-create-content">
-          <nav>
-            <ul className="clean-list">
-              <li>
-                <button
-                  className="btn"
-                  onClick={(ev) => onOpenPopover(ev, "CREATE-BOARD")}
-                >
-                  <span>
-                    <span>
-                      <BoardIcon />
-                    </span>
-                  </span>
-
-                  <span>Create board</span>
-
-                  <p>
-                    A board is made up of cards ordered on lists. Use it to
-                    manage projects, track information, or organize anything.
-                  </p>
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </PopoverCmp> */}
       </WindowOverlay>
     </section>
   );
