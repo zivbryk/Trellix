@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 import { ListCardDetails } from "./list-card-details";
 import { closePopover, openPopover } from "../../store/actions/app.actions";
 
-export const ListCardContent = ({ currBoard, currList, currCard }) => {
+export const ListCardContent = ({
+  currBoard,
+  currList,
+  currCard,
+  elPos = null,
+  isQuickEdit = false,
+}) => {
   const dispatch = useDispatch();
   const [coverMode, setCoverMode] = useState(currCard.style.coverMode);
 
@@ -50,7 +56,13 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
     } else if (coverMode === "half") {
       cardContentStyle = {};
     }
-
+    if (elPos) {
+      cardContentStyle = {
+        ...cardContentStyle,
+        top: elPos.top,
+        left: elPos.left,
+      };
+    }
     return cardContentStyle;
   };
 
@@ -82,40 +94,39 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
   const onOpenPopover = (ev, popoverName, currCard) => {
     ev.preventDefault();
     ev.stopPropagation();
-    console.log("trying");
     const elPos = ev.target.getBoundingClientRect();
-    let popoverProps = { currCard };
+    const popoverProps = { currCard };
     dispatch(openPopover(popoverName, elPos, popoverProps));
+  };
+  const getLinkPath = () => {
+    return isQuickEdit
+      ? ""
+      : `/board/${currBoard._id}/${currList.id}/${currCard.id}`;
   };
 
   return (
-    <Link
-      to={`/board/${currBoard._id}/${currList.id}/${currCard.id}`}
-      onClick={closeAllPopovers}
+    <section
+      className={`list-card-content ${
+        currCard.style.cover ? "is-covered" : ""
+      } ${coverMode === "full" ? "flex" : ""}`}
+      style={getCardContentStyle()}
     >
-      <section
-        className={`list-card-content ${
-          currCard.style.cover ? "is-covered" : ""
-        } ${coverMode === "full" ? "flex" : ""}`}
-        style={getCardContentStyle()}
-      >
-        <div className={"list-card-cover"} style={getCoverStyle()}></div>
+      <div className={"list-card-cover"} style={getCoverStyle()}></div>
 
-        <button className="btn btn-edit-card">
-          <span
-            className="trl icon-edit icon-sm"
-            onClick={(ev) => {
-              onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard);
-            }}
-          ></span>
-        </button>
+      <button className="btn btn-edit-card">
+        <span
+          className="trl icon-edit icon-sm"
+          onClick={(ev) => {
+            onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard, currList);
+          }}
+        ></span>
+      </button>
 
-        <ListCardDetails
-          currCard={currCard}
-          currList={currList}
-          coverMode={coverMode}
-        />
-      </section>
-    </Link>
+      <ListCardDetails
+        currCard={currCard}
+        currList={currList}
+        coverMode={coverMode}
+      />
+    </section>
   );
 };

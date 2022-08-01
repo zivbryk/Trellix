@@ -1,10 +1,16 @@
+//TODO: delete cmp
+
 export const ListCardQuickEdit = ({ currCard }) => {
-  console.log("currCard: ", currCard);
+  const handleClick = (ev) => {
+    ev.stopPropagation();
+  };
+
   return (
-    <section className="list-card-quick-edit list-card-content">
-      {/* TODO: cmp higher z-index */}
+    <section
+      className="list-card-quick-edit list-card-content"
+      onClick={handleClick}
+    >
       <div className="list-card-details">
-        {/* TODO: textarea resize: none; */}
         <textarea
           className="list-card-edit-title"
           name="list-card-edit-title-name"

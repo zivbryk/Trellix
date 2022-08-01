@@ -3,7 +3,9 @@
   padding: 6px 8px 2px;
   position: relative;
   z-index: 10;
-
+  textarea {
+    resize: none;
+  }
   // .list-card-labels {
   //   overflow: auto;
   //   position: relative;
