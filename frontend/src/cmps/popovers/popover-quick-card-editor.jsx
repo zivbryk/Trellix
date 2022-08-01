@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import { WindowOverlay } from "../window-overlay";
 import { ListCardContent } from "../list/list-card-content";
-import { ListCardQuickEdit } from "../list/list-card-quick-edit";
 import { closePopover } from "../../store/actions/app.actions";
 
 export const PopoverQuickCardEditor = ({
@@ -23,16 +22,20 @@ export const PopoverQuickCardEditor = ({
     dispatch(closePopover());
   };
 
+  const getPosStyle = () => ({
+    top: elPos.y - 6,
+    left: elPos.x - 230,
+  });
+
   return (
     <section className="quick-card-editor">
+      {console.log(elPos)}
       <WindowOverlay goBack={goBackToBoard}>
-        <div className="quick-card-editor-card">
-          {/* <ListCardQuickEdit currCard={currCard} /> */}
+        <div className="quick-card-editor-container" style={getPosStyle()}>
           <ListCardContent
             currCard={currCard}
             currBoard={board}
             currList={currList}
-            elPos={elPos}
             isQuickEdit
           />
           <button id="add-card-btn" className="btn btn-primary">

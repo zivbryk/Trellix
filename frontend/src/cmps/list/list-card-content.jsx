@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { ListCardDetails } from "./list-card-details";
-import { closePopover, openPopover } from "../../store/actions/app.actions";
+import { openPopover } from "../../store/actions/app.actions";
 
 export const ListCardContent = ({
-  currBoard,
+  // currBoard,
   currList,
   currCard,
-  elPos = null,
   isQuickEdit = false,
 }) => {
   const dispatch = useDispatch();
@@ -34,10 +32,6 @@ export const ListCardContent = ({
   //   });
   // };
 
-  const closeAllPopovers = () => {
-    dispatch(closePopover());
-  };
-
   const getCardContentStyle = () => {
     if (!coverMode) return {};
     let cardContentStyle = null;
@@ -56,13 +50,7 @@ export const ListCardContent = ({
     } else if (coverMode === "half") {
       cardContentStyle = {};
     }
-    if (elPos) {
-      cardContentStyle = {
-        ...cardContentStyle,
-        top: elPos.top,
-        left: elPos.left,
-      };
-    }
+
     return cardContentStyle;
   };
 
@@ -98,11 +86,6 @@ export const ListCardContent = ({
     const popoverProps = { currCard };
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
-  const getLinkPath = () => {
-    return isQuickEdit
-      ? ""
-      : `/board/${currBoard._id}/${currList.id}/${currCard.id}`;
-  };
 
   return (
     <section
@@ -113,14 +96,16 @@ export const ListCardContent = ({
     >
       <div className={"list-card-cover"} style={getCoverStyle()}></div>
 
-      <button className="btn btn-edit-card">
-        <span
-          className="trl icon-edit icon-sm"
-          onClick={(ev) => {
-            onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard, currList);
-          }}
-        ></span>
-      </button>
+      {!isQuickEdit && (
+        <button className="btn btn-edit-card">
+          <span
+            className="trl icon-edit icon-sm"
+            onClick={(ev) => {
+              onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard, currList);
+            }}
+          ></span>
+        </button>
+      )}
 
       <ListCardDetails
         currCard={currCard}
