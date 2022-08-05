@@ -97,13 +97,13 @@ export const ListCardContent = ({
       <div className={"list-card-cover"} style={getCoverStyle()}></div>
 
       {!isQuickEdit && (
-        <button className="btn btn-edit-card">
-          <span
-            className="trl icon-edit icon-sm"
-            onClick={(ev) => {
-              onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard, currList);
-            }}
-          ></span>
+        <button
+          className="btn btn-edit-card"
+          onClick={(ev) => {
+            onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard, currList);
+          }}
+        >
+          <span className="trl icon-edit icon-sm"></span>
         </button>
       )}
 
@@ -111,6 +111,7 @@ export const ListCardContent = ({
         currCard={currCard}
         currList={currList}
         coverMode={coverMode}
+        isQuickEdit={isQuickEdit}
       />
     </section>
   );

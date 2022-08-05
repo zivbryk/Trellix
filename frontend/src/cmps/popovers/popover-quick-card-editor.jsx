@@ -29,7 +29,6 @@ export const PopoverQuickCardEditor = ({
 
   return (
     <section className="quick-card-editor">
-      {console.log(elPos)}
       <WindowOverlay goBack={goBackToBoard}>
         <div className="quick-card-editor-container" style={getPosStyle()}>
           <ListCardContent
