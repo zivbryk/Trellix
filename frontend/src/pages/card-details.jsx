@@ -128,7 +128,11 @@ export const CardDetails = () => {
                 </div>
               )}
 
-              <CardDetailsHeader currCard={currCard} currList={currList} />
+              <CardDetailsHeader
+                currCard={currCard}
+                currList={currList}
+                board={board}
+              />
 
               <CardDetailsMain currCard={currCard} board={board} />
 
