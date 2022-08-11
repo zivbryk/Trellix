@@ -19,6 +19,7 @@ export const ListCardDetails = ({
   const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
   const [CardTitle, setCardTitle] = useState("");
+  // const titleRef = useRef();
 
   const onOpenPopover = (ev, popoverName, member) => {
     const elPos = ev.target.getBoundingClientRect();
@@ -29,6 +30,12 @@ export const ListCardDetails = ({
   useEffect(() => {
     setCardTitle(currCard.title);
   }, [currCard]);
+
+  // useEffect(() => {
+  //   if (isQuickEdit) {
+  //     titleRef.current.select();
+  //   }
+  // });
 
   const handleTitleChange = (ev) => {
     const { value } = ev.target;
@@ -67,6 +74,8 @@ export const ListCardDetails = ({
             onChange={handleTitleChange}
             onBlur={onSaveCardTitle}
             value={CardTitle}
+            autoFocus
+            // ref={titleRef}
           ></input>
         </form>
       ) : (

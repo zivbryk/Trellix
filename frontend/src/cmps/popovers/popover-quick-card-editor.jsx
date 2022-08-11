@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useState } from "react";
 
 import { WindowOverlay } from "../window-overlay";
 import { ListCardContent } from "../list/list-card-content";
+import { ListCardQuickEditBtns } from "../list/list-card-quick-edit-btns";
 import { closePopover } from "../../store/actions/app.actions";
 
 export const PopoverQuickCardEditor = ({
@@ -15,7 +15,6 @@ export const PopoverQuickCardEditor = ({
 }) => {
   const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
-  const [btnMenuRight] = useState(true);
 
   const goBackToBoard = (ev) => {
     ev.stopPropagation();
@@ -23,30 +22,38 @@ export const PopoverQuickCardEditor = ({
   };
 
   const getPosStyle = () => ({
-    top: elPos.y - 6,
-    left: elPos.x - 230,
+    top: elPos.y - 2,
+    left: elPos.x - 226,
   });
+
+  const handleClick = (ev) => {
+    ev.stopPropagation();
+  };
 
   return (
     <section className="quick-card-editor">
       <WindowOverlay goBack={goBackToBoard}>
-        <div className="quick-card-editor-container" style={getPosStyle()}>
-          <ListCardContent
+        <div
+          className="quick-card-editor-container flex"
+          style={getPosStyle()}
+          onClick={handleClick}
+        >
+          <div className="quick-card-editor-card-preview">
+            <ListCardContent
+              currCard={currCard}
+              currBoard={board}
+              currList={currList}
+              isQuickEdit
+            />
+            <button id="add-card-btn" className="btn btn-primary">
+              Save
+            </button>
+          </div>
+          <ListCardQuickEditBtns
             currCard={currCard}
             currBoard={board}
             currList={currList}
-            isQuickEdit
           />
-          <button id="add-card-btn" className="btn btn-primary">
-            Save
-          </button>
-          <div
-            className={`quick-card-editor-buttons ${
-              btnMenuRight
-                ? "quick-card-editor-buttons-right"
-                : "quick-card-editor-buttons-right"
-            } fade-in`}
-          ></div>
         </div>
       </WindowOverlay>
     </section>

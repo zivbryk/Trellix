@@ -3,8 +3,10 @@
   padding: 6px 8px 2px;
   position: relative;
   z-index: 10;
-  textarea {
-    resize: none;
+  input.list-title-input {
+    box-shadow: unset;
+    background-color: unset;
+    padding: 0;
   }
   // .list-card-labels {
   //   overflow: auto;

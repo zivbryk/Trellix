@@ -4,7 +4,9 @@
     justify-content: unset;
     .quick-card-editor-container {
       position: absolute;
-      width: 256px;
+      .quick-card-editor-card-preview {
+        width: 256px;
+      }
     }
   }
 }

@@ -21,6 +21,9 @@
       }
     }
   }
+  &.is-quick-edit {
+    cursor: unset;
+  }
 
   .list-card-cover {
     background-position: 50%;

@@ -91,7 +91,9 @@ export const ListCardContent = ({
     <section
       className={`list-card-content ${
         currCard.style.cover ? "is-covered" : ""
-      } ${coverMode === "full" ? "flex" : ""}`}
+      } ${coverMode === "full" ? "flex" : ""} ${
+        isQuickEdit ? "is-quick-edit" : ""
+      }`}
       style={getCardContentStyle()}
     >
       <div className={"list-card-cover"} style={getCoverStyle()}></div>
