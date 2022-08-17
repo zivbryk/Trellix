@@ -180,7 +180,7 @@ function getEmptyBoard(boardTitle, boardCover, isImage, loggedinUser) {
       {
         _id: loggedinUser._id,
         fullname: loggedinUser.fullname,
-        username: loggedinUser.username,
+        username: loggedinUser.username || loggedinUser.fullname,
         imgUrl: loggedinUser.imgUrl,
         isAdmin: true,
       },

@@ -8,6 +8,10 @@
     position: relative;
     text-overflow: ellipsis;
     transition-duration: 85ms;
+    background: #0007;
+    &:hover {
+      background: #0008;
+    }
     transition-property: background-color, border-color, box-shadow;
     transition-timing-function: ease;
     -webkit-user-select: none;
