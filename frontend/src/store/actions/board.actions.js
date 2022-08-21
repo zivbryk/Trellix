@@ -42,3 +42,16 @@ export function onEditBoard(boardToSave) {
     }
   };
 }
+
+export function onRemoveBoard(boardToRemove) {
+  return async (dispatch) => {
+    try {
+      const savedBoard = await boardService.save(boardToSave);
+      dispatch({ type: "UPDATE_BOARD", board: savedBoard });
+      // showSuccessMsg("Board updated succesfully");
+    } catch (err) {
+      // showErrorMsg("Cannot update board");
+      console.log("board.actions: err @ onRemoveBoard", err);
+    }
+  };
+}

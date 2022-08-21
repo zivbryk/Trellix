@@ -60,6 +60,15 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
             </button>
           </li>
 
+          <li className="menu-nav-item">
+            <button
+              className="btn menu-nav-item-link"
+              onClick={(ev) => onOpenPopover(ev, "CLOSE-BOARD")}
+            >
+              &nbsp;Close Board ...
+            </button>
+          </li>
+
           {/* <li className="menu-nav-item">
             <button className="btn menu-nav-item-link">
               <span className="item-link-icon trl icon-search icon-sm"></span>
