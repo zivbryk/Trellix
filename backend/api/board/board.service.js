@@ -59,7 +59,7 @@ async function add(board) {
         boardCoverAttachments: board.style.boardCoverAttachments,
       },
       labels: [],
-      boardMembers: [board.createdBy],
+      boardMembers: board.boardMembers,
       lists: [],
       activities: [],
     };
