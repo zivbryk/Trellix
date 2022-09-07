@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { PopoverProfile } from "../popovers/popover-profile";
 import { PopoverAccount } from "../popovers/popover-account";
 import { PopoverCover } from "../popovers/popover-cover";
-import { PopverPhotoSearch } from "../popovers/popover-photo-search";
+import { PopoverPhotoSearch } from "../popovers/popover-photo-search";
 import { PopoverMembers } from "../popovers/popover-members";
 import { PopoverEditLabels } from "../popovers/popover-edit-labels";
 import { PopoverAddEditLabel } from "../popovers/popover-add-edit-label";
@@ -67,7 +67,7 @@ export const DynamicPopover = () => {
       );
     case "PHOTO-SEARCH":
       return (
-        <PopverPhotoSearch
+        <PopoverPhotoSearch
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

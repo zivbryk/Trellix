@@ -60,7 +60,7 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
       </Link>
       <button
         className="btn btn-sub btn-quick-edit"
-        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+        onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
       >
         <span className="icon-sm trl icon-member"></span>
         <span>Change members</span>

@@ -17,7 +17,6 @@ export const PopoverMembers = ({ elPos, handleClose, currCard, board }) => {
 
   useEffect(() => {
     const filteredList = board.boardMembers.filter((boardMember) => {
-      console.log(boardMember);
       return (
         boardMember.fullname
           .toLowerCase()
