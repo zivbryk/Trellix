@@ -83,7 +83,7 @@ export const ListCardContent = ({
     ev.preventDefault();
     ev.stopPropagation();
     const elPos = ev.target.getBoundingClientRect();
-    const popoverProps = { currCard };
+    const popoverProps = { currCard, currList };
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
@@ -102,7 +102,7 @@ export const ListCardContent = ({
         <button
           className="btn btn-edit-card"
           onClick={(ev) => {
-            onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard, currList);
+            onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard);
           }}
         >
           <span className="trl icon-edit icon-sm"></span>

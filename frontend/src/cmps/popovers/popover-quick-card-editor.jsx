@@ -51,7 +51,7 @@ export const PopoverQuickCardEditor = ({
           </div>
           <ListCardQuickEditBtns
             currCard={currCard}
-            currBoard={board}
+            board={board}
             currList={currList}
           />
         </div>

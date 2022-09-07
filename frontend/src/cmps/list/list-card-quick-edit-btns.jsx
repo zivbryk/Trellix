@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import _ from "lodash";
 
 import { onEditBoard } from "../../store/actions/board.actions";
@@ -24,6 +25,10 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
     dispatch(openPopover(popoverName, elPos, popoverProps));
   };
 
+  const closeAllPopovers = () => {
+    dispatch(closePopover());
+  };
+
   const onDeleteCard = async () => {
     const updatedCard = { ...currCard };
     const clonedBoard = await _.cloneDeep(board);
@@ -44,9 +49,18 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
           : "quick-card-editor-buttons-left"
       } fade-in`}
     >
+      <Link
+        to={`/board/${board._id}/${currList.id}/${currCard.id}`}
+        onClick={closeAllPopovers}
+      >
+        <button className="btn btn-sub btn-quick-edit">
+          <span className="icon-sm trl icon-card"></span>
+          <span>Open card</span>
+        </button>
+      </Link>
       <button
         className="btn btn-sub btn-quick-edit"
-        onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
       >
         <span className="icon-sm trl icon-member"></span>
         <span>Change members</span>
