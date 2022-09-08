@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { PopoverCmp } from "../popovers/popover-cmp";
 
 import { openPopover } from "../../store/actions/app.actions";
 
 export const PopoverMenu = ({ elPos, handleClose, board }) => {
+  const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
   const dispatch = useDispatch();
 
   const onOpenPopover = (ev, popoverName) => {
@@ -60,15 +61,28 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
             </button>
           </li>
 
-          <li className="menu-nav-item">
-            <button
-              className="btn menu-nav-item-link"
-              onClick={(ev) => onOpenPopover(ev, "CLOSE-BOARD")}
-            >
-              {/* TODO: conditional options to remove/leave board */}
-              &nbsp;Close Board ...
-            </button>
-          </li>
+          {board.boardMembers.some(
+            (member) => member.fullname === loggedInUser.fullname
+          ) && (
+            <li className="menu-nav-item">
+              {loggedInUser.fullname === board.createdBy.fullname && (
+                <button
+                  className="btn menu-nav-item-link"
+                  onClick={(ev) => onOpenPopover(ev, "CLOSE-BOARD")}
+                >
+                  &nbsp;Close Board ...
+                </button>
+              )}
+              {loggedInUser.fullname !== board.createdBy.fullname && (
+                <button
+                  className="btn menu-nav-item-link"
+                  onClick={(ev) => onOpenPopover(ev, "LEAVE-BOARD")}
+                >
+                  &nbsp;Leave Board ...
+                </button>
+              )}
+            </li>
+          )}
 
           {/* <li className="menu-nav-item">
             <button className="btn menu-nav-item-link">
