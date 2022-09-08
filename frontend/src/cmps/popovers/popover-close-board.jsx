@@ -24,11 +24,9 @@ export const PopoverCloseBoard = ({ elPos, handleClose }) => {
 
   return (
     <PopoverCmp title={"Close board?"} handleClose={handleClose} elPos={elPos}>
-      <div className="popover-create-board-content">
-        <p>
-          You can find and reopen closed boards at the bottom of
-          <span> your boards page.</span>
-        </p>
+      <div className="popover-close-board-content">
+        <p>You are about to close the board.</p>
+        <p>Are you sure?</p>
 
         <button className={`btn-create btn btn-danger`} onClick={onCloseBoard}>
           Close

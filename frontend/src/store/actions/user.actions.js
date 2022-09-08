@@ -19,9 +19,9 @@ export function loadUsers() {
 
 export function onLogin(
   credentials = {
-    fullname: "Ziv Bryk",
-    username: "zivbryk",
-    password: "zivbryk",
+    fullname: "Guest",
+    username: "guest",
+    password: "guest",
   }
 ) {
   return async (dispatch) => {
