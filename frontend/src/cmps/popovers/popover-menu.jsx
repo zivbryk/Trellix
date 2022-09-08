@@ -65,6 +65,7 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
               className="btn menu-nav-item-link"
               onClick={(ev) => onOpenPopover(ev, "CLOSE-BOARD")}
             >
+              {/* TODO: conditional options to remove/leave board */}
               &nbsp;Close Board ...
             </button>
           </li>

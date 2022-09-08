@@ -43,12 +43,12 @@ export function onEditBoard(boardToSave) {
   };
 }
 
-export function onRemoveBoard(boardToRemove) {
+export function onRemoveBoard(board) {
   return async (dispatch) => {
     try {
-      const savedBoard = await boardService.save(boardToSave);
-      dispatch({ type: "UPDATE_BOARD", board: savedBoard });
-      // showSuccessMsg("Board updated succesfully");
+      await boardService.remove(board._id);
+      dispatch({ type: "REMOVE_BOARD", board });
+      // showSuccessMsg("Board removed succesfully");
     } catch (err) {
       // showErrorMsg("Cannot update board");
       console.log("board.actions: err @ onRemoveBoard", err);

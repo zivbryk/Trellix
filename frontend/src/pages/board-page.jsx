@@ -18,7 +18,7 @@ import { closePopover } from "../store/actions/app.actions";
 
 export const BoardPage = () => {
   const board = useSelector((state) => state.boardReducer.board);
-  const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
+  // const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
 
   const params = useParams();
   const dispatch = useDispatch();
@@ -89,8 +89,6 @@ export const BoardPage = () => {
     <DragDropContext onDragEnd={onDragEnd}>
       <section className="board-page flex column">
         <BoardHeader board={board} />
-        {/* <pre>{JSON.stringify(board.boardMembers, null, 2)}</pre> */}
-        <pre>{JSON.stringify(loggedInUser, null, 2)}</pre>
         <div className="board-canvas">
           <Droppable droppableId="all-lists" direction="horizontal" type="list">
             {(provided) => (

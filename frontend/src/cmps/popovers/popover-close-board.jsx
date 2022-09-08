@@ -1,26 +1,25 @@
-import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PopoverCmp } from "./popover-cmp";
-import { ReactComponent as BoardDemo } from "../../assets/img/backgrounds/board-demo.svg";
-import { ReactComponent as CheckIcon } from "../../assets/img/icons/check-icon.svg";
 
-import { boardService } from "../../services/board.service";
 import { userService } from "../../services/user.service";
-import { onEditBoard } from "../../store/actions/board.actions";
-import { openPopover } from "../../store/actions/app.actions";
+import { onRemoveBoard } from "../../store/actions/board.actions";
 import { closePopover } from "../../store/actions/app.actions";
 
 export const PopoverCloseBoard = ({ elPos, handleClose }) => {
   const board = useSelector((state) => state.boardReducer.board);
+  const loggedinUser = userService.getLoggedinUser();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onCloseBoard = (ev) => {
     ev.preventDefault();
-    const loggedinUser = userService.getLoggedinUser();
-
-    dispatch(onEditBoard(boardToAdd));
-    dispatch(dispatch(closePopover));
-    navigate(`/board/${board._id}`);
+    if (loggedinUser.fullname === board.createdBy.fullname) {
+      dispatch(onRemoveBoard(board));
+      dispatch(dispatch(closePopover));
+      navigate(`/workspace`);
+    }
   };
 
   return (
