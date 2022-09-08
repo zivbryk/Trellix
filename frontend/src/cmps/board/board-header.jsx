@@ -8,7 +8,7 @@ import { MemberAvatar } from "../member-avatar";
 import { onEditBoard } from "../../store/actions/board.actions";
 import { openPopover } from "../../store/actions/app.actions";
 
-export const BoardHeader = ({ board }) => {
+export const BoardHeader = ({ board, onChangeIsShowMenu, isShowMenu }) => {
   const dispatch = useDispatch();
   const [isEditTitle, setIsEditTitle] = useState(false);
   const [title, setTitle] = useState("");
@@ -148,6 +148,17 @@ export const BoardHeader = ({ board }) => {
           <span className="trl icon-tri-dots-hor board-header-btn-icon icon-sm"></span>
           <span className="btn-description">Show menu</span>
         </button>
+        {!isShowMenu && (
+          <button
+            className="btn board-header-btn board-header-btn-wide flex align-center"
+            onClick={() => {
+              onChangeIsShowMenu(true);
+            }}
+          >
+            <span className="trl icon-tri-dots-hor board-header-btn-icon icon-sm"></span>
+            <span className="btn-description">Show menu</span>
+          </button>
+        )}
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,6 +11,7 @@ import { CardsList } from "../cmps/list/cards-list";
 import { CardDetails } from "../pages/card-details";
 import { ListAddCmp } from "../cmps/list/list-add-cmp";
 import { BoardDashboard } from "../pages/board-dashboard";
+import { BoardMenu } from "../cmps/board/board-menu";
 
 import { onEditBoard } from "../store/actions/board.actions";
 import { loadBoard } from "../store/actions/board.actions";
@@ -18,6 +19,7 @@ import { closePopover } from "../store/actions/app.actions";
 
 export const BoardPage = () => {
   const board = useSelector((state) => state.boardReducer.board);
+  const [isShowMenu, setIsShowMenu] = useState(false);
   const params = useParams();
   const dispatch = useDispatch();
 
@@ -82,11 +84,21 @@ export const BoardPage = () => {
     dispatch(onEditBoard(boardToEdit));
   };
 
+  const onChangeIsShowMenu = (menuState) => {
+    setIsShowMenu(menuState);
+  };
+
   if (!board) return <LoaderCmp mode={"full-page"} />;
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <section className="board-page flex column">
-        <BoardHeader board={board} />
+      <section
+        className={`board-page flex column ${isShowMenu ? "is-show-menu" : ""}`}
+      >
+        <BoardHeader
+          board={board}
+          onChangeIsShowMenu={onChangeIsShowMenu}
+          isShowMenu={isShowMenu}
+        />
         <div className="board-canvas">
           <Droppable droppableId="all-lists" direction="horizontal" type="list">
             {(provided) => (
@@ -110,6 +122,11 @@ export const BoardPage = () => {
             )}
           </Droppable>
         </div>
+        <BoardMenu
+          isShowMenu={isShowMenu}
+          board={board}
+          onChangeIsShowMenu={onChangeIsShowMenu}
+        />
       </section>
 
       <section className="nested-routes">

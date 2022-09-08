@@ -7,6 +7,10 @@
   right: 0;
   top: 0;
 
+  &.is-show-menu {
+    margin-right: 339px;
+  }
+
   .board-canvas {
     position: relative;
     flex-grow: 1;
