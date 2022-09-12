@@ -58,12 +58,61 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
           <span>Open card</span>
         </button>
       </Link>
+
+      <button
+        className="btn btn-sub btn-quick-edit"
+        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+      >
+        <span className="icon-sm trl icon-label"></span>
+        <span>Edit labels</span>
+      </button>
+
       <button
         className="btn btn-sub btn-quick-edit"
         onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
       >
         <span className="icon-sm trl icon-member"></span>
         <span>Change members</span>
+      </button>
+
+      <button
+        className="btn btn-sub btn-quick-edit"
+        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+      >
+        <span className="icon-sm trl icon-card-cover"></span>
+        <span>Change cover</span>
+      </button>
+
+      <button
+        className="btn btn-sub btn-quick-edit"
+        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+      >
+        <span className="icon-sm trl icon-move"></span>
+        <span>Move</span>
+      </button>
+
+      <button
+        className="btn btn-sub btn-quick-edit"
+        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+      >
+        <span className="icon-sm trl icon-copy"></span>
+        <span>Copy</span>
+      </button>
+
+      <button
+        className="btn btn-sub btn-quick-edit"
+        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+      >
+        <span className="icon-sm trl icon-clock"></span>
+        <span>Edit dates</span>
+      </button>
+
+      <button
+        className="btn btn-sub btn-quick-edit"
+        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+      >
+        <span className="icon-sm trl icon-archive"></span>
+        <span>Archive</span>
       </button>
     </section>
   );
