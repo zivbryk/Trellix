@@ -18,8 +18,6 @@ import { closePopover } from "../store/actions/app.actions";
 
 export const BoardPage = () => {
   const board = useSelector((state) => state.boardReducer.board);
-  // const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
-
   const params = useParams();
   const dispatch = useDispatch();
 
