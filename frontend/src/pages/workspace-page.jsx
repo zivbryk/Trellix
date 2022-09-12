@@ -13,7 +13,7 @@ export const WorkspacePage = () => {
 
   useEffect(() => {
     dispatch(loadBoards());
-  }, [dispatch]);
+  }, [dispatch, boards]);
 
   if (!boards.length) return <LoaderCmp mode={"full-page"} />;
 

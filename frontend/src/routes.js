@@ -12,7 +12,7 @@ const routes = [
   {
     path: "/auth/:mode",
     element: <LoginSignup />,
-    label: "Workspace",
+    label: "LoginSignup",
   },
   {
     path: "/workspace",
