@@ -25,10 +25,6 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
   };
 
   const isLoggedInUserBoardCreator = () => {
-    console.log(
-      "isLoggedInUserBoardCreator",
-      loggedInUser.fullname === board.createdBy.fullname
-    );
     return loggedInUser.fullname === board.createdBy.fullname;
   };
 
