@@ -22,8 +22,8 @@ export const PopoverQuickCardEditor = ({
   };
 
   const getPosStyle = () => ({
-    top: elPos.y - 2,
-    left: elPos.x - 226,
+    top: elPos.y - 6,
+    left: elPos.x - 230,
   });
 
   const handleClick = (ev) => {

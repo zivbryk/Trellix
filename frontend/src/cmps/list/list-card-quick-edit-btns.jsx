@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
+import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
 import { closePopover, openPopover } from "../../store/actions/app.actions.js";
 
@@ -41,6 +42,18 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
     dispatch(closePopover());
   };
 
+  const toggleArchiveCard = () => {
+    const updatedCard = { ...currCard };
+    updatedCard.archiveData.isArchived = !updatedCard.archiveData.isArchived;
+    if (updatedCard.archiveData.isArchived) {
+      updatedCard.archiveData.sourceBoardId = board._id;
+      updatedCard.archiveData.sourceBoardId = currList.id;
+    }
+    const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
+    dispatch(onEditBoard(updatedBoard));
+    dispatch(closePopover());
+  };
+
   return (
     <section
       className={`quick-card-editor-buttons ${
@@ -61,7 +74,7 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
 
       <button
         className="btn btn-sub btn-quick-edit"
-        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+        onClick={(ev) => onOpenPopover(ev, "LABELS")}
       >
         <span className="icon-sm trl icon-label"></span>
         <span>Edit labels</span>
@@ -77,7 +90,7 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
 
       <button
         className="btn btn-sub btn-quick-edit"
-        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+        onClick={(ev) => onOpenPopover(ev, "COVER")}
       >
         <span className="icon-sm trl icon-card-cover"></span>
         <span>Change cover</span>
@@ -85,7 +98,7 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
 
       <button
         className="btn btn-sub btn-quick-edit"
-        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+        onClick={(ev) => onOpenPopover(ev, "MOVE", "move")}
       >
         <span className="icon-sm trl icon-move"></span>
         <span>Move</span>
@@ -93,7 +106,7 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
 
       <button
         className="btn btn-sub btn-quick-edit"
-        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+        onClick={(ev) => onOpenPopover(ev, "MOVE", "copy")}
       >
         <span className="icon-sm trl icon-copy"></span>
         <span>Copy</span>
@@ -101,7 +114,7 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
 
       <button
         className="btn btn-sub btn-quick-edit"
-        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+        onClick={(ev) => onOpenPopover(ev, "DATE")}
       >
         <span className="icon-sm trl icon-clock"></span>
         <span>Edit dates</span>
@@ -109,7 +122,7 @@ export const ListCardQuickEditBtns = ({ currCard, currList, board }) => {
 
       <button
         className="btn btn-sub btn-quick-edit"
-        // onClick={(ev) => onOpenPopover(ev, "MEMBERS")}
+        onClick={toggleArchiveCard}
       >
         <span className="icon-sm trl icon-archive"></span>
         <span>Archive</span>
