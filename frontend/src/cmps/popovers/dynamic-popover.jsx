@@ -22,6 +22,8 @@ import { PopoverBoardBgColors } from "../popovers/popover-board-bg-colors";
 import { PopoverArchive } from "../popovers/popover-archive";
 import { PopoverCreate } from "../popovers/popover-create";
 import { PopoverCreateBoard } from "../popovers/popover-create-board";
+import { PopoverCloseBoard } from "../popovers/popover-close-board";
+import { PopoverLeaveBoard } from "../popovers/popover-leave-board";
 import { PopoverStarredBoards } from "../popovers/popover-starred-boards";
 import { PopoverNotifications } from "../popovers/popover-notifications";
 import { PopoverInvite } from "../popovers/popover-invite";
@@ -223,6 +225,23 @@ export const DynamicPopover = () => {
     case "CREATE-BOARD":
       return (
         <PopoverCreateBoard
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "CLOSE-BOARD":
+      return (
+        <PopoverCloseBoard
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+    case "LEAVE-BOARD":
+      return (
+        <PopoverLeaveBoard
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

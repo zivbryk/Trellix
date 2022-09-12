@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { PopoverCmp } from "../popovers/popover-cmp";
 
 import { openPopover } from "../../store/actions/app.actions";
 
 export const PopoverMenu = ({ elPos, handleClose, board }) => {
+  const loggedInUser = useSelector((state) => state.userReducer.loggedInUser);
   const dispatch = useDispatch();
 
   const onOpenPopover = (ev, popoverName) => {
@@ -15,6 +16,16 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
       popoverProps = { board };
     }
     dispatch(openPopover(popoverName, elPos, popoverProps));
+  };
+
+  const isLoggedInUserBoardMember = () => {
+    return board.boardMembers.some(
+      (member) => member.fullname === loggedInUser.fullname
+    );
+  };
+
+  const isLoggedInUserBoardCreator = () => {
+    return loggedInUser.fullname === board.createdBy.fullname;
   };
 
   if (!board) return <div></div>;
@@ -60,12 +71,26 @@ export const PopoverMenu = ({ elPos, handleClose, board }) => {
             </button>
           </li>
 
-          {/* <li className="menu-nav-item">
-            <button className="btn menu-nav-item-link">
-              <span className="item-link-icon trl icon-search icon-sm"></span>
-              &nbsp;Search cards
-            </button>
-          </li> */}
+          {isLoggedInUserBoardMember() && (
+            <li className="menu-nav-item">
+              {isLoggedInUserBoardCreator() && (
+                <button
+                  className="btn menu-nav-item-link"
+                  onClick={(ev) => onOpenPopover(ev, "CLOSE-BOARD")}
+                >
+                  &nbsp;Close Board ...
+                </button>
+              )}
+              {!isLoggedInUserBoardCreator() && (
+                <button
+                  className="btn menu-nav-item-link"
+                  onClick={(ev) => onOpenPopover(ev, "LEAVE-BOARD")}
+                >
+                  &nbsp;Leave Board ...
+                </button>
+              )}
+            </li>
+          )}
         </ul>
       </div>
     </PopoverCmp>
