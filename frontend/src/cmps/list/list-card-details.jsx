@@ -7,7 +7,7 @@ import { CardLabels } from "../card/card-labels";
 
 import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
-import { openPopover } from "../../store/actions/app.actions";
+import { openPopover, closePopover } from "../../store/actions/app.actions";
 
 export const ListCardDetails = ({
   currCard,
@@ -18,7 +18,6 @@ export const ListCardDetails = ({
   const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
   const [CardTitle, setCardTitle] = useState("");
-  // const titleRef = useRef();
 
   const onOpenPopover = (ev, popoverName, member) => {
     const elPos = ev.target.getBoundingClientRect();
@@ -29,12 +28,6 @@ export const ListCardDetails = ({
   useEffect(() => {
     setCardTitle(currCard.title);
   }, [currCard]);
-
-  // useEffect(() => {
-  //   if (isQuickEdit) {
-  //     titleRef.current.select();
-  //   }
-  // });
 
   const handleTitleChange = (ev) => {
     const { value } = ev.target;
@@ -47,11 +40,13 @@ export const ListCardDetails = ({
     updatedCard.title = CardTitle;
     const updatedBoard = boardService.updateCardInBoard(board, updatedCard);
     dispatch(onEditBoard(updatedBoard));
-    // const clonedBoard = _.cloneDeep(board);
-    // clonedBoard.lists.forEach((listInBoard) => {
-    //   if (listInBoard.id === list.id) listInBoard.title = listTitle;
-    // });
-    // dispatch(onEditBoard(clonedBoard));
+  };
+
+  const onKeyPressTitle = (ev) => {
+    if (ev.charCode === 13) {
+      onSaveCardTitle(ev);
+      dispatch(closePopover());
+    }
   };
 
   return (
@@ -73,8 +68,8 @@ export const ListCardDetails = ({
             onChange={handleTitleChange}
             onBlur={onSaveCardTitle}
             value={CardTitle}
+            onKeyPress={onKeyPressTitle}
             autoFocus
-            // ref={titleRef}
           ></input>
         </form>
       ) : (

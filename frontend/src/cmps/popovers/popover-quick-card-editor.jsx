@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { WindowOverlay } from "../window-overlay";
 import { ListCardContent } from "../list/list-card-content";
@@ -45,7 +44,11 @@ export const PopoverQuickCardEditor = ({
               currList={currList}
               isQuickEdit
             />
-            <button id="add-card-btn" className="btn btn-primary">
+            <button
+              id="add-card-btn"
+              className="btn btn-primary"
+              onClick={goBackToBoard}
+            >
               Save
             </button>
           </div>
