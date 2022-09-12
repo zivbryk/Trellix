@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { PopoverCmp } from "./popover-cmp";
 import { ReactComponent as BoardDemo } from "../../assets/img/backgrounds/board-demo.svg";
 import { ReactComponent as CheckIcon } from "../../assets/img/icons/check-icon.svg";
@@ -12,7 +12,7 @@ import { openPopover } from "../../store/actions/app.actions";
 import { closePopover } from "../../store/actions/app.actions";
 
 export const PopoverCreateBoard = ({ elPos, handleClose }) => {
-  const board = useSelector((state) => state.boardReducer.board);
+  // const board = useSelector((state) => state.boardReducer.board);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [boardTitle, setBoardTitle] = useState("");
@@ -104,7 +104,7 @@ export const PopoverCreateBoard = ({ elPos, handleClose }) => {
 
     dispatch(onEditBoard(boardToAdd));
     dispatch(dispatch(closePopover));
-    navigate(`/board/${board._id}`);
+    navigate(`/workspace`);
   };
 
   if (!boardCover) return <div></div>;
