@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { PopoverProfile } from "../popovers/popover-profile";
 import { PopoverAccount } from "../popovers/popover-account";
 import { PopoverCover } from "../popovers/popover-cover";
-import { PopverPhotoSearch } from "../popovers/popover-photo-search";
+import { PopoverPhotoSearch } from "../popovers/popover-photo-search";
 import { PopoverMembers } from "../popovers/popover-members";
 import { PopoverEditLabels } from "../popovers/popover-edit-labels";
 import { PopoverAddEditLabel } from "../popovers/popover-add-edit-label";
@@ -28,6 +28,7 @@ import { PopoverStarredBoards } from "../popovers/popover-starred-boards";
 import { PopoverNotifications } from "../popovers/popover-notifications";
 import { PopoverInvite } from "../popovers/popover-invite";
 import { PopoverMore } from "../popovers/popover-more";
+import { PopoverQuickCardEditor } from "../popovers/popover-quick-card-editor";
 
 import { closePopover } from "../../store/actions/app.actions";
 
@@ -68,7 +69,7 @@ export const DynamicPopover = () => {
       );
     case "PHOTO-SEARCH":
       return (
-        <PopverPhotoSearch
+        <PopoverPhotoSearch
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}
@@ -277,6 +278,15 @@ export const DynamicPopover = () => {
     case "MORE":
       return (
         <PopoverMore
+          {...popoverProps}
+          elPos={elPos}
+          handleClose={handleClose}
+        />
+      );
+
+    case "QUICK-CARD-EDITOR":
+      return (
+        <PopoverQuickCardEditor
           {...popoverProps}
           elPos={elPos}
           handleClose={handleClose}

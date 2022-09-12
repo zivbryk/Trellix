@@ -5,8 +5,8 @@ import _ from "lodash";
 import { userService } from "../../services/user.service";
 import { boardService } from "../../services/board.service";
 import { onEditBoard } from "../../store/actions/board.actions";
-import { openPopover } from "../../store/actions/app.actions";
-import { closePopover } from "../../store/actions/app.actions";
+import { openPopover, closePopover } from "../../store/actions/app.actions";
+// import { closePopover } from "../../store/actions/app.actions";
 
 export const CardDetailsSideBar = ({ currCard, currList, board }) => {
   const dispatch = useDispatch();

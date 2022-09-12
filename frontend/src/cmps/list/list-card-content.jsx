@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { ListCardDetails } from "./list-card-details";
-import { closePopover } from "../../store/actions/app.actions";
+import { openPopover } from "../../store/actions/app.actions";
 
-export const ListCardContent = ({ currBoard, currList, currCard }) => {
+export const ListCardContent = ({
+  // currBoard,
+  currList,
+  currCard,
+  isQuickEdit = false,
+}) => {
   const dispatch = useDispatch();
   const [coverMode, setCoverMode] = useState(currCard.style.coverMode);
 
@@ -27,10 +31,6 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
   //       "https://res.cloudinary.com/zivcloud555/image/upload/v1634026001/Trellis%20permanent%20img/Card%20Images/launch_kucwit.jpg";
   //   });
   // };
-
-  const closeAllPopovers = () => {
-    dispatch(closePopover());
-  };
 
   const getCardContentStyle = () => {
     if (!coverMode) return {};
@@ -79,29 +79,42 @@ export const ListCardContent = ({ currBoard, currList, currCard }) => {
     return coverStyle;
   };
 
-  return (
-    <Link
-      to={`/board/${currBoard._id}/${currList.id}/${currCard.id}`}
-      onClick={closeAllPopovers}
-    >
-      <section
-        className={`list-card-content ${
-          currCard.style.cover ? "is-covered" : ""
-        } ${coverMode === "full" ? "flex" : ""}`}
-        style={getCardContentStyle()}
-      >
-        <div className={"list-card-cover"} style={getCoverStyle()}></div>
+  const onOpenPopover = (ev, popoverName, currCard) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const elPos = ev.target.getBoundingClientRect();
+    const popoverProps = { currCard, currList };
+    dispatch(openPopover(popoverName, elPos, popoverProps));
+  };
 
-        <button className="btn btn-edit-card">
+  return (
+    <section
+      className={`list-card-content ${
+        currCard.style.cover ? "is-covered" : ""
+      } ${coverMode === "full" ? "flex" : ""} ${
+        isQuickEdit ? "is-quick-edit" : ""
+      }`}
+      style={getCardContentStyle()}
+    >
+      <div className={"list-card-cover"} style={getCoverStyle()}></div>
+
+      {!isQuickEdit && (
+        <button
+          className="btn btn-edit-card"
+          onClick={(ev) => {
+            onOpenPopover(ev, "QUICK-CARD-EDITOR", currCard);
+          }}
+        >
           <span className="trl icon-edit icon-sm"></span>
         </button>
+      )}
 
-        <ListCardDetails
-          currCard={currCard}
-          currList={currList}
-          coverMode={coverMode}
-        />
-      </section>
-    </Link>
+      <ListCardDetails
+        currCard={currCard}
+        currList={currList}
+        coverMode={coverMode}
+        isQuickEdit={isQuickEdit}
+      />
+    </section>
   );
 };

@@ -24,6 +24,7 @@ export const BoardPage = () => {
   const { boardId } = params;
   useEffect(() => {
     dispatch(loadBoard(boardId));
+    // console.log("board.boardMembers: ", board.boardMembers);
   }, [dispatch, boardId]);
 
   const onDeleteList = async (list) => {
@@ -87,6 +88,7 @@ export const BoardPage = () => {
     <DragDropContext onDragEnd={onDragEnd}>
       <section className="board-page flex column">
         <BoardHeader board={board} />
+        {/* <pre>{JSON.stringify(board.boardMembers, null, 2)}</pre> */}
         <div className="board-canvas">
           <Droppable droppableId="all-lists" direction="horizontal" type="list">
             {(provided) => (

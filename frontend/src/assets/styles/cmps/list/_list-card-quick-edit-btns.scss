@@ -1,0 +1,42 @@
+.quick-card-editor-buttons {
+  display: flex;
+  flex-direction: column;
+  .btn-quick-edit {
+    text-align: start;
+    margin: 0 0 0 8px;
+    padding: 6px 12px 6px 8px;
+    width: fit-content;
+    margin-bottom: 4px;
+    max-width: 300px;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    transition-duration: 85ms;
+    background: #0007;
+    &:hover {
+      background: #0008;
+    }
+    transition-property: background-color, border-color, box-shadow;
+    transition-timing-function: ease;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+
+    span {
+      color: white;
+    }
+    .icon-sm {
+      margin: 0 6px 0 -6px;
+      &.icon-remove {
+        color: $clr0;
+      }
+    }
+  }
+  @include for-mobile-layout {
+    .btn-quick-edit {
+      display: inline-block;
+      margin-right: 8px;
+      width: calc(50% - 8px);
+    }
+  }
+}

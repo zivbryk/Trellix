@@ -1,0 +1,12 @@
+.quick-card-editor {
+  .window-overlay {
+    display: flex;
+    justify-content: unset;
+    .quick-card-editor-container {
+      position: absolute;
+      .quick-card-editor-card-preview {
+        width: 256px;
+      }
+    }
+  }
+}

@@ -3,7 +3,17 @@
   padding: 6px 8px 2px;
   position: relative;
   z-index: 10;
+  form {
+    height: 90px;
 
+    input.list-title-input {
+      box-shadow: unset;
+      background-color: unset;
+      padding: 0;
+      overflow: hidden;
+      overflow-wrap: break-word;
+    }
+  }
   // .list-card-labels {
   //   overflow: auto;
   //   position: relative;

@@ -21,6 +21,9 @@
       }
     }
   }
+  &.is-quick-edit {
+    cursor: unset;
+  }
 
   .list-card-cover {
     background-position: 50%;
@@ -41,7 +44,7 @@
     right: 2px;
     top: 2px;
     visibility: hidden;
-    z-index: 2;
+    z-index: 15;
     span {
       opacity: 0.8;
     }

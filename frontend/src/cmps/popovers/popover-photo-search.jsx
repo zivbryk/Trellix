@@ -7,7 +7,7 @@ import { LoaderCmp } from "../loader-cmp";
 
 import { openPopover } from "../../store/actions/app.actions";
 
-export const PopverPhotoSearch = ({
+export const PopoverPhotoSearch = ({
   elPos,
   handleClose,
   currCard,

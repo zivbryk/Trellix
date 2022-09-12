@@ -16,13 +16,14 @@ export const PopoverMembers = ({ elPos, handleClose, currCard, board }) => {
   }, [board]);
 
   useEffect(() => {
-    const filteredList = board.boardMembers.filter(
-      (boardMember) =>
+    const filteredList = board.boardMembers.filter((boardMember) => {
+      return (
         boardMember.fullname
           .toLowerCase()
           .includes(filterBy.txt.toLowerCase()) &&
         boardMember.username.toLowerCase().includes(filterBy.txt.toLowerCase())
-    );
+      );
+    });
     setFilteredMembers(filteredList);
   }, [filterBy.txt, board.boardMembers]);
 
