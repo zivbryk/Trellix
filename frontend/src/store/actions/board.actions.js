@@ -43,11 +43,11 @@ export function onEditBoard(boardToSave) {
   };
 }
 
-export function onRemoveBoard(board) {
+export function onRemoveBoard(boardId) {
   return async (dispatch) => {
     try {
-      await boardService.remove(board._id);
-      dispatch({ type: "REMOVE_BOARD", board });
+      await boardService.remove(boardId);
+      dispatch({ type: "REMOVE_BOARD", boardId });
       // showSuccessMsg("Board removed succesfully");
     } catch (err) {
       // showErrorMsg("Cannot update board");

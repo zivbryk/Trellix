@@ -16,7 +16,7 @@ export const PopoverCloseBoard = ({ elPos, handleClose }) => {
   const onCloseBoard = (ev) => {
     ev.preventDefault();
     if (loggedinUser.fullname === board.createdBy.fullname) {
-      dispatch(onRemoveBoard(board));
+      dispatch(onRemoveBoard(board._id));
       dispatch(dispatch(closePopover));
       navigate(`/workspace`);
     }
