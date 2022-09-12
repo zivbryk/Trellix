@@ -23,6 +23,14 @@ export const PopoverLeaveBoard = ({ elPos, handleClose }) => {
       )
     ) {
       let boardToSave = _.cloneDeep(board);
+      boardToSave.lists?.forEach((list) => {
+        list.cards?.forEach((card) => {
+          const memberIdx = card.cardMembers?.findIndex(
+            (member) => member.fullname === loggedInUser.fullname
+          );
+          card.cardMembers.splice(memberIdx, 1);
+        });
+      });
       const memberIdx = boardToSave.boardMembers.findIndex(
         (member) => member.fullname === loggedInUser.fullname
       );
